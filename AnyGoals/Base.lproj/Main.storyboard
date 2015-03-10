@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cdI-cT-cu9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -9,18 +10,17 @@
         <!--目标列表-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <viewController title="目标列表" id="9pv-A4-QxB" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="r7g-W0-Uy5">
-                                <rect key="frame" x="0.0" y="97" width="600" height="454"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="r7g-W0-Uy5" secondAttribute="height" multiplier="300:227" id="G8U-Ja-t0e"/>
@@ -28,12 +28,94 @@
                                     <constraint firstAttribute="width" secondItem="r7g-W0-Uy5" secondAttribute="height" multiplier="207:298" id="SJz-h5-XiB"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="134" id="6O0-lx-2cy">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyCustomCell" rowHeight="135" id="6O0-lx-2cy" customClass="MyCustomTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6O0-lx-2cy" id="gYo-T1-rGy">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiG-7s-VM4" customClass="PieView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eiG-7s-VM4" secondAttribute="height" multiplier="1:1" id="EM0-Sh-5jB"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="EM0-Sh-5jB"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="EM0-Sh-5jB"/>
+                                                        </mask>
+                                                    </variation>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去健身房" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gW-Z2-g4O">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1gW-Z2-g4O" secondAttribute="height" multiplier="120:91" id="H7Q-bZ-lh6"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="H7Q-bZ-lh6"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="H7Q-bZ-lh6"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eiG-7s-VM4" firstAttribute="top" secondItem="gYo-T1-rGy" secondAttribute="topMargin" constant="-6" id="CSZ-qq-fFa"/>
+                                                <constraint firstItem="1gW-Z2-g4O" firstAttribute="top" secondItem="gYo-T1-rGy" secondAttribute="topMargin" constant="13" id="FWA-gO-0L2"/>
+                                                <constraint firstAttribute="centerY" secondItem="1gW-Z2-g4O" secondAttribute="centerY" id="SI8-by-1h5"/>
+                                                <constraint firstItem="1gW-Z2-g4O" firstAttribute="leading" secondItem="gYo-T1-rGy" secondAttribute="leadingMargin" id="est-N5-qM3"/>
+                                                <constraint firstAttribute="centerX" secondItem="eiG-7s-VM4" secondAttribute="centerX" id="kVU-Wo-d2n"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1gW-Z2-g4O" secondAttribute="bottom" constant="13" id="pkS-C0-fFg"/>
+                                                <constraint firstAttribute="centerY" secondItem="eiG-7s-VM4" secondAttribute="centerY" constant="-0.5" id="pxH-qB-1xn"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="eiG-7s-VM4"/>
+                                                    <exclude reference="1gW-Z2-g4O"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="FWA-gO-0L2"/>
+                                                    <exclude reference="SI8-by-1h5"/>
+                                                    <exclude reference="est-N5-qM3"/>
+                                                    <exclude reference="pkS-C0-fFg"/>
+                                                    <exclude reference="CSZ-qq-fFa"/>
+                                                    <exclude reference="kVU-Wo-d2n"/>
+                                                    <exclude reference="pxH-qB-1xn"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="eiG-7s-VM4"/>
+                                                    <include reference="1gW-Z2-g4O"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="FWA-gO-0L2"/>
+                                                    <include reference="SI8-by-1h5"/>
+                                                    <include reference="est-N5-qM3"/>
+                                                    <include reference="pkS-C0-fFg"/>
+                                                    <include reference="CSZ-qq-fFa"/>
+                                                    <include reference="kVU-Wo-d2n"/>
+                                                    <include reference="pxH-qB-1xn"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="GoalName" destination="1gW-Z2-g4O" id="fs1-rG-3NL"/>
+                                            <outlet property="pieView" destination="eiG-7s-VM4" id="M2I-l8-wNo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="default">
@@ -54,7 +136,7 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="amF-Fw-Ne3"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fah-bF-eaa">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fah-bF-eaa">
                                 <rect key="frame" x="16" y="20" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fah-bF-eaa" secondAttribute="height" multiplier="1:1" id="9Lm-kC-Uj6"/>
@@ -93,7 +175,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akD-Hb-6hO">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akD-Hb-6hO">
                                 <rect key="frame" x="542" y="20" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="akD-Hb-6hO" secondAttribute="height" multiplier="1:1" id="dkk-FK-LXB"/>
@@ -181,6 +263,7 @@
                         <outlet property="view" destination="tsR-hK-woN" id="1WC-rm-KhM"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320.25"/>
         </scene>

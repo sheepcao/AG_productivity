@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "MyCustomTableViewCell.h"
 
 @interface FirstViewController ()<UIScrollViewDelegate>
 
@@ -20,6 +21,7 @@
     
     
     [self configTasks];
+
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -41,6 +43,8 @@
 -(void) showScrollView{
     
     UIScrollView *_scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    
     
     //设置UIScrollView 的显示内容的尺寸，有n张图要显示，就设置 屏幕宽度*n ，这里假设要显示4张图
     _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4, [UIScreen mainScreen].bounds.size.height);
@@ -72,8 +76,17 @@
     pageConteol.pageIndicatorTintColor = [UIColor grayColor];
     pageConteol.currentPageIndicatorTintColor = [UIColor blackColor];
     
+    
+    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];
+    
+    [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+    [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
+    startNow.tag = 301;
+    
     [self.view addSubview:_scrollView];
     [self.view addSubview: pageConteol];
+    [self.view addSubview:startNow];
+
 }
 
 
@@ -88,18 +101,20 @@
     UIPageControl *page = (UIPageControl *)[self.view viewWithTag:201];
     page.currentPage = current;
     
+    UIButton *button = (UIButton *)[self.view viewWithTag:301];
+
     //当显示到最后一页时，让滑动图消失
     if (page.currentPage == 3) {
         
-        
-        UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, page.frame.origin.y+page.frame.size.height+5, 80, 40)];
-        
-        [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
-        [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:startNow];
+
+        [button setImage:[UIImage imageNamed:@"skip"] forState:UIControlStateNormal];
         
         //调用方法，使滑动图消失
 //        [self scrollViewDisappear];
+    }else
+    {
+        [button setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+
     }
 }
 
@@ -157,21 +172,27 @@
     return [self.processingTasks count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString *cellIdentifier = @"MyCustomCell";
     
-    SWTableViewCell *cell = (SWTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
+                                                                                           forIndexPath:indexPath];
     
-    if (cell == nil) {
-        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        cell.leftUtilityButtons = [self leftButtons];
-        cell.rightUtilityButtons = [self rightButtons];
-        cell.delegate = self;
+    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:32.0f];
+    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
+    cell.delegate = self;
+    
+    cell.GoalName.text = self.processingTasks[indexPath.row];
+    
+    NSMutableArray *randomNumbers = [NSMutableArray array];
+    int count = 1 + rand() % 10;
+    for (int i = 1; i < 3; i++) {
+        //		[randomNumbers addObject:[NSNumber numberWithInt:rand() % 100]];
+        [randomNumbers addObject:[NSNumber numberWithInt:10*i]];
     }
-    
-    cell.textLabel.text = self.processingTasks[indexPath.row];
-    cell.detailTextLabel.text = @"Some detail text";
-    
+    cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor greenColor],[UIColor lightGrayColor]]];
+    cell.pieView.sliceValues = randomNumbers;//must set sliceValue at the last step..
     return cell;
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
 		A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF11AAEC9080032D2F5 /* SWCellScrollView.m */; };
 		A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF31AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m */; };
@@ -14,6 +15,9 @@
 		A47DABFE1AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF71AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF91AAEC9080032D2F5 /* SWUtilityButtonView.m */; };
 		A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */ = {isa = PBXBuildFile; fileRef = A47DAC091AAED6E70032D2F5 /* startNow.png */; };
+		A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0D1AAEEDFA0032D2F5 /* PieSliceLayer.m */; };
+		A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */; };
+		A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
 		A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F31AAE813800436FE4 /* FirstViewController.m */; };
@@ -39,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
 		A47DABEC1AAEBBF60032D2F5 /* globalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalVar.h; sourceTree = "<group>"; };
 		A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
@@ -53,6 +58,12 @@
 		A47DABF81AAEC9080032D2F5 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		A47DABF91AAEC9080032D2F5 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		A47DAC091AAED6E70032D2F5 /* startNow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startNow.png; sourceTree = "<group>"; };
+		A47DAC0C1AAEEDFA0032D2F5 /* PieSliceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieSliceLayer.h; sourceTree = "<group>"; };
+		A47DAC0D1AAEEDFA0032D2F5 /* PieSliceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieSliceLayer.m; sourceTree = "<group>"; };
+		A47DAC0E1AAEEDFA0032D2F5 /* PieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PieView.h; sourceTree = "<group>"; };
+		A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieView.m; sourceTree = "<group>"; };
+		A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomTableViewCell.h; sourceTree = "<group>"; };
+		A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomTableViewCell.m; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F967EC1AAE813800436FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F967ED1AAE813800436FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,7 +103,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A47DABED1AAEC9080032D2F5 /* PodFiles */ = {
+		A47DABED1AAEC9080032D2F5 /* swipeCell */ = {
 			isa = PBXGroup;
 			children = (
 				A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */,
@@ -108,7 +119,20 @@
 				A47DABF81AAEC9080032D2F5 /* SWUtilityButtonView.h */,
 				A47DABF91AAEC9080032D2F5 /* SWUtilityButtonView.m */,
 			);
+			name = swipeCell;
 			path = PodFiles;
+			sourceTree = "<group>";
+		};
+		A47DAC0B1AAEEDFA0032D2F5 /* DrawPie */ = {
+			isa = PBXGroup;
+			children = (
+				A47DAC0C1AAEEDFA0032D2F5 /* PieSliceLayer.h */,
+				A47DAC0D1AAEEDFA0032D2F5 /* PieSliceLayer.m */,
+				A47DAC0E1AAEEDFA0032D2F5 /* PieView.h */,
+				A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */,
+			);
+			name = DrawPie;
+			path = PodFiles/DrawPie;
 			sourceTree = "<group>";
 		};
 		A4F967DF1AAE813800436FE4 = {
@@ -132,12 +156,15 @@
 		A4F967EA1AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXGroup;
 			children = (
-				A47DABED1AAEC9080032D2F5 /* PodFiles */,
+				A47DAC0B1AAEEDFA0032D2F5 /* DrawPie */,
+				A47DABED1AAEC9080032D2F5 /* swipeCell */,
 				A47DABEC1AAEBBF60032D2F5 /* globalVar.h */,
 				A4F967EF1AAE813800436FE4 /* AppDelegate.h */,
 				A4F967F01AAE813800436FE4 /* AppDelegate.m */,
 				A4F967F21AAE813800436FE4 /* FirstViewController.h */,
 				A4F967F31AAE813800436FE4 /* FirstViewController.m */,
+				A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */,
+				A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */,
 				A4F967F51AAE813800436FE4 /* SecondViewController.h */,
 				A4F967F61AAE813800436FE4 /* SecondViewController.m */,
 				A4F967F81AAE813800436FE4 /* Main.storyboard */,
@@ -179,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				A47DAC091AAED6E70032D2F5 /* startNow.png */,
+				A46E49BB1AAF34B3008B9EF7 /* skip.png */,
 				A4F968151AAEBA8200436FE4 /* 0.png */,
 				A4F968161AAEBA8200436FE4 /* 1.png */,
 				A4F968171AAEBA8200436FE4 /* 2.png */,
@@ -272,6 +300,7 @@
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
+				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
@@ -292,7 +321,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */,
 				A4F967F71AAE813800436FE4 /* SecondViewController.m in Sources */,
+				A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */,
 				A47DABFD1AAEC9080032D2F5 /* SWTableViewCell.m in Sources */,
 				A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */,
 				A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
@@ -300,6 +331,7 @@
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
 				A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */,
+				A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */,
 				A47DABFE1AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				A4F967EE1AAE813800436FE4 /* main.m in Sources */,
 			);
