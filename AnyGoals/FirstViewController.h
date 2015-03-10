@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "globalVar.h"
+#import "SWTableViewCell.h"
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
+
+@property (nonatomic,strong) NSMutableArray *processingTasks;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
