@@ -192,7 +192,7 @@
 	for (NSNumber *num in _normalizedValues) {
 		CGFloat angle = num.floatValue * 2 * M_PI;
 		
-		NSLog(@"Angle = %f", angle);
+//		NSLog(@"Angle = %f", angle);
 		
 		PieSliceLayer *slice = [_containerLayer.sublayers objectAtIndex:index];
         if (_colorArray.count==2) {

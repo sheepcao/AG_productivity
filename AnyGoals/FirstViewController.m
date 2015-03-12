@@ -15,9 +15,12 @@
 
 @implementation FirstViewController
 
+@synthesize db;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
     
     
     [self configTasks];
@@ -158,6 +161,24 @@
 
 -(void)configTasks
 {
+
+    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,isFinished INTEGER)";
+    NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
+    
+    [db executeUpdate:createGoalTable];
+    [db executeUpdate:createUrgentTable];
+
+
+    NSLog(@"db path:%@",dbPath);
+    
     self.processingTasks = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3",@"4",@"5"]];
 }
 
@@ -174,27 +195,78 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    static NSString *cellIdentifier = @"MyCustomCell";
     
+    if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+       
+        return [self prepareCellForSegZero:indexPath];
+        
+    }else
+    {
+        return [self prepareCellForSegFirst:indexPath];
+    }
+    
+
+}
+
+-(UITableViewCell *)prepareCellForSegZero:(NSIndexPath*)indexPath
+{
+    static NSString *cellIdentifier = @"MyCustomCell";
+
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
-                                                                                           forIndexPath:indexPath];
+                                                                                                forIndexPath:indexPath];
     
     [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:32.0f];
     [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
     cell.delegate = self;
+    [cell setupUI];
     
     cell.GoalName.text = self.processingTasks[indexPath.row];
-    
+    [cell.pieView setHidden:NO];
+
     NSMutableArray *randomNumbers = [NSMutableArray array];
-    int count = 1 + rand() % 10;
     for (int i = 1; i < 3; i++) {
-        //		[randomNumbers addObject:[NSNumber numberWithInt:rand() % 100]];
         [randomNumbers addObject:[NSNumber numberWithInt:10*i]];
     }
     cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor greenColor],[UIColor lightGrayColor]]];
     cell.pieView.sliceValues = randomNumbers;//must set sliceValue at the last step..
+    
+    
+    [cell.goalStatus setText:@"紧迫"];
+    
     return cell;
+
 }
+
+
+-(UITableViewCell *)prepareCellForSegFirst:(NSIndexPath*)indexPath
+{
+    static NSString *cellIdentifier = @"MyCustomCell";
+    
+    MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
+                                                                                                forIndexPath:indexPath];
+    
+    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:32.0f];
+    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
+    cell.delegate = self;
+    [cell setupUI];
+    
+    cell.GoalName.text = self.processingTasks[indexPath.row];
+    
+//    NSMutableArray *randomNumbers = [NSMutableArray array];
+//    for (int i = 1; i < 3; i++) {
+//        [randomNumbers addObject:[NSNumber numberWithInt:10*i]];
+//    }
+//    cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor greenColor],[UIColor lightGrayColor]]];
+//    cell.pieView.sliceValues = randomNumbers;//must set sliceValue at the last step..
+    [cell.pieView setHidden:YES];
+//    
+    
+    [cell.goalStatus setText:@"紧迫11"];
+    
+    return cell;
+    
+}
+
 
 - (NSArray *)rightButtons
 {
@@ -299,4 +371,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)goalTypeChanged:(id)sender {
+    
+    switch ([sender selectedSegmentIndex]) {
+    
+            case 0:
+            NSLog(@"segment 0");
+            break;
+            
+            case 1:
+            NSLog(@"segment 1");
+            break;
+            
+            case 2:
+            NSLog(@"segment 2");
+            break;
+            
+            case 3:
+            NSLog(@"segment 3");
+            break;
+            
+    }
+    
+    [self.tableView reloadData];
+    
+}
 @end

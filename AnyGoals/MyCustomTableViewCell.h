@@ -8,9 +8,14 @@
 
 #import "SWTableViewCell.h"
 #import "PieView.h"
+#import "CycleView.h"
 
 @interface MyCustomTableViewCell : SWTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *GoalName;
 @property (weak, nonatomic) IBOutlet PieView *pieView;
+@property (weak, nonatomic) IBOutlet CycleView *innerCycle;
+@property (weak, nonatomic) IBOutlet UILabel *goalStatus;
 
+
+-(void)setupUI;
 @end

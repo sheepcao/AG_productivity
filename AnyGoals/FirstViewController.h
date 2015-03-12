@@ -15,6 +15,10 @@
 
 @property (nonatomic,strong) NSMutableArray *processingTasks;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *goalTypeSegment;
+- (IBAction)goalTypeChanged:(id)sender;
+
+@property (nonatomic,strong) FMDatabase *db;
 
 @end
 

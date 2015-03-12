@@ -18,6 +18,15 @@
 		A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0D1AAEEDFA0032D2F5 /* PieSliceLayer.m */; };
 		A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */; };
 		A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */; };
+		A4C327431AB011390062114E /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327421AB011390062114E /* CycleView.m */; };
+		A4C327501AB0279E0062114E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
+		A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
+		A4C327521AB0279E0062114E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274A1AB0279E0062114E /* FMDatabasePool.m */; };
+		A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
+		A4C327541AB0279E0062114E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
+		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
+		A4C3275A1AB031B70062114E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327581AB031B70062114E /* ViewController.m */; };
+		A4C3275B1AB031B70062114E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C327591AB031B70062114E /* ViewController.xib */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
 		A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F31AAE813800436FE4 /* FirstViewController.m */; };
@@ -64,6 +73,23 @@
 		A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieView.m; sourceTree = "<group>"; };
 		A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomTableViewCell.h; sourceTree = "<group>"; };
 		A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomTableViewCell.m; sourceTree = "<group>"; };
+		A4C327411AB011390062114E /* CycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleView.h; sourceTree = "<group>"; };
+		A4C327421AB011390062114E /* CycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleView.m; sourceTree = "<group>"; };
+		A4C327451AB0279E0062114E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		A4C327461AB0279E0062114E /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		A4C327471AB0279E0062114E /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		A4C327491AB0279E0062114E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		A4C3274A1AB0279E0062114E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		A4C3274B1AB0279E0062114E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		A4C3274D1AB0279E0062114E /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		A4C3274E1AB0279E0062114E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		A4C3274F1AB0279E0062114E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		A4C327551AB027CE0062114E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A4C327571AB031B70062114E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A4C327581AB031B70062114E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A4C327591AB031B70062114E /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F967EC1AAE813800436FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F967ED1AAE813800436FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,9 +162,28 @@
 			path = PodFiles/DrawPie;
 			sourceTree = "<group>";
 		};
+		A4C327441AB0279E0062114E /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				A4C327451AB0279E0062114E /* FMDatabase.h */,
+				A4C327461AB0279E0062114E /* FMDatabase.m */,
+				A4C327471AB0279E0062114E /* FMDatabaseAdditions.h */,
+				A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */,
+				A4C327491AB0279E0062114E /* FMDatabasePool.h */,
+				A4C3274A1AB0279E0062114E /* FMDatabasePool.m */,
+				A4C3274B1AB0279E0062114E /* FMDatabaseQueue.h */,
+				A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */,
+				A4C3274D1AB0279E0062114E /* FMDB.h */,
+				A4C3274E1AB0279E0062114E /* FMResultSet.h */,
+				A4C3274F1AB0279E0062114E /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		A4F967DF1AAE813800436FE4 = {
 			isa = PBXGroup;
 			children = (
+				A4C327551AB027CE0062114E /* libsqlite3.dylib */,
 				A4F967EA1AAE813800436FE4 /* AnyGoals */,
 				A4F968071AAE813800436FE4 /* AnyGoalsTests */,
 				A4F967E91AAE813800436FE4 /* Products */,
@@ -156,6 +202,7 @@
 		A4F967EA1AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXGroup;
 			children = (
+				A4C327441AB0279E0062114E /* fmdb */,
 				A47DAC0B1AAEEDFA0032D2F5 /* DrawPie */,
 				A47DABED1AAEC9080032D2F5 /* swipeCell */,
 				A47DABEC1AAEBBF60032D2F5 /* globalVar.h */,
@@ -163,6 +210,11 @@
 				A4F967F01AAE813800436FE4 /* AppDelegate.m */,
 				A4F967F21AAE813800436FE4 /* FirstViewController.h */,
 				A4F967F31AAE813800436FE4 /* FirstViewController.m */,
+				A4C327571AB031B70062114E /* ViewController.h */,
+				A4C327581AB031B70062114E /* ViewController.m */,
+				A4C327591AB031B70062114E /* ViewController.xib */,
+				A4C327411AB011390062114E /* CycleView.h */,
+				A4C327421AB011390062114E /* CycleView.m */,
 				A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */,
 				A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */,
 				A4F967F51AAE813800436FE4 /* SecondViewController.h */,
@@ -295,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C3275B1AB031B70062114E /* ViewController.xib in Resources */,
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
@@ -324,16 +377,23 @@
 				A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */,
 				A4F967F71AAE813800436FE4 /* SecondViewController.m in Sources */,
 				A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */,
+				A4C327501AB0279E0062114E /* FMDatabase.m in Sources */,
 				A47DABFD1AAEC9080032D2F5 /* SWTableViewCell.m in Sources */,
+				A4C327541AB0279E0062114E /* FMResultSet.m in Sources */,
 				A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */,
 				A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */,
 				A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */,
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
 				A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */,
 				A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */,
+				A4C3275A1AB031B70062114E /* ViewController.m in Sources */,
 				A47DABFE1AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				A4F967EE1AAE813800436FE4 /* main.m in Sources */,
+				A4C327431AB011390062114E /* CycleView.m in Sources */,
+				A4C327521AB0279E0062114E /* FMDatabasePool.m in Sources */,
+				A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
