@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41EA5911AB12E9500356BAF /* addGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA58F1AB12E9500356BAF /* addGoalViewController.m */; };
+		A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41EA5901AB12E9500356BAF /* addGoalViewController.xib */; };
+		A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */; };
+		A41EA5AA1AB1667100356BAF /* ATCAnimatedTransitioningBounce.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A01AB1667100356BAF /* ATCAnimatedTransitioningBounce.m */; };
+		A41EA5AB1AB1667100356BAF /* ATCAnimatedTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A21AB1667100356BAF /* ATCAnimatedTransitioningFade.m */; };
+		A41EA5AC1AB1667100356BAF /* ATCAnimatedTransitioningFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A41AB1667100356BAF /* ATCAnimatedTransitioningFloat.m */; };
+		A41EA5AD1AB1667100356BAF /* ATCAnimatedTransitioningSquish.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A61AB1667100356BAF /* ATCAnimatedTransitioningSquish.m */; };
+		A41EA5AE1AB1667100356BAF /* ATCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */; };
+		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
+		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
+		A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */; };
 		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
 		A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF11AAEC9080032D2F5 /* SWCellScrollView.m */; };
@@ -25,8 +36,6 @@
 		A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
 		A4C327541AB0279E0062114E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
-		A4C3275A1AB031B70062114E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327581AB031B70062114E /* ViewController.m */; };
-		A4C3275B1AB031B70062114E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C327591AB031B70062114E /* ViewController.xib */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
 		A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F31AAE813800436FE4 /* FirstViewController.m */; };
@@ -52,6 +61,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A41EA58E1AB12E9500356BAF /* addGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addGoalViewController.h; sourceTree = "<group>"; };
+		A41EA58F1AB12E9500356BAF /* addGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addGoalViewController.m; sourceTree = "<group>"; };
+		A41EA5901AB12E9500356BAF /* addGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addGoalViewController.xib; sourceTree = "<group>"; };
+		A41EA59D1AB1667100356BAF /* ATCAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioning.h; sourceTree = "<group>"; };
+		A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioning.m; sourceTree = "<group>"; };
+		A41EA59F1AB1667100356BAF /* ATCAnimatedTransitioningBounce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioningBounce.h; sourceTree = "<group>"; };
+		A41EA5A01AB1667100356BAF /* ATCAnimatedTransitioningBounce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioningBounce.m; sourceTree = "<group>"; };
+		A41EA5A11AB1667100356BAF /* ATCAnimatedTransitioningFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioningFade.h; sourceTree = "<group>"; };
+		A41EA5A21AB1667100356BAF /* ATCAnimatedTransitioningFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioningFade.m; sourceTree = "<group>"; };
+		A41EA5A31AB1667100356BAF /* ATCAnimatedTransitioningFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioningFloat.h; sourceTree = "<group>"; };
+		A41EA5A41AB1667100356BAF /* ATCAnimatedTransitioningFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioningFloat.m; sourceTree = "<group>"; };
+		A41EA5A51AB1667100356BAF /* ATCAnimatedTransitioningSquish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioningSquish.h; sourceTree = "<group>"; };
+		A41EA5A61AB1667100356BAF /* ATCAnimatedTransitioningSquish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioningSquish.m; sourceTree = "<group>"; };
+		A41EA5A71AB1667100356BAF /* ATCTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCTransitioningDelegate.h; sourceTree = "<group>"; };
+		A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCTransitioningDelegate.m; sourceTree = "<group>"; };
+		A41EA5C31AB169E900356BAF /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		A43109DE1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerActionSheet.h; sourceTree = "<group>"; };
+		A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerActionSheet.m; sourceTree = "<group>"; };
+		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
+		A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
+		A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
 		A47DABEC1AAEBBF60032D2F5 /* globalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalVar.h; sourceTree = "<group>"; };
 		A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
@@ -87,9 +117,6 @@
 		A4C3274E1AB0279E0062114E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		A4C3274F1AB0279E0062114E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		A4C327551AB027CE0062114E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		A4C327571AB031B70062114E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A4C327581AB031B70062114E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A4C327591AB031B70062114E /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F967EC1AAE813800436FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F967ED1AAE813800436FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -130,6 +157,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A41EA59C1AB1667100356BAF /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				A41EA59D1AB1667100356BAF /* ATCAnimatedTransitioning.h */,
+				A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */,
+				A41EA59F1AB1667100356BAF /* ATCAnimatedTransitioningBounce.h */,
+				A41EA5A01AB1667100356BAF /* ATCAnimatedTransitioningBounce.m */,
+				A41EA5A11AB1667100356BAF /* ATCAnimatedTransitioningFade.h */,
+				A41EA5A21AB1667100356BAF /* ATCAnimatedTransitioningFade.m */,
+				A41EA5A31AB1667100356BAF /* ATCAnimatedTransitioningFloat.h */,
+				A41EA5A41AB1667100356BAF /* ATCAnimatedTransitioningFloat.m */,
+				A41EA5A51AB1667100356BAF /* ATCAnimatedTransitioningSquish.h */,
+				A41EA5A61AB1667100356BAF /* ATCAnimatedTransitioningSquish.m */,
+				A41EA5A71AB1667100356BAF /* ATCTransitioningDelegate.h */,
+				A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		A43109E11AB2A4D400AF2D80 /* datepicker */ = {
+			isa = PBXGroup;
+			children = (
+				A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */,
+				A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */,
+				A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */,
+				A43109DE1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.h */,
+				A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */,
+			);
+			name = datepicker;
+			sourceTree = "<group>";
+		};
 		A47DABED1AAEC9080032D2F5 /* swipeCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +260,8 @@
 		A4F967EA1AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXGroup;
 			children = (
+				A43109E11AB2A4D400AF2D80 /* datepicker */,
+				A41EA59C1AB1667100356BAF /* Animation */,
 				A4C327441AB0279E0062114E /* fmdb */,
 				A47DAC0B1AAEEDFA0032D2F5 /* DrawPie */,
 				A47DABED1AAEC9080032D2F5 /* swipeCell */,
@@ -210,9 +270,9 @@
 				A4F967F01AAE813800436FE4 /* AppDelegate.m */,
 				A4F967F21AAE813800436FE4 /* FirstViewController.h */,
 				A4F967F31AAE813800436FE4 /* FirstViewController.m */,
-				A4C327571AB031B70062114E /* ViewController.h */,
-				A4C327581AB031B70062114E /* ViewController.m */,
-				A4C327591AB031B70062114E /* ViewController.xib */,
+				A41EA58E1AB12E9500356BAF /* addGoalViewController.h */,
+				A41EA58F1AB12E9500356BAF /* addGoalViewController.m */,
+				A41EA5901AB12E9500356BAF /* addGoalViewController.xib */,
 				A4C327411AB011390062114E /* CycleView.h */,
 				A4C327421AB011390062114E /* CycleView.m */,
 				A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */,
@@ -230,6 +290,7 @@
 		A4F967EB1AAE813800436FE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A41EA5C31AB169E900356BAF /* Prefix.pch */,
 				A4F968141AAEBA7300436FE4 /* teaching image */,
 				A4F967EC1AAE813800436FE4 /* Info.plist */,
 				A4F967ED1AAE813800436FE4 /* main.m */,
@@ -347,13 +408,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4C3275B1AB031B70062114E /* ViewController.xib in Resources */,
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
+				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
 				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
+				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
@@ -377,19 +439,27 @@
 				A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */,
 				A4F967F71AAE813800436FE4 /* SecondViewController.m in Sources */,
 				A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */,
+				A41EA5AE1AB1667100356BAF /* ATCTransitioningDelegate.m in Sources */,
 				A4C327501AB0279E0062114E /* FMDatabase.m in Sources */,
+				A41EA5AC1AB1667100356BAF /* ATCAnimatedTransitioningFloat.m in Sources */,
 				A47DABFD1AAEC9080032D2F5 /* SWTableViewCell.m in Sources */,
 				A4C327541AB0279E0062114E /* FMResultSet.m in Sources */,
 				A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */,
 				A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */,
 				A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */,
+				A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */,
+				A41EA5AA1AB1667100356BAF /* ATCAnimatedTransitioningBounce.m in Sources */,
+				A41EA5AB1AB1667100356BAF /* ATCAnimatedTransitioningFade.m in Sources */,
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
 				A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */,
 				A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */,
-				A4C3275A1AB031B70062114E /* ViewController.m in Sources */,
+				A41EA5911AB12E9500356BAF /* addGoalViewController.m in Sources */,
 				A47DABFE1AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				A41EA5AD1AB1667100356BAF /* ATCAnimatedTransitioningSquish.m in Sources */,
+				A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */,
+				A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */,
 				A4F967EE1AAE813800436FE4 /* main.m in Sources */,
 				A4C327431AB011390062114E /* CycleView.m in Sources */,
 				A4C327521AB0279E0062114E /* FMDatabasePool.m in Sources */,
@@ -515,6 +585,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;
 				INFOPLIST_FILE = AnyGoals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,6 +597,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;
 				INFOPLIST_FILE = AnyGoals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

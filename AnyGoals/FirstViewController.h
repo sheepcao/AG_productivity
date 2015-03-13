@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *goalTypeSegment;
 - (IBAction)goalTypeChanged:(id)sender;
+- (IBAction)addNewGoal:(id)sender;
+
 
 @property (nonatomic,strong) FMDatabase *db;
 

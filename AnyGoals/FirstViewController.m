@@ -8,9 +8,11 @@
 
 #import "FirstViewController.h"
 #import "MyCustomTableViewCell.h"
+#import "addGoalViewController.h"
+#import "ATCTransitioningDelegate.h"
 
 @interface FirstViewController ()<UIScrollViewDelegate>
-
+@property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
 @end
 
 @implementation FirstViewController
@@ -170,7 +172,7 @@
         NSLog(@"Could not open db.");
         return;
     }
-    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,isFinished INTEGER)";
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,isFinished INTEGER)";
     NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
     
     [db executeUpdate:createGoalTable];
@@ -357,7 +359,7 @@
             // Delete button was pressed
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
             
-            [self.processingTasks[cellIndexPath.row] removeObjectAtIndex:cellIndexPath.row];
+            [self.processingTasks removeObjectAtIndex:cellIndexPath.row];
             [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
             break;
         }
@@ -370,6 +372,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark Segment changed
 
 - (IBAction)goalTypeChanged:(id)sender {
     
@@ -394,6 +398,33 @@
     }
     
     [self.tableView reloadData];
+    
+}
+#pragma mark ADD NewGoal
+- (IBAction)addNewGoal:(id)sender {
+    
+    addGoalViewController *addNewGoal = [[addGoalViewController alloc] initWithNibName:@"addGoalViewController" bundle:nil];
+    
+
+    addNewGoal.isNewGoal = TRUE;
+    
+    [self setupTransitioningDelegate];
+
+    [self.navigationController pushViewController:addNewGoal animated:YES];
+
+
+    
+}
+-(void)setupTransitioningDelegate{
+    
+    
+    // Set up our delegate
+    self.atcTD = [[ATCTransitioningDelegate alloc] initWithPresentationTransition:ATCTransitionAnimationTypeBounce
+                                                                                 dismissalTransition:ATCTransitionAnimationTypeFloat
+                                                                                           direction:ATCTransitionAnimationDirectionBottom
+                                                                         duration:0.55f];
+    self.navigationController.delegate = self.atcTD;
+
     
 }
 @end

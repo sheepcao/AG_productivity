@@ -1,0 +1,404 @@
+//
+//  addGoalViewController.m
+//  AnyGoals
+//
+//  Created by Eric Cao on 3/12/15.
+//  Copyright (c) 2015 Eric Cao. All rights reserved.
+//
+
+#import "addGoalViewController.h"
+#import "ATCTransitioningDelegate.h"
+#import "CustomDatePickerActionSheet.h"
+
+@interface addGoalViewController ()<UITextFieldDelegate,DatePickerActionSheetDelegate>
+@property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
+@property (nonatomic,strong) UIDatePicker *remindTimePicker;
+@property (nonatomic,strong) UILabel * timeSelected;
+@property (nonatomic,strong) CustomDatePickerActionSheet *custom;
+@property (nonatomic,strong) FMDatabase *db;
+@property (nonatomic,strong) NSString *reminderTime;
+@end
+
+@implementation addGoalViewController
+
+@synthesize goalNameField;
+@synthesize actionTimesField;
+@synthesize startTimeField;
+@synthesize endTimeField;
+@synthesize textfieldArray;
+@synthesize remindTimePicker;
+@synthesize timeSelected;
+@synthesize custom;
+@synthesize db;
+@synthesize reminderTime;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    goalNameField = [[UITextField alloc] init];
+    actionTimesField = [[UITextField alloc] init];
+    startTimeField = [[UIButton alloc] init];
+    endTimeField = [[UIButton alloc] init];
+
+    
+    textfieldArray = [[NSMutableArray alloc] initWithObjects:goalNameField,actionTimesField,startTimeField,endTimeField, nil];
+    custom = [[CustomDatePickerActionSheet alloc] initWithDelegate:self];
+
+
+
+    [self setupUI];
+}
+
+
+-(void)setupUI
+{
+    
+    //init position of bar buttons
+    [self.pageTitle setFrame:CGRectMake(SCREEN_WIDTH-130/2, 30, 130, 40)];
+    [self.backBtn setFrame:CGRectMake(20, self.pageTitle.frame.origin.y, 45, 35)];
+    [self.saveBtn setFrame:CGRectMake(SCREEN_WIDTH-20-45, self.pageTitle.frame.origin.y, 45, 35)];
+    
+    self.goalInfoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.pageTitle.frame.origin.y+50, SCREEN_WIDTH, SCREEN_HEIGHT-(self.pageTitle.frame.origin.y+50))];
+    
+    self.goalInfoScrollView.contentSize = CGSizeMake(self.goalInfoScrollView.frame.size.width, self.goalInfoScrollView.frame.size.height);
+    self.goalInfoScrollView.showsVerticalScrollIndicator = NO;
+    self.goalInfoScrollView.showsHorizontalScrollIndicator = NO;
+
+    
+    [self.view addSubview:self.goalInfoScrollView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]   initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.goalInfoScrollView addGestureRecognizer:tap];
+    
+    for (int i = 0; i <2; i++) {
+     
+        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
+        [editingImage setImage:[UIImage imageNamed:@"skip"]];
+        [self.goalInfoScrollView addSubview:editingImage];
+        
+        UITextField *txtfield = self.textfieldArray[i];
+        
+        [txtfield setFrame:CGRectMake(45, 30 + 50*i, SCREEN_WIDTH-45-45, 35)];
+        
+        txtfield.borderStyle = UITextBorderStyleNone;
+        txtfield.delegate=self;
+        [self.goalInfoScrollView addSubview:txtfield];
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(45, txtfield.frame.origin.y+txtfield.frame.size.height+1, SCREEN_WIDTH-45-5, 0.7)];
+        [line setBackgroundColor:[UIColor grayColor]];
+        [self.goalInfoScrollView addSubview:line];
+        
+    }
+    [goalNameField setReturnKeyType:UIReturnKeyDone];
+
+    actionTimesField.keyboardType = UIKeyboardTypeNumberPad;
+    for (int i = 2; i <4; i++) {
+        
+        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
+        [editingImage setImage:[UIImage imageNamed:@"skip"]];
+        [self.goalInfoScrollView addSubview:editingImage];
+        
+        UIButton *timeBtn = self.textfieldArray[i];
+        
+        [timeBtn setFrame:CGRectMake(45, 30 + 50*i, SCREEN_WIDTH-45-45, 35)];
+        
+        timeBtn.layer.borderWidth = 0;
+        timeBtn.tag = i;
+        [timeBtn addTarget:self action:@selector(timeSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.goalInfoScrollView addSubview:timeBtn];
+        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(45, timeBtn.frame.origin.y+timeBtn.frame.size.height+1, SCREEN_WIDTH-45-5, 0.7)];
+        [line setBackgroundColor:[UIColor grayColor]];
+        [self.goalInfoScrollView addSubview:line];
+        
+    }
+
+    if(self.isNewGoal)
+    {
+        goalNameField.placeholder = @"目标名称";
+        actionTimesField.placeholder = @"行动次数";
+        goalNameField.textAlignment = NSTextAlignmentCenter;
+        actionTimesField.textAlignment = NSTextAlignmentCenter;
+        [startTimeField setTitle:@"开始时间" forState:UIControlStateNormal];
+        [endTimeField setTitle:@"截至时间" forState:UIControlStateNormal];
+    }
+    [startTimeField setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [endTimeField setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    startTimeField.titleLabel.textAlignment = NSTextAlignmentLeft;
+
+
+    UILabel *reminder = [[UILabel alloc] initWithFrame:CGRectMake(50, endTimeField.frame.origin.y+endTimeField.frame.size.height+30, 200, 35)];
+    reminder.textAlignment = NSTextAlignmentLeft;
+    reminder.text = @"\t提醒我";
+    reminder.textColor = [UIColor lightGrayColor];
+    
+    UISwitch *reminderSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80, reminder.frame.origin.y+1, 51, 31)];
+    [reminderSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+
+    
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(45, reminder.frame.origin.y+reminder.frame.size.height+1, SCREEN_WIDTH-45-5, 0.7)];
+    [line setBackgroundColor:[UIColor grayColor]];
+    [self.goalInfoScrollView addSubview:line];
+    [self.goalInfoScrollView addSubview:reminderSwitch];
+    [self.goalInfoScrollView addSubview:reminder];
+
+    remindTimePicker = [[UIDatePicker alloc] init];
+    timeSelected = [[UILabel alloc] init];
+    if (self.isNewGoal) {
+        reminderTime = @"";
+    }else
+    {
+        //to do select from db...
+    }
+
+    [remindTimePicker addTarget:self action:@selector(oneDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged]; // 添加监听器
+}
+
+#pragma mark switch action
+-(void)switchAction:(id)sender
+{
+    [self.view endEditing:YES];
+    [custom close];
+    
+    UISwitch *switchButton = (UISwitch*)sender;
+    BOOL isButtonOn = [switchButton isOn];
+    if (isButtonOn) {
+        
+        [remindTimePicker setFrame:CGRectMake(50, switchButton.frame.origin.y+45, SCREEN_WIDTH-100, (SCREEN_WIDTH-10)*0.45)];
+        remindTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        
+        timeSelected = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 150, remindTimePicker.frame.origin.y+remindTimePicker.frame.size.height + 20, 300, 35)];
+        timeSelected.textAlignment = NSTextAlignmentCenter ;
+        
+        //to do .. select reminder time in db and show.include setting date picker.
+        if (self.isNewGoal) {
+            reminderTime = @"未选择";
+            [timeSelected setText:[NSString stringWithFormat:@"已选时间: %@",reminderTime]];
+        }
+        
+        
+        
+        if (!remindTimePicker.superview) {
+            [self.goalInfoScrollView addSubview:remindTimePicker];
+            [self.goalInfoScrollView addSubview:timeSelected];
+        }
+
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.35f];
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 145)];
+
+        [UIView commitAnimations];
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+145)];
+        
+    }else {
+        if (remindTimePicker.superview) {
+            [remindTimePicker removeFromSuperview];
+            [timeSelected removeFromSuperview];
+        }
+        if (![reminderTime isEqualToString:@""]) {
+            reminderTime = @"";
+        }
+        [UIView beginAnimations:nil context:NULL];
+
+        [UIView setAnimationDuration:0.35f];
+
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 0)];
+        [UIView commitAnimations];
+
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height)];
+        
+    }
+}
+#pragma mark - 实现oneDatePicker的监听方法
+- (void)oneDatePickerValueChanged:(UIDatePicker *) sender {
+    
+    NSDate *select = [remindTimePicker date]; // 获取被选中的时间
+    NSDateFormatter *selectDateFormatter = [[NSDateFormatter alloc] init];
+    selectDateFormatter.dateFormat = @"yyyy/MM/dd HH:mm"; // 设置时间和日期的格式
+    
+    reminderTime =[selectDateFormatter stringFromDate:select];
+    
+    NSString *dateAndTime =[NSString stringWithFormat:@"已选时间:%@",reminderTime] ;
+    
+    [timeSelected setText:dateAndTime];
+    
+    NSLog(@"date:%@",dateAndTime);
+    // 在控制台打印消息
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void)timeSelect:(UIButton *)sender
+{
+    
+    //eric: custom action sheet.
+    
+    [goalNameField resignFirstResponder];
+    [actionTimesField resignFirstResponder];
+    
+    [custom setFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
+    [self.view addSubview:custom];
+    custom.tag = sender.tag;
+    [custom showInView];
+
+}
+- (void)dateChanged:(CustomDatePickerActionSheet *)datePickerActionSheet {
+    NSLog(@"date %@", datePickerActionSheet.date.debugDescription);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+
+    
+    if (datePickerActionSheet.tag == 2) {
+        [startTimeField setTitle:[dateFormat stringFromDate:[datePickerActionSheet date]] forState:UIControlStateNormal];
+    }else
+    {
+        [endTimeField setTitle:[dateFormat stringFromDate:[datePickerActionSheet date]] forState:UIControlStateNormal];
+
+    }
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+-(BOOL)checkReminderValidation
+{
+    if (![reminderTime isEqualToString:@""]) {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+        NSDate *reminder = [dateFormat dateFromString:reminderTime];
+        
+        if ([reminder compare:[NSDate date]] == NSOrderedDescending)
+        {
+            return TRUE;
+        }else
+        {
+            UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"提醒时间应为未来的某一时刻!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [reminderError show];
+            return false;
+
+        }
+
+    }else
+    {
+        return TRUE;
+    }
+
+    
+    
+}
+-(BOOL)checkInfoValidation
+{
+
+    if (goalNameField.text.length>0 && actionTimesField.text.length>0 && ![startTimeField.titleLabel.text isEqualToString:@"开始时间"] && ![endTimeField.titleLabel.text isEqualToString:@"截至时间"]) {
+        return TRUE;
+    }
+    UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"请完整设置目标基本信息!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [reminderError show];
+    return false;
+}
+- (IBAction)saveGoal:(id)sender {
+
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+    
+    if ([self checkReminderValidation] && [self checkInfoValidation]) {
+        
+        NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+        db = [FMDatabase databaseWithPath:dbPath];
+        
+        if (![db open]) {
+            NSLog(@"Could not open db.");
+            return;
+        }
+        if(self.isNewGoal)
+        {
+            [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,isFinished) values (?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,[NSNumber numberWithInt:0]];
+            
+            [db close];
+        }
+
+    }
+
+
+    
+}
+
+- (IBAction)backHome:(id)sender {
+//    [self setupTransitioningDelegate];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)setupTransitioningDelegate{
+    
+    
+    // Set up our delegate
+    self.atcTD = [[ATCTransitioningDelegate alloc] initWithPresentationTransition:ATCTransitionAnimationTypeBounce
+                                                              dismissalTransition:ATCTransitionAnimationTypeBounce
+                                                                        direction:ATCTransitionAnimationDirectionBottom
+                                                                         duration:0.65f];
+    self.navigationController.delegate = self.atcTD;
+    
+    
+}
+
+#pragma mark textfiled delegate
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [goalNameField resignFirstResponder];
+    [actionTimesField resignFirstResponder];
+
+
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [custom close];
+    return YES;
+}// return NO to disallow editing.
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return TRUE;
+}
+-(void)dismissKeyboard {
+    
+
+    [goalNameField resignFirstResponder];
+    [actionTimesField resignFirstResponder];
+    
+}
+
+@end
