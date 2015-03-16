@@ -18,6 +18,7 @@
 		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
 		A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */; };
+		A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
 		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
 		A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF11AAEC9080032D2F5 /* SWCellScrollView.m */; };
@@ -82,6 +83,8 @@
 		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
 		A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
 		A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
+		A460DCA11AB6A29800B526C4 /* GoalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalObj.h; sourceTree = "<group>"; };
+		A460DCA21AB6A29800B526C4 /* GoalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalObj.m; sourceTree = "<group>"; };
 		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
 		A47DABEC1AAEBBF60032D2F5 /* globalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalVar.h; sourceTree = "<group>"; };
 		A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				A47DAC0B1AAEEDFA0032D2F5 /* DrawPie */,
 				A47DABED1AAEC9080032D2F5 /* swipeCell */,
 				A47DABEC1AAEBBF60032D2F5 /* globalVar.h */,
+				A460DCA11AB6A29800B526C4 /* GoalObj.h */,
+				A460DCA21AB6A29800B526C4 /* GoalObj.m */,
 				A4F967EF1AAE813800436FE4 /* AppDelegate.h */,
 				A4F967F01AAE813800436FE4 /* AppDelegate.m */,
 				A4F967F21AAE813800436FE4 /* FirstViewController.h */,
@@ -454,6 +459,7 @@
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
 				A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */,
+				A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */,
 				A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */,
 				A41EA5911AB12E9500356BAF /* addGoalViewController.m in Sources */,
 				A47DABFE1AAEC9080032D2F5 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,

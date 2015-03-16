@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet PieView *pieView;
 @property (weak, nonatomic) IBOutlet CycleView *innerCycle;
 @property (weak, nonatomic) IBOutlet UILabel *goalStatus;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmount;
+@property (weak, nonatomic) IBOutlet UILabel *doneAmount;
+@property (weak, nonatomic) IBOutlet UIImageView *reminderShow;
+@property (weak, nonatomic) IBOutlet UIImageView *statusShow;
 
 
 -(void)setupUI;

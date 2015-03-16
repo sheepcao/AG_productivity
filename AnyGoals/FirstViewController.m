@@ -10,6 +10,7 @@
 #import "MyCustomTableViewCell.h"
 #import "addGoalViewController.h"
 #import "ATCTransitioningDelegate.h"
+#import "GoalObj.h"
 
 @interface FirstViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
@@ -24,8 +25,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     
-    
-    [self configTasks];
+    self.processingTasks = [[NSMutableArray alloc] init];
+
 
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -42,6 +43,14 @@
     
     
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self configTasks];
+    [self.tableView reloadData];
+
 }
 
 #pragma mark TEACHING page
@@ -163,6 +172,10 @@
 
 -(void)configTasks
 {
+    
+    if (self.processingTasks.count > 0) {
+        [self.processingTasks removeAllObjects];
+    }
 
     NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
@@ -172,7 +185,7 @@
         NSLog(@"Could not open db.");
         return;
     }
-    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,isFinished INTEGER)";
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER)";
     NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
     
     [db executeUpdate:createGoalTable];
@@ -181,9 +194,110 @@
 
     NSLog(@"db path:%@",dbPath);
     
-    self.processingTasks = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3",@"4",@"5"]];
+    
+    // time now...
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+    
+    
+    FMResultSet *rs = [db executeQuery:@"select goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder from GOALSINFO where isFinished = ? AND startTime <= ?", [NSNumber numberWithInt:0],timeNow];
+    while ([rs next]) {
+        GoalObj *oneGoal = [[GoalObj alloc] init];
+
+        oneGoal.goalName = [rs stringForColumn:@"goalName"];
+        oneGoal.startTime = [rs stringForColumn:@"startTime"];
+        oneGoal.endTime = [rs stringForColumn:@"endTime"];
+        
+        oneGoal.amount = [NSNumber numberWithInt: [rs intForColumn:@"amount"]];
+
+        oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
+        oneGoal.lastUpdateTime = [rs stringForColumn:@"lastUpdateTime"];
+        oneGoal.reminder = [rs stringForColumn:@"reminder"];
+        
+        [self.processingTasks addObject:oneGoal];
+
+    }
+
+    [db close];
+    
+//    self.processingTasks = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3",@"4",@"5"]];
 }
 
+-(void)updateDataForTable:(NSString *)tableName setColomn:(NSString *)toColomn toData:(id)dstData whereColomn:(NSString *)strColomn isData:(id)strData
+{
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    
+    BOOL sql = [db executeUpdate:@"update ? set ? = ? where ? = ?" ,tableName,toColomn,dstData,strColomn,strData];
+    if (!sql) {
+        NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+    }
+    [db close];
+
+}
+
+-(int)checkGoalStatus:(GoalObj *)goal
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    NSDate *startTime = [dateFormat dateFromString:goal.startTime];
+    NSDate *endTime = [dateFormat dateFromString:goal.endTime];
+    
+    NSTimeInterval timeByNow = [[NSDate date] timeIntervalSinceDate:startTime];
+    NSTimeInterval timeByEnd = [endTime timeIntervalSinceDate:startTime];
+    NSTimeInterval timeRemaining = timeByEnd -timeByNow;
+    
+    CGFloat goalRate = ([goal.amount intValue] - [goal.amount_DONE intValue])/[goal.amount intValue];
+    
+    if ( timeRemaining/timeByEnd <= goalRate/1.8  ) {
+        
+        return 3; //represent urgent goal...
+        
+    }else if(goalRate <= (timeRemaining/timeByEnd)/1.8)
+    {
+        return 2; //represent super processed goal...
+
+    }else
+    {
+        return 1; //represent normal goal...
+        
+    }
+    
+
+}
+
+
+-(int)checkProcess:(GoalObj *)goal
+{
+   
+    CGFloat rate = [goal.amount_DONE doubleValue]/[goal.amount doubleValue];
+    
+    if ( rate<1/3.0f) {
+        
+        return 1; //represent initial stage goal...
+        
+    }else if((rate>= 1/3.0f )&& (rate <= 2/3.0f))
+    {
+        return 2; //represent Mid stage goal...
+        
+    }else
+    {
+        return 3; //represent final stage goal...
+        
+    }
+    
+    
+}
 
 #pragma mark tableview delegate
 
@@ -217,23 +331,48 @@
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                                                                 forIndexPath:indexPath];
     
-    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:32.0f];
-    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
+    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:80.0f];
+    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:80.0f];
     cell.delegate = self;
     [cell setupUI];
     
-    cell.GoalName.text = self.processingTasks[indexPath.row];
+    GoalObj *goal =self.processingTasks[indexPath.row];
+    
+    cell.GoalName.text = goal.goalName;
+    [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
+    [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
     [cell.pieView setHidden:NO];
 
-    NSMutableArray *randomNumbers = [NSMutableArray array];
-    for (int i = 1; i < 3; i++) {
-        [randomNumbers addObject:[NSNumber numberWithInt:10*i]];
+    NSMutableArray *GoalProcessNumbers = [NSMutableArray array];
+    [GoalProcessNumbers addObject:goal.amount_DONE];
+    [GoalProcessNumbers addObject:[NSNumber numberWithInt:([goal.amount intValue] - [goal.amount_DONE intValue] )]];
+
+    
+    
+    int goalStatus = [self checkProcess:goal];
+    switch (goalStatus) {
+        case 1:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            break;
+        case 2:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
+
+            break;
+        case 3:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+
+            break;
+            
+        default:
+            break;
     }
-    cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor greenColor],[UIColor lightGrayColor]]];
-    cell.pieView.sliceValues = randomNumbers;//must set sliceValue at the last step..
+
+    cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
     
     
-    [cell.goalStatus setText:@"紧迫"];
     
     return cell;
 
@@ -247,23 +386,18 @@
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                                                                 forIndexPath:indexPath];
     
-    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:32.0f];
-    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:58.0f];
+    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:80.0f];
+    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:80.0f];
     cell.delegate = self;
     [cell setupUI];
     
-    cell.GoalName.text = self.processingTasks[indexPath.row];
+    GoalObj *goal = self.processingTasks[indexPath.row];
+    cell.GoalName.text = goal.goalName;
     
-//    NSMutableArray *randomNumbers = [NSMutableArray array];
-//    for (int i = 1; i < 3; i++) {
-//        [randomNumbers addObject:[NSNumber numberWithInt:10*i]];
-//    }
-//    cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor greenColor],[UIColor lightGrayColor]]];
-//    cell.pieView.sliceValues = randomNumbers;//must set sliceValue at the last step..
+
     [cell.pieView setHidden:YES];
 //    
     
-    [cell.goalStatus setText:@"紧迫11"];
     
     return cell;
     
@@ -275,10 +409,10 @@
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"More"];
+                                                title:@"放弃"];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"Delete"];
+                                                title:@"删除"];
     
     return rightUtilityButtons;
 }
@@ -289,16 +423,16 @@
     
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"check.png"]];
+                                                title:@"+"];
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"clock.png"]];
-    [leftUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"cross.png"]];
-    [leftUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"list.png"]];
+                                                title:@"-"];
+//    [leftUtilityButtons sw_addUtilityButtonWithColor:
+//     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
+//                                                icon:[UIImage imageNamed:@"cross.png"]];
+//    [leftUtilityButtons sw_addUtilityButtonWithColor:
+//     [UIColor colorWithRed:0.55f green:0.27f blue:0.07f alpha:1.0]
+//                                                icon:[UIImage imageNamed:@"list.png"]];
     
     return leftUtilityButtons;
 }
@@ -325,12 +459,22 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
 {
+    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+    GoalObj *goal = self.processingTasks[cellIndexPath.row];
+
     switch (index) {
         case 0:
-            NSLog(@"left button 0 was pressed");
+            NSLog(@"+ was pressed");
+            
+            goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] + 1)];
+
+            [cell hideUtilityButtonsAnimated:YES];
+
             break;
         case 1:
             NSLog(@"left button 1 was pressed");
+            [cell hideUtilityButtonsAnimated:YES];
+
             break;
         case 2:
             NSLog(@"left button 2 was pressed");

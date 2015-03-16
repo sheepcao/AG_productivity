@@ -10,9 +10,11 @@
 #import "ATCTransitioningDelegate.h"
 #import "CustomDatePickerActionSheet.h"
 
-@interface addGoalViewController ()<UITextFieldDelegate,DatePickerActionSheetDelegate>
+@interface addGoalViewController ()<UITextFieldDelegate,UITextViewDelegate,DatePickerActionSheetDelegate>
 @property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
 @property (nonatomic,strong) UIDatePicker *remindTimePicker;
+@property (nonatomic,strong) UITextView *reminderNote;
+
 @property (nonatomic,strong) UILabel * timeSelected;
 @property (nonatomic,strong) CustomDatePickerActionSheet *custom;
 @property (nonatomic,strong) FMDatabase *db;
@@ -31,6 +33,7 @@
 @synthesize custom;
 @synthesize db;
 @synthesize reminderTime;
+@synthesize reminderNote;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -144,8 +147,15 @@
 
     remindTimePicker = [[UIDatePicker alloc] init];
     timeSelected = [[UILabel alloc] init];
+    
+    reminderNote = [[UITextView alloc] init];
+    reminderNote.delegate = self;
+    reminderNote.font = [UIFont systemFontOfSize:17.0f];
+
     if (self.isNewGoal) {
         reminderTime = @"";
+        [reminderNote setText:@"点击编辑提醒备注..."];
+        [reminderNote setTextColor:[UIColor lightGrayColor]];
     }else
     {
         //to do select from db...
@@ -164,11 +174,14 @@
     BOOL isButtonOn = [switchButton isOn];
     if (isButtonOn) {
         
-        [remindTimePicker setFrame:CGRectMake(50, switchButton.frame.origin.y+45, SCREEN_WIDTH-100, (SCREEN_WIDTH-10)*0.45)];
+        [remindTimePicker setFrame:CGRectMake(45, switchButton.frame.origin.y+45, SCREEN_WIDTH-90, (SCREEN_WIDTH-10)*0.46)];
         remindTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
         
         timeSelected = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 150, remindTimePicker.frame.origin.y+remindTimePicker.frame.size.height + 20, 300, 35)];
         timeSelected.textAlignment = NSTextAlignmentCenter ;
+        
+        [reminderNote setFrame:CGRectMake(45, remindTimePicker.frame.origin.y+remindTimePicker.frame.size.height+5, remindTimePicker.frame.size.width, remindTimePicker.frame.size.height/2)];
+
         
         //to do .. select reminder time in db and show.include setting date picker.
         if (self.isNewGoal) {
@@ -177,10 +190,10 @@
         }
         
         
-        
         if (!remindTimePicker.superview) {
             [self.goalInfoScrollView addSubview:remindTimePicker];
             [self.goalInfoScrollView addSubview:timeSelected];
+            [self.goalInfoScrollView addSubview:reminderNote];
         }
 
         [UIView beginAnimations:nil context:NULL];
@@ -194,6 +207,7 @@
         if (remindTimePicker.superview) {
             [remindTimePicker removeFromSuperview];
             [timeSelected removeFromSuperview];
+            [reminderNote removeFromSuperview];
         }
         if (![reminderTime isEqualToString:@""]) {
             reminderTime = @"";
@@ -332,6 +346,12 @@
         
         NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+        NSString *remindNote = @"";
+        
+        if (reminderNote.superview) {
+            remindNote = reminderNote.text;
+        }
+        
         db = [FMDatabase databaseWithPath:dbPath];
         
         if (![db open]) {
@@ -340,15 +360,14 @@
         }
         if(self.isNewGoal)
         {
-            [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,isFinished) values (?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,[NSNumber numberWithInt:0]];
+            [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote,isFinished) values (?,?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0]];
             
             [db close];
         }
 
     }
 
-
-    
+   
 }
 
 - (IBAction)backHome:(id)sender {
@@ -398,7 +417,61 @@
 
     [goalNameField resignFirstResponder];
     [actionTimesField resignFirstResponder];
+    if ([reminderNote isFirstResponder]) {
+        [reminderNote resignFirstResponder];
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.35f];
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 145)];
+        
+        [UIView commitAnimations];
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+145)];
+
+    }
     
 }
+#pragma mark textView delegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+
+    textView.text = @"";
+    textView.textColor = [UIColor blackColor];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.35f];
+    if(IS_IPHONE_4_OR_LESS)
+    {
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+380)];
+
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 380)];
+
+    }else if (IS_IPHONE_5)
+    {
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+320)];
+        
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 320)];
+    }else if (IS_IPHONE_6)
+    {
+    [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+240)];
+
+    [self.goalInfoScrollView setContentOffset:CGPointMake(0, 240)];
+    }else
+    {
+        [self.goalInfoScrollView setContentSize:CGSizeMake(SCREEN_WIDTH, self.goalInfoScrollView.frame.size.height+240)];
+        
+        [self.goalInfoScrollView setContentOffset:CGPointMake(0, 240)];
+    }
+    [UIView commitAnimations];
+    
+}
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        [textView setText:@"点击编辑提醒备注..."];
+        [textView setTextColor:[UIColor lightGrayColor]];
+    }
+
+}
+
 
 @end
