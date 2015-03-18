@@ -171,10 +171,13 @@
 		for (int i = 0; i < count; i++) {
 			PieSliceLayer *slice = [PieSliceLayer layer];
 			slice.strokeColor = [UIColor colorWithWhite:0.25 alpha:1.0];
-			slice.strokeWidth = 0.5;
+			slice.strokeWidth = 0.0f;
 			slice.frame = self.bounds;
 			
 			[_containerLayer addSublayer:slice];
+            NSLog(@"width:%f",slice.strokeWidth);
+            NSLog(@"color:%@",slice.strokeColor);
+
 		}
 	}
 	else if (_normalizedValues.count < _containerLayer.sublayers.count) {
@@ -208,5 +211,7 @@
 		startAngle += angle;
 		index++;
 	}
+    
+    NSLog(@"frame:%@",_containerLayer);
 }
 @end

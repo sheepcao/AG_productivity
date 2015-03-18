@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "globalVar.h"
+#import "GoalObj.h"
 
 @interface addGoalViewController : UIViewController<UIScrollViewDelegate>
 @property (strong, nonatomic) UIScrollView *goalInfoScrollView;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) UIButton *startTimeField;
 @property (strong, nonatomic) UIButton *endTimeField;
 @property (nonatomic,strong) NSMutableArray *textfieldArray;
+@property (nonatomic,strong) GoalObj *editingGoal;
 
 @property BOOL isNewGoal;
 

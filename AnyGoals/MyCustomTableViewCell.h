@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *doneAmount;
 @property (weak, nonatomic) IBOutlet UIImageView *reminderShow;
 @property (weak, nonatomic) IBOutlet UIImageView *statusShow;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeSpecific;
 
 
 -(void)setupUI;

@@ -10,6 +10,7 @@
 
 @interface GoalObj : NSObject
 
+@property (strong , nonatomic) NSNumber *goalID;
 @property (strong , nonatomic) NSString *goalName;
 @property (strong , nonatomic) NSString *startTime;
 @property (strong , nonatomic) NSString *endTime;

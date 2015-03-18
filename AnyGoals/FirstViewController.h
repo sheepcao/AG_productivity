@@ -14,6 +14,11 @@
 
 
 @property (nonatomic,strong) NSMutableArray *processingTasks;
+@property (nonatomic,strong) NSMutableArray *finishedTasks;
+@property (nonatomic,strong) NSMutableArray *giveupTasks;
+@property (nonatomic,strong) NSMutableArray *notyetTasks;
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *goalTypeSegment;
 - (IBAction)goalTypeChanged:(id)sender;

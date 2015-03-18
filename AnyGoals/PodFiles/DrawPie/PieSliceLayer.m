@@ -27,7 +27,7 @@
     if (self) {
 		self.fillColor = [UIColor grayColor];
         self.strokeColor = [UIColor clearColor];
-		self.strokeWidth = 0.1;
+		self.strokeWidth = 0.0f;
 		
 		[self setNeedsDisplay];
     }
@@ -73,7 +73,7 @@
 	
 	// Create the path
 	CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-	CGFloat radius = MIN(center.x-5, center.y-5);
+	CGFloat radius = MIN(center.x-2, center.y-2);
 	
 	CGContextBeginPath(ctx);
 	CGContextMoveToPoint(ctx, center.x, center.y);

@@ -14,6 +14,12 @@
 
 @interface FirstViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
+@property (nonatomic,strong) NSIndexPath *deletingCellIndexPath;
+@property (nonatomic,strong) NSIndexPath *giveupCellIndexPath;
+@property (nonatomic,strong) NSIndexPath *recoverCellIndexPath;
+
+
+//@property (nonatomic,strong) UILabel *finishTime;
 @end
 
 @implementation FirstViewController
@@ -26,6 +32,10 @@
     
     
     self.processingTasks = [[NSMutableArray alloc] init];
+    self.finishedTasks = [[NSMutableArray alloc] init];
+    self.notyetTasks = [[NSMutableArray alloc] init];
+    self.giveupTasks = [[NSMutableArray alloc] init];
+
 
 
     
@@ -45,13 +55,39 @@
     
 }
 
+//-(void)viewDidLayoutSubviews
+//{
+//    [super viewDidLayoutSubviews];
+//    [self configTasks];
+//    [self.tableView reloadData];
+//}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self configTasks];
+    if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+        [self configProcessingTasks];
+
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 1)
+    {
+        [self configFinishedTasks];
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 2)
+    {
+        [self configNotyetTasks];
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
+    {
+        [self configGiveupTasks];
+    }
     [self.tableView reloadData];
 
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+    
+}
+
 
 #pragma mark TEACHING page
 -(void) showScrollView{
@@ -170,7 +206,7 @@
 
 #pragma mark task configuration
 
--(void)configTasks
+-(void)configProcessingTasks
 {
     
     if (self.processingTasks.count > 0) {
@@ -185,7 +221,7 @@
         NSLog(@"Could not open db.");
         return;
     }
-    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER)";
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER,isGiveup INTEGER)";
     NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
     
     [db executeUpdate:createGoalTable];
@@ -208,9 +244,11 @@
     NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
     
     
-    FMResultSet *rs = [db executeQuery:@"select goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder from GOALSINFO where isFinished = ? AND startTime <= ?", [NSNumber numberWithInt:0],timeNow];
+    FMResultSet *rs = [db executeQuery:@"select goalID,goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote from GOALSINFO where isFinished = ? AND startTime <= ? AND isGiveup = ?", [NSNumber numberWithInt:0],timeNow,[NSNumber numberWithInt:0]];
     while ([rs next]) {
         GoalObj *oneGoal = [[GoalObj alloc] init];
+        
+        oneGoal.goalID = [NSNumber numberWithInt: [rs intForColumn:@"goalID"]];
 
         oneGoal.goalName = [rs stringForColumn:@"goalName"];
         oneGoal.startTime = [rs stringForColumn:@"startTime"];
@@ -221,6 +259,8 @@
         oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
         oneGoal.lastUpdateTime = [rs stringForColumn:@"lastUpdateTime"];
         oneGoal.reminder = [rs stringForColumn:@"reminder"];
+        oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
+
         
         [self.processingTasks addObject:oneGoal];
 
@@ -228,7 +268,186 @@
 
     [db close];
     
-//    self.processingTasks = [NSMutableArray arrayWithArray:@[@"1",@"2",@"3",@"4",@"5"]];
+}
+
+-(void)configFinishedTasks
+{
+    
+    if (self.finishedTasks.count > 0) {
+        [self.finishedTasks removeAllObjects];
+    }
+    
+    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER,isGiveup INTEGER)";
+    NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
+    
+    [db executeUpdate:createGoalTable];
+    [db executeUpdate:createUrgentTable];
+    
+    
+    NSLog(@"db path:%@",dbPath);
+    
+    
+    // time now...
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+    
+    
+    FMResultSet *rs = [db executeQuery:@"select goalID,goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote from GOALSINFO where isFinished = ? AND startTime <= ? AND isGiveup = ?", [NSNumber numberWithInt:1],timeNow, [NSNumber numberWithInt:0]];
+    while ([rs next]) {
+        GoalObj *oneGoal = [[GoalObj alloc] init];
+        
+        oneGoal.goalID = [NSNumber numberWithInt: [rs intForColumn:@"goalID"]];
+        
+        oneGoal.goalName = [rs stringForColumn:@"goalName"];
+        oneGoal.startTime = [rs stringForColumn:@"startTime"];
+        oneGoal.endTime = [rs stringForColumn:@"endTime"];
+        
+        oneGoal.amount = [NSNumber numberWithInt: [rs intForColumn:@"amount"]];
+        
+        oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
+        oneGoal.lastUpdateTime = [rs stringForColumn:@"lastUpdateTime"];
+        oneGoal.reminder = [rs stringForColumn:@"reminder"];
+        oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
+
+        [self.finishedTasks addObject:oneGoal];
+        
+    }
+    
+    [db close];
+    
+}
+
+-(void)configNotyetTasks
+{
+    
+    if (self.notyetTasks.count > 0) {
+        [self.notyetTasks removeAllObjects];
+    }
+    
+    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER,isGiveup INTEGER)";
+    NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
+    
+    [db executeUpdate:createGoalTable];
+    [db executeUpdate:createUrgentTable];
+    
+    
+    NSLog(@"db path:%@",dbPath);
+    
+    
+    // time now...
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+    
+    
+    FMResultSet *rs = [db executeQuery:@"select goalID,goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote from GOALSINFO where startTime > ? AND isGiveup = ?",timeNow,[NSNumber numberWithInt:0]];
+    while ([rs next]) {
+        GoalObj *oneGoal = [[GoalObj alloc] init];
+        
+        oneGoal.goalID = [NSNumber numberWithInt: [rs intForColumn:@"goalID"]];
+        
+        oneGoal.goalName = [rs stringForColumn:@"goalName"];
+        oneGoal.startTime = [rs stringForColumn:@"startTime"];
+        oneGoal.endTime = [rs stringForColumn:@"endTime"];
+        
+        oneGoal.amount = [NSNumber numberWithInt: [rs intForColumn:@"amount"]];
+        
+        oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
+        oneGoal.lastUpdateTime = [rs stringForColumn:@"lastUpdateTime"];
+        oneGoal.reminder = [rs stringForColumn:@"reminder"];
+        oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
+
+        [self.notyetTasks addObject:oneGoal];
+        
+    }
+    
+    [db close];
+    
+}
+
+
+-(void)configGiveupTasks
+{
+    
+    if (self.giveupTasks.count > 0) {
+        [self.giveupTasks removeAllObjects];
+    }
+    
+    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER,isGiveup INTEGER)";
+    NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
+    
+    [db executeUpdate:createGoalTable];
+    [db executeUpdate:createUrgentTable];
+    
+    
+    NSLog(@"db path:%@",dbPath);
+    
+    
+
+    
+    
+    FMResultSet *rs = [db executeQuery:@"select goalID,goalName,startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote from GOALSINFO where isGiveup = ?",[NSNumber numberWithInt:1]];
+    while ([rs next]) {
+        GoalObj *oneGoal = [[GoalObj alloc] init];
+        
+        oneGoal.goalID = [NSNumber numberWithInt: [rs intForColumn:@"goalID"]];
+        
+        oneGoal.goalName = [rs stringForColumn:@"goalName"];
+        oneGoal.startTime = [rs stringForColumn:@"startTime"];
+        oneGoal.endTime = [rs stringForColumn:@"endTime"];
+        
+        oneGoal.amount = [NSNumber numberWithInt: [rs intForColumn:@"amount"]];
+        
+        oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
+        oneGoal.lastUpdateTime = [rs stringForColumn:@"lastUpdateTime"];
+        oneGoal.reminder = [rs stringForColumn:@"reminder"];
+        oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
+
+        [self.giveupTasks addObject:oneGoal];
+        
+    }
+    
+    [db close];
+    
 }
 
 -(void)updateDataForTable:(NSString *)tableName setColomn:(NSString *)toColomn toData:(id)dstData whereColomn:(NSString *)strColomn isData:(id)strData
@@ -237,14 +456,32 @@
         NSLog(@"Could not open db.");
         return;
     }
+    NSString *sqlCommand = [NSString stringWithFormat:@"update %@ set %@=%@ where %@=%@",tableName,toColomn,dstData,strColomn,strData];
     
-    BOOL sql = [db executeUpdate:@"update ? set ? = ? where ? = ?" ,tableName,toColomn,dstData,strColomn,strData];
+    BOOL sql = [db executeUpdate:sqlCommand];
     if (!sql) {
         NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
     }
     [db close];
 
 }
+
+-(void)deleteDataForTable:(NSString *)tableName whereColomn:(NSString *)strColomn isData:(id)strData
+{
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *sqlCommand = [NSString stringWithFormat:@"DELETE FROM %@ WHERE %@=%@",tableName,strColomn,strData];
+    
+    BOOL sql = [db executeUpdate:sqlCommand];
+    if (!sql) {
+        NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+    }
+    [db close];
+    
+}
+
 
 -(int)checkGoalStatus:(GoalObj *)goal
 {
@@ -299,6 +536,8 @@
     
 }
 
+
+
 #pragma mark tableview delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -306,7 +545,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.processingTasks count];
+    
+    NSInteger rows = 0;
+    if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+        rows = [self.processingTasks count];
+    }else if (self.goalTypeSegment.selectedSegmentIndex == 1) {
+        rows = [self.finishedTasks count];
+    }else if (self.goalTypeSegment.selectedSegmentIndex == 2) {
+        rows = [self.notyetTasks count];
+    }else if (self.goalTypeSegment.selectedSegmentIndex == 3) {
+        rows = [self.giveupTasks count];
+    }
+ 
+    return rows;
+
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
@@ -321,12 +573,39 @@
         return [self prepareCellForSegFirst:indexPath];
     }
     
+}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.goalTypeSegment.selectedSegmentIndex == 1 || self.goalTypeSegment.selectedSegmentIndex == 3) {
+        return;
+    }
+
+    
+    
+    GoalObj *goal;
+    addGoalViewController *addNewGoal = [[addGoalViewController alloc] initWithNibName:@"addGoalViewController" bundle:nil];
+    
+    addNewGoal.isNewGoal = false;
+    
+    if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+        goal = self.processingTasks[indexPath.row];
+    }else if (self.goalTypeSegment.selectedSegmentIndex == 2)
+    {
+        goal = self.notyetTasks[indexPath.row];
+    }
+    
+    addNewGoal.editingGoal = goal;
+
+    
+    [self setupTransitioningDelegate];
+    
+    [self.navigationController pushViewController:addNewGoal animated:YES];
 }
 
 -(UITableViewCell *)prepareCellForSegZero:(NSIndexPath*)indexPath
 {
-    static NSString *cellIdentifier = @"MyCustomCell";
+    NSString *cellIdentifier = @"MyCustomCell";
 
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                                                                 forIndexPath:indexPath];
@@ -342,6 +621,11 @@
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
     [cell.pieView setHidden:NO];
+    [cell.statusShow setHidden:NO];
+    [cell.reminderShow setHidden:NO];
+    [cell.timeLabel setHidden:YES];
+    [cell.timeSpecific setHidden:YES];
+    
 
     NSMutableArray *GoalProcessNumbers = [NSMutableArray array];
     [GoalProcessNumbers addObject:goal.amount_DONE];
@@ -372,6 +656,26 @@
 
     cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
     
+    int goalUrgent = [self checkGoalStatus:goal];
+    switch (goalUrgent) {
+        case 1:
+            [cell.statusShow setImage:[UIImage imageNamed:@"1.png"]];
+            break;
+        case 2:
+            [cell.statusShow setImage:[UIImage imageNamed:@"2.png"]];
+            break;
+        case 3:
+            
+            [cell.statusShow setImage:[UIImage imageNamed:@"0.png"]];
+            break;
+            
+        default:
+            break;
+    }
+
+    NSLog(@"goal.reminder :%@",goal.reminder );
+    [goal.reminder isEqualToString:@""]?[cell.reminderShow setImage:[UIImage imageNamed:@"3"]]:[cell.reminderShow setImage:[UIImage imageNamed:@"1"]];
+    
     
     
     return cell;
@@ -381,28 +685,96 @@
 
 -(UITableViewCell *)prepareCellForSegFirst:(NSIndexPath*)indexPath
 {
-    static NSString *cellIdentifier = @"MyCustomCell";
+    NSString *cellIdentifier = @"MyCustomCell";
     
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                                                                 forIndexPath:indexPath];
     
-    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:80.0f];
-    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:80.0f];
     cell.delegate = self;
     [cell setupUI];
+
+    [cell setLeftUtilityButtons:nil WithButtonWidth:80.0f];
+
     
-    GoalObj *goal = self.processingTasks[indexPath.row];
+    GoalObj *goal ;
+
+    if(self.goalTypeSegment.selectedSegmentIndex ==1)
+    {
+        [cell setRightUtilityButtons:[self oneRightButtons] WithButtonWidth:80.0f];
+
+        goal = self.finishedTasks[indexPath.row];
+        cell.timeLabel.text = @"完成时间";
+        cell.timeSpecific.text = goal.lastUpdateTime;
+    }else if(self.goalTypeSegment.selectedSegmentIndex ==2)
+    {
+        [cell setRightUtilityButtons:[self oneRightButtons] WithButtonWidth:80.0f];
+
+        goal = self.notyetTasks[indexPath.row];
+
+        cell.timeLabel.text = @"开始时间";
+        cell.timeSpecific.text = goal.startTime;
+        
+    }else if(self.goalTypeSegment.selectedSegmentIndex ==3)
+    {
+        [cell setRightUtilityButtons:[self twoRightButtons] WithButtonWidth:80.0f];
+
+        goal = self.giveupTasks[indexPath.row];
+
+        cell.timeLabel.text = @"放弃时间";
+        cell.timeSpecific.text = goal.lastUpdateTime;
+        
+    }
+    
+    [cell.timeLabel setHidden:NO];
+    [cell.timeSpecific setHidden:NO];
+    
     cell.GoalName.text = goal.goalName;
+    [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
+    [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+    [cell.pieView setHidden:NO];
+    [cell.reminderShow setHidden:YES];
+    [cell.statusShow setHidden:YES];
+    
+    //add finish time
+    
+    
     
 
-    [cell.pieView setHidden:YES];
-//    
+    
+    NSMutableArray *GoalProcessNumbers = [NSMutableArray array];
+    [GoalProcessNumbers addObject:goal.amount_DONE];
+    [GoalProcessNumbers addObject:[NSNumber numberWithInt:([goal.amount intValue] - [goal.amount_DONE intValue] )]];
+    
+    int goalStatus = [self checkProcess:goal];
+    switch (goalStatus) {
+        case 1:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            break;
+        case 2:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
+            
+            break;
+        case 3:
+            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
+
     
     
     return cell;
     
-}
 
+    
+}
 
 - (NSArray *)rightButtons
 {
@@ -410,6 +782,29 @@
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
                                                 title:@"放弃"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"删除"];
+    
+    return rightUtilityButtons;
+}
+- (NSArray *)twoRightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+                                                title:@"恢复"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"删除"];
+    
+    return rightUtilityButtons;
+}
+- (NSArray *)oneRightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor clearColor]
+                                                title:@""];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
                                                 title:@"删除"];
@@ -457,7 +852,7 @@
     }
 }
 
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
+- (void)swipeableTableViewCell:(MyCustomTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
 {
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
     GoalObj *goal = self.processingTasks[cellIndexPath.row];
@@ -467,13 +862,32 @@
             NSLog(@"+ was pressed");
             
             goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] + 1)];
+            [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+            [self updateDataForTable:@"GOALSINFO" setColomn:@"amount_DONE" toData:goal.amount_DONE whereColomn:@"goalID" isData:goal.goalID];
 
             [cell hideUtilityButtonsAnimated:YES];
+            if ([goal.amount_DONE intValue]==[goal.amount intValue]) {
+                [self updateDataForTable:@"GOALSINFO" setColomn:@"isFinished" toData:[NSNumber numberWithInt:1] whereColomn:@"goalID" isData:goal.goalID];
+                UIAlertView *fullAlert = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"您已成功完成目标，该目标将自动移入已完成列表。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                fullAlert.tag = 0;
+                [fullAlert show];
+          
+            }
+
+            
 
             break;
         case 1:
-            NSLog(@"left button 1 was pressed");
+            NSLog(@"- was pressed");
+            if ([goal.amount_DONE intValue] > 0) {
+
+                goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] - 1)];
+                [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+                [self updateDataForTable:@"GOALSINFO" setColomn:@"amount_DONE" toData:goal.amount_DONE whereColomn:@"goalID" isData:goal.goalID];
+            }
             [cell hideUtilityButtonsAnimated:YES];
+            
+    
 
             break;
         case 2:
@@ -484,27 +898,83 @@
         default:
             break;
     }
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set last update time.
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+
+    [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeNow whereColomn:@"goalID" isData:goal.goalID];
+
 }
 
-- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+- (void)swipeableTableViewCell:(MyCustomTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
 {
+    
     switch (index) {
         case 0:
         {
-            NSLog(@"More button was pressed");
-            UIAlertView *alertTest = [[UIAlertView alloc] initWithTitle:@"Hello" message:@"More more more" delegate:nil cancelButtonTitle:@"cancel" otherButtonTitles: nil];
-            [alertTest show];
             
-            [cell hideUtilityButtonsAnimated:YES];
+            NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+            
+
+            
+            if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+                NSLog(@"giveup button was pressed");
+                
+                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认放弃该目标?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"放弃", nil];
+                deleteAlert.tag = 2;
+                [deleteAlert show];
+                
+                self.giveupCellIndexPath = cellIndexPath;
+                
+                [cell hideUtilityButtonsAnimated:YES];
+
+                
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 1)
+            {
+                NSLog(@"clear button was pressed");
+
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 2)
+            {
+                NSLog(@"clear button was pressed");
+
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
+            {
+                NSLog(@"recover button was pressed");
+                
+                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认重拾该目标?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                deleteAlert.tag = 3;
+                [deleteAlert show];
+                
+                self.recoverCellIndexPath = cellIndexPath;
+                
+                [cell hideUtilityButtonsAnimated:YES];
+                
+
+            }
             break;
         }
         case 1:
         {
             // Delete button was pressed
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+
+
+            UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认删除该项?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+            deleteAlert.tag = 1;
+            [deleteAlert show];
             
-            [self.processingTasks removeObjectAtIndex:cellIndexPath.row];
-            [self.tableView deleteRowsAtIndexPaths:@[cellIndexPath] withRowAnimation:UITableViewRowAnimationLeft];
+            self.deletingCellIndexPath = cellIndexPath;
+            
             break;
         }
         default:
@@ -525,18 +995,23 @@
     
             case 0:
             NSLog(@"segment 0");
+            [self configProcessingTasks];
+
             break;
             
             case 1:
             NSLog(@"segment 1");
+            [self configFinishedTasks];
             break;
             
             case 2:
             NSLog(@"segment 2");
+            [self configNotyetTasks];
             break;
             
             case 3:
             NSLog(@"segment 3");
+            [self configGiveupTasks];
             break;
             
     }
@@ -570,5 +1045,89 @@
     self.navigationController.delegate = self.atcTD;
 
     
+}
+
+#pragma mark alertView delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag == 0){ //move to finish list
+        if (buttonIndex == 0) {
+            [self configProcessingTasks];
+            [self.tableView reloadData];
+        }
+    }else if(alertView.tag == 1) //be sure to delete
+    {
+        if (buttonIndex == 1) {
+            
+            if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+                
+                GoalObj *goal = self.processingTasks[self.deletingCellIndexPath.row];
+                [self deleteDataForTable:@"GOALSINFO" whereColomn:@"goalID" isData:goal.goalID];
+
+    
+                [self.processingTasks removeObjectAtIndex:self.deletingCellIndexPath.row];
+                
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 1)
+            {
+                GoalObj *goal = self.finishedTasks[self.deletingCellIndexPath.row];
+                [self deleteDataForTable:@"GOALSINFO" whereColomn:@"goalID" isData:goal.goalID];
+                
+                
+                [self.finishedTasks removeObjectAtIndex:self.deletingCellIndexPath.row];
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 2)
+            {
+                GoalObj *goal = self.notyetTasks[self.deletingCellIndexPath.row];
+                [self deleteDataForTable:@"GOALSINFO" whereColomn:@"goalID" isData:goal.goalID];
+                
+                
+                [self.notyetTasks removeObjectAtIndex:self.deletingCellIndexPath.row];
+            }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
+            {
+                GoalObj *goal = self.giveupTasks[self.deletingCellIndexPath.row];
+                [self deleteDataForTable:@"GOALSINFO" whereColomn:@"goalID" isData:goal.goalID];
+                
+                
+                [self.giveupTasks removeObjectAtIndex:self.deletingCellIndexPath.row];
+            }
+            
+            [self.tableView deleteRowsAtIndexPaths:@[self.deletingCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+
+
+        }
+    }else if(alertView.tag == 2)//be sure to give up
+    {
+        if (buttonIndex == 1) {
+            
+            
+            GoalObj *goal = self.processingTasks[self.giveupCellIndexPath.row];
+            
+            [self updateDataForTable:@"GOALSINFO" setColomn:@"isGiveup" toData:[NSNumber numberWithInt:1] whereColomn:@"goalID" isData:goal.goalID];
+            
+            
+            [self.processingTasks removeObjectAtIndex:self.giveupCellIndexPath.row];
+            
+            
+            [self.tableView deleteRowsAtIndexPaths:@[self.giveupCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            
+        }
+    }else if(alertView.tag == 3)//be sure to recover
+    {
+        if (buttonIndex == 1) {
+            
+            
+            GoalObj *goal = self.giveupTasks[self.recoverCellIndexPath.row];
+            
+            [self updateDataForTable:@"GOALSINFO" setColomn:@"isGiveup" toData:[NSNumber numberWithInt:0] whereColomn:@"goalID" isData:goal.goalID];
+            
+            
+            [self.giveupTasks removeObjectAtIndex:self.giveupCellIndexPath.row];
+            
+            
+            [self.tableView deleteRowsAtIndexPaths:@[self.giveupCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            
+        }
+    }
 }
 @end

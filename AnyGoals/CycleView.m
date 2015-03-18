@@ -14,7 +14,7 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    CGRect borderRect = CGRectInset(rect, 2, 2);
+    CGRect borderRect = CGRectInset(rect, 1, 1);
 
 // CGRect borderRect = CGRectMake(0.0, 0.0, self.frame.size.width-3, self.frame.size.width-3);
  CGContextRef context = UIGraphicsGetCurrentContext();
