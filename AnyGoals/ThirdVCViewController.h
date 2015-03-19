@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PieView.h"
+#import "VBPieChart.h"
 
 @interface ThirdVCViewController : UIViewController
-@property (strong, nonatomic) PieView *pie;
+
+@property (strong, nonatomic) VBPieChart *pie;
+@property (weak, nonatomic) IBOutlet VBPieChart *downPie;
 
 @end

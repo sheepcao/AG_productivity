@@ -10,6 +10,7 @@
 #import "globalVar.h"
 
 @interface ThirdVCViewController ()
+@property (nonatomic, strong) NSArray *chartValues;
 
 @end
 
@@ -20,19 +21,37 @@
     // Do any additional setup after loading the view.
     //total Pie
 
+    if (!self.pie) {
+        self.pie = [[VBPieChart alloc] init];
+        [self.view addSubview:self.pie];
+    }
+    [self.pie setFrame:CGRectMake(10, 50, 300, 300)];
+    [self.pie setEnableStrokeColor:NO];
+    [self.pie setHoleRadiusPrecent:0.8];
     
-    self.pie = [[PieView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-50, SCREEN_HEIGHT/2-50, 100, 100)];
+    [self.pie.layer setShadowOffset:CGSizeMake(2, 2)];
+    [self.pie.layer setShadowRadius:3];
+    [self.pie.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.pie.layer setShadowOpacity:0.7];
     
-    NSMutableArray *totalProcessNumbers = [NSMutableArray array];
-    [totalProcessNumbers addObject:[NSNumber numberWithInt:2]];
-    [totalProcessNumbers addObject:[NSNumber numberWithInt:3]];
     
-    self.pie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor blueColor],[UIColor redColor]]];
+    [self.pie setHoleRadiusPrecent:0.9];
+    //    [_chart setShowLabels:YES];
     
-    self.pie.sliceValues = totalProcessNumbers;//must set sliceValue at the last step..
+    self.chartValues = @[
+                         @{@"name":@"first", @"value":@20, @"color":[UIColor blueColor]},
+                         @{@"name":@"second", @"value":@20, @"color":[UIColor redColor]},
+
+                         ];
     
-    [self.view addSubview:self.pie];
+    [self.pie setChartValues:_chartValues animation:YES options:VBPieChartAnimationFanAll];
     
+    
+    [self.downPie setEnableStrokeColor:NO];
+    [self.downPie setHoleRadiusPrecent:0.8];
+    
+    [self.downPie setChartValues:_chartValues animation:YES options:VBPieChartAnimationFanAll];
+
 }
 
 - (void)didReceiveMemoryWarning {

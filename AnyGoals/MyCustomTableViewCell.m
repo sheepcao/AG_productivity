@@ -8,15 +8,19 @@
 
 #import "MyCustomTableViewCell.h"
 
+
 @implementation MyCustomTableViewCell
 
 -(void)setupUI
 {
     if (self) {
         self.goalStatus.textAlignment = NSTextAlignmentCenter;
+
+        
     }
 
 }
+
 
 
 

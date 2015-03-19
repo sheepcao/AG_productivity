@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41CFF5D1ABB0AC2004326F6 /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
+		A41CFF5E1ABB0AC2004326F6 /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
+		A41CFF5F1ABB0AC2004326F6 /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A41EA5911AB12E9500356BAF /* addGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA58F1AB12E9500356BAF /* addGoalViewController.m */; };
 		A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41EA5901AB12E9500356BAF /* addGoalViewController.xib */; };
 		A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */; };
@@ -37,6 +40,14 @@
 		A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
 		A4C327541AB0279E0062114E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
+		A4D57ACD1ABB1ABB0051BF92 /* 按键右中-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */; };
+		A4D57ACE1ABB1ABB0051BF92 /* 按键右中.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */; };
+		A4D57ACF1ABB1ABB0051BF92 /* 按键右右-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */; };
+		A4D57AD01ABB1ABB0051BF92 /* 按键右右.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */; };
+		A4D57AD11ABB1ABB0051BF92 /* 按键左中-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */; };
+		A4D57AD21ABB1ABB0051BF92 /* 按键左中.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */; };
+		A4D57AD31ABB1ABB0051BF92 /* 按键左左-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */; };
+		A4D57AD41ABB1ABB0051BF92 /* 按键左左.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */; };
 		A4E2AC961ABB00EB00F06199 /* ThirdVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -63,6 +74,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A41CFF571ABB0AC2004326F6 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
+		A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColor.m"; sourceTree = "<group>"; };
+		A41CFF591ABB0AC2004326F6 /* VBPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPieChart.h; sourceTree = "<group>"; };
+		A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPieChart.m; sourceTree = "<group>"; };
+		A41CFF5B1ABB0AC2004326F6 /* VBPiePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBPiePiece.h; sourceTree = "<group>"; };
+		A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPiePiece.m; sourceTree = "<group>"; };
 		A41EA58E1AB12E9500356BAF /* addGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addGoalViewController.h; sourceTree = "<group>"; };
 		A41EA58F1AB12E9500356BAF /* addGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addGoalViewController.m; sourceTree = "<group>"; };
 		A41EA5901AB12E9500356BAF /* addGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addGoalViewController.xib; sourceTree = "<group>"; };
@@ -121,6 +138,14 @@
 		A4C3274E1AB0279E0062114E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		A4C3274F1AB0279E0062114E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		A4C327551AB027CE0062114E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右中-深色.png"; sourceTree = "<group>"; };
+		A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右中.png"; sourceTree = "<group>"; };
+		A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右右-深色.png"; sourceTree = "<group>"; };
+		A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右右.png"; sourceTree = "<group>"; };
+		A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左中-深色.png"; sourceTree = "<group>"; };
+		A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左中.png"; sourceTree = "<group>"; };
+		A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左左-深色.png"; sourceTree = "<group>"; };
+		A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左左.png"; sourceTree = "<group>"; };
 		A4E2AC941ABB00EB00F06199 /* ThirdVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdVCViewController.h; sourceTree = "<group>"; };
 		A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdVCViewController.m; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +269,21 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
+		A4D57AC41ABB1ABB0051BF92 /* 顶部菜单4按键 */ = {
+			isa = PBXGroup;
+			children = (
+				A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */,
+				A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */,
+				A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */,
+				A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */,
+				A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */,
+				A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */,
+				A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */,
+				A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */,
+			);
+			path = "顶部菜单4按键";
+			sourceTree = "<group>";
+		};
 		A4F967DF1AAE813800436FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +306,12 @@
 		A4F967EA1AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXGroup;
 			children = (
+				A41CFF571ABB0AC2004326F6 /* UIColor+HexColor.h */,
+				A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */,
+				A41CFF591ABB0AC2004326F6 /* VBPieChart.h */,
+				A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */,
+				A41CFF5B1ABB0AC2004326F6 /* VBPiePiece.h */,
+				A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */,
 				A43109E11AB2A4D400AF2D80 /* datepicker */,
 				A41EA59C1AB1667100356BAF /* Animation */,
 				A4C327441AB0279E0062114E /* fmdb */,
@@ -300,6 +346,7 @@
 		A4F967EB1AAE813800436FE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A4D57AC41ABB1ABB0051BF92 /* 顶部菜单4按键 */,
 				A41EA5C31AB169E900356BAF /* Prefix.pch */,
 				A4F968141AAEBA7300436FE4 /* teaching image */,
 				A4F967EC1AAE813800436FE4 /* Info.plist */,
@@ -382,7 +429,7 @@
 		A4F967E01AAE813800436FE4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Eric Cao";
 				TargetAttributes = {
 					A4F967E71AAE813800436FE4 = {
@@ -420,14 +467,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
+				A4D57ACF1ABB1ABB0051BF92 /* 按键右右-深色.png in Resources */,
+				A4D57ACE1ABB1ABB0051BF92 /* 按键右中.png in Resources */,
+				A4D57ACD1ABB1ABB0051BF92 /* 按键右中-深色.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
+				A4D57AD21ABB1ABB0051BF92 /* 按键左中.png in Resources */,
 				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
+				A4D57AD11ABB1ABB0051BF92 /* 按键左中-深色.png in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
 				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
+				A4D57AD01ABB1ABB0051BF92 /* 按键右右.png in Resources */,
 				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
+				A4D57AD41ABB1ABB0051BF92 /* 按键左左.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
+				A4D57AD31ABB1ABB0051BF92 /* 按键左左-深色.png in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
 			);
@@ -458,10 +513,12 @@
 				A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */,
 				A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */,
+				A41CFF5F1ABB0AC2004326F6 /* VBPiePiece.m in Sources */,
 				A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */,
 				A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */,
 				A41EA5AA1AB1667100356BAF /* ATCAnimatedTransitioningBounce.m in Sources */,
 				A41EA5AB1AB1667100356BAF /* ATCAnimatedTransitioningFade.m in Sources */,
+				A41CFF5E1ABB0AC2004326F6 /* VBPieChart.m in Sources */,
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
 				A4E2AC961ABB00EB00F06199 /* ThirdVCViewController.m in Sources */,
@@ -475,6 +532,7 @@
 				A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */,
 				A4F967EE1AAE813800436FE4 /* main.m in Sources */,
 				A4C327431AB011390062114E /* CycleView.m in Sources */,
+				A41CFF5D1ABB0AC2004326F6 /* UIColor+HexColor.m in Sources */,
 				A4C327521AB0279E0062114E /* FMDatabasePool.m in Sources */,
 				A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */,
 			);
@@ -552,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -587,7 +645,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -598,7 +656,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -615,7 +672,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;

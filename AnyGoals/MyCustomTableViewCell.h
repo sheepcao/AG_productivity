@@ -15,13 +15,16 @@
 @property (weak, nonatomic) IBOutlet PieView *pieView;
 @property (weak, nonatomic) IBOutlet CycleView *innerCycle;
 @property (weak, nonatomic) IBOutlet UILabel *goalStatus;
-@property (weak, nonatomic) IBOutlet UILabel *totalAmount;
-@property (weak, nonatomic) IBOutlet UILabel *doneAmount;
+@property (strong, nonatomic) IBOutlet UILabel *totalAmount;
+@property (strong, nonatomic) IBOutlet UILabel *doneAmount;
 @property (weak, nonatomic) IBOutlet UIImageView *reminderShow;
 @property (weak, nonatomic) IBOutlet UIImageView *statusShow;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeSpecific;
+//@property (strong,nonatomic)VBPieChart *pie;
+//@property (nonatomic, strong) NSArray *chartValues;
 
 
 -(void)setupUI;
+
 @end

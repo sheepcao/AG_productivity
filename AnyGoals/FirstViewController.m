@@ -1,3 +1,4 @@
+
 //
 //  FirstViewController.m
 //  AnyGoals
@@ -655,7 +656,7 @@
     }
 
     cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
-    
+//
     int goalUrgent = [self checkGoalStatus:goal];
     switch (goalUrgent) {
         case 1:
