@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PieView.h"
+#import "globalVar.h"
+#import "GoalObj.h"
+
 
 @interface SecondViewController : UIViewController
+@property (weak, nonatomic) IBOutlet PieView *PiesView;
+@property (weak, nonatomic) IBOutlet PieView *totalPie;
+@property (weak, nonatomic) IBOutlet PieView *finishPie;
+@property (weak, nonatomic) IBOutlet PieView *urgentPie;
+@property (weak, nonatomic) IBOutlet PieView *weeklyPie;
+@property (weak, nonatomic) IBOutlet PieView *monthlyPie;
 
 
+@property (strong, nonatomic) NSMutableArray *allGoals;
 @end
 

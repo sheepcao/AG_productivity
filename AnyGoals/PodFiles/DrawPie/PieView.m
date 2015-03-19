@@ -10,7 +10,7 @@
 #import "PieSliceLayer.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define DEG2RAD(angle) angle*M_PI/180.0
+#define DEG2RAD(angle) (angle)*M_PI/180.0
 
 
 @interface PieView() {
@@ -30,9 +30,10 @@
 @synthesize colorArray =_colorArray;
 
 -(void)doInitialSetup {
-	_containerLayer = [CALayer layer];
-	[self.layer addSublayer:_containerLayer];
+
     
+    _containerLayer = [CALayer layer];
+    [self.layer addSublayer:_containerLayer];
     _colorArray = [NSMutableArray arrayWithCapacity:2];
 }
 
@@ -64,6 +65,8 @@
 }
 
 -(void)setSliceValues:(NSArray *)sliceValues {
+
+    
 	_sliceValues = sliceValues;
 	
 	_normalizedValues = [NSMutableArray array];
@@ -135,7 +138,7 @@
 	
 	CGPoint offset = CGPointMake((self.bounds.size.width-150)/2, (self.bounds.size.height-150.0)/2);
 	circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(offset.x, offset.y, 150.0, 150.0)].CGPath;
-	circleLayer.fillColor = [UIColor colorWithWhite:0.25 alpha:1.0].CGColor;
+//	circleLayer.fillColor = [UIColor colorWithWhite:0.25 alpha:1.0].CGColor;
 //	circleLayer.shadowOffset = CGSizeMake(-2.0, -2.0);
 //	circleLayer.shadowColor = [UIColor blackColor].CGColor;
 //	circleLayer.shadowRadius = 4.0;
@@ -163,20 +166,21 @@
 -(void)updateSlices {
 	
 	_containerLayer.frame = self.bounds;
+    NSLog(@"bounds:%f",self.bounds.size.width);
 	
 	// Adjust number of slices
 	if (_normalizedValues.count > _containerLayer.sublayers.count) {
 		
 		NSInteger count = _normalizedValues.count - _containerLayer.sublayers.count;
 		for (int i = 0; i < count; i++) {
-			PieSliceLayer *slice = [PieSliceLayer layer];
-			slice.strokeColor = [UIColor colorWithWhite:0.25 alpha:1.0];
+            PieSliceLayer *slice = [[PieSliceLayer alloc] initWithLayer:self.layer];
+//			slice.strokeColor = [UIColor colorWithWhite:0.25 alpha:1.0];
 			slice.strokeWidth = 0.0f;
 			slice.frame = self.bounds;
-			
+            NSLog(@"bounds2:%f",self.bounds.size.width);
+
 			[_containerLayer addSublayer:slice];
-            NSLog(@"width:%f",slice.strokeWidth);
-            NSLog(@"color:%@",slice.strokeColor);
+
 
 		}
 	}
@@ -202,7 +206,7 @@
             slice.fillColor = _colorArray[index];
         }else
         {
-            slice.fillColor = [UIColor colorWithHue:index/count saturation:0.5 brightness:0.75 alpha:1.0];
+            slice.fillColor = [UIColor colorWithHue:index/count saturation:0.8 brightness:0.25 alpha:1.0];
 
         }
 		slice.startAngle = startAngle;
@@ -212,6 +216,6 @@
 		index++;
 	}
     
-    NSLog(@"frame:%@",_containerLayer);
+    NSLog(@"frame:%f",_containerLayer.frame.size.width);
 }
 @end

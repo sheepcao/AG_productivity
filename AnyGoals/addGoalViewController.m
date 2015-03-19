@@ -215,17 +215,7 @@
     }
 }
 
--(void)initDB
-{
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
-    db = [FMDatabase databaseWithPath:dbPath];
-    
-    if (![db open]) {
-        NSLog(@"Could not open db.");
-        return;
-    }
-}
+
 
 #pragma mark switch action
 -(void)switchAction:(id)sender

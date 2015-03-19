@@ -73,7 +73,8 @@
 	
 	// Create the path
 	CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-	CGFloat radius = MIN(center.x-2, center.y-2);
+    NSLog(@"center:%f,%f",center.x,center.y);
+	CGFloat radius = MIN(center.x-1, center.y-1);
 	
 	CGContextBeginPath(ctx);
 	CGContextMoveToPoint(ctx, center.x, center.y);

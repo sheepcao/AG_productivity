@@ -20,6 +20,8 @@
 @property (strong , nonatomic) NSString *reminder;
 @property (strong , nonatomic) NSString *reminderNote;
 @property (strong , nonatomic) NSNumber *isFinished;
+@property (strong , nonatomic) NSNumber *isGiveup;
+
 
 
 
