@@ -12,6 +12,7 @@
 
 @interface MyCustomTableViewCell : SWTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *GoalName;
+@property (weak, nonatomic) IBOutlet UILabel *updateTime;
 @property (weak, nonatomic) IBOutlet PieView *pieView;
 @property (weak, nonatomic) IBOutlet CycleView *innerCycle;
 @property (weak, nonatomic) IBOutlet UILabel *goalStatus;

@@ -619,8 +619,10 @@
     GoalObj *goal =self.processingTasks[indexPath.row];
     
     cell.GoalName.text = goal.goalName;
+    cell.updateTime.text = goal.lastUpdateTime;
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+    [cell.updateTime setHidden:NO];
     [cell.pieView setHidden:NO];
     [cell.statusShow setHidden:NO];
     [cell.reminderShow setHidden:NO];
@@ -725,11 +727,14 @@
         cell.timeSpecific.text = goal.lastUpdateTime;
         
     }
-    
+    [cell.updateTime setHidden:YES];
+
     [cell.timeLabel setHidden:NO];
     [cell.timeSpecific setHidden:NO];
     
     cell.GoalName.text = goal.goalName;
+    cell.updateTime.text = goal.lastUpdateTime;
+
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
     [cell.pieView setHidden:NO];
@@ -865,6 +870,7 @@
             goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] + 1)];
             [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
             [self updateDataForTable:@"GOALSINFO" setColomn:@"amount_DONE" toData:goal.amount_DONE whereColomn:@"goalID" isData:goal.goalID];
+            
 
             [cell hideUtilityButtonsAnimated:YES];
             if ([goal.amount_DONE intValue]==[goal.amount intValue]) {
@@ -899,7 +905,6 @@
         default:
             break;
     }
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
     
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -912,8 +917,17 @@
     NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
     [dateFormat setLocale:locale];
     NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+    NSString *timeconvert = [NSString stringWithFormat:@"'%@'",timeNow];
 
-    [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeNow whereColomn:@"goalID" isData:goal.goalID];
+    [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeconvert whereColomn:@"goalID" isData:goal.goalID];
+    [self configProcessingTasks];
+    
+    if ([goal.amount_DONE intValue]<[goal.amount intValue]) {
+
+    
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:cellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+
 
 }
 
@@ -1110,6 +1124,19 @@
             
             [self.tableView deleteRowsAtIndexPaths:@[self.giveupCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+            NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+            NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+            NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+            NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+            [dateFormat setLocale:locale];
+            NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+            NSString *timeconvert = [NSString stringWithFormat:@"'%@'",timeNow];
+            
+            [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeconvert whereColomn:@"goalID" isData:goal.goalID];
+
+            
             
         }
     }else if(alertView.tag == 3)//be sure to recover
@@ -1127,7 +1154,17 @@
             
             [self.tableView deleteRowsAtIndexPaths:@[self.giveupCellIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+            NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+            NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+            NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+            NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+            [dateFormat setLocale:locale];
+            NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
+            NSString *timeconvert = [NSString stringWithFormat:@"'%@'",timeNow];
             
+            [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeconvert whereColomn:@"goalID" isData:goal.goalID];
         }
     }
 }

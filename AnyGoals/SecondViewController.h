@@ -25,10 +25,17 @@
 
 @property (strong, nonatomic)  VBPieChart *totalPie;
 @property (strong, nonatomic)  VBPieChart *finishPie;
-
 @property (strong, nonatomic)  VBPieChart *urgentPie;
 @property (strong, nonatomic)  VBPieChart *weeklyPie;
 @property (strong, nonatomic)  VBPieChart *monthlyPie;
+
+
+@property (strong, nonatomic) UILabel *totalPieLabel;
+@property (strong, nonatomic) UILabel *finishPieLabel;
+@property (strong, nonatomic) UILabel *urgentPieLabel;
+@property (strong, nonatomic) UILabel *weeklyPieLabel;
+@property (strong, nonatomic) UILabel *monthlyPieLabel;
+
 
 @property (strong, nonatomic) NSMutableArray *allGoals;
 @end

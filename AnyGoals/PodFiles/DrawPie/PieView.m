@@ -216,6 +216,5 @@
 		index++;
 	}
     
-    NSLog(@"frame:%f",_containerLayer.frame.size.width);
 }
 @end

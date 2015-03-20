@@ -40,14 +40,6 @@
 		A4C327531AB0279E0062114E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
 		A4C327541AB0279E0062114E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
-		A4D57ACD1ABB1ABB0051BF92 /* 按键右中-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */; };
-		A4D57ACE1ABB1ABB0051BF92 /* 按键右中.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */; };
-		A4D57ACF1ABB1ABB0051BF92 /* 按键右右-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */; };
-		A4D57AD01ABB1ABB0051BF92 /* 按键右右.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */; };
-		A4D57AD11ABB1ABB0051BF92 /* 按键左中-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */; };
-		A4D57AD21ABB1ABB0051BF92 /* 按键左中.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */; };
-		A4D57AD31ABB1ABB0051BF92 /* 按键左左-深色.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */; };
-		A4D57AD41ABB1ABB0051BF92 /* 按键左左.png in Resources */ = {isa = PBXBuildFile; fileRef = A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */; };
 		A4E2AC961ABB00EB00F06199 /* ThirdVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -138,14 +130,6 @@
 		A4C3274E1AB0279E0062114E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		A4C3274F1AB0279E0062114E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		A4C327551AB027CE0062114E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右中-深色.png"; sourceTree = "<group>"; };
-		A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右中.png"; sourceTree = "<group>"; };
-		A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右右-深色.png"; sourceTree = "<group>"; };
-		A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键右右.png"; sourceTree = "<group>"; };
-		A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左中-深色.png"; sourceTree = "<group>"; };
-		A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左中.png"; sourceTree = "<group>"; };
-		A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左左-深色.png"; sourceTree = "<group>"; };
-		A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "按键左左.png"; sourceTree = "<group>"; };
 		A4E2AC941ABB00EB00F06199 /* ThirdVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdVCViewController.h; sourceTree = "<group>"; };
 		A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdVCViewController.m; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,21 +253,6 @@
 			path = fmdb;
 			sourceTree = "<group>";
 		};
-		A4D57AC41ABB1ABB0051BF92 /* 顶部菜单4按键 */ = {
-			isa = PBXGroup;
-			children = (
-				A4D57AC51ABB1ABB0051BF92 /* 按键右中-深色.png */,
-				A4D57AC61ABB1ABB0051BF92 /* 按键右中.png */,
-				A4D57AC71ABB1ABB0051BF92 /* 按键右右-深色.png */,
-				A4D57AC81ABB1ABB0051BF92 /* 按键右右.png */,
-				A4D57AC91ABB1ABB0051BF92 /* 按键左中-深色.png */,
-				A4D57ACA1ABB1ABB0051BF92 /* 按键左中.png */,
-				A4D57ACB1ABB1ABB0051BF92 /* 按键左左-深色.png */,
-				A4D57ACC1ABB1ABB0051BF92 /* 按键左左.png */,
-			);
-			path = "顶部菜单4按键";
-			sourceTree = "<group>";
-		};
 		A4F967DF1AAE813800436FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -346,7 +315,6 @@
 		A4F967EB1AAE813800436FE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A4D57AC41ABB1ABB0051BF92 /* 顶部菜单4按键 */,
 				A41EA5C31AB169E900356BAF /* Prefix.pch */,
 				A4F968141AAEBA7300436FE4 /* teaching image */,
 				A4F967EC1AAE813800436FE4 /* Info.plist */,
@@ -467,22 +435,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
-				A4D57ACF1ABB1ABB0051BF92 /* 按键右右-深色.png in Resources */,
-				A4D57ACE1ABB1ABB0051BF92 /* 按键右中.png in Resources */,
-				A4D57ACD1ABB1ABB0051BF92 /* 按键右中-深色.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
-				A4D57AD21ABB1ABB0051BF92 /* 按键左中.png in Resources */,
 				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
-				A4D57AD11ABB1ABB0051BF92 /* 按键左中-深色.png in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
 				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
-				A4D57AD01ABB1ABB0051BF92 /* 按键右右.png in Resources */,
 				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
-				A4D57AD41ABB1ABB0051BF92 /* 按键左左.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
-				A4D57AD31ABB1ABB0051BF92 /* 按键左左-深色.png in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
 			);

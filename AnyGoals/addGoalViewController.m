@@ -423,6 +423,7 @@
     [reminderError show];
     return false;
 }
+
 - (IBAction)saveGoal:(id)sender {
 
     
@@ -463,6 +464,14 @@
             [db close];
         }else
         {
+            
+            if ([self.editingGoal.amount_DONE intValue]>=[actionTimesField.text intValue]) {
+                [db close];
+                UIAlertView *overAmountAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"您已经完成的行动次数超过了您输入的总行动次数，请修改" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+                [overAmountAlert show];
+                return;
+
+            }
 
             
            BOOL sql = [db executeUpdate:@"update GOALSINFO set goalName = ?, startTime= ?,endTime =?,amount=?,lastUpdateTime=?,reminder=?,reminderNote=?,isFinished=?,isGiveup=? where goalID = ?" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],self.editingGoal.goalID];

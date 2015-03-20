@@ -38,108 +38,144 @@
     [super viewDidAppear:animated];
     
     [self setupPies];
-
+    
     [self initDB];
     
-
     
-    //total Pie
-    NSNumber *totalProcess = [NSNumber numberWithInt: ([self calculateTotalProcess]*100)];
-    NSMutableArray *totalProcessNumbers = [NSMutableArray array];
-    [totalProcessNumbers addObject:totalProcess];
-    [totalProcessNumbers addObject:[NSNumber numberWithInt:(100 - [totalProcess intValue] )]];
-    
-    
-    self.chartValues = @[
-                         @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                         @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
-                         
-                         ];
-    
-    [self.totalPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
-//    
-//    self.totalPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-//    
-//    self.totalPie.sliceValues = totalProcessNumbers;//must set sliceValue at the last step..
-    
-    
-    //finished Pie
-    
-    NSNumber *finishedProcess = [NSNumber numberWithInt:[self calculateFinishedGoal]];
-    NSMutableArray *finishedProcessNumbers = [NSMutableArray array];
-    [finishedProcessNumbers addObject:finishedProcess];
-    [finishedProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [finishedProcess integerValue] )]];
-
-    
-
-    
-//    self.finishPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-//    
-//
-//    
-//    self.finishPie.sliceValues = finishedProcessNumbers;//must set
-//    
-    //urgent Pie
-    
-    self.chartValues = @[
-                         @{@"name":@"first", @"value":finishedProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                         @{@"name":@"second", @"value":finishedProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
-                         
-                         ];
-    
-    [self.finishPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
-    
-    
-    NSNumber *urgentProcess = [NSNumber numberWithInt:[self calculateUrgentGoal]];
-    NSMutableArray *urgentProcessNumbers = [NSMutableArray array];
-    [urgentProcessNumbers addObject:urgentProcess];
-    [urgentProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [urgentProcess integerValue] )]];
-    
-//    self.urgentPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-//    
-//    self.urgentPie.sliceValues = urgentProcessNumbers;//must set
-//
-    
-    self.chartValues = @[
-                         @{@"name":@"first", @"value":urgentProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                         @{@"name":@"second", @"value":urgentProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
-                         
-                         ];
-    
-    [self.urgentPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
-    //weekly Pie
-    
-    NSNumber *weeklyProcess = [NSNumber numberWithInt:[self calculateWeeklyProcess]];
-    NSMutableArray *weeklyProcessNumbers = [NSMutableArray array];
-    [weeklyProcessNumbers addObject:weeklyProcess];
-    [weeklyProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [weeklyProcess integerValue] )]];
-    
-//    self.weeklyPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-//    
-//    self.weeklyPie.sliceValues = weeklyProcessNumbers;//must set
-//
-    
-    self.chartValues = @[
-                         @{@"name":@"first", @"value":weeklyProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                         @{@"name":@"second", @"value":weeklyProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
-                         
-                         ];
-    
-    [self.weeklyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
-    //monthly Pie
-    
-    NSNumber *monthlyProcess = [NSNumber numberWithInt:[self calculateMonthlyProcess]];
-    NSMutableArray *monthlyProcessNumbers = [NSMutableArray array];
-    [monthlyProcessNumbers addObject:monthlyProcess];
-    [monthlyProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [monthlyProcess integerValue] )]];
-    
-    self.chartValues = @[
-                         @{@"name":@"first", @"value":monthlyProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                         @{@"name":@"second", @"value":monthlyProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
-                         
-                         ];
-    
-    [self.monthlyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+    if (self.allGoals.count == 0) {
+        
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":@0, @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":@1, @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.totalPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        [self.finishPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        [self.urgentPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        [self.weeklyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        [self.monthlyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        
+        [self.totalPieLabel setText:[NSString stringWithFormat:@"总体进度:%.1f%%",0.0f]];
+        [self.finishPieLabel setText:[NSString stringWithFormat:@"完成进度:%.1f%%",0.0f]];
+        [self.urgentPieLabel setText:[NSString stringWithFormat:@"紧迫比例:%.1f%%",0.0f]];
+        [self.weeklyPieLabel setText:[NSString stringWithFormat:@"周活跃目标:%.1f%%",0.0f]];
+        [self.monthlyPieLabel setText:[NSString stringWithFormat:@"月活跃目标:%.1f%%",0.0f]];
+        
+    }else
+    {
+        
+        
+        //total Pie
+        NSNumber *totalProcess = [NSNumber numberWithInt: ([self calculateTotalProcess]*100)];
+        NSMutableArray *totalProcessNumbers = [NSMutableArray array];
+        [totalProcessNumbers addObject:totalProcess];
+        [totalProcessNumbers addObject:[NSNumber numberWithInt:(100 - [totalProcess intValue] )]];
+        
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.totalPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        [self.totalPieLabel setText:[NSString stringWithFormat:@"总体进度:%.1f%%",(100 * [totalProcessNumbers[0] doubleValue]/100.0f)]];
+        //
+        //    self.totalPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+        //
+        //    self.totalPie.sliceValues = totalProcessNumbers;//must set sliceValue at the last step..
+        
+        
+        //finished Pie
+        
+        NSNumber *finishedProcess = [NSNumber numberWithInt:[self calculateFinishedGoal]];
+        NSMutableArray *finishedProcessNumbers = [NSMutableArray array];
+        [finishedProcessNumbers addObject:finishedProcess];
+        [finishedProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [finishedProcess integerValue] )]];
+        
+        
+        
+        
+        //urgent Pie
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":finishedProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":finishedProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.finishPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        [self.finishPieLabel setText:[NSString stringWithFormat:@"完成进度:%.1f%%",(100 * [finishedProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        
+        
+        
+        
+        NSNumber *urgentProcess = [NSNumber numberWithInt:[self calculateUrgentGoal]];
+        NSMutableArray *urgentProcessNumbers = [NSMutableArray array];
+        [urgentProcessNumbers addObject:urgentProcess];
+        [urgentProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [urgentProcess integerValue] )]];
+        
+        //    self.urgentPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+        //
+        //    self.urgentPie.sliceValues = urgentProcessNumbers;//must set
+        //
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":urgentProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":urgentProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.urgentPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        [self.urgentPieLabel setText:[NSString stringWithFormat:@"紧迫比例:%.1f%%",(100 * [urgentProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        //weekly Pie
+        
+        NSNumber *weeklyProcess = [NSNumber numberWithInt:[self calculateWeeklyProcess]];
+        NSMutableArray *weeklyProcessNumbers = [NSMutableArray array];
+        [weeklyProcessNumbers addObject:weeklyProcess];
+        [weeklyProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [weeklyProcess integerValue] )]];
+        
+        //    self.weeklyPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+        //
+        //    self.weeklyPie.sliceValues = weeklyProcessNumbers;//must set
+        //
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":weeklyProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":weeklyProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.weeklyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        [self.weeklyPieLabel setText:[NSString stringWithFormat:@"周活跃目标:%.1f%%",(100 * [weeklyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        
+        
+        //monthly Pie
+        
+        
+        NSNumber *monthlyProcess = [NSNumber numberWithInt:[self calculateMonthlyProcess]];
+        NSMutableArray *monthlyProcessNumbers = [NSMutableArray array];
+        [monthlyProcessNumbers addObject:monthlyProcess];
+        [monthlyProcessNumbers addObject:[NSNumber numberWithInteger:(self.allGoals.count - [monthlyProcess integerValue] )]];
+        
+        self.chartValues = @[
+                             @{@"name":@"first", @"value":monthlyProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                             @{@"name":@"second", @"value":monthlyProcessNumbers[1], @"color":[UIColor colorWithRed:190/255.0f green:190/255.0f blue:190/255.0f alpha:1.0f]},
+                             
+                             ];
+        
+        [self.monthlyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+        
+        
+        [self.monthlyPieLabel setText:[NSString stringWithFormat:@"月活跃目标:%.1f%%",(100 * [monthlyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+    }
 //    self.monthlyPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
 //    
 //    self.monthlyPie.sliceValues = monthlyProcessNumbers;//must set
@@ -295,12 +331,21 @@
 
 -(void)setupPies
 {
+    CGFloat offside = 0;
+    CGFloat size_offside = 0;
+    
+    if (IS_IPHONE_4_OR_LESS) {
+        offside = 20;
+        size_offside = 20;
+    }
+    
+    
     if (!self.totalPie) {
         self.totalPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.totalPie];
 
     }
-    [self.totalPie setFrame:CGRectMake(SCREEN_WIDTH/2-pieSize/2, self.PiesView.frame.size.height/2-pieSize/2, pieSize, pieSize)];
+    [self.totalPie setFrame:CGRectMake(SCREEN_WIDTH/2-(pieSize-size_offside)/2, self.PiesView.frame.size.height/2-pieSize/2-20+offside, pieSize-size_offside, pieSize-size_offside)];
     [self.totalPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.totalPie.layer setShadowRadius:1.2];
     [self.totalPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -309,13 +354,22 @@
     [self.totalPie setEnableStrokeColor:YES];
     [self.totalPie setHoleRadiusPrecent:0];
     
+
+    if (!self.totalPieLabel) {
+        self.totalPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.totalPie.frame.origin.x-offside/2, self.totalPie.frame.origin.y+self.totalPie.frame.size.height+3, pieSize, 25)];
+        self.totalPieLabel.textAlignment = NSTextAlignmentCenter;
+        self.totalPieLabel.backgroundColor = [UIColor clearColor];
+        self.totalPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        [self.PiesView addSubview:self.totalPieLabel];
+    }
+    
     
     if (!self.finishPie) {
         self.finishPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.finishPie];
         
     }
-    [self.finishPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y-pieSize-30, pieSize, pieSize)];
+    [self.finishPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y-pieSize-30+size_offside+offside/2, pieSize-size_offside, pieSize-size_offside)];
     [self.finishPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.finishPie.layer setShadowRadius:1.2];
     [self.finishPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -323,13 +377,22 @@
     
     [self.finishPie setEnableStrokeColor:YES];
     [self.finishPie setHoleRadiusPrecent:0];
+    if (!self.finishPieLabel) {
+        self.finishPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.finishPie.frame.origin.x-offside, self.finishPie.frame.origin.y+self.finishPie.frame.size.height+3, pieSize, 25)];
+        self.finishPieLabel.textAlignment = NSTextAlignmentCenter;
+        self.finishPieLabel.backgroundColor = [UIColor clearColor];
+        self.finishPieLabel.font =[UIFont systemFontOfSize:14.0f];
+
+        [self.PiesView addSubview:self.finishPieLabel];
+    }
+    
     
     if (!self.urgentPie) {
         self.urgentPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.urgentPie];
         
     }
-    [self.urgentPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize, self.finishPie.frame.origin.y, pieSize, pieSize)];
+    [self.urgentPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize+offside, self.finishPie.frame.origin.y, pieSize-size_offside, pieSize-size_offside)];
     [self.urgentPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.urgentPie.layer setShadowRadius:1.2];
     [self.urgentPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -337,13 +400,22 @@
     
     [self.urgentPie setEnableStrokeColor:YES];
     [self.urgentPie setHoleRadiusPrecent:0];
+    if (!self.urgentPieLabel) {
+        self.urgentPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.urgentPie.frame.origin.x, self.urgentPie.frame.origin.y+self.urgentPie.frame.size.height+3, pieSize, 25)];
+        self.urgentPieLabel.textAlignment = NSTextAlignmentCenter;
+        self.urgentPieLabel.backgroundColor = [UIColor clearColor];
+        self.urgentPieLabel.font =[UIFont systemFontOfSize:14.0f];
+
+        [self.PiesView addSubview:self.urgentPieLabel];
+    }
+    
     
     if (!self.weeklyPie) {
         self.weeklyPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.weeklyPie];
         
     }
-    [self.weeklyPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y+pieSize+30, pieSize, pieSize)];
+    [self.weeklyPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y+pieSize+30-size_offside-offside, pieSize-size_offside, pieSize-size_offside)];
     [self.weeklyPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.weeklyPie.layer setShadowRadius:1.2];
     [self.weeklyPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -351,6 +423,15 @@
     
     [self.weeklyPie setEnableStrokeColor:YES];
     [self.weeklyPie setHoleRadiusPrecent:0];
+    if (!self.weeklyPieLabel) {
+        self.weeklyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.weeklyPie.frame.origin.x-offside, self.weeklyPie.frame.origin.y+self.weeklyPie.frame.size.height+3, pieSize+10, 25)];
+        self.weeklyPieLabel.textAlignment = NSTextAlignmentCenter;
+        self.weeklyPieLabel.backgroundColor = [UIColor clearColor];
+        self.weeklyPieLabel.font =[UIFont systemFontOfSize:14.0f];
+
+        [self.PiesView addSubview:self.weeklyPieLabel];
+    }
+    
     
     
     if (!self.monthlyPie) {
@@ -358,7 +439,7 @@
         [self.PiesView addSubview:self.monthlyPie];
         
     }
-    [self.monthlyPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize, self.weeklyPie.frame.origin.y, pieSize, pieSize)];
+    [self.monthlyPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize+offside, self.weeklyPie.frame.origin.y, pieSize-size_offside, pieSize-size_offside)];
     [self.monthlyPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.monthlyPie.layer setShadowRadius:1.2];
     [self.monthlyPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -366,7 +447,14 @@
     
     [self.monthlyPie setEnableStrokeColor:YES];
     [self.monthlyPie setHoleRadiusPrecent:0];
-    
+    if (!self.monthlyPieLabel) {
+        self.monthlyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.monthlyPie.frame.origin.x, self.monthlyPie.frame.origin.y+self.monthlyPie.frame.size.height+3, pieSize+10, 25)];
+        self.monthlyPieLabel.textAlignment = NSTextAlignmentCenter;
+        self.monthlyPieLabel.backgroundColor = [UIColor clearColor];
+        self.monthlyPieLabel.font =[UIFont systemFontOfSize:14.0f];
+
+        [self.PiesView addSubview:self.monthlyPieLabel];
+    }
     
     
 }
