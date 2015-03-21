@@ -57,6 +57,8 @@ typedef NS_OPTIONS(NSUInteger, VBPieChartAnimationOptions) {
 // Start angle
 @property (nonatomic) float startAngle;
 
+@property (nonatomic,strong) UIColor *lineColor;
+
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation;
 
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation options:(VBPieChartAnimationOptions)options;

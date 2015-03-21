@@ -12,12 +12,15 @@
 #import "addGoalViewController.h"
 #import "ATCTransitioningDelegate.h"
 #import "GoalObj.h"
+#import "settingViewController.h"
 
 @interface FirstViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
 @property (nonatomic,strong) NSIndexPath *deletingCellIndexPath;
 @property (nonatomic,strong) NSIndexPath *giveupCellIndexPath;
 @property (nonatomic,strong) NSIndexPath *recoverCellIndexPath;
+
+@property (nonatomic, strong) NSArray *chartValues;
 
 
 //@property (nonatomic,strong) UILabel *finishTime;
@@ -82,12 +85,7 @@
     [self.tableView reloadData];
 
 }
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.tableView reloadData];
-    
-}
+
 
 
 #pragma mark TEACHING page
@@ -200,8 +198,8 @@
     }];
     
     //将滑动图启动过的信息保存到 NSUserDefaults 中，使得第二次不运行滑动图
-//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//    [userDefaults setObject:@"YES" forKey:@"isScrollViewAppear"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"YES" forKey:@"isScrollViewAppear"];
 }
 
 
@@ -623,6 +621,11 @@
     cell.updateTime.text = goal.lastUpdateTime;
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+    //new pie label
+    [cell.total_Amount setText:[NSString stringWithFormat:@"%@",goal.amount]];
+    [cell.done_Amount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+    
+    
     [cell.updateTime setHidden:NO];
 //    [cell.pieView setHidden:NO];
     [cell.statusShow setHidden:NO];
@@ -642,16 +645,37 @@
         case 1:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            
+            
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
+            
             break;
         case 2:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
+            
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
 
             break;
         case 3:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
 
+            
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
+            
             break;
             
         default:
@@ -660,6 +684,14 @@
 
     cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
 //
+    
+    
+
+    
+    [cell.pie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+    
+    
+    
     int goalUrgent = [self checkGoalStatus:goal];
     switch (goalUrgent) {
         case 1:
@@ -738,6 +770,10 @@
 
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
+    
+    //new pie label
+    [cell.total_Amount setText:[NSString stringWithFormat:@"%@",goal.amount]];
+    [cell.done_Amount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
 //    [cell.pieView setHidden:NO];
     [cell.reminderShow setHidden:YES];
     [cell.statusShow setHidden:YES];
@@ -757,15 +793,36 @@
         case 1:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            
+            
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
+            
             break;
         case 2:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
             
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
+            
             break;
         case 3:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
             cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            
+            
+            self.chartValues = @[
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                 
+                                 ];
             
             break;
             
@@ -774,7 +831,14 @@
     }
     
     cell.pieView.sliceValues = GoalProcessNumbers;//must set sliceValue at the last step..
-
+    //
+    
+    
+    
+    
+    [cell.pie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
+    
+    
     
     
     return cell;
@@ -1048,6 +1112,17 @@
     [self.navigationController pushViewController:addNewGoal animated:YES];
 
 
+    
+}
+
+- (IBAction)settingTapped:(id)sender {
+    
+    settingViewController *mySetting = [[settingViewController alloc] initWithNibName:@"settingViewController" bundle:nil];
+
+    self.navigationController.delegate = nil;
+
+    [self.navigationController pushViewController:mySetting animated:YES];
+    
     
 }
 -(void)setupTransitioningDelegate{

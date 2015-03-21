@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *goalTypeSegment;
 - (IBAction)goalTypeChanged:(id)sender;
 - (IBAction)addNewGoal:(id)sender;
+- (IBAction)settingTapped:(id)sender;
 
 
 @property (nonatomic,strong) FMDatabase *db;

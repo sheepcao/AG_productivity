@@ -83,6 +83,10 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
            forKeyPath:@"radiusPrecent"
               options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
               context:nil];
+    
+    
+
+    
     return self;
 }
 
@@ -289,7 +293,7 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
 }
 
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation options:(VBPieChartAnimationOptions)options {
-    [self setChartValues:chartValues animation:animation duration:0.65 options:options];
+    [self setChartValues:chartValues animation:animation duration:0.5 options:options];
 }
 
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation duration:(float)duration options:(VBPieChartAnimationOptions)options {
@@ -372,5 +376,21 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
         }
     }
 }
-
+- (void)drawRect:(CGRect)rect {
+    
+    //draw line
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, 0.4f); //设置线的宽度 为1个像素
+    CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor); //设置线的颜色为灰色
+    CGContextMoveToPoint(context,self.frame.size.width/2-35,self.frame.size.height/2+6);
+    CGContextAddLineToPoint(context,self.frame.size.width/2+35,self.frame.size.height/2+6);
+    CGContextStrokePath(context);
+    
+    
+    //  CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetAllowsAntialiasing(context, true);
+    CGContextSetShouldAntialias(context, true);
+    
+}
 @end

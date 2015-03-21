@@ -343,6 +343,8 @@
     if (!self.totalPie) {
         self.totalPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.totalPie];
+        self.totalPie.backgroundColor = [UIColor clearColor];
+        self.totalPie.lineColor = [UIColor clearColor];
 
     }
     [self.totalPie setFrame:CGRectMake(SCREEN_WIDTH/2-(pieSize-size_offside)/2, self.PiesView.frame.size.height/2-pieSize/2-20+offside, pieSize-size_offside, pieSize-size_offside)];
@@ -367,7 +369,9 @@
     if (!self.finishPie) {
         self.finishPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.finishPie];
-        
+        self.finishPie.backgroundColor = [UIColor clearColor];
+        self.finishPie.lineColor = [UIColor clearColor];
+
     }
     [self.finishPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y-pieSize-30+size_offside+offside/2, pieSize-size_offside, pieSize-size_offside)];
     [self.finishPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
@@ -390,7 +394,9 @@
     if (!self.urgentPie) {
         self.urgentPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.urgentPie];
-        
+        self.urgentPie.backgroundColor = [UIColor clearColor];
+        self.urgentPie.lineColor = [UIColor clearColor];
+
     }
     [self.urgentPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize+offside, self.finishPie.frame.origin.y, pieSize-size_offside, pieSize-size_offside)];
     [self.urgentPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
@@ -413,7 +419,9 @@
     if (!self.weeklyPie) {
         self.weeklyPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.weeklyPie];
-        
+        self.weeklyPie.backgroundColor = [UIColor clearColor];
+        self.weeklyPie.lineColor = [UIColor clearColor];
+
     }
     [self.weeklyPie setFrame:CGRectMake((SCREEN_WIDTH-2*pieSize)/3, self.totalPie.frame.origin.y+pieSize+30-size_offside-offside, pieSize-size_offside, pieSize-size_offside)];
     [self.weeklyPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
@@ -437,7 +445,9 @@
     if (!self.monthlyPie) {
         self.monthlyPie = [[VBPieChart alloc] init];
         [self.PiesView addSubview:self.monthlyPie];
-        
+        self.monthlyPie.backgroundColor = [UIColor clearColor];
+        self.monthlyPie.lineColor = [UIColor clearColor];
+
     }
     [self.monthlyPie setFrame:CGRectMake(2*(SCREEN_WIDTH-2*pieSize)/3+pieSize+offside, self.weeklyPie.frame.origin.y, pieSize-size_offside, pieSize-size_offside)];
     [self.monthlyPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];

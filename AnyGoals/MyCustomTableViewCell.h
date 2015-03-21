@@ -9,6 +9,7 @@
 #import "SWTableViewCell.h"
 #import "PieView.h"
 #import "CycleView.h"
+#import "VBPieChart.h"
 
 @interface MyCustomTableViewCell : SWTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *GoalName;
@@ -22,6 +23,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *statusShow;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeSpecific;
+
+@property (strong, nonatomic)  UILabel *total_Amount;
+@property (strong, nonatomic)  UILabel *done_Amount;
+
+@property (strong, nonatomic)  VBPieChart *pie;
+
 //@property (strong,nonatomic)VBPieChart *pie;
 //@property (nonatomic, strong) NSArray *chartValues;
 

@@ -812,6 +812,9 @@
                                         <include reference="dkk-FK-LXB"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="settingTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="pLa-2Q-yuh"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UyG-U4-8Lc">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>

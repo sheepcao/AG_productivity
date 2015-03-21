@@ -21,6 +21,8 @@
 		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
 		A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */; };
+		A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43BC60E1ABDA95E00A48D0B /* settingViewController.m */; };
+		A43BC6111ABDA95E00A48D0B /* settingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */; };
 		A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
 		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
@@ -93,6 +95,9 @@
 		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
 		A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
 		A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
+		A43BC60D1ABDA95E00A48D0B /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
+		A43BC60E1ABDA95E00A48D0B /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
+		A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingViewController.xib; sourceTree = "<group>"; };
 		A460DCA11AB6A29800B526C4 /* GoalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalObj.h; sourceTree = "<group>"; };
 		A460DCA21AB6A29800B526C4 /* GoalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalObj.m; sourceTree = "<group>"; };
 		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
@@ -296,6 +301,9 @@
 				A41EA58E1AB12E9500356BAF /* addGoalViewController.h */,
 				A41EA58F1AB12E9500356BAF /* addGoalViewController.m */,
 				A41EA5901AB12E9500356BAF /* addGoalViewController.xib */,
+				A43BC60D1ABDA95E00A48D0B /* settingViewController.h */,
+				A43BC60E1ABDA95E00A48D0B /* settingViewController.m */,
+				A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */,
 				A4C327411AB011390062114E /* CycleView.h */,
 				A4C327421AB011390062114E /* CycleView.m */,
 				A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */,
@@ -437,6 +445,7 @@
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
+				A43BC6111ABDA95E00A48D0B /* settingViewController.xib in Resources */,
 				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
@@ -491,6 +500,7 @@
 				A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */,
 				A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */,
 				A4F967EE1AAE813800436FE4 /* main.m in Sources */,
+				A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */,
 				A4C327431AB011390062114E /* CycleView.m in Sources */,
 				A41CFF5D1ABB0AC2004326F6 /* UIColor+HexColor.m in Sources */,
 				A4C327521AB0279E0062114E /* FMDatabasePool.m in Sources */,
@@ -616,12 +626,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;
 				INFOPLIST_FILE = AnyGoals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "8fe151c3-7d30-43cf-aa2e-10b9ead16e1c";
@@ -632,11 +643,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;
 				INFOPLIST_FILE = AnyGoals/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
