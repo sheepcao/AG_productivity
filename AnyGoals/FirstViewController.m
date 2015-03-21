@@ -614,6 +614,7 @@
     [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:80.0f];
     [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:80.0f];
     cell.delegate = self;
+    
     [cell setupUI];
     
     GoalObj *goal =self.processingTasks[indexPath.row];
@@ -623,7 +624,7 @@
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
     [cell.updateTime setHidden:NO];
-    [cell.pieView setHidden:NO];
+//    [cell.pieView setHidden:NO];
     [cell.statusShow setHidden:NO];
     [cell.reminderShow setHidden:NO];
     [cell.timeLabel setHidden:YES];
@@ -737,7 +738,7 @@
 
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
-    [cell.pieView setHidden:NO];
+//    [cell.pieView setHidden:NO];
     [cell.reminderShow setHidden:YES];
     [cell.statusShow setHidden:YES];
     

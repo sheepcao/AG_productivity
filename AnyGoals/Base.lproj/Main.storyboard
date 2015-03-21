@@ -35,7 +35,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6O0-lx-2cy" id="gYo-T1-rGy">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiG-7s-VM4" customClass="PieView">
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiG-7s-VM4" customClass="PieView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75e-k3-7l9" customClass="CycleView">
@@ -92,10 +92,12 @@
                                                                     <variation key="heightClass=regular-widthClass=compact" constant="14"/>
                                                                 </constraint>
                                                                 <constraint firstAttribute="width" secondItem="75e-k3-7l9" secondAttribute="height" multiplier="1:1" id="DM0-HD-jrH"/>
+                                                                <constraint firstAttribute="height" constant="97.5" id="Fd8-jK-Vdv"/>
                                                                 <constraint firstAttribute="centerX" secondItem="0mO-G9-Ly5" secondAttribute="centerX" id="MRN-st-vrZ">
                                                                     <variation key="heightClass=regular-widthClass=compact" constant="-1"/>
                                                                 </constraint>
                                                                 <constraint firstAttribute="centerX" secondItem="asB-5q-0sT" secondAttribute="centerX" id="TDB-dN-XpH"/>
+                                                                <constraint firstAttribute="width" constant="98" id="XTN-f5-rTm"/>
                                                                 <constraint firstItem="asB-5q-0sT" firstAttribute="top" secondItem="75e-k3-7l9" secondAttribute="top" constant="5" id="gBL-hw-xvB">
                                                                     <variation key="heightClass=regular-widthClass=compact" constant="7"/>
                                                                 </constraint>
@@ -107,6 +109,8 @@
                                                                 </mask>
                                                                 <mask key="constraints">
                                                                     <exclude reference="DM0-HD-jrH"/>
+                                                                    <exclude reference="Fd8-jK-Vdv"/>
+                                                                    <exclude reference="XTN-f5-rTm"/>
                                                                     <exclude reference="8Hd-wb-ytM"/>
                                                                     <exclude reference="MRN-st-vrZ"/>
                                                                     <exclude reference="TDB-dN-XpH"/>
@@ -120,6 +124,8 @@
                                                                 </mask>
                                                                 <mask key="constraints">
                                                                     <include reference="DM0-HD-jrH"/>
+                                                                    <include reference="Fd8-jK-Vdv"/>
+                                                                    <include reference="XTN-f5-rTm"/>
                                                                     <include reference="8Hd-wb-ytM"/>
                                                                     <include reference="MRN-st-vrZ"/>
                                                                     <include reference="TDB-dN-XpH"/>
@@ -154,7 +160,7 @@
                                                             <include reference="EM0-Sh-5jB"/>
                                                             <include reference="G77-Ge-YuU"/>
                                                             <include reference="Vid-XQ-TA1"/>
-                                                            <include reference="dHo-0F-zeJ"/>
+                                                            <exclude reference="dHo-0F-zeJ"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -581,7 +587,7 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去健身房" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-PZ-exU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="去健身房" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-PZ-exU">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -1325,6 +1331,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Acf-KX-pWg">
+            <objects>
+                <viewController id="cNH-Ha-j5L" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D9W-9L-i6w"/>
+                        <viewControllerLayoutGuide type="bottom" id="FPE-iO-9Mc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D1R-p6-3bR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7R-1c-Ov7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
