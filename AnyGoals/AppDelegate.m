@@ -8,10 +8,10 @@
 
 #import "AppDelegate.h"
 #import "MobClick.h"
-#import "UMSocial.h"
-#import "UMSocialWechatHandler.h"
-#import "UMSocialSinaHandler.h"
-#import "UMSocialFacebookHandler.h"
+//#import "UMSocial.h"
+//#import "UMSocialWechatHandler.h"
+//#import "UMSocialSinaHandler.h"
+//#import "UMSocialFacebookHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -33,18 +33,20 @@
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
     
+    
+    [self setShareIDs];
+    
     //social share
-    [UMSocialData setAppKey:@"550fd791fd98c52c94000eea"];
-    
-    
-    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-    [UMSocialWechatHandler setWXAppId:@"wx060aa2d39d56bf11" appSecret:@"2e4304f47f496fd7bee18fa8affcaa0e" url:REVIEW_URL];
-   
-    [UMSocialFacebookHandler setFacebookAppID:@"862357590489225" shareFacebookWithURL:REVIEW_URL];
-
-    
-    
-    return YES;
+//    [UMSocialData setAppKey:@"550fd791fd98c52c94000eea"];
+//    
+//    
+//    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+//    [UMSocialWechatHandler setWXAppId:@"wx060aa2d39d56bf11" appSecret:@"2e4304f47f496fd7bee18fa8affcaa0e" url:REVIEW_URL];
+//   
+//    [UMSocialFacebookHandler setFacebookAppID:@"862357590489225" shareFacebookWithURL:REVIEW_URL];
+//
+//
+      return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -68,18 +70,66 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
 {
-    return  [UMSocialSnsService handleOpenURL:url];
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
 }
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    return  [UMSocialSnsService handleOpenURL:url];
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
 }
+
+-(void)setShareIDs
+{
+    [ShareSDK registerApp:@"64ebd7b8e428"];//字符串api20为您的ShareSDK的AppKey
+    
+    //添加新浪微博应用 注册网址 http://open.weibo.com
+    [ShareSDK connectSinaWeiboWithAppKey:@"358608016"
+                               appSecret:@"a9cbd5265d787d15151845d77b15c1b6"
+                             redirectUri:@"https://api.weibo.com/oauth2/default.html"];
+    //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
+    [ShareSDK  connectSinaWeiboWithAppKey:@"358608016"
+                                appSecret:@"a9cbd5265d787d15151845d77b15c1b6"
+                              redirectUri:@"https://api.weibo.com/oauth2/default.html"
+                              weiboSDKCls:[WeiboSDK class]];
+       //添加QQ空间应用  注册网址  http://connect.qq.com/intro/login/
+    [ShareSDK connectQZoneWithAppKey:@"1104406509"
+                           appSecret:@"M9E3xS3hksyH1E4p"
+                   qqApiInterfaceCls:[QQApiInterface class]
+                     tencentOAuthCls:[TencentOAuth class]];
+    
+    //添加QQ应用  注册网址  http://open.qq.com/
+    [ShareSDK connectQQWithQZoneAppKey:@"1104406509"
+                     qqApiInterfaceCls:[QQApiInterface class]
+                       tencentOAuthCls:[TencentOAuth class]];
+    
+    //添加微信应用 注册网址 http://open.weixin.qq.com
+    [ShareSDK connectWeChatWithAppId:@"wx060aa2d39d56bf11"
+                           wechatCls:[WXApi class]];
+    
+    
+    [ShareSDK connectWeChatWithAppId:@"wx060aa2d39d56bf11"   //微信APPID
+                           appSecret:@"2e4304f47f496fd7bee18fa8affcaa0e"  //微信APPSecret
+                           wechatCls:[WXApi class]];
+    
+    //添加Facebook应用  注册网址 https://developers.facebook.com
+    [ShareSDK connectFacebookWithAppKey:@"862357590489225"
+                              appSecret:@"d3a05ab9d236025c3c0aa138a854af5a"];
+    
+    //添加Twitter应用  注册网址  https://dev.twitter.com
+//    [ShareSDK connectTwitterWithConsumerKey:@"mnTGqtXk0TYMXYTN7qUxg"
+//                             consumerSecret:@"ROkFqr8c3m1HXqS3rm3TJ0WkAJuwBOSaWhPbZ9Ojuc"
+//                                redirectUri:@"http://www.sharesdk.cn"];
+}
+
 
 @end

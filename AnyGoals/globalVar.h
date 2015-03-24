@@ -10,7 +10,11 @@
 #define AnyGoals_globalVar_h
 
 #import "FMDatabase.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
 
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -30,6 +34,6 @@
 
 #define REVIEW_URL @"http://itunes.apple.com/us/app/anygoal/id978629670?ls=1&mt=8"
 
-#define ALLAPP_URL @"itms://itunes.com/apps/caoguangxu"
+#define ALLAPP_URL @"itms://itunes.apple.com/us/artist/cao-guangxu/id844914783"
 
 #endif

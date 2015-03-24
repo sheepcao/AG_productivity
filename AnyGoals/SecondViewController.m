@@ -9,7 +9,7 @@
 #import "SecondViewController.h"
 #import "settingViewController.h"
 
-#define pieSize ([[UIScreen mainScreen] bounds].size.width)/3
+#define pieSize ([[UIScreen mainScreen] bounds].size.width)/3.2
 
 @interface SecondViewController ()
 @property (nonatomic,strong) FMDatabase *db;
@@ -490,42 +490,65 @@
     [self.PiesView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *imageShare = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:@"AnyGoal"
+                                       defaultContent:@"我的目标状态"
+                                                image:[ShareSDK pngImageWithImage:imageShare]
+                                                title:@"AnyGoal"
+                                                  url:REVIEW_URL
+                                          description:@"我的目标状态如图所示"
+                                            mediaType:SSPublishContentMediaTypeImage];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+    
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:nil
+                           content:publishContent
+                     statusBarTips:YES
+                       authOptions:nil
+                      shareOptions:nil
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                }
+                            }];
+    
 
     
-    [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:@"550fd791fd98c52c94000eea"
-                                      shareText:@"AnyGoal\n我的目标状态"
-                                     shareImage:imageShare
-                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
-                                       delegate:(id)self];
-    
-
-    
-    // music url
-    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:REVIEW_URL];
-    
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = REVIEW_URL;
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = REVIEW_URL;
-    
-    [UMSocialData defaultData].extConfig.facebookData.url =REVIEW_URL;
-
-  
-    
+//    [UMSocialSnsService presentSnsIconSheetView:self
+//                                         appKey:@"550fd791fd98c52c94000eea"
+//                                      shareText:@"AnyGoal\n我的目标状态"
+//                                     shareImage:imageShare
+//                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+//                                       delegate:(id)self];
+//    
+//
+//    
+//    // music url
+//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:REVIEW_URL];
+//    
+//    [UMSocialData defaultData].extConfig.wechatTimelineData.url = REVIEW_URL;
+//    [UMSocialData defaultData].extConfig.wechatSessionData.url = REVIEW_URL;
+//    
+//    [UMSocialData defaultData].extConfig.facebookData.url =REVIEW_URL;
+//
+//  
+//    
     
     
 }
 
 
--(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
-{
-    //根据`responseCode`得到发送结果,如果分享成功
-    NSLog(@"code:%u",response.responseCode);
-    
-    if(response.responseCode == UMSResponseCodeSuccess)
-    {
-        //得到分享到的微博平台名
-        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
-    }
-}
+
 
 @end

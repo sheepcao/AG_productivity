@@ -14,10 +14,10 @@
 #import "VBPieChart.h"
 
 #import "MobClick.h"
-#import "UMSocialSinaHandler.h"
-#import "UMSocialSnsService.h"
-#import "UMSocialSnsPlatformManager.h"
-#import "UMSocialFacebookHandler.h"
+//#import "UMSocialSinaHandler.h"
+//#import "UMSocialSnsService.h"
+//#import "UMSocialSnsPlatformManager.h"
+//#import "UMSocialFacebookHandler.h"
 
 
 @interface SecondViewController : UIViewController

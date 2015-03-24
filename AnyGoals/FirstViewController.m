@@ -34,6 +34,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+
+
+
     
     self.processingTasks = [[NSMutableArray alloc] init];
     self.finishedTasks = [[NSMutableArray alloc] init];
@@ -629,6 +632,8 @@
     [cell.updateTime setHidden:NO];
 //    [cell.pieView setHidden:NO];
     [cell.statusShow setHidden:NO];
+    [cell.urgentShow setHidden:NO];
+
     [cell.reminderShow setHidden:NO];
     [cell.timeLabel setHidden:YES];
     [cell.timeSpecific setHidden:YES];
@@ -777,6 +782,7 @@
 //    [cell.pieView setHidden:NO];
     [cell.reminderShow setHidden:YES];
     [cell.statusShow setHidden:YES];
+    [cell.urgentShow setHidden:YES];
     
     //add finish time
     

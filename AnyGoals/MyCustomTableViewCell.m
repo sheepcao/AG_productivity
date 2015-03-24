@@ -31,7 +31,7 @@
             [self.contentView addSubview:self.pie];
             [self.contentView sendSubviewToBack:self.pie];
             [self.pie setBackgroundColor:[UIColor clearColor]];
-            [self.pie setFrame:CGRectMake(self.frame.size.width/2-70,self.frame.size.height/2-70,140,140)];
+            [self.pie setFrame:CGRectMake(self.frame.size.width-42-130,self.frame.size.height/2-65,130,130)];
 
             self.total_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-54+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2+3, 110, 40)];
             self.done_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-60+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2-38, 120, 45)];
