@@ -1,10 +1,4 @@
-//
-//  VBPieChart.m
-//  Charts
-//
-//  Created by Volodymyr Boichentsov on 15/02/2014.
-//  Copyright (c) 2014 SAKrisT. All rights reserved.
-//
+
 
 #import "VBPieChart.h"
 #import "VBPiePiece.h"
@@ -316,66 +310,66 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
     return nil;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    _touchBegan = [touch locationInView:self];
-    _hitLayer = (VBPiePiece*)[self layerForTouch:touch];
-    
-    moveP = CGPointMake(1, 1);
-    CGPoint p = [touch locationInView:self];
-    if (p.y > self.center.y && p.x > self.center.x) {
-        moveP.y = -1;
-    }
-    if (p.y > self.center.y && p.x < self.center.x) {
-        moveP.y = -1;
-        moveP.x = -1;
-    }
-    if (p.y < self.center.y && p.x < self.center.x) {
-        moveP.y = 1;
-        moveP.x = -1;
-    }
-}
-
-
-- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    CGPoint p1 = [touch previousLocationInView:self];
-    CGPoint p2 = [touch locationInView:self];
-    CGPoint delta;
-    delta.x = (p1.x - p2.x)*moveP.x;
-    delta.y = (p1.y - p2.y)*moveP.y;
-    
-    if (_enableInteractive) {
-        self.layer.transform = CATransform3DRotate(self.layer.transform, delta.y * M_PI / 180.0f, 1, 0, 0);
-        self.layer.transform = CATransform3DRotate(self.layer.transform, delta.x * M_PI / 180.0f, 0, -1, 0);
-    }
-    
-    if ([_hitLayer isKindOfClass:[VBPiePiece class]]) {
-        float d = _hitLayer.accentPrecent+((-delta.x+delta.y)/2/_radius);
-        d = MAX(0, d);
-        d = MIN(d, _maxAccentPrecent);
-
-        [_hitLayer setAccentPrecent:d];
-    }
-}
-
-
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    UITouch *touch = [touches anyObject];
-    CGPoint point = [touch locationInView:self];
-    if (CGPointDistanceBetweenTwoPoints(point, _touchBegan) < 5) {
-        _hitLayer = (VBPiePiece*)[self layerForTouch:touch];
-        
-        if (_hitLayer.accentPrecent < FLT_EPSILON) {
-            [_hitLayer animateToAccent:_maxAccentPrecent];
-        } else {
-            [_hitLayer animateToAccent:0];
-        }
-    }
-}
+//- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    UITouch *touch = [touches anyObject];
+//    _touchBegan = [touch locationInView:self];
+//    _hitLayer = (VBPiePiece*)[self layerForTouch:touch];
+//    
+//    moveP = CGPointMake(1, 1);
+//    CGPoint p = [touch locationInView:self];
+//    if (p.y > self.center.y && p.x > self.center.x) {
+//        moveP.y = -1;
+//    }
+//    if (p.y > self.center.y && p.x < self.center.x) {
+//        moveP.y = -1;
+//        moveP.x = -1;
+//    }
+//    if (p.y < self.center.y && p.x < self.center.x) {
+//        moveP.y = 1;
+//        moveP.x = -1;
+//    }
+//}
+//
+//
+//- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    UITouch *touch = [touches anyObject];
+//    CGPoint p1 = [touch previousLocationInView:self];
+//    CGPoint p2 = [touch locationInView:self];
+//    CGPoint delta;
+//    delta.x = (p1.x - p2.x)*moveP.x;
+//    delta.y = (p1.y - p2.y)*moveP.y;
+//    
+//    if (_enableInteractive) {
+//        self.layer.transform = CATransform3DRotate(self.layer.transform, delta.y * M_PI / 180.0f, 1, 0, 0);
+//        self.layer.transform = CATransform3DRotate(self.layer.transform, delta.x * M_PI / 180.0f, 0, -1, 0);
+//    }
+//    
+//    if ([_hitLayer isKindOfClass:[VBPiePiece class]]) {
+//        float d = _hitLayer.accentPrecent+((-delta.x+delta.y)/2/_radius);
+//        d = MAX(0, d);
+//        d = MIN(d, _maxAccentPrecent);
+//
+//        [_hitLayer setAccentPrecent:d];
+//    }
+//}
+//
+//
+//- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//    
+//    UITouch *touch = [touches anyObject];
+//    CGPoint point = [touch locationInView:self];
+//    if (CGPointDistanceBetweenTwoPoints(point, _touchBegan) < 5) {
+//        _hitLayer = (VBPiePiece*)[self layerForTouch:touch];
+//        
+//        if (_hitLayer.accentPrecent < FLT_EPSILON) {
+//            [_hitLayer animateToAccent:_maxAccentPrecent];
+//        } else {
+//            [_hitLayer animateToAccent:0];
+//        }
+//    }
+//}
 - (void)drawRect:(CGRect)rect {
     
     //draw line

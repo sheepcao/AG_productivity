@@ -1212,10 +1212,42 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="K2o-Gv-IBR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jU-ue-JFc">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.29088731750000002" green="0.72373973540000003" blue="0.72758895990000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZM9-gt-PEC"/>
+                                    <constraint firstAttribute="width" constant="46" id="ZU5-AA-OHF"/>
+                                </constraints>
+                                <state key="normal" title="设置">
+                                    <color key="titleColor" red="0.17760416670000001" green="0.17719907409999999" blue="0.1540509259" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZM9-gt-PEC"/>
+                                        <exclude reference="ZU5-AA-OHF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ZM9-gt-PEC"/>
+                                        <include reference="ZU5-AA-OHF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="settingTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="eBn-Sc-Gjl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="mZi-Kp-1Ky" firstAttribute="centerY" secondItem="0jU-ue-JFc" secondAttribute="centerY" id="1Ra-jB-SSO"/>
+                            <constraint firstAttribute="width" secondItem="0jU-ue-JFc" secondAttribute="width" id="39e-Ng-o7f"/>
                             <constraint firstItem="mZi-Kp-1Ky" firstAttribute="width" secondItem="44l-yJ-ScQ" secondAttribute="height" multiplier="21:23" id="7zV-AS-DKG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="1"/>
                             </constraint>
@@ -1226,6 +1258,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="mZi-Kp-1Ky" secondAttribute="trailing" constant="9" id="GWB-cC-PUO">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="0jU-ue-JFc" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="UMW-Eh-4fs"/>
                             <constraint firstAttribute="centerX" secondItem="44l-yJ-ScQ" secondAttribute="centerX" constant="6.5" id="XmV-cF-wGy">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -1248,9 +1281,13 @@
                                 <exclude reference="bWG-dk-bjZ"/>
                                 <exclude reference="44l-yJ-ScQ"/>
                                 <exclude reference="mZi-Kp-1Ky"/>
+                                <exclude reference="0jU-ue-JFc"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="qZZ-Om-va5"/>
+                                <exclude reference="39e-Ng-o7f"/>
+                                <exclude reference="UMW-Eh-4fs"/>
+                                <exclude reference="1Ra-jB-SSO"/>
                                 <exclude reference="7zV-AS-DKG"/>
                                 <exclude reference="GWB-cC-PUO"/>
                                 <exclude reference="qST-lj-vAv"/>
@@ -1269,9 +1306,13 @@
                                 <include reference="bWG-dk-bjZ"/>
                                 <include reference="44l-yJ-ScQ"/>
                                 <include reference="mZi-Kp-1Ky"/>
+                                <include reference="0jU-ue-JFc"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="qZZ-Om-va5"/>
+                                <exclude reference="39e-Ng-o7f"/>
+                                <include reference="UMW-Eh-4fs"/>
+                                <include reference="1Ra-jB-SSO"/>
                                 <exclude reference="7zV-AS-DKG"/>
                                 <include reference="GWB-cC-PUO"/>
                                 <include reference="qST-lj-vAv"/>

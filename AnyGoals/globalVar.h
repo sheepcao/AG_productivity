@@ -27,4 +27,9 @@
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 
+
+#define REVIEW_URL @"http://itunes.apple.com/us/app/anygoal/id978629670?ls=1&mt=8"
+
+#define ALLAPP_URL @"itms://itunes.com/apps/caoguangxu"
+
 #endif

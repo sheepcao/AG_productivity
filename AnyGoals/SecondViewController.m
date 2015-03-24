@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "settingViewController.h"
 
 #define pieSize ([[UIScreen mainScreen] bounds].size.width)/3
 
@@ -471,6 +472,60 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)settingTapped:(id)sender {
+    
+    settingViewController *mySetting = [[settingViewController alloc] initWithNibName:@"settingViewController" bundle:nil];
+    
+    self.navigationController.delegate = nil;
+    
+    [self.navigationController pushViewController:mySetting animated:YES];
+}
+
+- (IBAction)shareTapped:(id)sender {
+    
+    UIGraphicsBeginImageContext(self.PiesView.frame.size);
+    //获取图像
+    [self.PiesView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *imageShare = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"550fd791fd98c52c94000eea"
+                                      shareText:@"AnyGoal\n我的目标状态"
+                                     shareImage:imageShare
+                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+                                       delegate:(id)self];
+    
+
+    
+    // music url
+    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:REVIEW_URL];
+    
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = REVIEW_URL;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = REVIEW_URL;
+    
+    [UMSocialData defaultData].extConfig.facebookData.url =REVIEW_URL;
+
+  
+    
+    
+    
+}
+
+
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    NSLog(@"code:%u",response.responseCode);
+    
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的微博平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
 }
 
 @end

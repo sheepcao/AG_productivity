@@ -105,13 +105,13 @@
                     <exclude reference="REL-NB-4IW"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="qf3-wp-kZP"/>
+                    <exclude reference="zLS-sd-OPg"/>
                     <exclude reference="nSI-fQ-4MP"/>
                     <exclude reference="uJf-0R-ieP"/>
                     <exclude reference="1TI-et-2IR"/>
                     <exclude reference="PD2-pr-f7f"/>
                     <exclude reference="ePc-AG-foI"/>
-                    <exclude reference="qf3-wp-kZP"/>
-                    <exclude reference="zLS-sd-OPg"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -121,13 +121,13 @@
                     <include reference="REL-NB-4IW"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="qf3-wp-kZP"/>
+                    <include reference="zLS-sd-OPg"/>
                     <include reference="nSI-fQ-4MP"/>
                     <include reference="uJf-0R-ieP"/>
                     <include reference="1TI-et-2IR"/>
                     <include reference="PD2-pr-f7f"/>
                     <include reference="ePc-AG-foI"/>
-                    <include reference="qf3-wp-kZP"/>
-                    <include reference="zLS-sd-OPg"/>
                 </mask>
             </variation>
         </view>

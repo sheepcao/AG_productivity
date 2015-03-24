@@ -460,6 +460,9 @@
             
             if (!sql) {
                 NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+            }else
+            {
+                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote];
             }
             [db close];
         }else
@@ -477,6 +480,9 @@
            BOOL sql = [db executeUpdate:@"update GOALSINFO set goalName = ?, startTime= ?,endTime =?,amount=?,lastUpdateTime=?,reminder=?,reminderNote=?,isFinished=?,isGiveup=? where goalID = ?" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],self.editingGoal.goalID];
             if (!sql) {
                 NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+            }else
+            {
+                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote];
             }
             [db close];
         }
@@ -487,6 +493,40 @@
     }
 
    
+}
+-(void)startLocalNotificationWithTime:(NSString *)remdTime andTitle:(NSString *)title andDescription:(NSString *)detail {
+    NSLog(@"startLocalNotification");
+    
+    if ([reminderTime isEqualToString:@""]) {
+        return;
+    }
+    if ([detail isEqualToString:@"点击编辑提醒备注..."]) {
+        detail = @"";
+    }
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    
+    //set locale
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray* arrayLanguages = [userDefaults objectForKey:@"AppleLanguages"];
+    NSString* currentLanguage = [arrayLanguages objectAtIndex:0];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:currentLanguage];
+    [dateFormat setLocale:locale];
+    
+    NSDate *remindTime = [dateFormat dateFromString:remdTime];
+    
+    NSTimeInterval remindTimeByNow = [remindTime timeIntervalSinceDate:[NSDate date]];
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:remindTimeByNow];
+    notification.alertBody = [NSString stringWithFormat:@"%@\n%@",title,detail];
+//    notification.alertTitle = title;
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    notification.soundName = UILocalNotificationDefaultSoundName;
+//    notification.applicationIconBadgeNumber = 10;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
 
 - (IBAction)backHome:(id)sender {

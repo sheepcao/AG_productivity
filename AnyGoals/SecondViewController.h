@@ -13,6 +13,12 @@
 
 #import "VBPieChart.h"
 
+#import "MobClick.h"
+#import "UMSocialSinaHandler.h"
+#import "UMSocialSnsService.h"
+#import "UMSocialSnsPlatformManager.h"
+#import "UMSocialFacebookHandler.h"
+
 
 @interface SecondViewController : UIViewController
 @property (weak, nonatomic) IBOutlet PieView *PiesView;
@@ -38,5 +44,8 @@
 
 
 @property (strong, nonatomic) NSMutableArray *allGoals;
+- (IBAction)settingTapped:(id)sender;
+
+- (IBAction)shareTapped:(id)sender;
 @end
 
