@@ -700,14 +700,13 @@
     int goalUrgent = [self checkGoalStatus:goal];
     switch (goalUrgent) {
         case 1:
-            [cell.statusShow setImage:[UIImage imageNamed:@"1.png"]];
             break;
         case 2:
-            [cell.statusShow setImage:[UIImage imageNamed:@"2.png"]];
+            [cell.statusShow setHighlighted:YES];
             break;
         case 3:
             
-            [cell.statusShow setImage:[UIImage imageNamed:@"0.png"]];
+            [cell.urgentShow setHighlighted:YES];
             break;
             
         default:
@@ -715,7 +714,7 @@
     }
 
     NSLog(@"goal.reminder :%@",goal.reminder );
-    [goal.reminder isEqualToString:@""]?[cell.reminderShow setImage:[UIImage imageNamed:@"3"]]:[cell.reminderShow setImage:[UIImage imageNamed:@"1"]];
+    [goal.reminder isEqualToString:@""]?[cell.reminderShow setHighlighted:NO]:[cell.reminderShow setHighlighted:YES];
     
     
     

@@ -59,6 +59,12 @@
 		A4528E631AC150BA001E9125 /* 提醒-无.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E5E1AC150BA001E9125 /* 提醒-无.png */; };
 		A4528E641AC150BA001E9125 /* 提醒1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E5F1AC150BA001E9125 /* 提醒1.png */; };
 		A4528E661AC155A8001E9125 /* 100 x 100px 圆圈.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E651AC155A8001E9125 /* 100 x 100px 圆圈.png */; };
+		A4528E6B1AC1673C001E9125 /* 紧迫-无100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E671AC1673C001E9125 /* 紧迫-无100x100.png */; };
+		A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E681AC1673C001E9125 /* 紧迫100x100.png */; };
+		A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E691AC1673C001E9125 /* 超前-无100x100.png */; };
+		A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E6A1AC1673C001E9125 /* 超前100x100.png */; };
+		A4528E711AC16997001E9125 /* 加.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E6F1AC16997001E9125 /* 加.png */; };
+		A4528E721AC16997001E9125 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E701AC16997001E9125 /* 设置.png */; };
 		A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
 		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
@@ -177,6 +183,12 @@
 		A4528E5E1AC150BA001E9125 /* 提醒-无.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提醒-无.png"; sourceTree = "<group>"; };
 		A4528E5F1AC150BA001E9125 /* 提醒1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提醒1.png"; sourceTree = "<group>"; };
 		A4528E651AC155A8001E9125 /* 100 x 100px 圆圈.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100 x 100px 圆圈.png"; sourceTree = "<group>"; };
+		A4528E671AC1673C001E9125 /* 紧迫-无100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "紧迫-无100x100.png"; sourceTree = "<group>"; };
+		A4528E681AC1673C001E9125 /* 紧迫100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "紧迫100x100.png"; sourceTree = "<group>"; };
+		A4528E691AC1673C001E9125 /* 超前-无100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超前-无100x100.png"; sourceTree = "<group>"; };
+		A4528E6A1AC1673C001E9125 /* 超前100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超前100x100.png"; sourceTree = "<group>"; };
+		A4528E6F1AC16997001E9125 /* 加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加.png"; sourceTree = "<group>"; };
+		A4528E701AC16997001E9125 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
 		A460DCA11AB6A29800B526C4 /* GoalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalObj.h; sourceTree = "<group>"; };
 		A460DCA21AB6A29800B526C4 /* GoalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalObj.m; sourceTree = "<group>"; };
 		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
@@ -402,12 +414,18 @@
 		A4528E3A1AC13ECB001E9125 /* accessory */ = {
 			isa = PBXGroup;
 			children = (
+				A4528E6F1AC16997001E9125 /* 加.png */,
+				A4528E701AC16997001E9125 /* 设置.png */,
 				A4528E651AC155A8001E9125 /* 100 x 100px 圆圈.png */,
 				A4528E5B1AC150BA001E9125 /* 100X100红.png */,
 				A4528E5C1AC150BA001E9125 /* 100X100绿.png */,
 				A4528E5D1AC150BA001E9125 /* 提醒-2.png */,
 				A4528E5E1AC150BA001E9125 /* 提醒-无.png */,
 				A4528E5F1AC150BA001E9125 /* 提醒1.png */,
+				A4528E671AC1673C001E9125 /* 紧迫-无100x100.png */,
+				A4528E681AC1673C001E9125 /* 紧迫100x100.png */,
+				A4528E691AC1673C001E9125 /* 超前-无100x100.png */,
+				A4528E6A1AC1673C001E9125 /* 超前100x100.png */,
 				A4528E571AC15080001E9125 /* 右翻页.png */,
 				A4528E581AC15080001E9125 /* 左翻页.png */,
 			);
@@ -677,12 +695,15 @@
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
 				A4528E5A1AC15080001E9125 /* 左翻页.png in Resources */,
+				A4528E721AC16997001E9125 /* 设置.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
+				A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */,
 				A4528E601AC150BA001E9125 /* 100X100红.png in Resources */,
 				A4528E271AC1325D001E9125 /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				A43BC6111ABDA95E00A48D0B /* settingViewController.xib in Resources */,
 				A4528E621AC150BA001E9125 /* 提醒-2.png in Resources */,
 				A4528E631AC150BA001E9125 /* 提醒-无.png in Resources */,
+				A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */,
 				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
 				A4528E641AC150BA001E9125 /* 提醒1.png in Resources */,
 				A4528E661AC155A8001E9125 /* 100 x 100px 圆圈.png in Resources */,
@@ -693,8 +714,11 @@
 				A4528E1F1AC1325D001E9125 /* Resource.bundle in Resources */,
 				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
 				A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */,
+				A4528E6B1AC1673C001E9125 /* 紧迫-无100x100.png in Resources */,
 				A4528E241AC1325D001E9125 /* WeiboSDK.bundle in Resources */,
 				A4528E611AC150BA001E9125 /* 100X100绿.png in Resources */,
+				A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */,
+				A4528E711AC16997001E9125 /* 加.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,

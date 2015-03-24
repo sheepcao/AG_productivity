@@ -164,7 +164,7 @@
                                                         </mask>
                                                     </variation>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="100 x 100px 圆圈.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q8k-iR-4yF">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="超前-无100x100.png" highlightedImage="超前100x100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q8k-iR-4yF">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="4Nf-qo-7C5"/>
@@ -196,7 +196,7 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="100 x 100px 圆圈.png" translatesAutoresizingMaskIntoConstraints="NO" id="xMQ-Kj-XpJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="紧迫-无100x100.png" highlightedImage="紧迫100x100.png" translatesAutoresizingMaskIntoConstraints="NO" id="xMQ-Kj-XpJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="xMQ-Kj-XpJ" secondAttribute="height" multiplier="1:1" id="0qo-Sj-fEH"/>
@@ -307,7 +307,7 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="提醒-无.png" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-tr-gdo">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="提醒-无.png" highlightedImage="提醒1.png" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-tr-gdo">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="FZ0-tr-gdo" secondAttribute="height" multiplier="1:1" id="GE3-81-L0u"/>
@@ -928,13 +928,13 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="amF-Fw-Ne3"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fah-bF-eaa">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fah-bF-eaa">
                                 <rect key="frame" x="16" y="20" width="42" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fah-bF-eaa" secondAttribute="height" multiplier="1:1" id="9Lm-kC-Uj6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="加">
+                                <state key="normal" image="加.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -970,29 +970,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akD-Hb-6hO">
-                                <rect key="frame" x="542" y="20" width="42" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="akD-Hb-6hO" secondAttribute="height" multiplier="1:1" id="dkk-FK-LXB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="✏️">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="dkk-FK-LXB"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="dkk-FK-LXB"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="settingTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="pLa-2Q-yuh"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UyG-U4-8Lc">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
                                 <constraints>
@@ -1019,11 +996,37 @@
                                     <action selector="goalTypeChanged:" destination="9pv-A4-QxB" eventType="valueChanged" id="nSr-o1-Too"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akD-Hb-6hO">
+                                <rect key="frame" x="542" y="20" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="akD-Hb-6hO" secondAttribute="height" multiplier="1:1" id="dkk-FK-LXB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" image="设置.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="dkk-FK-LXB"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="dkk-FK-LXB"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="settingTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="pLa-2Q-yuh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fah-bF-eaa" firstAttribute="centerY" secondItem="DQQ-lU-sJq" secondAttribute="centerY" constant="2" id="0yW-Uy-3CQ"/>
+                            <constraint firstItem="fah-bF-eaa" firstAttribute="centerY" secondItem="DQQ-lU-sJq" secondAttribute="centerY" constant="2" id="0yW-Uy-3CQ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="DQQ-lU-sJq" firstAttribute="width" secondItem="UyG-U4-8Lc" secondAttribute="height" multiplier="183:28" id="2FL-fx-l3m"/>
+                            <constraint firstItem="fah-bF-eaa" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="4CO-2i-yBL"/>
                             <constraint firstItem="r7g-W0-Uy5" firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="9:1" id="82A-Nh-sfe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="r7g-W0-Uy5" secondAttribute="trailing" constant="-16" id="ABV-Tc-tg6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fah-bF-eaa" secondAttribute="trailing" constant="340" id="C1Z-cf-Lyc"/>
@@ -1035,17 +1038,29 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="r7g-W0-Uy5" secondAttribute="bottom" id="Lu2-Ma-dbW"/>
                             <constraint firstItem="r7g-W0-Uy5" firstAttribute="top" secondItem="DQQ-lU-sJq" secondAttribute="bottom" constant="17" id="MKr-X9-dVr"/>
                             <constraint firstItem="r7g-W0-Uy5" firstAttribute="top" secondItem="DQQ-lU-sJq" secondAttribute="bottom" constant="17" id="NNF-HH-6RA"/>
-                            <constraint firstItem="fah-bF-eaa" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="O4e-U4-bBJ"/>
+                            <constraint firstItem="fah-bF-eaa" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="O4e-U4-bBJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="340"/>
+                            </constraint>
                             <constraint firstItem="r7g-W0-Uy5" firstAttribute="top" secondItem="UyG-U4-8Lc" secondAttribute="bottom" constant="31" id="PON-kK-a08"/>
                             <constraint firstItem="r7g-W0-Uy5" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="RIJ-b4-8ka"/>
-                            <constraint firstItem="akD-Hb-6hO" firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="21:23" id="S8c-7R-wIE"/>
-                            <constraint firstAttribute="centerX" secondItem="UyG-U4-8Lc" secondAttribute="centerX" constant="-0.5" id="fpX-AI-n3N"/>
+                            <constraint firstItem="akD-Hb-6hO" firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="21:23" id="S8c-7R-wIE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-9"/>
+                            </constraint>
+                            <constraint firstItem="akD-Hb-6hO" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="dhz-Go-M49"/>
+                            <constraint firstAttribute="centerX" secondItem="UyG-U4-8Lc" secondAttribute="centerX" constant="-0.5" id="fpX-AI-n3N">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.5"/>
+                            </constraint>
                             <constraint firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="9:1" id="gPR-Jm-eJa"/>
                             <constraint firstItem="DQQ-lU-sJq" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" id="huQ-je-uBG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                             </constraint>
-                            <constraint firstItem="akD-Hb-6hO" firstAttribute="centerY" secondItem="fah-bF-eaa" secondAttribute="centerY" id="rFm-gm-hJa"/>
-                            <constraint firstItem="fah-bF-eaa" firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="21:23" id="sje-KT-Kae"/>
+                            <constraint firstItem="fah-bF-eaa" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="qnm-Hq-p7u"/>
+                            <constraint firstItem="akD-Hb-6hO" firstAttribute="centerY" secondItem="fah-bF-eaa" secondAttribute="centerY" id="rFm-gm-hJa">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="fah-bF-eaa" firstAttribute="width" secondItem="DQQ-lU-sJq" secondAttribute="height" multiplier="21:23" id="sje-KT-Kae">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-9"/>
+                            </constraint>
                             <constraint firstItem="akD-Hb-6hO" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="zid-c4-DXF"/>
                         </constraints>
                         <variation key="default">
@@ -1053,23 +1068,26 @@
                                 <exclude reference="UyG-U4-8Lc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="S8c-7R-wIE"/>
+                                <exclude reference="dhz-Go-M49"/>
+                                <exclude reference="rFm-gm-hJa"/>
+                                <exclude reference="zid-c4-DXF"/>
                                 <exclude reference="I49-S7-7bn"/>
                                 <exclude reference="fpX-AI-n3N"/>
-                                <exclude reference="0yW-Uy-3CQ"/>
-                                <exclude reference="C1Z-cf-Lyc"/>
-                                <exclude reference="O4e-U4-bBJ"/>
-                                <exclude reference="sje-KT-Kae"/>
-                                <exclude reference="82A-Nh-sfe"/>
-                                <exclude reference="MKr-X9-dVr"/>
-                                <exclude reference="NNF-HH-6RA"/>
-                                <exclude reference="PON-kK-a08"/>
                                 <exclude reference="2FL-fx-l3m"/>
                                 <exclude reference="Cpq-K6-28f"/>
                                 <exclude reference="gPR-Jm-eJa"/>
                                 <exclude reference="huQ-je-uBG"/>
-                                <exclude reference="S8c-7R-wIE"/>
-                                <exclude reference="rFm-gm-hJa"/>
-                                <exclude reference="zid-c4-DXF"/>
+                                <exclude reference="82A-Nh-sfe"/>
+                                <exclude reference="MKr-X9-dVr"/>
+                                <exclude reference="NNF-HH-6RA"/>
+                                <exclude reference="PON-kK-a08"/>
+                                <exclude reference="0yW-Uy-3CQ"/>
+                                <exclude reference="4CO-2i-yBL"/>
+                                <exclude reference="C1Z-cf-Lyc"/>
+                                <exclude reference="O4e-U4-bBJ"/>
+                                <exclude reference="qnm-Hq-p7u"/>
+                                <exclude reference="sje-KT-Kae"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1077,24 +1095,27 @@
                                 <include reference="UyG-U4-8Lc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="S8c-7R-wIE"/>
+                                <include reference="dhz-Go-M49"/>
+                                <include reference="rFm-gm-hJa"/>
+                                <exclude reference="zid-c4-DXF"/>
                                 <include reference="I49-S7-7bn"/>
                                 <include reference="fpX-AI-n3N"/>
-                                <include reference="0yW-Uy-3CQ"/>
-                                <exclude reference="C1Z-cf-Lyc"/>
-                                <include reference="O4e-U4-bBJ"/>
-                                <include reference="sje-KT-Kae"/>
-                                <exclude reference="82A-Nh-sfe"/>
-                                <exclude reference="MKr-X9-dVr"/>
-                                <exclude reference="NNF-HH-6RA"/>
-                                <include reference="PON-kK-a08"/>
                                 <include reference="2FL-fx-l3m"/>
                                 <include reference="Cpq-K6-28f"/>
                                 <exclude reference="GHq-3R-nPn"/>
                                 <include reference="gPR-Jm-eJa"/>
                                 <include reference="huQ-je-uBG"/>
-                                <include reference="S8c-7R-wIE"/>
-                                <include reference="rFm-gm-hJa"/>
-                                <include reference="zid-c4-DXF"/>
+                                <exclude reference="82A-Nh-sfe"/>
+                                <exclude reference="MKr-X9-dVr"/>
+                                <exclude reference="NNF-HH-6RA"/>
+                                <include reference="PON-kK-a08"/>
+                                <include reference="0yW-Uy-3CQ"/>
+                                <include reference="4CO-2i-yBL"/>
+                                <exclude reference="C1Z-cf-Lyc"/>
+                                <exclude reference="O4e-U4-bBJ"/>
+                                <exclude reference="qnm-Hq-p7u"/>
+                                <include reference="sje-KT-Kae"/>
                             </mask>
                         </variation>
                     </view>
@@ -1590,9 +1611,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="100 x 100px 圆圈.png" width="100" height="100"/>
+        <image name="加.png" width="65" height="65"/>
         <image name="右翻页.png" width="46" height="100"/>
         <image name="左翻页.png" width="46" height="100"/>
         <image name="提醒-无.png" width="100" height="100"/>
+        <image name="提醒1.png" width="100" height="100"/>
+        <image name="紧迫-无100x100.png" width="100" height="100"/>
+        <image name="紧迫100x100.png" width="100" height="100"/>
+        <image name="设置.png" width="65" height="65"/>
+        <image name="超前-无100x100.png" width="100" height="100"/>
+        <image name="超前100x100.png" width="100" height="100"/>
     </resources>
 </document>
