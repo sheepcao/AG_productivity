@@ -58,7 +58,13 @@
 
     }
     
-    
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    self.tableView.backgroundColor = [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1.0];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 7){
+        self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    }
     
 }
 
@@ -496,13 +502,13 @@
     NSTimeInterval timeByEnd = [endTime timeIntervalSinceDate:startTime];
     NSTimeInterval timeRemaining = timeByEnd -timeByNow;
     
-    CGFloat goalRate = ([goal.amount intValue] - [goal.amount_DONE intValue])/[goal.amount intValue];
+    CGFloat goalRate = ([goal.amount doubleValue] - [goal.amount_DONE doubleValue])/[goal.amount doubleValue];
     
-    if ( timeRemaining/timeByEnd <= goalRate/1.8  ) {
+    if ( timeRemaining/timeByEnd <= goalRate/1.5  ) {
         
         return 3; //represent urgent goal...
         
-    }else if(goalRate <= (timeRemaining/timeByEnd)/1.8)
+    }else if(goalRate <= (timeRemaining/timeByEnd)/1.5)
     {
         return 2; //represent super processed goal...
 
@@ -612,8 +618,8 @@
     MyCustomTableViewCell *cell = (MyCustomTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier
                                                                                                 forIndexPath:indexPath];
     
-    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:80.0f];
-    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:80.0f];
+    [cell setLeftUtilityButtons:[self leftButtons] WithButtonWidth:100.0f];
+    [cell setRightUtilityButtons:[self rightButtons] WithButtonWidth:100.0f];
     cell.delegate = self;
     
     [cell setupUI];
@@ -621,7 +627,14 @@
     GoalObj *goal =self.processingTasks[indexPath.row];
     
     cell.GoalName.text = goal.goalName;
-    cell.updateTime.text = goal.lastUpdateTime;
+//    cell.updateTime.text = goal.lastUpdateTime;
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:goal.lastUpdateTime];
+    [attributedString addAttribute:NSKernAttributeName
+                             value:@(1.4)
+                             range:NSMakeRange(0, attributedString.length)];
+    
+    cell.updateTime.attributedText = attributedString;
     [cell.totalAmount setText:[NSString stringWithFormat:@"%@",goal.amount]];
     [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
     //new pie label
@@ -633,6 +646,7 @@
 //    [cell.pieView setHidden:NO];
     [cell.statusShow setHidden:NO];
     [cell.urgentShow setHidden:NO];
+    [cell.liftSwipeIcon setHidden:NO];
 
     [cell.reminderShow setHidden:NO];
     [cell.timeLabel setHidden:YES];
@@ -648,12 +662,12 @@
     int goalStatus = [self checkProcess:goal];
     switch (goalStatus) {
         case 1:
-            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+//            cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
+            cell.done_Amount.textColor = [UIColor colorWithRed:250/255.0f green:34/255.0f blue:75/255.0f alpha:1.0f];
             
             
             self.chartValues = @[
-                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:35/255.0f blue:75/255.0f alpha:1.0f]},
                                  @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
                                  
                                  ];
@@ -661,7 +675,7 @@
             break;
         case 2:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
+            cell.done_Amount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
             
             self.chartValues = @[
                                  @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f]},
@@ -672,7 +686,7 @@
             break;
         case 3:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            cell.done_Amount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
 
             
             self.chartValues = @[
@@ -765,6 +779,7 @@
         
     }
     [cell.updateTime setHidden:YES];
+    [cell.liftSwipeIcon setHidden:YES];
 
     [cell.timeLabel setHidden:NO];
     [cell.timeSpecific setHidden:NO];
@@ -797,11 +812,11 @@
     switch (goalStatus) {
         case 1:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            cell.done_Amount.textColor = [UIColor colorWithRed:250/255.0f green:34/255.0f blue:75/255.0f alpha:1.0f];
             
             
             self.chartValues = @[
-                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                 @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:34/255.0f blue:75/255.0f alpha:1.0f]},
                                  @{@"name":@"second", @"value":GoalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
                                  
                                  ];
@@ -809,7 +824,7 @@
             break;
         case 2:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
+            cell.done_Amount.textColor = [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f];
             
             self.chartValues = @[
                                  @{@"name":@"first", @"value":GoalProcessNumbers[0], @"color":[UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0f]},
@@ -820,7 +835,7 @@
             break;
         case 3:
             cell.pieView.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
-            cell.doneAmount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
+            cell.done_Amount.textColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
             
             
             self.chartValues = @[
@@ -855,12 +870,16 @@
 - (NSArray *)rightButtons
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:
+//     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+//                                                title:@"放弃\n不要轻言放弃,坚持就是胜利!"];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"放弃"];
+                                                title:@"放弃" body:@"不要轻言放弃\n坚持就是胜利"];
+
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"删除"];
+                                                title:@"删除" body:@"目标有问题\n那就重新来"];
     
     return rightUtilityButtons;
 }
@@ -894,10 +913,10 @@
     
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
-                                                title:@"+"];
+                                                icon:[UIImage imageNamed:@"加号"]];
     [leftUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
-                                                title:@"-"];
+                                                icon:[UIImage imageNamed:@"减号"]];
 //    [leftUtilityButtons sw_addUtilityButtonWithColor:
 //     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
 //                                                icon:[UIImage imageNamed:@"cross.png"]];

@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic)  VBPieChart *pie;
 @property (weak, nonatomic) IBOutlet UIImageView *rightSwipeIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *liftSwipeIcon;
 
 //@property (strong,nonatomic)VBPieChart *pie;
 //@property (nonatomic, strong) NSArray *chartValues;

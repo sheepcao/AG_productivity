@@ -28,10 +28,15 @@
     tabBarItem1.title = @"目标列表";
     tabBarItem2.title = @"数据统计";
     
-    [tabBarItem1 setImage:[[UIImage imageNamed:@"goalList0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-//    [tabBarItem1 setSelectedImage:[[UIImage imageNamed:@"goalListt.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    [tabBarItem2 setImage:[[UIImage imageNamed:@"data0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-//    [tabBarItem2 setSelectedImage:[[UIImage imageNamed:@"data0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem1 setImage:[[UIImage imageNamed:@"goalList.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem1 setSelectedImage:[[UIImage imageNamed:@"goalList0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem2 setImage:[[UIImage imageNamed:@"data.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    [tabBarItem2 setSelectedImage:[[UIImage imageNamed:@"data0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+   [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor lightGrayColor] }
+                                                         forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f] }
+                                             forState:UIControlStateSelected];
 
     
     

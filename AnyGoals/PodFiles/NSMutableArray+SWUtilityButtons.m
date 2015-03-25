@@ -19,6 +19,28 @@
     [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
     [self addObject:button];
 }
+- (void)sw_addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title body:(NSString *)body
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.backgroundColor = color;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 37, 50, 30)];
+    titleLabel.text = title;
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+    
+    UILabel *bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, 80, 40)];
+    bodyLabel.text = body;
+    bodyLabel.font = [UIFont systemFontOfSize:12.0f];
+    bodyLabel.numberOfLines = 2;
+    bodyLabel.textAlignment = NSTextAlignmentCenter;
+    bodyLabel.textColor = [UIColor whiteColor];
+    
+    [self addObject:button];
+
+    [button addSubview:titleLabel];
+    [button addSubview:bodyLabel];
+}
 
 - (void)sw_addUtilityButtonWithColor:(UIColor *)color attributedTitle:(NSAttributedString *)title
 {
@@ -33,7 +55,12 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.backgroundColor = color;
-    [button setImage:icon forState:UIControlStateNormal];
+    UIImageView *image = [[UIImageView alloc] initWithImage:icon];
+
+    [button addSubview:image];
+    [image setFrame:CGRectMake(25, 40, 50, 50)];
+    [image setBackgroundColor:[UIColor clearColor]];
+//    [button setImage:icon forState:UIControlStateNormal];
     [self addObject:button];
 }
 

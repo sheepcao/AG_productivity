@@ -31,11 +31,24 @@
             [self.contentView addSubview:self.pie];
             [self.contentView sendSubviewToBack:self.pie];
             [self.pie setBackgroundColor:[UIColor clearColor]];
-            [self.pie setFrame:CGRectMake(self.frame.size.width-42-130,self.frame.size.height/2-65,130,130)];
-
-            self.total_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-54+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2+3, 110, 40)];
-            self.done_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-60+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2-38, 120, 45)];
-
+            if(IS_IPHONE_4_OR_LESS || IS_IPHONE_5)
+            {
+                [self.pie setFrame:CGRectMake(self.frame.size.width-25-110,self.frame.size.height/2-55,110,110)];
+//                [self.GoalName setFrame:CGRectMake(self.GoalName.frame.origin.x - 10, self.GoalName.frame.origin.y, self.GoalName.frame.size.width, self.GoalName.frame.size.height)];
+//                
+//                [self.updateTime setFrame:CGRectMake(self.updateTime.frame.origin.x - 20, self.updateTime.frame.origin.y, self.updateTime.frame.size.width, self.updateTime.frame.size.height)];
+            }
+            if(IS_IPHONE_6)
+            {
+                [self.pie setFrame:CGRectMake(self.frame.size.width-42-130,self.frame.size.height/2-65,130,130)];
+            }
+            if(IS_IPHONE_6P)
+            {
+                [self.pie setFrame:CGRectMake(self.frame.size.width-50-130,self.frame.size.height/2-65,130,130)];
+            }
+                self.total_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-54+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2+3, 110, 40)];
+                self.done_Amount = [[UILabel alloc] initWithFrame:CGRectMake(self.pie.frame.size.width/2-60+self.pie.frame.origin.x, self.pie.frame.origin.y+self.pie.frame.size.height/2-38, 120, 45)];
+            
 
             
         }
