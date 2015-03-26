@@ -28,7 +28,7 @@
                             <variation key="heightClass=regular-widthClass=compact" constant="45"/>
                         </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="保存">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,10 +80,10 @@
                             <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                         </constraint>
                         <constraint firstAttribute="width" constant="43" id="yuj-z5-pg4">
-                            <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="59"/>
                         </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="取消">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,13 +115,13 @@
                     <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                 </constraint>
                 <constraint firstItem="sco-C0-5mS" firstAttribute="centerY" secondItem="10Z-tV-fIM" secondAttribute="centerY" constant="1.5" id="kF8-hl-YVB">
-                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="-5.5"/>
                 </constraint>
                 <constraint firstItem="sco-C0-5mS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="wfn-En-UtE">
                     <variation key="heightClass=regular-widthClass=compact" constant="30"/>
                 </constraint>
                 <constraint firstItem="GjK-ws-g3D" firstAttribute="centerY" secondItem="sco-C0-5mS" secondAttribute="centerY" constant="-1.5" id="xq7-2F-xNy">
-                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="5.5"/>
                 </constraint>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -155,6 +155,7 @@
                     <include reference="xq7-2F-xNy"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="319" y="265"/>
         </view>
     </objects>
 </document>

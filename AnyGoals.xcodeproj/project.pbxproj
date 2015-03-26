@@ -11,7 +11,6 @@
 		A41CFF5E1ABB0AC2004326F6 /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A41CFF5F1ABB0AC2004326F6 /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A41EA5911AB12E9500356BAF /* addGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA58F1AB12E9500356BAF /* addGoalViewController.m */; };
-		A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A41EA5901AB12E9500356BAF /* addGoalViewController.xib */; };
 		A41EA5A91AB1667100356BAF /* ATCAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */; };
 		A41EA5AA1AB1667100356BAF /* ATCAnimatedTransitioningBounce.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A01AB1667100356BAF /* ATCAnimatedTransitioningBounce.m */; };
 		A41EA5AB1AB1667100356BAF /* ATCAnimatedTransitioningFade.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A21AB1667100356BAF /* ATCAnimatedTransitioningFade.m */; };
@@ -22,7 +21,6 @@
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
 		A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */; };
 		A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43BC60E1ABDA95E00A48D0B /* settingViewController.m */; };
-		A43BC6111ABDA95E00A48D0B /* settingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */; };
 		A4528E2B1AC13292001E9125 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2A1AC13292001E9125 /* SystemConfiguration.framework */; };
 		A4528E2D1AC132A0001E9125 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2C1AC132A0001E9125 /* QuartzCore.framework */; };
 		A4528E2F1AC132AB001E9125 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2E1AC132AB001E9125 /* CoreTelephony.framework */; };
@@ -74,6 +72,8 @@
 		A4728B5E1AC285B30075C94D /* goalList0.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B5C1AC285B30075C94D /* goalList0.png */; };
 		A4728B601AC285FB0075C94D /* goalList.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B5F1AC285FB0075C94D /* goalList.png */; };
 		A4728B621AC2864A0075C94D /* data.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B611AC2864A0075C94D /* data.png */; };
+		A47D6E8F1AC3B2CE00AC1768 /* settingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47D6E911AC3B2CE00AC1768 /* settingViewController.xib */; };
+		A47D6E961AC3B2EC00AC1768 /* addGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47D6E981AC3B2EC00AC1768 /* addGoalViewController.xib */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
 		A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF11AAEC9080032D2F5 /* SWCellScrollView.m */; };
 		A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF31AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m */; };
@@ -93,9 +93,9 @@
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
 		A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4C7A8C31AC00C69008588E9 /* UMSocialLocalizable.strings */; };
 		A4C7A8EF1AC00C69008588E9 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */; };
-		A4E2AC961ABB00EB00F06199 /* ThirdVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */; };
 		A4F4519C1AC395B4002081AA /* pen.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4519B1AC395B4002081AA /* pen.png */; };
 		A4F4519E1AC395C9002081AA /* share1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4519D1AC395C9002081AA /* share1.png */; };
+		A4F451A11AC39D93002081AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
 		A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F31AAE813800436FE4 /* FirstViewController.m */; };
@@ -129,7 +129,6 @@
 		A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBPiePiece.m; sourceTree = "<group>"; };
 		A41EA58E1AB12E9500356BAF /* addGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addGoalViewController.h; sourceTree = "<group>"; };
 		A41EA58F1AB12E9500356BAF /* addGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addGoalViewController.m; sourceTree = "<group>"; };
-		A41EA5901AB12E9500356BAF /* addGoalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addGoalViewController.xib; sourceTree = "<group>"; };
 		A41EA59D1AB1667100356BAF /* ATCAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioning.h; sourceTree = "<group>"; };
 		A41EA59E1AB1667100356BAF /* ATCAnimatedTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCAnimatedTransitioning.m; sourceTree = "<group>"; };
 		A41EA59F1AB1667100356BAF /* ATCAnimatedTransitioningBounce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCAnimatedTransitioningBounce.h; sourceTree = "<group>"; };
@@ -150,7 +149,6 @@
 		A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A43BC60D1ABDA95E00A48D0B /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
 		A43BC60E1ABDA95E00A48D0B /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
-		A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingViewController.xib; sourceTree = "<group>"; };
 		A4528E2A1AC13292001E9125 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A4528E2C1AC132A0001E9125 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4528E2E1AC132AB001E9125 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -208,6 +206,12 @@
 		A4728B5C1AC285B30075C94D /* goalList0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalList0.png; sourceTree = "<group>"; };
 		A4728B5F1AC285FB0075C94D /* goalList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalList.png; sourceTree = "<group>"; };
 		A4728B611AC2864A0075C94D /* data.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = data.png; sourceTree = "<group>"; };
+		A47D6E901AC3B2CE00AC1768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/settingViewController.xib; sourceTree = "<group>"; };
+		A47D6E931AC3B2D300AC1768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/settingViewController.strings; sourceTree = "<group>"; };
+		A47D6E951AC3B2D500AC1768 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/settingViewController.strings"; sourceTree = "<group>"; };
+		A47D6E971AC3B2EC00AC1768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/addGoalViewController.xib; sourceTree = "<group>"; };
+		A47D6E9F1AC3D9D900AC1768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addGoalViewController.strings; sourceTree = "<group>"; };
+		A47D6EA11AC3D9E200AC1768 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/addGoalViewController.strings"; sourceTree = "<group>"; };
 		A47DABEC1AAEBBF60032D2F5 /* globalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalVar.h; sourceTree = "<group>"; };
 		A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
@@ -246,10 +250,13 @@
 		A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A4C7A8D31AC00C69008588E9 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A4C7A8ED1AC00C69008588E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
-		A4E2AC941ABB00EB00F06199 /* ThirdVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdVCViewController.h; sourceTree = "<group>"; };
-		A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdVCViewController.m; sourceTree = "<group>"; };
 		A4F4519B1AC395B4002081AA /* pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen.png; sourceTree = "<group>"; };
 		A4F4519D1AC395C9002081AA /* share1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share1.png; sourceTree = "<group>"; };
+		A4F451A21AC39D93002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A4F451A41AC39D9D002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A4F451AD1AC39F0A002081AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A4F451AF1AC39FB0002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		A4F451B11AC39FBF002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		A4F967E81AAE813800436FE4 /* AnyGoals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyGoals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F967EC1AAE813800436FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4F967ED1AAE813800436FE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -259,7 +266,6 @@
 		A4F967F31AAE813800436FE4 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		A4F967F51AAE813800436FE4 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		A4F967F61AAE813800436FE4 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		A4F967F91AAE813800436FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A4F967FB1AAE813800436FE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A4F967FE1AAE813800436FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A4F968041AAE813800436FE4 /* AnyGoalsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnyGoalsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -571,18 +577,16 @@
 				A4F967F31AAE813800436FE4 /* FirstViewController.m */,
 				A41EA58E1AB12E9500356BAF /* addGoalViewController.h */,
 				A41EA58F1AB12E9500356BAF /* addGoalViewController.m */,
-				A41EA5901AB12E9500356BAF /* addGoalViewController.xib */,
+				A47D6E981AC3B2EC00AC1768 /* addGoalViewController.xib */,
 				A43BC60D1ABDA95E00A48D0B /* settingViewController.h */,
 				A43BC60E1ABDA95E00A48D0B /* settingViewController.m */,
-				A43BC60F1ABDA95E00A48D0B /* settingViewController.xib */,
+				A47D6E911AC3B2CE00AC1768 /* settingViewController.xib */,
 				A4528E4B1AC145A5001E9125 /* myTabbarViewController.h */,
 				A4528E4C1AC145A5001E9125 /* myTabbarViewController.m */,
 				A4C327411AB011390062114E /* CycleView.h */,
 				A4C327421AB011390062114E /* CycleView.m */,
 				A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */,
 				A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */,
-				A4E2AC941ABB00EB00F06199 /* ThirdVCViewController.h */,
-				A4E2AC951ABB00EB00F06199 /* ThirdVCViewController.m */,
 				A4F967F51AAE813800436FE4 /* SecondViewController.h */,
 				A4F967F61AAE813800436FE4 /* SecondViewController.m */,
 				A4F967F81AAE813800436FE4 /* Main.storyboard */,
@@ -601,6 +605,7 @@
 				A4F968141AAEBA7300436FE4 /* teaching image */,
 				A4F967EC1AAE813800436FE4 /* Info.plist */,
 				A4F967ED1AAE813800436FE4 /* main.m */,
+				A4F451A31AC39D93002081AA /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -729,13 +734,13 @@
 				A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */,
 				A4528E601AC150BA001E9125 /* 100X100红.png in Resources */,
 				A4728B561AC242610075C94D /* 加号.png in Resources */,
-				A43BC6111ABDA95E00A48D0B /* settingViewController.xib in Resources */,
+				A47D6E8F1AC3B2CE00AC1768 /* settingViewController.xib in Resources */,
 				A4528E621AC150BA001E9125 /* 提醒-2.png in Resources */,
 				A4528E631AC150BA001E9125 /* 提醒-无.png in Resources */,
 				A4728B501AC240FB0075C94D /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				A4F4519E1AC395C9002081AA /* share1.png in Resources */,
 				A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */,
-				A41EA5921AB12E9500356BAF /* addGoalViewController.xib in Resources */,
+				A47D6E961AC3B2EC00AC1768 /* addGoalViewController.xib in Resources */,
 				A4728B601AC285FB0075C94D /* goalList.png in Resources */,
 				A4528E641AC150BA001E9125 /* 提醒1.png in Resources */,
 				A4728B5A1AC281DC0075C94D /* backA.png in Resources */,
@@ -754,6 +759,7 @@
 				A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */,
 				A4528E711AC16997001E9125 /* 加.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
+				A4F451A11AC39D93002081AA /* Localizable.strings in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
 				A4728B5D1AC285B30075C94D /* data0.png in Resources */,
@@ -795,7 +801,6 @@
 				A41CFF5E1ABB0AC2004326F6 /* VBPieChart.m in Sources */,
 				A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */,
 				A4F967F41AAE813800436FE4 /* FirstViewController.m in Sources */,
-				A4E2AC961ABB00EB00F06199 /* ThirdVCViewController.m in Sources */,
 				A47DABFF1AAEC9080032D2F5 /* SWUtilityButtonView.m in Sources */,
 				A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */,
 				A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */,
@@ -841,6 +846,26 @@
 			name = ShareSDKLocalizable.strings;
 			sourceTree = "<group>";
 		};
+		A47D6E911AC3B2CE00AC1768 /* settingViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47D6E901AC3B2CE00AC1768 /* Base */,
+				A47D6E931AC3B2D300AC1768 /* en */,
+				A47D6E951AC3B2D500AC1768 /* zh-Hans */,
+			);
+			name = settingViewController.xib;
+			sourceTree = "<group>";
+		};
+		A47D6E981AC3B2EC00AC1768 /* addGoalViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A47D6E971AC3B2EC00AC1768 /* Base */,
+				A47D6E9F1AC3D9D900AC1768 /* en */,
+				A47D6EA11AC3D9E200AC1768 /* zh-Hans */,
+			);
+			name = addGoalViewController.xib;
+			sourceTree = "<group>";
+		};
 		A4C7A8C31AC00C69008588E9 /* UMSocialLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -850,10 +875,21 @@
 			name = UMSocialLocalizable.strings;
 			sourceTree = "<group>";
 		};
+		A4F451A31AC39D93002081AA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4F451A21AC39D93002081AA /* zh-Hans */,
+				A4F451A41AC39D9D002081AA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A4F967F81AAE813800436FE4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A4F967F91AAE813800436FE4 /* Base */,
+				A4F451AD1AC39F0A002081AA /* Base */,
+				A4F451AF1AC39FB0002081AA /* en */,
+				A4F451B11AC39FBF002081AA /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

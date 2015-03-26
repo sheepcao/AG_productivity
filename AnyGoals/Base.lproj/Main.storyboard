@@ -435,13 +435,13 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="12"/>
                                                 </constraint>
                                                 <constraint firstItem="2f9-MU-Uhm" firstAttribute="leading" secondItem="IeD-Rv-uLr" secondAttribute="trailing" constant="20" id="ILv-Nd-vGr">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="25"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="c6K-tT-rL1" secondAttribute="centerY" id="JDp-uA-dCC"/>
                                                 <constraint firstItem="FZ0-tr-gdo" firstAttribute="centerY" secondItem="xMQ-Kj-XpJ" secondAttribute="centerY" id="KVu-SZ-ofc"/>
                                                 <constraint firstAttribute="centerY" secondItem="IeD-Rv-uLr" secondAttribute="centerY" id="Mfb-PH-nZa"/>
                                                 <constraint firstItem="VhB-e3-gvq" firstAttribute="leading" secondItem="IeD-Rv-uLr" secondAttribute="trailing" constant="20" id="QYy-ej-rLf">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="7"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="2"/>
                                                 </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="1gW-Z2-g4O" secondAttribute="centerY" id="SI8-by-1h5">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>

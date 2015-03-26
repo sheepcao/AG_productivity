@@ -25,8 +25,8 @@
     UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
     
     
-    tabBarItem1.title = @"目标列表";
-    tabBarItem2.title = @"数据统计";
+    tabBarItem1.title = NSLocalizedString(@"目标列表", nil) ;
+    tabBarItem2.title = NSLocalizedString(@"数据统计", nil);
     
     [tabBarItem1 setImage:[[UIImage imageNamed:@"goalList.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     [tabBarItem1 setSelectedImage:[[UIImage imageNamed:@"goalList0.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

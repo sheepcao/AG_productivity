@@ -59,11 +59,11 @@
         [self.monthlyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
         
-        [self.totalPieLabel setText:[NSString stringWithFormat:@"总体进度:%.0f%%",0.0f]];
-        [self.finishPieLabel setText:[NSString stringWithFormat:@"完成进度:%.0f%%",0.0f]];
-        [self.urgentPieLabel setText:[NSString stringWithFormat:@"紧迫比例:%.0f%%",0.0f]];
-        [self.weeklyPieLabel setText:[NSString stringWithFormat:@"周活跃目标:%.0f%%",0.0f]];
-        [self.monthlyPieLabel setText:[NSString stringWithFormat:@"月活跃目标:%.0f%%",0.0f]];
+        [self.totalPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"总体进度:%.0f%%",nil),0.0f]];
+        [self.finishPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"完成进度:%.0f%%",nil),0.0f]];
+        [self.urgentPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"紧迫比例:%.0f%%",nil),0.0f]];
+        [self.weeklyPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"周活跃目标:%.0f%%",nil),0.0f]];
+        [self.monthlyPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"月活跃目标:%.0f%%",nil),0.0f]];
         
     }else
     {
@@ -84,7 +84,7 @@
         
         [self.totalPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
-        [self.totalPieLabel setText:[NSString stringWithFormat:@"总体进度:%.0f%%",(100 * [totalProcessNumbers[0] doubleValue]/100.0f)]];
+        [self.totalPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"总体进度:%.0f%%",nil),(100 * [totalProcessNumbers[0] doubleValue]/100.0f)]];
         //
         //    self.totalPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
         //
@@ -111,7 +111,7 @@
         
         [self.finishPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
-        [self.finishPieLabel setText:[NSString stringWithFormat:@"完成进度:%.0f%%",(100 * [finishedProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        [self.finishPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"完成进度:%.0f%%",nil),(100 * [finishedProcessNumbers[0] doubleValue]/self.allGoals.count)]];
         
         
         
@@ -134,7 +134,7 @@
         
         [self.urgentPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
-        [self.urgentPieLabel setText:[NSString stringWithFormat:@"紧迫比例:%.0f%%",(100 * [urgentProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        [self.urgentPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"紧迫比例:%.0f%%",nil),(100 * [urgentProcessNumbers[0] doubleValue]/self.allGoals.count)]];
         //weekly Pie
         
         NSNumber *weeklyProcess = [NSNumber numberWithInt:[self calculateWeeklyProcess]];
@@ -155,7 +155,7 @@
         
         [self.weeklyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
-        [self.weeklyPieLabel setText:[NSString stringWithFormat:@"周活跃目标:%.0f%%",(100 * [weeklyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        [self.weeklyPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"周活跃目标:%.0f%%",nil),(100 * [weeklyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
         
         
         //monthly Pie
@@ -175,7 +175,7 @@
         [self.monthlyPie setChartValues:self.chartValues animation:YES options:VBPieChartAnimationFanAll];
         
         
-        [self.monthlyPieLabel setText:[NSString stringWithFormat:@"月活跃目标:%.0f%%",(100 * [monthlyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
+        [self.monthlyPieLabel setText:[NSString stringWithFormat:NSLocalizedString(@"月活跃目标:%.0f%%",nil),(100 * [monthlyProcessNumbers[0] doubleValue]/self.allGoals.count)]];
     }
 //    self.monthlyPie.colorArray = [NSMutableArray arrayWithArray: @[[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f],[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]]];
 //    
@@ -362,7 +362,7 @@
         self.totalPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.totalPie.frame.origin.x-offside/2-3, self.totalPie.frame.origin.y+self.totalPie.frame.size.height+3, pieSize+6, 25)];
         self.totalPieLabel.textAlignment = NSTextAlignmentCenter;
         self.totalPieLabel.backgroundColor = [UIColor clearColor];
-        self.totalPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        self.totalPieLabel.font =[UIFont systemFontOfSize:12.5f];
         [self.PiesView addSubview:self.totalPieLabel];
     }
     
@@ -386,7 +386,7 @@
         self.finishPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.finishPie.frame.origin.x-offside+8, self.finishPie.frame.origin.y+self.finishPie.frame.size.height+3, pieSize+2, 25)];
         self.finishPieLabel.textAlignment = NSTextAlignmentCenter;
         self.finishPieLabel.backgroundColor = [UIColor clearColor];
-        self.finishPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        self.finishPieLabel.font =[UIFont systemFontOfSize:12.5f];
 
         [self.PiesView addSubview:self.finishPieLabel];
     }
@@ -411,7 +411,7 @@
         self.urgentPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.urgentPie.frame.origin.x-8, self.urgentPie.frame.origin.y+self.urgentPie.frame.size.height+3, pieSize+6, 25)];
         self.urgentPieLabel.textAlignment = NSTextAlignmentCenter;
         self.urgentPieLabel.backgroundColor = [UIColor clearColor];
-        self.urgentPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        self.urgentPieLabel.font =[UIFont systemFontOfSize:12.5f];
 
         [self.PiesView addSubview:self.urgentPieLabel];
     }
@@ -436,7 +436,7 @@
         self.weeklyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.weeklyPie.frame.origin.x-offside-3, self.weeklyPie.frame.origin.y+self.weeklyPie.frame.size.height+3, pieSize+10+6, 25)];
         self.weeklyPieLabel.textAlignment = NSTextAlignmentCenter;
         self.weeklyPieLabel.backgroundColor = [UIColor clearColor];
-        self.weeklyPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        self.weeklyPieLabel.font =[UIFont systemFontOfSize:12.5f];
 
         [self.PiesView addSubview:self.weeklyPieLabel];
     }
@@ -462,7 +462,7 @@
         self.monthlyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.monthlyPie.frame.origin.x-8, self.monthlyPie.frame.origin.y+self.monthlyPie.frame.size.height+3, pieSize+10+6, 25)];
         self.monthlyPieLabel.textAlignment = NSTextAlignmentCenter;
         self.monthlyPieLabel.backgroundColor = [UIColor clearColor];
-        self.monthlyPieLabel.font =[UIFont systemFontOfSize:14.0f];
+        self.monthlyPieLabel.font =[UIFont systemFontOfSize:12.5f];
 
         [self.PiesView addSubview:self.monthlyPieLabel];
     }
@@ -494,11 +494,11 @@
     
     //构造分享内容
     id<ISSContent> publishContent = [ShareSDK content:@"AnyGoal"
-                                       defaultContent:@"我的目标状态"
+                                       defaultContent:NSLocalizedString(@"我的目标状态",nil)
                                                 image:[ShareSDK pngImageWithImage:imageShare]
                                                 title:@"AnyGoal"
                                                   url:REVIEW_URL
-                                          description:@"我的目标状态如图所示"
+                                          description:NSLocalizedString(@"我的目标状态如图所示",nil)
                                             mediaType:SSPublishContentMediaTypeImage];
     //创建弹出菜单容器
     id<ISSContainer> container = [ShareSDK container];

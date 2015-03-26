@@ -44,10 +44,19 @@
     self.giveupTasks = [[NSMutableArray alloc] init];
 
 
-
-    
+    if ([self isSystemLangChinese]) {
+        
+    }else
+    {
+        UIFont *font = [UIFont systemFontOfSize:9.5f];
+        NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
+                                                               forKey:NSFontAttributeName];
+        [self.goalTypeSegment setTitleTextAttributes:attributes
+                                            forState:UIControlStateNormal];
+        
+    }
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
+  
     //判断滑动图是否出现过，第一次调用时“isScrollViewAppear” 这个key 对应的值是nil，会进入if中
     if (![@"YES" isEqualToString:[userDefaults objectForKey:@"isScrollViewAppear"]]) {
         
@@ -68,6 +77,21 @@
     
 }
 
+#pragma system language
+- (BOOL)isSystemLangChinese
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    NSString *currentLang = [languages objectAtIndex:0];
+    
+    if([currentLang compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame || [currentLang compare:@"zh-Hant" options:NSCaseInsensitiveSearch]==NSOrderedSame)
+    {
+        return YES;
+    }else
+    {
+        return NO;
+    }
+}
 //-(void)viewDidLayoutSubviews
 //{
 //    [super viewDidLayoutSubviews];
@@ -757,7 +781,7 @@
         [cell setRightUtilityButtons:[self oneRightButtons] WithButtonWidth:80.0f];
 
         goal = self.finishedTasks[indexPath.row];
-        cell.timeLabel.text = @"完成时间";
+        cell.timeLabel.text = NSLocalizedString(@"完成时间:",nil);
         cell.timeSpecific.text = goal.lastUpdateTime;
     }else if(self.goalTypeSegment.selectedSegmentIndex ==2)
     {
@@ -765,7 +789,7 @@
 
         goal = self.notyetTasks[indexPath.row];
 
-        cell.timeLabel.text = @"开始时间";
+        cell.timeLabel.text = NSLocalizedString(@"开始时间:",nil);
         cell.timeSpecific.text = goal.startTime;
         
     }else if(self.goalTypeSegment.selectedSegmentIndex ==3)
@@ -774,7 +798,7 @@
 
         goal = self.giveupTasks[indexPath.row];
 
-        cell.timeLabel.text = @"放弃时间";
+        cell.timeLabel.text = NSLocalizedString(@"放弃时间:",nil);
         cell.timeSpecific.text = goal.lastUpdateTime;
         
     }
@@ -875,11 +899,11 @@
 //                                                title:@"放弃\n不要轻言放弃,坚持就是胜利!"];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"放弃" body:@"不要轻言放弃\n坚持就是胜利"];
+                                                title:NSLocalizedString(@"放弃",nil) body:NSLocalizedString(@"不要轻言放弃\n坚持就是胜利",nil)];
 
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"删除" body:@"目标有问题\n那就重新来"];
+                                                title:NSLocalizedString(@"删除",nil) body:NSLocalizedString(@"目标有问题\n那就重新来",nil)];
     
     return rightUtilityButtons;
 }
@@ -888,10 +912,10 @@
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
-                                                title:@"恢复"];
+                                                title:NSLocalizedString(@"恢复",nil)];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"删除"];
+                                                title:NSLocalizedString(@"删除",nil)];
     
     return rightUtilityButtons;
 }
@@ -902,7 +926,7 @@
                                                 title:@""];
     [rightUtilityButtons sw_addUtilityButtonWithColor:
      [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
-                                                title:@"删除"];
+                                                title:NSLocalizedString(@"删除",nil)];
     
     return rightUtilityButtons;
 }
@@ -964,7 +988,7 @@
             [cell hideUtilityButtonsAnimated:YES];
             if ([goal.amount_DONE intValue]==[goal.amount intValue]) {
                 [self updateDataForTable:@"GOALSINFO" setColomn:@"isFinished" toData:[NSNumber numberWithInt:1] whereColomn:@"goalID" isData:goal.goalID];
-                UIAlertView *fullAlert = [[UIAlertView alloc] initWithTitle:@"恭喜" message:@"您已成功完成目标，该目标将自动移入已完成列表。" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+                UIAlertView *fullAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"恭喜",nil) message:NSLocalizedString(@"您已成功完成目标，该目标将自动移入已完成列表。",nil) delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定",nil), nil];
                 fullAlert.tag = 0;
                 [fullAlert show];
           
@@ -1034,7 +1058,7 @@
             if (self.goalTypeSegment.selectedSegmentIndex == 0) {
                 NSLog(@"giveup button was pressed");
                 
-                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认放弃该目标?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"放弃", nil];
+                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"确认放弃该目标?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"放弃 ",nil), nil];
                 deleteAlert.tag = 2;
                 [deleteAlert show];
                 
@@ -1055,7 +1079,7 @@
             {
                 NSLog(@"recover button was pressed");
                 
-                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认重拾该目标?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"确认重拾该目标?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"确认",nil), nil];
                 deleteAlert.tag = 3;
                 [deleteAlert show];
                 
@@ -1073,7 +1097,7 @@
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
 
 
-            UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"确认删除该项?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+            UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意", nil) message:NSLocalizedString(@"确认删除该项?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"删除",nil), nil];
             deleteAlert.tag = 1;
             [deleteAlert show];
             

@@ -51,10 +51,17 @@
     custom = [[CustomDatePickerActionSheet alloc] initWithDelegate:self];
 
 
-
     [self setupUI];
+    [self drawAline];
+
 }
 
+-(void)drawAline
+{
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, self.goalInfoScrollView.frame.origin.y-1, SCREEN_WIDTH, 1)];
+    [line setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view addSubview:line];
+}
 
 -(void)setupUI
 {
@@ -66,6 +73,7 @@
     
 
     self.goalInfoScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, self.pageTitle.frame.origin.y+50, SCREEN_WIDTH, SCREEN_HEIGHT-(self.pageTitle.frame.origin.y+50))];
+    self.goalInfoScrollView.backgroundColor = [UIColor colorWithRed:250/255.0f green:250/255.0f blue:250/255.0f alpha:1.0];
     if (IS_IPHONE_4_OR_LESS) {
         self.goalInfoScrollView.contentSize = CGSizeMake(self.goalInfoScrollView.frame.size.width, self.goalInfoScrollView.frame.size.height+100);
 
@@ -135,7 +143,7 @@
 
     UILabel *reminder = [[UILabel alloc] initWithFrame:CGRectMake(50, endTimeField.frame.origin.y+endTimeField.frame.size.height+30, 200, 35)];
     reminder.textAlignment = NSTextAlignmentLeft;
-    reminder.text = @"\t提醒我";
+    reminder.text = NSLocalizedString(@"\t提醒我",nil);
     reminder.textColor = [UIColor lightGrayColor];
     
     reminderSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-80, reminder.frame.origin.y+1, 51, 31)];
@@ -159,27 +167,27 @@
     reminderNote.delegate = self;
     reminderNote.font = [UIFont systemFontOfSize:17.0f];
 
+    reminderNote.backgroundColor = [UIColor colorWithRed:250/255.0f green:250/255.0f blue:250/255.0f alpha:1.0];
     
-    
-    if (self.isNewGoal) {
-
-    }else
-    {
-        //to do select from db...
-    }
+//    if (self.isNewGoal) {
+//
+//    }else
+//    {
+//        //to do select from db...
+//    }
 
     [remindTimePicker addTarget:self action:@selector(oneDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged]; // 添加监听器
     
     if(self.isNewGoal)
     {
-        goalNameField.placeholder = @"目标名称";
-        actionTimesField.placeholder = @"行动次数";
+        goalNameField.placeholder = NSLocalizedString(@"目标名称",nil);
+        actionTimesField.placeholder = NSLocalizedString(@"行动次数",nil);
         
-        [startTimeField setTitle:@"开始时间" forState:UIControlStateNormal];
-        [endTimeField setTitle:@"截至时间" forState:UIControlStateNormal];
+        [startTimeField setTitle:NSLocalizedString(@"开始时间",nil) forState:UIControlStateNormal];
+        [endTimeField setTitle:NSLocalizedString(@"截至时间",nil) forState:UIControlStateNormal];
         
         reminderTime = @"";
-        [reminderNote setText:@"点击编辑提醒备注..."];
+        [reminderNote setText:NSLocalizedString(@"点击编辑提醒备注...",nil)];
         [reminderNote setTextColor:[UIColor lightGrayColor]];
         
     }else
@@ -199,7 +207,7 @@
             reminderTime = self.editingGoal.reminder;
 
             [reminderNote setText:self.editingGoal.reminderNote];
-            if ([self.editingGoal.reminderNote isEqualToString:@"点击编辑提醒备注..."]) {
+            if ([self.editingGoal.reminderNote isEqualToString:NSLocalizedString(@"点击编辑提醒备注...",nil)]) {
                 [reminderNote setTextColor:[UIColor lightGrayColor]];
 
             }else
@@ -227,7 +235,7 @@
     BOOL isButtonOn = [switchButton isOn];
     if (isButtonOn) {
         
-        [remindTimePicker setFrame:CGRectMake(45, switchButton.frame.origin.y+45, SCREEN_WIDTH-90, (SCREEN_WIDTH-10)*0.46)];
+        [remindTimePicker setFrame:CGRectMake(40, switchButton.frame.origin.y+45, SCREEN_WIDTH-80, (SCREEN_WIDTH-10)*0.46)];
         remindTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
         
         timeSelected = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 150, remindTimePicker.frame.origin.y+remindTimePicker.frame.size.height, 300, 30)];
@@ -238,12 +246,12 @@
         
         //to do .. select reminder time in db and show.include setting date picker.
         if (self.isNewGoal || [reminderTime isEqualToString:@""]) {
-            reminderTime = @"未选择";
-            [timeSelected setText:[NSString stringWithFormat:@"已选时间: %@",reminderTime]];
+            reminderTime = NSLocalizedString(@"未选择",nil);
+            [timeSelected setText:[NSString stringWithFormat:NSLocalizedString(@"已选时间: %@",nil),reminderTime]];
         }else
         {
             reminderTime = self.editingGoal.reminder;
-            [timeSelected setText:[NSString stringWithFormat:@"已选时间: %@",reminderTime]];
+            [timeSelected setText:[NSString stringWithFormat:NSLocalizedString(@"已选时间: %@",),reminderTime]];
             
             NSDateFormatter *reminderDateFormatter = [[NSDateFormatter alloc] init];
             reminderDateFormatter.dateFormat = @"yyyy/MM/dd HH:mm"; // 设置时间和日期的格式
@@ -313,7 +321,7 @@
     
     reminderTime =[selectDateFormatter stringFromDate:select];
     
-    NSString *dateAndTime =[NSString stringWithFormat:@"已选时间:%@",reminderTime] ;
+    NSString *dateAndTime =[NSString stringWithFormat:NSLocalizedString(@"已选时间:%@",nil),reminderTime] ;
     
     [timeSelected setText:dateAndTime];
     
@@ -377,7 +385,7 @@
         return true;
     }else
     {
-        UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"目标开始时间应设置在截至时间之后!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"目标开始时间应设置在截至时间之后!",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"确定",nil) otherButtonTitles:nil, nil];
         [reminderError show];
         return false;
     }
@@ -399,7 +407,7 @@
             return TRUE;
         }else
         {
-            UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"提醒时间应为未来的某一时刻!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"提醒时间应为未来的某一时刻!",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"确定",nil) otherButtonTitles:nil, nil];
             [reminderError show];
             return false;
 
@@ -416,10 +424,10 @@
 -(BOOL)checkInfoValidation
 {
 
-    if (goalNameField.text.length>0 && actionTimesField.text.length>0 && ![startTimeField.titleLabel.text isEqualToString:@"开始时间"] && ![endTimeField.titleLabel.text isEqualToString:@"截至时间"]) {
+    if (goalNameField.text.length>0 && actionTimesField.text.length>0 && ![startTimeField.titleLabel.text isEqualToString:NSLocalizedString(@"开始时间",nil)] && ![endTimeField.titleLabel.text isEqualToString:NSLocalizedString(@"截至时间",nil)]) {
         return TRUE;
     }
-    UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"请完整设置目标基本信息!" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    UIAlertView *reminderError = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"请完整设置目标基本信息!",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"确定",nil) otherButtonTitles:nil, nil];
     [reminderError show];
     return false;
 }
@@ -442,7 +450,7 @@
         
         NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
-        NSString *remindNote = @"点击编辑提醒备注...";
+        NSString *remindNote = NSLocalizedString(@"点击编辑提醒备注...",nil);
         
         if (reminderNote.superview) {
             remindNote = reminderNote.text;
@@ -470,7 +478,7 @@
             
             if ([self.editingGoal.amount_DONE intValue]>=[actionTimesField.text intValue]) {
                 [db close];
-                UIAlertView *overAmountAlert = [[UIAlertView alloc] initWithTitle:@"请注意" message:@"您已经完成的行动次数超过了您输入的总行动次数，请修改" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+                UIAlertView *overAmountAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"您已经完成的行动次数超过了您输入的总行动次数,请修改",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"确认",nil) otherButtonTitles:nil, nil];
                 [overAmountAlert show];
                 return;
 
@@ -500,7 +508,7 @@
     if ([reminderTime isEqualToString:@""]) {
         return;
     }
-    if ([detail isEqualToString:@"点击编辑提醒备注..."]) {
+    if ([detail isEqualToString:NSLocalizedString(@"点击编辑提醒备注...",nil)]) {
         detail = @"";
     }
     
@@ -600,7 +608,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
 
-    if ([textView.text isEqualToString:@"点击编辑提醒备注..."]) {
+    if ([textView.text isEqualToString:NSLocalizedString(@"点击编辑提醒备注...",nil)]) {
         textView.text = @"";
 
     }
@@ -636,7 +644,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:@""]) {
-        [textView setText:@"点击编辑提醒备注..."];
+        [textView setText:NSLocalizedString(@"点击编辑提醒备注...",nil)];
         [textView setTextColor:[UIColor lightGrayColor]];
     }
 
