@@ -86,7 +86,7 @@
     for (int i = 0; i <2; i++) {
      
         UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
-        [editingImage setImage:[UIImage imageNamed:@"skip"]];
+        [editingImage setImage:[UIImage imageNamed:@"pen.png"]];
         [self.goalInfoScrollView addSubview:editingImage];
         
         UITextField *txtfield = self.textfieldArray[i];
@@ -108,7 +108,7 @@
     for (int i = 2; i <4; i++) {
         
         UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
-        [editingImage setImage:[UIImage imageNamed:@"skip"]];
+        [editingImage setImage:[UIImage imageNamed:@"pen.png"]];
         [self.goalInfoScrollView addSubview:editingImage];
         
         UIButton *timeBtn = self.textfieldArray[i];
