@@ -43,6 +43,13 @@
     self.notyetTasks = [[NSMutableArray alloc] init];
     self.giveupTasks = [[NSMutableArray alloc] init];
 
+    
+    
+//    UIColor *newTintColor = [UIColor clearColor];
+////    self.goalTypeSegment.tintColor = newTintColor;
+//    
+//    UIColor *newSelectedTintColor = [UIColor colorWithRed: 89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
+//    [[[self.goalTypeSegment subviews] objectAtIndex:0] setTintColor:newSelectedTintColor];
 
     if ([self isSystemLangChinese]) {
         

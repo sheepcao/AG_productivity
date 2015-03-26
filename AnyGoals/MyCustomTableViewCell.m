@@ -62,10 +62,10 @@
         [self.pie setHoleRadiusPrecent:0.88];
         
         
-        self.total_Amount.font = [UIFont systemFontOfSize:25.0f];
+        self.total_Amount.font = [UIFont boldSystemFontOfSize:25.0f];
         self.total_Amount.textAlignment = NSTextAlignmentCenter;
         [self.total_Amount setBackgroundColor:[UIColor clearColor]];
-        [self.total_Amount setTextColor:[UIColor grayColor]];
+        [self.total_Amount setTextColor:[UIColor colorWithRed: 89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0]];
         [self.contentView addSubview:self.total_Amount];
         
         self.done_Amount.font = [UIFont systemFontOfSize:42.0f];
