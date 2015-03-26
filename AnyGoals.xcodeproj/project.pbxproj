@@ -42,7 +42,6 @@
 		A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E681AC1673C001E9125 /* 紧迫100x100.png */; };
 		A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E691AC1673C001E9125 /* 超前-无100x100.png */; };
 		A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E6A1AC1673C001E9125 /* 超前100x100.png */; };
-		A4528E711AC16997001E9125 /* 加.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E6F1AC16997001E9125 /* 加.png */; };
 		A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
 		A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */ = {isa = PBXBuildFile; fileRef = A46E49BB1AAF34B3008B9EF7 /* skip.png */; };
 		A4728B401AC240FB0075C94D /* FacebookConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4728B221AC240FB0075C94D /* FacebookConnection.framework */; };
@@ -66,7 +65,6 @@
 		A4728B521AC240FB0075C94D /* ShareSDKShareActionSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4728B3F1AC240FB0075C94D /* ShareSDKShareActionSheet.framework */; };
 		A4728B551AC242610075C94D /* 减号.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B531AC242610075C94D /* 减号.png */; };
 		A4728B561AC242610075C94D /* 加号.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B541AC242610075C94D /* 加号.png */; };
-		A4728B581AC24C730075C94D /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B571AC24C730075C94D /* 设置.png */; };
 		A4728B5A1AC281DC0075C94D /* backA.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B591AC281DC0075C94D /* backA.png */; };
 		A4728B5D1AC285B30075C94D /* data0.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B5B1AC285B30075C94D /* data0.png */; };
 		A4728B5E1AC285B30075C94D /* goalList0.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B5C1AC285B30075C94D /* goalList0.png */; };
@@ -74,6 +72,10 @@
 		A4728B621AC2864A0075C94D /* data.png in Resources */ = {isa = PBXBuildFile; fileRef = A4728B611AC2864A0075C94D /* data.png */; };
 		A47D6E8F1AC3B2CE00AC1768 /* settingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47D6E911AC3B2CE00AC1768 /* settingViewController.xib */; };
 		A47D6E961AC3B2EC00AC1768 /* addGoalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A47D6E981AC3B2EC00AC1768 /* addGoalViewController.xib */; };
+		A47D6ED71AC3F6A200AC1768 /* pen.png in Resources */ = {isa = PBXBuildFile; fileRef = A47D6ED41AC3F6A200AC1768 /* pen.png */; };
+		A47D6ED81AC3F6A200AC1768 /* share1.png in Resources */ = {isa = PBXBuildFile; fileRef = A47D6ED51AC3F6A200AC1768 /* share1.png */; };
+		A47D6ED91AC3F6A200AC1768 /* 设置.png in Resources */ = {isa = PBXBuildFile; fileRef = A47D6ED61AC3F6A200AC1768 /* 设置.png */; };
+		A47D6EDB1AC3FA6A00AC1768 /* 加.png in Resources */ = {isa = PBXBuildFile; fileRef = A47D6EDA1AC3FA6A00AC1768 /* 加.png */; };
 		A47DABFA1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */; };
 		A47DABFB1AAEC9080032D2F5 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF11AAEC9080032D2F5 /* SWCellScrollView.m */; };
 		A47DABFC1AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DABF31AAEC9080032D2F5 /* SWLongPressGestureRecognizer.m */; };
@@ -93,8 +95,6 @@
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
 		A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4C7A8C31AC00C69008588E9 /* UMSocialLocalizable.strings */; };
 		A4C7A8EF1AC00C69008588E9 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */; };
-		A4F4519C1AC395B4002081AA /* pen.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4519B1AC395B4002081AA /* pen.png */; };
-		A4F4519E1AC395C9002081AA /* share1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F4519D1AC395C9002081AA /* share1.png */; };
 		A4F451A11AC39D93002081AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -171,7 +171,6 @@
 		A4528E681AC1673C001E9125 /* 紧迫100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "紧迫100x100.png"; sourceTree = "<group>"; };
 		A4528E691AC1673C001E9125 /* 超前-无100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超前-无100x100.png"; sourceTree = "<group>"; };
 		A4528E6A1AC1673C001E9125 /* 超前100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超前100x100.png"; sourceTree = "<group>"; };
-		A4528E6F1AC16997001E9125 /* 加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加.png"; sourceTree = "<group>"; };
 		A460DCA11AB6A29800B526C4 /* GoalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalObj.h; sourceTree = "<group>"; };
 		A460DCA21AB6A29800B526C4 /* GoalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalObj.m; sourceTree = "<group>"; };
 		A46E49BB1AAF34B3008B9EF7 /* skip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skip.png; sourceTree = "<group>"; };
@@ -200,7 +199,6 @@
 		A4728B3F1AC240FB0075C94D /* ShareSDKShareActionSheet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKShareActionSheet.framework; sourceTree = "<group>"; };
 		A4728B531AC242610075C94D /* 减号.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "减号.png"; sourceTree = "<group>"; };
 		A4728B541AC242610075C94D /* 加号.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号.png"; sourceTree = "<group>"; };
-		A4728B571AC24C730075C94D /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
 		A4728B591AC281DC0075C94D /* backA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backA.png; sourceTree = "<group>"; };
 		A4728B5B1AC285B30075C94D /* data0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = data0.png; sourceTree = "<group>"; };
 		A4728B5C1AC285B30075C94D /* goalList0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goalList0.png; sourceTree = "<group>"; };
@@ -212,6 +210,11 @@
 		A47D6E971AC3B2EC00AC1768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/addGoalViewController.xib; sourceTree = "<group>"; };
 		A47D6E9F1AC3D9D900AC1768 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/addGoalViewController.strings; sourceTree = "<group>"; };
 		A47D6EA11AC3D9E200AC1768 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/addGoalViewController.strings"; sourceTree = "<group>"; };
+		A47D6ED41AC3F6A200AC1768 /* pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen.png; sourceTree = "<group>"; };
+		A47D6ED51AC3F6A200AC1768 /* share1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share1.png; sourceTree = "<group>"; };
+		A47D6ED61AC3F6A200AC1768 /* 设置.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置.png"; sourceTree = "<group>"; };
+		A47D6EDA1AC3FA6A00AC1768 /* 加.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加.png"; sourceTree = "<group>"; };
+		A47D6EDC1AC3FEFC00AC1768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A47DABEC1AAEBBF60032D2F5 /* globalVar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = globalVar.h; sourceTree = "<group>"; };
 		A47DABEE1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		A47DABEF1AAEC9080032D2F5 /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
@@ -250,8 +253,6 @@
 		A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A4C7A8D31AC00C69008588E9 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A4C7A8ED1AC00C69008588E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
-		A4F4519B1AC395B4002081AA /* pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pen.png; sourceTree = "<group>"; };
-		A4F4519D1AC395C9002081AA /* share1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share1.png; sourceTree = "<group>"; };
 		A4F451A21AC39D93002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A4F451A41AC39D9D002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4F451AD1AC39F0A002081AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -353,13 +354,13 @@
 		A4528E3A1AC13ECB001E9125 /* accessory */ = {
 			isa = PBXGroup;
 			children = (
+				A47D6ED41AC3F6A200AC1768 /* pen.png */,
+				A47D6ED51AC3F6A200AC1768 /* share1.png */,
+				A47D6ED61AC3F6A200AC1768 /* 设置.png */,
 				A4728B591AC281DC0075C94D /* backA.png */,
-				A4F4519B1AC395B4002081AA /* pen.png */,
-				A4F4519D1AC395C9002081AA /* share1.png */,
 				A4728B531AC242610075C94D /* 减号.png */,
+				A47D6EDA1AC3FA6A00AC1768 /* 加.png */,
 				A4728B541AC242610075C94D /* 加号.png */,
-				A4528E6F1AC16997001E9125 /* 加.png */,
-				A4728B571AC24C730075C94D /* 设置.png */,
 				A4528E651AC155A8001E9125 /* 100 x 100px 圆圈.png */,
 				A4528E5B1AC150BA001E9125 /* 100X100红.png */,
 				A4528E5C1AC150BA001E9125 /* 100X100绿.png */,
@@ -734,36 +735,36 @@
 				A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */,
 				A4528E601AC150BA001E9125 /* 100X100红.png in Resources */,
 				A4728B561AC242610075C94D /* 加号.png in Resources */,
+				A47D6ED81AC3F6A200AC1768 /* share1.png in Resources */,
 				A47D6E8F1AC3B2CE00AC1768 /* settingViewController.xib in Resources */,
 				A4528E621AC150BA001E9125 /* 提醒-2.png in Resources */,
 				A4528E631AC150BA001E9125 /* 提醒-无.png in Resources */,
 				A4728B501AC240FB0075C94D /* ShareSDKFlatShareViewUI.bundle in Resources */,
-				A4F4519E1AC395C9002081AA /* share1.png in Resources */,
 				A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */,
 				A47D6E961AC3B2EC00AC1768 /* addGoalViewController.xib in Resources */,
 				A4728B601AC285FB0075C94D /* goalList.png in Resources */,
 				A4528E641AC150BA001E9125 /* 提醒1.png in Resources */,
 				A4728B5A1AC281DC0075C94D /* backA.png in Resources */,
+				A47D6ED71AC3F6A200AC1768 /* pen.png in Resources */,
 				A4528E661AC155A8001E9125 /* 100 x 100px 圆圈.png in Resources */,
 				A4F967FF1AAE813800436FE4 /* LaunchScreen.xib in Resources */,
-				A4F4519C1AC395B4002081AA /* pen.png in Resources */,
 				A4728B4B1AC240FB0075C94D /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
 				A4728B5E1AC285B30075C94D /* goalList0.png in Resources */,
 				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
 				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
+				A47D6EDB1AC3FA6A00AC1768 /* 加.png in Resources */,
 				A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */,
 				A4728B621AC2864A0075C94D /* data.png in Resources */,
 				A4528E6B1AC1673C001E9125 /* 紧迫-无100x100.png in Resources */,
+				A47D6ED91AC3F6A200AC1768 /* 设置.png in Resources */,
 				A4528E611AC150BA001E9125 /* 100X100绿.png in Resources */,
 				A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */,
-				A4528E711AC16997001E9125 /* 加.png in Resources */,
 				A47DAC0A1AAED6E70032D2F5 /* startNow.png in Resources */,
 				A4F451A11AC39D93002081AA /* Localizable.strings in Resources */,
 				A4F9681C1AAEBA8200436FE4 /* 3.png in Resources */,
 				A4F9681A1AAEBA8200436FE4 /* 1.png in Resources */,
 				A4728B5D1AC285B30075C94D /* data0.png in Resources */,
-				A4728B581AC24C730075C94D /* 设置.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +881,7 @@
 			children = (
 				A4F451A21AC39D93002081AA /* zh-Hans */,
 				A4F451A41AC39D9D002081AA /* en */,
+				A47D6EDC1AC3FEFC00AC1768 /* Base */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

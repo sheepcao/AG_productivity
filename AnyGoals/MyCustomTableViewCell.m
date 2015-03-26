@@ -33,7 +33,7 @@
             [self.pie setBackgroundColor:[UIColor clearColor]];
             if(IS_IPHONE_4_OR_LESS || IS_IPHONE_5)
             {
-                [self.pie setFrame:CGRectMake(self.frame.size.width-25-110,self.frame.size.height/2-55,110,110)];
+                [self.pie setFrame:CGRectMake(self.frame.size.width-30-110,self.frame.size.height/2-55,110,110)];
 //                [self.GoalName setFrame:CGRectMake(self.GoalName.frame.origin.x - 10, self.GoalName.frame.origin.y, self.GoalName.frame.size.width, self.GoalName.frame.size.height)];
 //                
 //                [self.updateTime setFrame:CGRectMake(self.updateTime.frame.origin.x - 20, self.updateTime.frame.origin.y, self.updateTime.frame.size.width, self.updateTime.frame.size.height)];

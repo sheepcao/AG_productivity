@@ -46,6 +46,7 @@
 
     if ([self isSystemLangChinese]) {
         
+        NSLog(@"chinese");
     }else
     {
         UIFont *font = [UIFont systemFontOfSize:9.5f];
@@ -80,11 +81,10 @@
 #pragma system language
 - (BOOL)isSystemLangChinese
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
-    NSString *currentLang = [languages objectAtIndex:0];
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+
     
-    if([currentLang compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame || [currentLang compare:@"zh-Hant" options:NSCaseInsensitiveSearch]==NSOrderedSame)
+    if([language compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame)
     {
         return YES;
     }else

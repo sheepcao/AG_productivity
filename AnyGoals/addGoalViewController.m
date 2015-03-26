@@ -93,7 +93,7 @@
     
     for (int i = 0; i <2; i++) {
      
-        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
+        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 40 + 50*i, 25, 25)];
         [editingImage setImage:[UIImage imageNamed:@"pen.png"]];
         [self.goalInfoScrollView addSubview:editingImage];
         
@@ -115,7 +115,7 @@
     actionTimesField.keyboardType = UIKeyboardTypeNumberPad;
     for (int i = 2; i <4; i++) {
         
-        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 30 + 50*i, 35, 35)];
+        UIImageView *editingImage = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-45, 40 + 50*i, 25, 25)];
         [editingImage setImage:[UIImage imageNamed:@"pen.png"]];
         [self.goalInfoScrollView addSubview:editingImage];
         

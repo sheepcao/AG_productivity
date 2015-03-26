@@ -433,7 +433,7 @@
     [self.weeklyPie setEnableStrokeColor:YES];
     [self.weeklyPie setHoleRadiusPrecent:0];
     if (!self.weeklyPieLabel) {
-        self.weeklyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.weeklyPie.frame.origin.x-offside-3, self.weeklyPie.frame.origin.y+self.weeklyPie.frame.size.height+3, pieSize+10+6, 25)];
+        self.weeklyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.weeklyPie.frame.origin.x-offside-6, self.weeklyPie.frame.origin.y+self.weeklyPie.frame.size.height+3, pieSize+10+12, 25)];
         self.weeklyPieLabel.textAlignment = NSTextAlignmentCenter;
         self.weeklyPieLabel.backgroundColor = [UIColor clearColor];
         self.weeklyPieLabel.font =[UIFont systemFontOfSize:12.5f];
@@ -459,7 +459,7 @@
     [self.monthlyPie setEnableStrokeColor:YES];
     [self.monthlyPie setHoleRadiusPrecent:0];
     if (!self.monthlyPieLabel) {
-        self.monthlyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.monthlyPie.frame.origin.x-8, self.monthlyPie.frame.origin.y+self.monthlyPie.frame.size.height+3, pieSize+10+6, 25)];
+        self.monthlyPieLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.monthlyPie.frame.origin.x-11, self.monthlyPie.frame.origin.y+self.monthlyPie.frame.size.height+3, pieSize+10+15, 25)];
         self.monthlyPieLabel.textAlignment = NSTextAlignmentCenter;
         self.monthlyPieLabel.backgroundColor = [UIColor clearColor];
         self.monthlyPieLabel.font =[UIFont systemFontOfSize:12.5f];
