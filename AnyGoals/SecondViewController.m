@@ -294,7 +294,9 @@
 
 -(void)initDB
 {
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
     db = [FMDatabase databaseWithPath:dbPath];
     

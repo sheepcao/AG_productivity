@@ -87,7 +87,7 @@
     UIImageView *image = [[UIImageView alloc] initWithImage:icon];
 
     [button addSubview:image];
-    [image setFrame:CGRectMake(25, 40, 50, 50)];
+    [image setFrame:CGRectMake(34.5, 49.5, 31, 31)];
     [image setBackgroundColor:[UIColor clearColor]];
 //    [button setImage:icon forState:UIControlStateNormal];
     [self addObject:button];

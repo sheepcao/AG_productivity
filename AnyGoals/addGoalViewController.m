@@ -62,7 +62,20 @@
     [line setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:line];
 }
-
+#pragma mark system language
+- (BOOL)isSystemLangChinese
+{
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    
+    if([language compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame)
+    {
+        return YES;
+    }else
+    {
+        return NO;
+    }
+}
 -(void)setupUI
 {
     
@@ -235,7 +248,7 @@
     BOOL isButtonOn = [switchButton isOn];
     if (isButtonOn) {
         
-        [remindTimePicker setFrame:CGRectMake(40, switchButton.frame.origin.y+45, SCREEN_WIDTH-80, (SCREEN_WIDTH-10)*0.46)];
+        [remindTimePicker setFrame:CGRectMake(10, switchButton.frame.origin.y+45, SCREEN_WIDTH-20, (SCREEN_WIDTH-10)*0.46)];
         remindTimePicker.datePickerMode = UIDatePickerModeDateAndTime;
         
         timeSelected = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 150, remindTimePicker.frame.origin.y+remindTimePicker.frame.size.height, 300, 30)];
@@ -461,7 +474,10 @@
     
     if ([self checkReminderValidation] && [self checkInfoValidation] && [self checkTimeValidation] && [self checkActionAmountValidation]) {
         
-        NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+        NSString *docsPath = [storeURL absoluteString];
+        
+//        NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
         NSString *remindNote = NSLocalizedString(@"点击编辑提醒备注...",nil);
         

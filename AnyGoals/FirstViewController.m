@@ -85,7 +85,7 @@
     
 }
 
-#pragma system language
+#pragma mark system language
 - (BOOL)isSystemLangChinese
 {
     NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -251,10 +251,15 @@
     if (self.processingTasks.count > 0) {
         [self.processingTasks removeAllObjects];
     }
-
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+
     db = [FMDatabase databaseWithPath:dbPath];
+
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+//    db = [FMDatabase databaseWithPath:dbPath];
     
     if (![db open]) {
         NSLog(@"Could not open db.");
@@ -267,7 +272,7 @@
     [db executeUpdate:createUrgentTable];
 
 
-    NSLog(@"db path:%@",dbPath);
+    NSLog(@"db path11:%@",dbPath);
     
     
     // time now...
@@ -316,7 +321,10 @@
         [self.finishedTasks removeAllObjects];
     }
     
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
+    
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
     db = [FMDatabase databaseWithPath:dbPath];
     
@@ -378,8 +386,9 @@
     if (self.notyetTasks.count > 0) {
         [self.notyetTasks removeAllObjects];
     }
-    
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
     db = [FMDatabase databaseWithPath:dbPath];
     
@@ -442,8 +451,10 @@
     if (self.giveupTasks.count > 0) {
         [self.giveupTasks removeAllObjects];
     }
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
     
-    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+//    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
     db = [FMDatabase databaseWithPath:dbPath];
     
@@ -943,11 +954,11 @@
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     
     [leftUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:0.07 green:0.75f blue:0.16f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"加号"]];
+     [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"加号1"]];
     [leftUtilityButtons sw_addUtilityButtonWithColor:
-     [UIColor colorWithRed:1.0f green:1.0f blue:0.35f alpha:1.0]
-                                                icon:[UIImage imageNamed:@"减号"]];
+     [UIColor colorWithRed:255/255.0f green:200/255.0f blue:100/255.0f alpha:1.0]
+                                                icon:[UIImage imageNamed:@"减号1"]];
 //    [leftUtilityButtons sw_addUtilityButtonWithColor:
 //     [UIColor colorWithRed:1.0f green:0.231f blue:0.188f alpha:1.0]
 //                                                icon:[UIImage imageNamed:@"cross.png"]];

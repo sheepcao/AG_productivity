@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "globalVar.h"
 #import "VBPieChart.h"
+#import "GoalObj.h"
 
 @interface TodayViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *Backview;
@@ -19,7 +20,10 @@
 @property (strong,nonatomic) NSMutableArray *pieArray;
 @property (strong,nonatomic) NSMutableArray *midTextArray;
 @property (strong,nonatomic) NSArray *doneAmountArray;
+@property (strong, nonatomic) NSMutableArray *allGoals;
+@property (weak, nonatomic) IBOutlet UIButton *OpenAppBtn;
 
+- (IBAction)openApp:(id)sender;
 
 //@property (strong,nonatomic) VBPieChart *pie;
 //

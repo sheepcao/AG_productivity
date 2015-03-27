@@ -287,7 +287,7 @@ static __inline__ CGFloat CGPointDistanceBetweenTwoPoints(CGPoint point1, CGPoin
 }
 
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation options:(VBPieChartAnimationOptions)options {
-    [self setChartValues:chartValues animation:animation duration:0.5 options:options];
+    [self setChartValues:chartValues animation:animation duration:0.45 options:options];
 }
 
 - (void) setChartValues:(NSArray *)chartValues animation:(BOOL)animation duration:(float)duration options:(VBPieChartAnimationOptions)options {

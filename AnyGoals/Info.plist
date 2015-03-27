@@ -60,9 +60,19 @@
 				<string>QQ41D3E7ED</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.sheepcao.AnyGoal</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>AnyGoal</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.6</string>
+	<string>1.7</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

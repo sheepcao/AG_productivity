@@ -30,8 +30,6 @@
 		A4528E371AC132D4001E9125 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E361AC132D4001E9125 /* ImageIO.framework */; };
 		A4528E391AC132F1001E9125 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E381AC132F1001E9125 /* libstdc++.dylib */; };
 		A4528E4D1AC145A5001E9125 /* myTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4528E4C1AC145A5001E9125 /* myTabbarViewController.m */; };
-		A4528E591AC15080001E9125 /* 右翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E571AC15080001E9125 /* 右翻页.png */; };
-		A4528E5A1AC15080001E9125 /* 左翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E581AC15080001E9125 /* 左翻页.png */; };
 		A4528E601AC150BA001E9125 /* 100X100红.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E5B1AC150BA001E9125 /* 100X100红.png */; };
 		A4528E611AC150BA001E9125 /* 100X100绿.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E5C1AC150BA001E9125 /* 100X100绿.png */; };
 		A4528E621AC150BA001E9125 /* 提醒-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E5D1AC150BA001E9125 /* 提醒-2.png */; };
@@ -102,6 +100,17 @@
 		A4C901021AC4F5A400982D6E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C901011AC4F5A400982D6E /* TodayViewController.m */; };
 		A4C901041AC4F5A400982D6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C901031AC4F5A400982D6E /* MainInterface.storyboard */; };
 		A4C901071AC4F5A400982D6E /* AnyGoalWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A4F20A641AC53C6800939B75 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
+		A4F20A651AC53C6D00939B75 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
+		A4F20A661AC53C7000939B75 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274A1AB0279E0062114E /* FMDatabasePool.m */; };
+		A4F20A671AC53C7300939B75 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
+		A4F20A681AC53C7600939B75 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
+		A4F20A691AC53C8000939B75 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
+		A4F20A6A1AC53CB100939B75 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
+		A4F20A6D1AC546CB00939B75 /* 减号1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A6B1AC546CB00939B75 /* 减号1.png */; };
+		A4F20A6E1AC546CB00939B75 /* 加号1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A6C1AC546CB00939B75 /* 加号1.png */; };
+		A4F20A711AC54A7900939B75 /* 右翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A6F1AC54A7900939B75 /* 右翻页.png */; };
+		A4F20A721AC54A7900939B75 /* 左翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A701AC54A7900939B75 /* 左翻页.png */; };
 		A4F451A11AC39D93002081AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -187,8 +196,6 @@
 		A4528E381AC132F1001E9125 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		A4528E4B1AC145A5001E9125 /* myTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTabbarViewController.h; sourceTree = "<group>"; };
 		A4528E4C1AC145A5001E9125 /* myTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTabbarViewController.m; sourceTree = "<group>"; };
-		A4528E571AC15080001E9125 /* 右翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右翻页.png"; sourceTree = "<group>"; };
-		A4528E581AC15080001E9125 /* 左翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左翻页.png"; sourceTree = "<group>"; };
 		A4528E5B1AC150BA001E9125 /* 100X100红.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100X100红.png"; sourceTree = "<group>"; };
 		A4528E5C1AC150BA001E9125 /* 100X100绿.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100X100绿.png"; sourceTree = "<group>"; };
 		A4528E5D1AC150BA001E9125 /* 提醒-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提醒-2.png"; sourceTree = "<group>"; };
@@ -287,6 +294,12 @@
 		A4C901001AC4F5A400982D6E /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		A4C901011AC4F5A400982D6E /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		A4C901031AC4F5A400982D6E /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		A4F20A621AC536D000939B75 /* AnyGoalWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoalWidget.entitlements; sourceTree = "<group>"; };
+		A4F20A631AC537A300939B75 /* AnyGoals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoals.entitlements; sourceTree = "<group>"; };
+		A4F20A6B1AC546CB00939B75 /* 减号1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "减号1.png"; sourceTree = "<group>"; };
+		A4F20A6C1AC546CB00939B75 /* 加号1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号1.png"; sourceTree = "<group>"; };
+		A4F20A6F1AC54A7900939B75 /* 右翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右翻页.png"; sourceTree = "<group>"; };
+		A4F20A701AC54A7900939B75 /* 左翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左翻页.png"; sourceTree = "<group>"; };
 		A4F451A21AC39D93002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A4F451A41AC39D9D002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4F451AD1AC39F0A002081AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -317,6 +330,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F20A6A1AC53CB100939B75 /* libsqlite3.dylib in Frameworks */,
 				A4C900FC1AC4F5A400982D6E /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +414,8 @@
 				A47D6ED51AC3F6A200AC1768 /* share1.png */,
 				A47D6ED61AC3F6A200AC1768 /* 设置.png */,
 				A4728B591AC281DC0075C94D /* backA.png */,
+				A4F20A6B1AC546CB00939B75 /* 减号1.png */,
+				A4F20A6C1AC546CB00939B75 /* 加号1.png */,
 				A4728B531AC242610075C94D /* 减号.png */,
 				A47D6EDA1AC3FA6A00AC1768 /* 加.png */,
 				A4728B541AC242610075C94D /* 加号.png */,
@@ -409,12 +425,12 @@
 				A4528E5D1AC150BA001E9125 /* 提醒-2.png */,
 				A4528E5E1AC150BA001E9125 /* 提醒-无.png */,
 				A4528E5F1AC150BA001E9125 /* 提醒1.png */,
+				A4F20A6F1AC54A7900939B75 /* 右翻页.png */,
+				A4F20A701AC54A7900939B75 /* 左翻页.png */,
 				A4528E671AC1673C001E9125 /* 紧迫-无100x100.png */,
 				A4528E681AC1673C001E9125 /* 紧迫100x100.png */,
 				A4528E691AC1673C001E9125 /* 超前-无100x100.png */,
 				A4528E6A1AC1673C001E9125 /* 超前100x100.png */,
-				A4528E571AC15080001E9125 /* 右翻页.png */,
-				A4528E581AC15080001E9125 /* 左翻页.png */,
 				A4728B5F1AC285FB0075C94D /* goalList.png */,
 				A4728B5B1AC285B30075C94D /* data0.png */,
 				A4728B611AC2864A0075C94D /* data.png */,
@@ -579,6 +595,7 @@
 		A4C900FD1AC4F5A400982D6E /* AnyGoalWidget */ = {
 			isa = PBXGroup;
 			children = (
+				A4F20A621AC536D000939B75 /* AnyGoalWidget.entitlements */,
 				A4C901001AC4F5A400982D6E /* TodayViewController.h */,
 				A4C901011AC4F5A400982D6E /* TodayViewController.m */,
 				A4C901031AC4F5A400982D6E /* MainInterface.storyboard */,
@@ -630,6 +647,7 @@
 		A4F967EA1AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXGroup;
 			children = (
+				A4F20A631AC537A300939B75 /* AnyGoals.entitlements */,
 				A41CFF571ABB0AC2004326F6 /* UIColor+HexColor.h */,
 				A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */,
 				A41CFF591ABB0AC2004326F6 /* VBPieChart.h */,
@@ -782,10 +800,20 @@
 					A4C900FA1AC4F5A400982D6E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = DBBLJY69ER;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A4F967E71AAE813800436FE4 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = DBBLJY69ER;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A4F968031AAE813800436FE4 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -827,14 +855,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F20A711AC54A7900939B75 /* 右翻页.png in Resources */,
+				A4F20A6D1AC546CB00939B75 /* 减号1.png in Resources */,
 				A4728B4D1AC240FB0075C94D /* WeiboSDK.bundle in Resources */,
-				A4528E591AC15080001E9125 /* 右翻页.png in Resources */,
 				A4728B481AC240FB0075C94D /* Resource.bundle in Resources */,
 				A4F9681B1AAEBA8200436FE4 /* 2.png in Resources */,
 				A4F968191AAEBA8200436FE4 /* 0.png in Resources */,
-				A4528E5A1AC15080001E9125 /* 左翻页.png in Resources */,
 				A4F967FA1AAE813800436FE4 /* Main.storyboard in Resources */,
 				A4728B551AC242610075C94D /* 减号.png in Resources */,
+				A4F20A721AC54A7900939B75 /* 左翻页.png in Resources */,
 				A4728B471AC240FB0075C94D /* ShareSDKLocalizable.strings in Resources */,
 				A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */,
 				A4528E601AC150BA001E9125 /* 100X100红.png in Resources */,
@@ -860,6 +889,7 @@
 				A47D6EDB1AC3FA6A00AC1768 /* 加.png in Resources */,
 				A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */,
 				A4728B621AC2864A0075C94D /* data.png in Resources */,
+				A4F20A6E1AC546CB00939B75 /* 加号1.png in Resources */,
 				A4528E6B1AC1673C001E9125 /* 紧迫-无100x100.png in Resources */,
 				A47D6ED91AC3F6A200AC1768 /* 设置.png in Resources */,
 				A4528E611AC150BA001E9125 /* 100X100绿.png in Resources */,
@@ -889,7 +919,13 @@
 				A4C901021AC4F5A400982D6E /* TodayViewController.m in Sources */,
 				A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */,
 				A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */,
+				A4F20A681AC53C7600939B75 /* FMDatabase.m in Sources */,
 				A48F455C1AC51059006B630B /* VBPieChart.m in Sources */,
+				A4F20A661AC53C7000939B75 /* FMDatabasePool.m in Sources */,
+				A4F20A691AC53C8000939B75 /* GoalObj.m in Sources */,
+				A4F20A641AC53C6800939B75 /* FMResultSet.m in Sources */,
+				A4F20A651AC53C6D00939B75 /* FMDatabaseQueue.m in Sources */,
+				A4F20A671AC53C7300939B75 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1066,9 @@
 		A4C901091AC4F5A400982D6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				CODE_SIGN_ENTITLEMENTS = AnyGoalWidget/AnyGoalWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1037,9 +1076,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AnyGoalWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "da8c9bed-3334-48ba-a00b-b118cf539ad3";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1047,12 +1087,17 @@
 		A4C9010A1AC4F5A400982D6E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				CODE_SIGN_ENTITLEMENTS = AnyGoalWidget/AnyGoalWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = AnyGoalWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f6499b58-088b-4f3c-9349-0f3c4fad07b3";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1138,6 +1183,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = AnyGoals/AnyGoals.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1189,7 +1235,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = AnyGoals/AnyGoals.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMSocial_Sdk_4.2.1/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
