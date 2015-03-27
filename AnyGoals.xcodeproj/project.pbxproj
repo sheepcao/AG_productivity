@@ -19,7 +19,6 @@
 		A41EA5AE1AB1667100356BAF /* ATCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */; };
 		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
-		A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */; };
 		A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43BC60E1ABDA95E00A48D0B /* settingViewController.m */; };
 		A4528E2B1AC13292001E9125 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2A1AC13292001E9125 /* SystemConfiguration.framework */; };
 		A4528E2D1AC132A0001E9125 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2C1AC132A0001E9125 /* QuartzCore.framework */; };
@@ -87,6 +86,7 @@
 		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
+		A4AAE4E21AC558B800E88DCE /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AAE4E41AC558B800E88DCE /* CustomDatePickerViewController.xib */; };
 		A4C327431AB011390062114E /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327421AB011390062114E /* CycleView.m */; };
 		A4C327501AB0279E0062114E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
 		A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
@@ -111,6 +111,7 @@
 		A4F20A6E1AC546CB00939B75 /* 加号1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A6C1AC546CB00939B75 /* 加号1.png */; };
 		A4F20A711AC54A7900939B75 /* 右翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A6F1AC54A7900939B75 /* 右翻页.png */; };
 		A4F20A721AC54A7900939B75 /* 左翻页.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A701AC54A7900939B75 /* 左翻页.png */; };
+		A4F20A731AC5531A00939B75 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4F967FB1AAE813800436FE4 /* Images.xcassets */; };
 		A4F451A11AC39D93002081AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -183,7 +184,6 @@
 		A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerActionSheet.m; sourceTree = "<group>"; };
 		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
 		A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerViewController.m; sourceTree = "<group>"; };
-		A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A43BC60D1ABDA95E00A48D0B /* settingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingViewController.h; sourceTree = "<group>"; };
 		A43BC60E1ABDA95E00A48D0B /* settingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingViewController.m; sourceTree = "<group>"; };
 		A4528E2A1AC13292001E9125 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -270,6 +270,8 @@
 		A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PieView.m; sourceTree = "<group>"; };
 		A47DAC121AAEEE770032D2F5 /* MyCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomTableViewCell.h; sourceTree = "<group>"; };
 		A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomTableViewCell.m; sourceTree = "<group>"; };
+		A4AAE4E31AC558B800E88DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomDatePickerViewController.xib; sourceTree = "<group>"; };
+		A4AAE4E61AC558CB00E88DCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CustomDatePickerViewController.strings; sourceTree = "<group>"; };
 		A4C327411AB011390062114E /* CycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleView.h; sourceTree = "<group>"; };
 		A4C327421AB011390062114E /* CycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleView.m; sourceTree = "<group>"; };
 		A4C327451AB0279E0062114E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		A4F20A6C1AC546CB00939B75 /* 加号1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "加号1.png"; sourceTree = "<group>"; };
 		A4F20A6F1AC54A7900939B75 /* 右翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "右翻页.png"; sourceTree = "<group>"; };
 		A4F20A701AC54A7900939B75 /* 左翻页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "左翻页.png"; sourceTree = "<group>"; };
+		A4F20A751AC558F300939B75 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/CustomDatePickerViewController.strings"; sourceTree = "<group>"; };
 		A4F451A21AC39D93002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A4F451A41AC39D9D002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4F451AD1AC39F0A002081AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -400,7 +403,7 @@
 			children = (
 				A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */,
 				A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */,
-				A43109E41AB2A57300AF2D80 /* CustomDatePickerViewController.xib */,
+				A4AAE4E41AC558B800E88DCE /* CustomDatePickerViewController.xib */,
 				A43109DE1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.h */,
 				A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */,
 			);
@@ -847,6 +850,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F20A731AC5531A00939B75 /* Images.xcassets in Resources */,
 				A4C901041AC4F5A400982D6E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,7 +889,7 @@
 				A4F967FC1AAE813800436FE4 /* Images.xcassets in Resources */,
 				A4728B5E1AC285B30075C94D /* goalList0.png in Resources */,
 				A46E49BC1AAF34B3008B9EF7 /* skip.png in Resources */,
-				A43109E61AB2A57300AF2D80 /* CustomDatePickerViewController.xib in Resources */,
+				A4AAE4E21AC558B800E88DCE /* CustomDatePickerViewController.xib in Resources */,
 				A47D6EDB1AC3FA6A00AC1768 /* 加.png in Resources */,
 				A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */,
 				A4728B621AC2864A0075C94D /* data.png in Resources */,
@@ -1023,6 +1027,16 @@
 			name = addGoalViewController.xib;
 			sourceTree = "<group>";
 		};
+		A4AAE4E41AC558B800E88DCE /* CustomDatePickerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A4AAE4E31AC558B800E88DCE /* Base */,
+				A4AAE4E61AC558CB00E88DCE /* en */,
+				A4F20A751AC558F300939B75 /* zh-Hans */,
+			);
+			name = CustomDatePickerViewController.xib;
+			sourceTree = "<group>";
+		};
 		A4C7A8C31AC00C69008588E9 /* UMSocialLocalizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1067,7 +1081,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = AnyGoalWidget/AnyGoalWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
@@ -1088,7 +1102,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = AnyGoalWidget/AnyGoalWidget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
