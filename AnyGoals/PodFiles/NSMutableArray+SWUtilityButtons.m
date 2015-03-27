@@ -10,6 +10,19 @@
 
 @implementation NSMutableArray (SWUtilityButtons)
 
+- (BOOL)isSystemLangChinese
+{
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    
+    if([language compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame)
+    {
+        return YES;
+    }else
+    {
+        return NO;
+    }
+}
 - (void)sw_addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -17,26 +30,42 @@
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button.titleLabel setAdjustsFontSizeToFitWidth:YES];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+
     [self addObject:button];
 }
 - (void)sw_addUtilityButtonWithColor:(UIColor *)color title:(NSString *)title body:(NSString *)body
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.backgroundColor = color;
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(25, 37, 50, 30)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 32, 80, 30)];
     titleLabel.text = title;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+
     
-    UILabel *bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 65, 80, 40)];
+    UILabel *bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 60, 90, 70)];
     bodyLabel.text = body;
-    bodyLabel.font = [UIFont systemFontOfSize:12.0f];
     bodyLabel.numberOfLines = 2;
     bodyLabel.textAlignment = NSTextAlignmentCenter;
     bodyLabel.textColor = [UIColor whiteColor];
     
     [self addObject:button];
+    if ([self isSystemLangChinese]) {
+
+        [titleLabel setFrame:CGRectMake(25, 37, 50, 30)];
+        titleLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+        [bodyLabel setFrame:CGRectMake(10, 65, 80, 40)];
+        bodyLabel.font = [UIFont systemFontOfSize:12.0f];
+
+    }else
+    {
+        titleLabel.font = [UIFont boldSystemFontOfSize:21.0f];
+        bodyLabel.font = [UIFont systemFontOfSize:12.0f];
+        bodyLabel.numberOfLines = 4;
+
+        
+    }
 
     [button addSubview:titleLabel];
     [button addSubview:bodyLabel];
