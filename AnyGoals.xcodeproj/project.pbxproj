@@ -86,6 +86,9 @@
 		A47DAC101AAEEDFA0032D2F5 /* PieSliceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0D1AAEEDFA0032D2F5 /* PieSliceLayer.m */; };
 		A47DAC111AAEEDFA0032D2F5 /* PieView.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC0F1AAEEDFA0032D2F5 /* PieView.m */; };
 		A47DAC141AAEEE770032D2F5 /* MyCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DAC131AAEEE770032D2F5 /* MyCustomTableViewCell.m */; };
+		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
+		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
+		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
 		A4C327431AB011390062114E /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327421AB011390062114E /* CycleView.m */; };
 		A4C327501AB0279E0062114E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
 		A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
@@ -95,6 +98,10 @@
 		A4C327561AB027CE0062114E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
 		A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4C7A8C31AC00C69008588E9 /* UMSocialLocalizable.strings */; };
 		A4C7A8EF1AC00C69008588E9 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */; };
+		A4C900FC1AC4F5A400982D6E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C900E61AC4F02900982D6E /* NotificationCenter.framework */; };
+		A4C901021AC4F5A400982D6E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C901011AC4F5A400982D6E /* TodayViewController.m */; };
+		A4C901041AC4F5A400982D6E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C901031AC4F5A400982D6E /* MainInterface.storyboard */; };
+		A4C901071AC4F5A400982D6E /* AnyGoalWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A4F451A11AC39D93002081AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4F967EE1AAE813800436FE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967ED1AAE813800436FE4 /* main.m */; };
 		A4F967F11AAE813800436FE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F967F01AAE813800436FE4 /* AppDelegate.m */; };
@@ -111,6 +118,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A4C901051AC4F5A400982D6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4F967E01AAE813800436FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A4C900FA1AC4F5A400982D6E;
+			remoteInfo = AnyGoalWidget;
+		};
 		A4F968051AAE813800436FE4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A4F967E01AAE813800436FE4 /* Project object */;
@@ -119,6 +133,20 @@
 			remoteInfo = AnyGoals;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A4C900F61AC4F02900982D6E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A4C901071AC4F5A400982D6E /* AnyGoalWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A41CFF571ABB0AC2004326F6 /* UIColor+HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColor.h"; sourceTree = "<group>"; };
@@ -253,6 +281,12 @@
 		A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A4C7A8D31AC00C69008588E9 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A4C7A8ED1AC00C69008588E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
+		A4C900E61AC4F02900982D6E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AnyGoalWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4C900FF1AC4F5A400982D6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4C901001AC4F5A400982D6E /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		A4C901011AC4F5A400982D6E /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		A4C901031AC4F5A400982D6E /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		A4F451A21AC39D93002081AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A4F451A41AC39D9D002081AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A4F451AD1AC39F0A002081AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -279,6 +313,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A4C900F81AC4F5A400982D6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C900FC1AC4F5A400982D6E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4F967E51AAE813800436FE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -526,6 +568,33 @@
 			path = UMSocial_Sdk_4.2.1;
 			sourceTree = "<group>";
 		};
+		A4C900E51AC4F02900982D6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4C900E61AC4F02900982D6E /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A4C900FD1AC4F5A400982D6E /* AnyGoalWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A4C901001AC4F5A400982D6E /* TodayViewController.h */,
+				A4C901011AC4F5A400982D6E /* TodayViewController.m */,
+				A4C901031AC4F5A400982D6E /* MainInterface.storyboard */,
+				A4C900FE1AC4F5A400982D6E /* Supporting Files */,
+			);
+			path = AnyGoalWidget;
+			sourceTree = "<group>";
+		};
+		A4C900FE1AC4F5A400982D6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A4C900FF1AC4F5A400982D6E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A4F967DF1AAE813800436FE4 = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +611,8 @@
 				A4C7A8C21AC00C69008588E9 /* UMSocial_Sdk_4.2.1 */,
 				A4F967EA1AAE813800436FE4 /* AnyGoals */,
 				A4F968071AAE813800436FE4 /* AnyGoalsTests */,
+				A4C900FD1AC4F5A400982D6E /* AnyGoalWidget */,
+				A4C900E51AC4F02900982D6E /* Frameworks */,
 				A4F967E91AAE813800436FE4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -551,6 +622,7 @@
 			children = (
 				A4F967E81AAE813800436FE4 /* AnyGoals.app */,
 				A4F968041AAE813800436FE4 /* AnyGoalsTests.xctest */,
+				A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -644,6 +716,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4C901081AC4F5A400982D6E /* Build configuration list for PBXNativeTarget "AnyGoalWidget" */;
+			buildPhases = (
+				A4C900F71AC4F5A400982D6E /* Sources */,
+				A4C900F81AC4F5A400982D6E /* Frameworks */,
+				A4C900F91AC4F5A400982D6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnyGoalWidget;
+			productName = AnyGoalWidget;
+			productReference = A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A4F967E71AAE813800436FE4 /* AnyGoals */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4F9680E1AAE813800436FE4 /* Build configuration list for PBXNativeTarget "AnyGoals" */;
@@ -651,10 +740,12 @@
 				A4F967E41AAE813800436FE4 /* Sources */,
 				A4F967E51AAE813800436FE4 /* Frameworks */,
 				A4F967E61AAE813800436FE4 /* Resources */,
+				A4C900F61AC4F02900982D6E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A4C901061AC4F5A400982D6E /* PBXTargetDependency */,
 			);
 			name = AnyGoals;
 			productName = AnyGoals;
@@ -688,6 +779,10 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Eric Cao";
 				TargetAttributes = {
+					A4C900FA1AC4F5A400982D6E = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = DBBLJY69ER;
+					};
 					A4F967E71AAE813800436FE4 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = DBBLJY69ER;
@@ -714,11 +809,20 @@
 			targets = (
 				A4F967E71AAE813800436FE4 /* AnyGoals */,
 				A4F968031AAE813800436FE4 /* AnyGoalsTests */,
+				A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A4C900F91AC4F5A400982D6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C901041AC4F5A400982D6E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4F967E61AAE813800436FE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -778,6 +882,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A4C900F71AC4F5A400982D6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C901021AC4F5A400982D6E /* TodayViewController.m in Sources */,
+				A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */,
+				A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */,
+				A48F455C1AC51059006B630B /* VBPieChart.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4F967E41AAE813800436FE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -830,6 +945,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A4C901061AC4F5A400982D6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */;
+			targetProxy = A4C901051AC4F5A400982D6E /* PBXContainerItemProxy */;
+		};
 		A4F968061AAE813800436FE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4F967E71AAE813800436FE4 /* AnyGoals */;
@@ -907,6 +1027,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A4C901091AC4F5A400982D6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AnyGoalWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A4C9010A1AC4F5A400982D6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = AnyGoalWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		A4F9680C1AAE813800436FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1121,6 +1271,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A4C901081AC4F5A400982D6E /* Build configuration list for PBXNativeTarget "AnyGoalWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4C901091AC4F5A400982D6E /* Debug */,
+				A4C9010A1AC4F5A400982D6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A4F967E31AAE813800436FE4 /* Build configuration list for PBXProject "AnyGoals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

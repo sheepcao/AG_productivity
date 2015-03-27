@@ -48,4 +48,5 @@
 "团队作品" = "Made by caoguangxu";
 "我的目标状态" = "My Goals Status";
 "我的目标状态如图所示" = "My goal status diagram";
+"行动次数不能为0." = "Action amount should larger than 0.";
 

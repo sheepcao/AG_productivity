@@ -431,6 +431,19 @@
     [reminderError show];
     return false;
 }
+-(BOOL)checkActionAmountValidation
+{
+    
+    if (actionTimesField.text.length>0 && [actionTimesField.text intValue]>0) {
+        return TRUE;
+    }else
+    {
+        UIAlertView *actionTimesError = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"行动次数不能为0.",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"确定",nil) otherButtonTitles:nil, nil];
+        [actionTimesError show];
+        return false;
+    }
+
+}
 
 - (IBAction)saveGoal:(id)sender {
 
@@ -446,7 +459,7 @@
     [dateFormat setLocale:locale];
     NSString *timeNow = [dateFormat stringFromDate:[NSDate date]];
     
-    if ([self checkReminderValidation] && [self checkInfoValidation] && [self checkTimeValidation]) {
+    if ([self checkReminderValidation] && [self checkInfoValidation] && [self checkTimeValidation] && [self checkActionAmountValidation]) {
         
         NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
