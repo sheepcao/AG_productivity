@@ -14,13 +14,22 @@
 #import "VBPieChart.h"
 
 #import "MobClick.h"
+#import "BaiduMobAdInterstitial.h"
+
 //#import "UMSocialSinaHandler.h"
 //#import "UMSocialSnsService.h"
 //#import "UMSocialSnsPlatformManager.h"
 //#import "UMSocialFacebookHandler.h"
 
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController<BaiduMobAdInterstitialDelegate>
+{
+    BaiduMobAdInterstitial *_interstitialView;
+
+}
+@property (nonatomic,retain) BaiduMobAdInterstitial *interstitialView;
+@property (nonatomic,strong) NSTimer *timer;
+
 @property (weak, nonatomic) IBOutlet PieView *PiesView;
 //@property (weak, nonatomic) IBOutlet PieView *totalPie;
 //@property (weak, nonatomic) IBOutlet PieView *finishPie;

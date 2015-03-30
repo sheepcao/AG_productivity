@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "globalVar.h"
 #import "SWTableViewCell.h"
+#import "BaiduMobAdDelegateProtocol.h"
 
-@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
+@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,BaiduMobAdViewDelegate>
+{
+    BaiduMobAdView* sharedAdView;
+    
+}
 
 
 @property (nonatomic,strong) NSMutableArray *processingTasks;

@@ -53,6 +53,8 @@
 
     [self setupUI];
     [self drawAline];
+    
+    
 
 }
 
@@ -76,6 +78,8 @@
         return NO;
     }
 }
+
+
 -(void)setupUI
 {
     

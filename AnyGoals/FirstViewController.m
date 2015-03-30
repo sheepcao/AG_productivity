@@ -13,6 +13,10 @@
 #import "ATCTransitioningDelegate.h"
 #import "GoalObj.h"
 #import "settingViewController.h"
+#import "BaiduMobAdView.h"
+
+#define kAdViewPortraitRect CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-48-49,[[UIScreen mainScreen] bounds].size.width,48)
+#define kAdViewPortraitRect_IPAD CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-60-60,[[UIScreen mainScreen] bounds].size.width,60)
 
 @interface FirstViewController ()<UIScrollViewDelegate>
 @property (nonatomic,strong) ATCTransitioningDelegate *atcTD;
@@ -51,6 +55,7 @@
 //    UIColor *newSelectedTintColor = [UIColor colorWithRed: 89/255.0 green:89/255.0 blue:89/255.0 alpha:1.0];
 //    [[[self.goalTypeSegment subviews] objectAtIndex:0] setTintColor:newSelectedTintColor];
 
+    
     if ([self isSystemLangChinese]) {
         
         NSLog(@"chinese");
@@ -83,6 +88,25 @@
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     }
     
+    [self setUpAD];
+
+}
+
+
+-(void)setUpAD
+{
+    //AD...
+    //使用嵌入广告的方法实例。
+    sharedAdView = [[BaiduMobAdView alloc] init];
+    //sharedAdView.AdUnitTag = @"myAdPlaceId1";
+    //此处为广告位id，可以不进行设置，如需设置，在百度移动联盟上设置广告位id，然后将得到的id填写到此处。
+    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+
+    sharedAdView.frame = kAdViewPortraitRect;
+    
+    sharedAdView.delegate = self;
+    [self.view addSubview:sharedAdView];
+    [sharedAdView start];
 }
 
 #pragma mark system language
@@ -1309,5 +1333,55 @@
             [self updateDataForTable:@"GOALSINFO" setColomn:@"lastUpdateTime" toData:timeconvert whereColomn:@"goalID" isData:goal.goalID];
         }
     }
+}
+
+#pragma mark AD..
+- (NSString *)publisherId
+{
+    return  @"b33a25dc"; //@"your_own_app_id";
+}
+
+- (NSString*) appSpec
+{
+    //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
+    return @"b33a25dc";
+}
+//-(BOOL) enableLocation
+//{
+//    //启用location会有一次alert提示
+//    return YES;
+//}
+-(void) willDisplayAd:(BaiduMobAdView*) adview
+{
+    //在广告即将展示时，产生一个动画，把广告条加载到视图中
+    sharedAdView.hidden = NO;
+    CGRect f = sharedAdView.frame;
+    f.origin.x = -SCREEN_WIDTH;
+    sharedAdView.frame = f;
+    [UIView beginAnimations:nil context:nil];
+    f.origin.x = 0;
+    sharedAdView.frame = f;
+    [UIView commitAnimations];
+    NSLog(@"delegate: will display ad");
+    
+}
+
+-(void) failedDisplayAd:(BaiduMobFailReason) reason;
+{
+    NSLog(@"delegate: failedDisplayAd %d", reason);
+}
+
+//人群属性接口
+/**
+ *  - 关键词数组
+ */
+-(NSArray*) keywords{
+    NSArray* keywords = [NSArray arrayWithObjects:@"目标管理",@"目标",@"效率",@"记录",@"事项",@"统计",@"Goal",@"办公",@"商务", nil];
+    return keywords;
+}
+
+-(NSArray*) userHobbies{
+    NSArray* hobbies = [NSArray arrayWithObjects:@"成就",@"目标", nil];
+    return hobbies;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "SecondViewController.h"
 #import "settingViewController.h"
+#import "BaiduMobAdDelegateProtocol.h"
 
 #define pieSize ([[UIScreen mainScreen] bounds].size.width)/3.2
 
@@ -20,6 +21,7 @@
 @implementation SecondViewController
 
 @synthesize db;
+@synthesize timer;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +29,19 @@
 }
 
 
+-(void)setUpAD
+{
+    NSLog(@"load 2 view!!!!!");
+
+    timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
+    
+    //big AD...
+    
+    self.interstitialView = [[BaiduMobAdInterstitial alloc] init];
+    self.interstitialView.delegate = self;
+    self.interstitialView.interstitialType = BaiduMobAdViewTypeInterstitialGame;
+    [self.interstitialView load];
+}
 //-(void)viewDidLayoutSubviews
 //{
 //    [super viewDidLayoutSubviews];
@@ -41,6 +56,8 @@
     [self setupPies];
     
     [self initDB];
+    [self setUpAD];
+
     
     
     if (self.allGoals.count == 0) {
@@ -181,6 +198,22 @@
 //    
 //    self.monthlyPie.sliceValues = monthlyProcessNumbers;//must set
 //    
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (timer != nil)
+    {
+        
+        
+        [timer invalidate];
+        
+        
+        timer = nil;
+        
+        
+    }
 }
 
 -(CGFloat)calculateTotalProcess
@@ -550,6 +583,139 @@
     
 }
 
+
+#pragma mark big advertisement
+//
+//-(void)dealloc
+//{
+//    _dmInterstitial.delegate = nil; // please set delegete = nil first
+//}
+- (NSString *)publisherId
+{
+    return  @"d388c08d"; //@"your_own_app_id";
+}
+
+- (NSString*) appSpec
+{
+    //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
+    return @"d388c08d";
+}
+- (void)bigADshow
+{
+    // 在需要呈现插屏广告前，先通过isReady方法检查广告是否就绪
+    // before present advertisement view please check if isReady
+    NSLog(@"bigADshow!!");
+    if (self.interstitialView.isReady)
+    {
+        
+        [self.interstitialView presentFromRootViewController:self];
+        
+        
+        
+    }
+    else
+    {
+        // 如果还没有ready，可以再调用loadAd
+        // if !ready load again
+        
+        [self.interstitialView load];
+        if (timer != nil)
+        {
+            
+            
+            [timer invalidate];
+            
+            
+            timer = nil;
+            
+            
+        }
+        
+        
+        
+        timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
+    }
+}
+
+
+-(void) willDisplayAd:(BaiduMobAdView*) adview
+{
+    
+    NSLog(@"delegate: will display ad");
+    
+}
+
+-(void) failedDisplayAd:(BaiduMobFailReason) reason;
+{
+    NSLog(@"delegate: failedDisplayAd %d", reason);
+}
+-(NSArray*) keywords{
+    NSArray* keywords = [NSArray arrayWithObjects:@"猜歌",@"混音",@"音乐",@"歌曲",@"听觉",@"耳力",@"song",@"歌手",@"唱歌", nil];
+    return keywords;
+}
+
+-(NSArray*) userHobbies{
+    NSArray* hobbies = [NSArray arrayWithObjects:@"唱歌",@"音乐", nil];
+    return hobbies;
+}
+/**
+ *  广告预加载成功
+ */
+- (void)interstitialSuccessToLoadAd:(BaiduMobAdInterstitial *)interstitial
+{
+    NSLog(@"[ Interstitial] success to load ad.");
+}
+
+/**
+ *  广告预加载失败
+ */
+- (void)interstitialFailToLoadAd:(BaiduMobAdInterstitial *)interstitial
+{
+    NSLog(@"［Interstitial] fail to load ad");
+    
+}
+
+/**
+ *  广告即将展示
+ */
+- (void)interstitialWillPresentScreen:(BaiduMobAdInterstitial *)interstitial
+{
+}
+
+/**
+ *  广告展示成功
+ */
+- (void)interstitialSuccessPresentScreen:(BaiduMobAdInterstitial *)interstitial
+{
+}
+
+/**
+ *  广告展示失败
+ */
+- (void)interstitialFailPresentScreen:(BaiduMobAdInterstitial *)interstitial withError:(BaiduMobFailReason) reason
+{
+}
+
+/**
+ *  广告展示结束
+ */
+- (void)interstitialDidDismissScreen:(BaiduMobAdInterstitial *)interstitial
+{
+    if (timer != nil)
+    {
+        [timer invalidate];
+        timer = nil;
+        
+    }
+    
+    
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:45.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
+    
+    // 插屏广告关闭后，加载一条新广告用于下次呈现
+    //prepair for the next advertisement view
+    [self.interstitialView load];
+}
 
 
 
