@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), nil];
+    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), NSLocalizedString(@"联系方式",nil),nil];
     
     
 }
@@ -56,11 +56,31 @@
         cell_1.selectionStyle = UITableViewCellSelectionStyleNone;
         
         UISwitch *soundSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(tableView.frame.size.width-70, 18, 60, 30)];
+       
+        if ( [[[NSUserDefaults standardUserDefaults] objectForKey:@"SoundSwitch"] isEqualToString:@"off"]) {
+            soundSwitch.on = NO;
+        }else
+        {
+            soundSwitch.on = YES;
+        }
         [cell_1 addSubview:soundSwitch];
         [soundSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
 
         
-    }else
+    }else if(indexPath.row == 4)
+    {
+        
+        cell_1.textLabel.text = self.settingItems[indexPath.row];
+        
+        cell_1.backgroundColor = [UIColor clearColor];
+        
+        cell_1.detailTextLabel.font = [UIFont systemFontOfSize:13.5];
+        cell_1.detailTextLabel.textColor = [UIColor colorWithRed:255/255.0f green:122/255.0f blue:52/255.0f alpha:1.0f];
+        cell_1.detailTextLabel.text = @"sheepcao1986@163.com";
+        [cell_1 setAccessoryType:UITableViewCellAccessoryNone];
+
+    }
+    else
     {
         
         cell_1.textLabel.text = self.settingItems[indexPath.row];
@@ -70,7 +90,7 @@
         cell_1.detailTextLabel.font = [UIFont systemFontOfSize:30.0];
         cell_1.detailTextLabel.textColor = [UIColor colorWithRed:255/255.0f green:122/255.0f blue:52/255.0f alpha:1.0f];
         [cell_1 setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-
+        
     }
     
 
@@ -113,9 +133,12 @@
 {
     if (sender.isOn) {
         NSLog(@"sound on");
+        [[NSUserDefaults standardUserDefaults] setObject:@"on" forKey:@"SoundSwitch"];
     }else
     {
         NSLog(@"sound off");
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"off" forKey:@"SoundSwitch"];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -130,7 +153,7 @@
     
     
     //设置UIScrollView 的显示内容的尺寸，有n张图要显示，就设置 屏幕宽度*n ，这里假设要显示4张图
-    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4, [UIScreen mainScreen].bounds.size.height);
+    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 6, [UIScreen mainScreen].bounds.size.height);
     
     _scrollView.tag = 101;
     
@@ -141,7 +164,7 @@
     _scrollView.delegate = self;
     
     //在UIScrollView 上加入 UIImageView
-    for (int i = 0 ; i < 4; i ++) {
+    for (int i = 0 ; i < 6; i ++) {
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width * i , 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         
@@ -154,21 +177,22 @@
     
     //初始化 UIPageControl 和 _scrollView 显示在 同一个页面中
     UIPageControl *pageConteol = [[UIPageControl alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-25, self.view.frame.size.height - 70 - 49, 50, 40)];
-    pageConteol.numberOfPages = 4;//设置pageConteol 的page 和 _scrollView 上的图片一样多
+    pageConteol.numberOfPages = 6;//设置pageConteol 的page 和 _scrollView 上的图片一样多
     pageConteol.tag = 201;
-    pageConteol.pageIndicatorTintColor = [UIColor grayColor];
-    pageConteol.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageConteol.pageIndicatorTintColor = [UIColor whiteColor];
+    pageConteol.currentPageIndicatorTintColor = [UIColor yellowColor];
+
     
-    
-    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];
-    
-    [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
-    [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
-    startNow.tag = 301;
+//    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];
+//    
+//    [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+//    [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    startNow.tag = 301;
     
     [self.view addSubview:_scrollView];
     [self.view addSubview: pageConteol];
-    [self.view addSubview:startNow];
+//    [self.view addSubview:startNow];
     
 }
 #pragma mark - UIScrollViewDelegate
@@ -182,25 +206,27 @@
     UIPageControl *page = (UIPageControl *)[self.view viewWithTag:201];
     page.currentPage = current;
     
-    UIButton *button = (UIButton *)[self.view viewWithTag:301];
+//    UIButton *button = (UIButton *)[self.view viewWithTag:301];
     
     //当显示到最后一页时，让滑动图消失
-    if (page.currentPage == 3) {
+    if (page.currentPage == 5) {
         
         
-        [button setImage:[UIImage imageNamed:@"skip"] forState:UIControlStateNormal];
+        
+//        [button setImage:[UIImage imageNamed:@"skip"] forState:UIControlStateNormal];
         
         //调用方法，使滑动图消失
-        //        [self scrollViewDisappear];
+        [self performSelector:@selector(scrollViewDisappear) withObject:nil afterDelay:2.0];
+//        [self scrollViewDisappear];
     }else
     {
-        [button setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+//        [button setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
         
     }
 }
 
 
--(void)scrollViewDisappear:(UIButton *)sender{
+-(void)scrollViewDisappear{
     
     //拿到 view 中的 UIScrollView 和 UIPageControl
     UIScrollView *scrollView = (UIScrollView *)[self.view viewWithTag:101];
@@ -213,8 +239,8 @@
         //        scrollView.center = CGPointMake(self.view.frame.size.width/2, 1.5 * self.view.frame.size.height);
         scrollView.alpha = 0.1;
         page.alpha = 0.1;
-        sender.alpha = 0.1;
-        [sender removeFromSuperview];
+//        sender.alpha = 0.1;
+//        [sender removeFromSuperview];
         
         
     } completion:^(BOOL finished) {
@@ -222,10 +248,10 @@
         
         [scrollView removeFromSuperview];
         [page removeFromSuperview];
-        if (sender.superview) {
-            [sender removeFromSuperview];
-            
-        }
+//        if (sender.superview) {
+//            [sender removeFromSuperview];
+//            
+//        }
         
     }];
     

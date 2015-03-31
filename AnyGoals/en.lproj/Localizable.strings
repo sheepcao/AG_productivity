@@ -49,3 +49,7 @@
 "我的目标状态" = "My Goals Status";
 "我的目标状态如图所示" = "My goal status diagram";
 "行动次数不能为0." = "Action amount should larger than 0.";
+"联系方式" = "Contact";
+"总进度" = "Process";
+"完成度" = "Finished";
+"紧迫度" = "Urgent";

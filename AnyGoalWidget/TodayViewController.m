@@ -75,12 +75,21 @@
             double goalStatus = [totalProcessNumbers[0] doubleValue]/([totalProcessNumbers[1] doubleValue]+[totalProcessNumbers[0] doubleValue]);
             if (goalStatus<(1/3.0f)){
                 
-                
-                NSArray *chartValues = @[
-                                         @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:35/255.0f blue:75/255.0f alpha:1.0f]},
-                                         @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
-                                         
-                                         ];
+                NSArray *chartValues;
+                if (i==2) {
+                    chartValues = @[
+                                    @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                    @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                    
+                                    ];
+                }else
+                {
+                    chartValues = @[
+                                    @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:35/255.0f blue:75/255.0f alpha:1.0f]},
+                                    @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                    
+                                    ];
+                }
                 
                 [pie setChartValues:chartValues animation:YES options:VBPieChartAnimationFanAll];
                 
@@ -95,12 +104,22 @@
                 [pie setChartValues:chartValues animation:YES options:VBPieChartAnimationFanAll];
             }else if(goalStatus>=(2/3.0f))
             {
-                
-                NSArray *chartValues = @[
-                                         @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
-                                         @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
-                                         
-                                         ];
+                NSArray *chartValues;
+                if (i==2) {
+                    chartValues = @[
+                                    @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:250/255.0f green:35/255.0f blue:75/255.0f alpha:1.0f]},
+                                    @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                    
+                                    ];
+                }else
+                {
+                    chartValues = @[
+                                    @{@"name":@"first", @"value":totalProcessNumbers[0], @"color":[UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f]},
+                                    @{@"name":@"second", @"value":totalProcessNumbers[1], @"color":[UIColor colorWithRed:199/255.0f green:199/255.0f blue:199/255.0f alpha:1.0f]},
+                                    
+                                    ];
+                }
+ 
                 
                 [pie setChartValues:chartValues animation:YES options:VBPieChartAnimationFanAll];
                 

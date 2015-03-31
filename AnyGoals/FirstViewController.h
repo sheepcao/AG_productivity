@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonUtility.h"
 #import "globalVar.h"
 #import "SWTableViewCell.h"
 #import "BaiduMobAdDelegateProtocol.h"

@@ -368,11 +368,18 @@
 -(void)setupPies
 {
     CGFloat offside = 0;
+    CGFloat offsideY = 0;
+
     CGFloat size_offside = 0;
+    if([[[UIDevice currentDevice]systemVersion] floatValue] <= 8.0)
+    {
+        offsideY = -20;
+
+    }
     
     if (IS_IPHONE_4_OR_LESS) {
-        offside = 20;
-        size_offside = 20;
+        offside += 20;
+        size_offside += 20;
     }
     
     
@@ -383,7 +390,7 @@
         self.totalPie.lineColor = [UIColor clearColor];
 
     }
-    [self.totalPie setFrame:CGRectMake(SCREEN_WIDTH/2-(pieSize-size_offside)/2, self.PiesView.frame.size.height/2-pieSize/2-20+offside, pieSize-size_offside, pieSize-size_offside)];
+    [self.totalPie setFrame:CGRectMake(SCREEN_WIDTH/2-(pieSize-size_offside)/2, self.PiesView.frame.size.height/2-pieSize/2-20+offside+offsideY, pieSize-size_offside, pieSize-size_offside)];
     [self.totalPie.layer setShadowOffset:CGSizeMake(0.34, 0.34)];
     [self.totalPie.layer setShadowRadius:1.2];
     [self.totalPie.layer setShadowColor:[UIColor blackColor].CGColor];
@@ -645,19 +652,16 @@
     
 }
 
--(void) failedDisplayAd:(BaiduMobFailReason) reason;
-{
-    NSLog(@"delegate: failedDisplayAd %d", reason);
-}
--(NSArray*) keywords{
-    NSArray* keywords = [NSArray arrayWithObjects:@"猜歌",@"混音",@"音乐",@"歌曲",@"听觉",@"耳力",@"song",@"歌手",@"唱歌", nil];
-    return keywords;
-}
+//-(NSArray*) keywords{
+//    NSArray* keywords = [NSArray arrayWithObjects:@"目标管理",@"目标",@"记录",@"事项",@"统计",@"Goal",@"办公",@"商务", nil];
+//    return keywords;
+//}
+//
+//-(NSArray*) userHobbies{
+//    NSArray* hobbies = [NSArray arrayWithObjects:@"成就",@"目标", nil];
+//    return hobbies;
+//}
 
--(NSArray*) userHobbies{
-    NSArray* hobbies = [NSArray arrayWithObjects:@"唱歌",@"音乐", nil];
-    return hobbies;
-}
 /**
  *  广告预加载成功
  */

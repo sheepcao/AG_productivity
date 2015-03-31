@@ -151,7 +151,6 @@
 }
 
 
-
 #pragma mark TEACHING page
 -(void) showScrollView{
     
@@ -160,7 +159,7 @@
     
     
     //设置UIScrollView 的显示内容的尺寸，有n张图要显示，就设置 屏幕宽度*n ，这里假设要显示4张图
-    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4, [UIScreen mainScreen].bounds.size.height);
+    _scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 6, [UIScreen mainScreen].bounds.size.height);
     
     _scrollView.tag = 101;
     
@@ -171,7 +170,7 @@
     _scrollView.delegate = self;
     
     //在UIScrollView 上加入 UIImageView
-    for (int i = 0 ; i < 4; i ++) {
+    for (int i = 0 ; i < 6; i ++) {
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width * i , 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         
@@ -184,25 +183,24 @@
     
     //初始化 UIPageControl 和 _scrollView 显示在 同一个页面中
     UIPageControl *pageConteol = [[UIPageControl alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-25, self.view.frame.size.height - 70 - 49, 50, 40)];
-    pageConteol.numberOfPages = 4;//设置pageConteol 的page 和 _scrollView 上的图片一样多
+    pageConteol.numberOfPages = 6;//设置pageConteol 的page 和 _scrollView 上的图片一样多
     pageConteol.tag = 201;
-    pageConteol.pageIndicatorTintColor = [UIColor grayColor];
-    pageConteol.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageConteol.pageIndicatorTintColor = [UIColor whiteColor];
+    pageConteol.currentPageIndicatorTintColor = [UIColor yellowColor];
     
     
-    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];
-    
-    [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
-    [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
-    startNow.tag = 301;
+    //    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];
+    //
+    //    [startNow setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+    //    [startNow addTarget:self action:@selector(scrollViewDisappear:) forControlEvents:UIControlEventTouchUpInside];
+    //
+    //    startNow.tag = 301;
     
     [self.view addSubview:_scrollView];
     [self.view addSubview: pageConteol];
-    [self.view addSubview:startNow];
-
+    //    [self.view addSubview:startNow];
+    
 }
-
-
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
@@ -214,25 +212,27 @@
     UIPageControl *page = (UIPageControl *)[self.view viewWithTag:201];
     page.currentPage = current;
     
-    UIButton *button = (UIButton *)[self.view viewWithTag:301];
-
+    //    UIButton *button = (UIButton *)[self.view viewWithTag:301];
+    
     //当显示到最后一页时，让滑动图消失
-    if (page.currentPage == 3) {
+    if (page.currentPage == 5) {
         
-
-        [button setImage:[UIImage imageNamed:@"skip"] forState:UIControlStateNormal];
+        
+        
+        //        [button setImage:[UIImage imageNamed:@"skip"] forState:UIControlStateNormal];
         
         //调用方法，使滑动图消失
-//        [self scrollViewDisappear];
+        [self performSelector:@selector(scrollViewDisappear) withObject:nil afterDelay:2.0];
+        //        [self scrollViewDisappear];
     }else
     {
-        [button setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
-
+        //        [button setImage:[UIImage imageNamed:@"startNow"] forState:UIControlStateNormal];
+        
     }
 }
 
 
--(void)scrollViewDisappear:(UIButton *)sender{
+-(void)scrollViewDisappear{
     
     //拿到 view 中的 UIScrollView 和 UIPageControl
     UIScrollView *scrollView = (UIScrollView *)[self.view viewWithTag:101];
@@ -242,29 +242,30 @@
     //设置滑动图消失的动画效果图
     [UIView animateWithDuration:0.6f animations:^{
         
-//        scrollView.center = CGPointMake(self.view.frame.size.width/2, 1.5 * self.view.frame.size.height);
+        //        scrollView.center = CGPointMake(self.view.frame.size.width/2, 1.5 * self.view.frame.size.height);
         scrollView.alpha = 0.1;
         page.alpha = 0.1;
-        sender.alpha = 0.1;
-        [sender removeFromSuperview];
-
+        //        sender.alpha = 0.1;
+        //        [sender removeFromSuperview];
+        
         
     } completion:^(BOOL finished) {
         [self.tabBarController.tabBar setHidden:NO];
-
+        
         [scrollView removeFromSuperview];
         [page removeFromSuperview];
-        if (sender.superview) {
-            [sender removeFromSuperview];
-
-        }
-
+        //        if (sender.superview) {
+        //            [sender removeFromSuperview];
+        //
+        //        }
+        
     }];
     
     //将滑动图启动过的信息保存到 NSUserDefaults 中，使得第二次不运行滑动图
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:@"YES" forKey:@"isScrollViewAppear"];
 }
+
 
 
 #pragma mark task configuration
@@ -1021,6 +1022,8 @@
     switch (index) {
         case 0:
             NSLog(@"+ was pressed");
+            [CommonUtility tapSound:@"AddSound" withType:@"m4a"];
+
             
             goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] + 1)];
             [cell.doneAmount setText:[NSString stringWithFormat:@"%@",goal.amount_DONE]];
@@ -1041,6 +1044,8 @@
             break;
         case 1:
             NSLog(@"- was pressed");
+            [CommonUtility tapSound:@"SubtractSound" withType:@"m4a"];
+
             if ([goal.amount_DONE intValue] > 0) {
 
                 goal.amount_DONE = [NSNumber numberWithInt:([goal.amount_DONE intValue] - 1)];
@@ -1099,6 +1104,8 @@
             
             if (self.goalTypeSegment.selectedSegmentIndex == 0) {
                 NSLog(@"giveup button was pressed");
+                [CommonUtility tapSound:@"anydoMomentDone" withType:@"m4a"];
+
                 
                 UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"确认放弃该目标?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"放弃 ",nil), nil];
                 deleteAlert.tag = 2;
@@ -1120,7 +1127,8 @@
             }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
             {
                 NSLog(@"recover button was pressed");
-                
+                [CommonUtility tapSound:@"CompletionSound" withType:@"m4a"];
+
                 UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"确认重拾该目标?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"确认",nil), nil];
                 deleteAlert.tag = 3;
                 [deleteAlert show];
@@ -1136,6 +1144,8 @@
         case 1:
         {
             // Delete button was pressed
+            [CommonUtility tapSound:@"anydoMomentDelete" withType:@"m4a"];
+
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
 
 
@@ -1185,7 +1195,8 @@
             break;
             
     }
-    
+    [CommonUtility tapSound:@"tabSound" withType:@"wav"];
+
     [self.tableView reloadData];
     
 }
@@ -1338,13 +1349,13 @@
 #pragma mark AD..
 - (NSString *)publisherId
 {
-    return  @"b33a25dc"; //@"your_own_app_id";
+    return  @"d388c08d"; //@"your_own_app_id";
 }
 
 - (NSString*) appSpec
 {
     //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
-    return @"b33a25dc";
+    return @"d388c08d";
 }
 //-(BOOL) enableLocation
 //{
@@ -1375,13 +1386,13 @@
 /**
  *  - 关键词数组
  */
--(NSArray*) keywords{
-    NSArray* keywords = [NSArray arrayWithObjects:@"目标管理",@"目标",@"效率",@"记录",@"事项",@"统计",@"Goal",@"办公",@"商务", nil];
-    return keywords;
-}
-
--(NSArray*) userHobbies{
-    NSArray* hobbies = [NSArray arrayWithObjects:@"成就",@"目标", nil];
-    return hobbies;
-}
+//-(NSArray*) keywords{
+//    NSArray* keywords = [NSArray arrayWithObjects:@"目标管理",@"目标",@"记录",@"事项",@"统计",@"Goal",@"办公",@"商务", nil];
+//    return keywords;
+//}
+//
+//-(NSArray*) userHobbies{
+//    NSArray* hobbies = [NSArray arrayWithObjects:@"成就",@"目标", nil];
+//    return hobbies;
+//}
 @end
