@@ -107,6 +107,8 @@
     switch (indexPath.row) {
         case 0:
             [self showScrollView];
+            [MobClick event:@"tutorail"];
+
             break;
         case 1:
             
@@ -114,10 +116,14 @@
         case 2:
         
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:REVIEW_URL]];
+            [MobClick event:@"review"];
+
 
             break;
         case 3:
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ALLAPP_URL]];
+            [MobClick event:@"allApps"];
+
 
             break;
             

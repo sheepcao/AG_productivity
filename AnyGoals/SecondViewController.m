@@ -51,6 +51,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"111111111111111111111,<<<>>>>>");
+    [MobClick event:@"goStats"];
+
     [super viewDidAppear:animated];
     
     [self setupPies];
@@ -557,6 +559,8 @@
                                 
                                 if (state == SSResponseStateSuccess)
                                 {
+                                    [MobClick event:@"share"];
+
                                     NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
                                 }
                                 else if (state == SSResponseStateFail)
@@ -599,13 +603,13 @@
 //}
 - (NSString *)publisherId
 {
-    return  @"d388c08d"; //@"your_own_app_id";
+    return  @"d64de853"; //@"your_own_app_id";
 }
 
 - (NSString*) appSpec
 {
     //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
-    return @"d388c08d";
+    return @"d64de853";
 }
 - (void)bigADshow
 {

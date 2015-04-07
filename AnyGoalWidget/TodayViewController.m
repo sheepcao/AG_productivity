@@ -17,6 +17,8 @@
 @synthesize db;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [MobClick event:@"todayWidget"];
+
     self.preferredContentSize = CGSizeMake(SCREEN_WIDTH, 100);
 
     
@@ -298,8 +300,6 @@
     }
     
     return urgentGoal;
-    
-    
     
 }
 

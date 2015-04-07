@@ -81,6 +81,7 @@
 		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
+		A4A210FC1AD37813006973E0 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C7A8D11AC00C69008588E9 /* libMobClickLibrary.a */; };
 		A4AAE4E21AC558B800E88DCE /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4AAE4E41AC558B800E88DCE /* CustomDatePickerViewController.xib */; };
 		A4ADC03B1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4ADC00A1AC8DD4C004FBC86 /* baidumobadsdk.bundle */; };
 		A4ADC03C1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A4ADC00A1AC8DD4C004FBC86 /* baidumobadsdk.bundle */; };
@@ -185,14 +186,13 @@
 		A4CB68B01AC97C4500FCB54F /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AA1AC97C4500FCB54F /* 0.png */; };
 		A4CB68B11AC97C4500FCB54F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AB1AC97C4500FCB54F /* 1.png */; };
 		A4CB68B21AC97C4500FCB54F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AB1AC97C4500FCB54F /* 1.png */; };
-		A4CB68B31AC97C4500FCB54F /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AC1AC97C4500FCB54F /* 2.png */; };
-		A4CB68B41AC97C4500FCB54F /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AC1AC97C4500FCB54F /* 2.png */; };
-		A4CB68B51AC97C4500FCB54F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AD1AC97C4500FCB54F /* 3.png */; };
-		A4CB68B61AC97C4500FCB54F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AD1AC97C4500FCB54F /* 3.png */; };
 		A4CB68B71AC97C4500FCB54F /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AE1AC97C4500FCB54F /* 4.png */; };
 		A4CB68B81AC97C4500FCB54F /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68AE1AC97C4500FCB54F /* 4.png */; };
 		A4CB68BA1AC97C4C00FCB54F /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68B91AC97C4C00FCB54F /* 5.png */; };
 		A4CB68BB1AC97C4C00FCB54F /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4CB68B91AC97C4C00FCB54F /* 5.png */; };
+		A4E6CDF41ACD28D000A1D6EC /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E6CDF31ACD28D000A1D6EC /* 2.png */; };
+		A4E6CDF51ACD28D900A1D6EC /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E6CDF31ACD28D000A1D6EC /* 2.png */; };
+		A4E6CDF71ACD294100A1D6EC /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = A4E6CDF61ACD294100A1D6EC /* 3.png */; };
 		A4F20A641AC53C6800939B75 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
 		A4F20A651AC53C6D00939B75 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
 		A4F20A661AC53C7000939B75 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274A1AB0279E0062114E /* FMDatabasePool.m */; };
@@ -449,10 +449,10 @@
 		A4CB68991AC974F500FCB54F /* tabSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tabSound.wav; sourceTree = "<group>"; };
 		A4CB68AA1AC97C4500FCB54F /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		A4CB68AB1AC97C4500FCB54F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		A4CB68AC1AC97C4500FCB54F /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		A4CB68AD1AC97C4500FCB54F /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		A4CB68AE1AC97C4500FCB54F /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		A4CB68B91AC97C4C00FCB54F /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		A4E6CDF31ACD28D000A1D6EC /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		A4E6CDF61ACD294100A1D6EC /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		A4F20A621AC536D000939B75 /* AnyGoalWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoalWidget.entitlements; sourceTree = "<group>"; };
 		A4F20A631AC537A300939B75 /* AnyGoals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoals.entitlements; sourceTree = "<group>"; };
 		A4F20A6B1AC546CB00939B75 /* 减号1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "减号1.png"; sourceTree = "<group>"; };
@@ -497,6 +497,7 @@
 				A4ADC0811AC8E4BE004FBC86 /* MediaPlayer.framework in Frameworks */,
 				A4ADC0801AC8E4B6004FBC86 /* CoreMotion.framework in Frameworks */,
 				A4ADC07F1AC8E4AE004FBC86 /* AudioToolbox.framework in Frameworks */,
+				A4A210FC1AD37813006973E0 /* libMobClickLibrary.a in Frameworks */,
 				A4ADC07E1AC8E4A0004FBC86 /* libz.dylib in Frameworks */,
 				A4ADC07D1AC8E497004FBC86 /* StoreKit.framework in Frameworks */,
 				A4ADC07C1AC8E491004FBC86 /* Security.framework in Frameworks */,
@@ -1053,8 +1054,8 @@
 			children = (
 				A4CB68AA1AC97C4500FCB54F /* 0.png */,
 				A4CB68AB1AC97C4500FCB54F /* 1.png */,
-				A4CB68AC1AC97C4500FCB54F /* 2.png */,
-				A4CB68AD1AC97C4500FCB54F /* 3.png */,
+				A4E6CDF61ACD294100A1D6EC /* 3.png */,
+				A4E6CDF31ACD28D000A1D6EC /* 2.png */,
 				A4CB68AE1AC97C4500FCB54F /* 4.png */,
 				A4CB68B91AC97C4C00FCB54F /* 5.png */,
 			);
@@ -1177,10 +1178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4CB68B61AC97C4500FCB54F /* 3.png in Resources */,
 				A4CB68B01AC97C4500FCB54F /* 0.png in Resources */,
 				A4CB689D1AC974F500FCB54F /* anydoMomentAccept.m4a in Resources */,
-				A4CB68B41AC97C4500FCB54F /* 2.png in Resources */,
+				A4E6CDF51ACD28D900A1D6EC /* 2.png in Resources */,
 				A4ADC03C1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */,
 				A4CB68BB1AC97C4C00FCB54F /* 5.png in Resources */,
 				A4CB68A91AC974F500FCB54F /* tabSound.wav in Resources */,
@@ -1205,7 +1205,6 @@
 				A4F20A711AC54A7900939B75 /* 右翻页.png in Resources */,
 				A4F20A6D1AC546CB00939B75 /* 减号1.png in Resources */,
 				A4728B4D1AC240FB0075C94D /* WeiboSDK.bundle in Resources */,
-				A4CB68B51AC97C4500FCB54F /* 3.png in Resources */,
 				A4CB689E1AC974F500FCB54F /* anydoMomentDelete.m4a in Resources */,
 				A4728B481AC240FB0075C94D /* Resource.bundle in Resources */,
 				A4CB68A61AC974F500FCB54F /* SubtractSound.m4a in Resources */,
@@ -1214,7 +1213,6 @@
 				A4F20A721AC54A7900939B75 /* 左翻页.png in Resources */,
 				A4728B471AC240FB0075C94D /* ShareSDKLocalizable.strings in Resources */,
 				A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */,
-				A4CB68B31AC97C4500FCB54F /* 2.png in Resources */,
 				A4728B561AC242610075C94D /* 加号.png in Resources */,
 				A47D6ED81AC3F6A200AC1768 /* share1.png in Resources */,
 				A4CB68BA1AC97C4C00FCB54F /* 5.png in Resources */,
@@ -1236,6 +1234,7 @@
 				A4728B5E1AC285B30075C94D /* goalList0.png in Resources */,
 				A4AAE4E21AC558B800E88DCE /* CustomDatePickerViewController.xib in Resources */,
 				A47D6EDB1AC3FA6A00AC1768 /* 加.png in Resources */,
+				A4E6CDF41ACD28D000A1D6EC /* 2.png in Resources */,
 				A4C7A8EE1AC00C69008588E9 /* UMSocialLocalizable.strings in Resources */,
 				A4CB689C1AC974F500FCB54F /* anydoMomentAccept.m4a in Resources */,
 				A4ADC03B1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */,
@@ -1250,6 +1249,7 @@
 				A4CB689A1AC974F500FCB54F /* AddSound.m4a in Resources */,
 				A4528E6C1AC1673C001E9125 /* 紧迫100x100.png in Resources */,
 				A4F451A11AC39D93002081AA /* Localizable.strings in Resources */,
+				A4E6CDF71ACD294100A1D6EC /* 3.png in Resources */,
 				A4728B5D1AC285B30075C94D /* data0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1471,6 +1471,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_api",
+					"$(PROJECT_DIR)/UMSocial_Sdk_4.2.1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da8c9bed-3334-48ba-a00b-b118cf539ad3";
@@ -1493,6 +1494,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios_api",
+					"$(PROJECT_DIR)/UMSocial_Sdk_4.2.1",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "abcf63f6-ffff-4e41-a6e7-3caa6e1d1c25";

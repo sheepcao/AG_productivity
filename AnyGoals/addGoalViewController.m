@@ -495,6 +495,8 @@
             NSLog(@"Could not open db.");
             return;
         }
+        [MobClick event:@"addGoalEnd"];
+
         if(self.isNewGoal)
         {
             BOOL sql = [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote,isFinished,isGiveup) values (?,?,?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0]];
@@ -543,6 +545,8 @@
     }
     if ([detail isEqualToString:NSLocalizedString(@"点击编辑提醒备注...",nil)]) {
         detail = @"";
+        [MobClick event:@"remindNote"];
+
     }
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -568,6 +572,8 @@
 //    notification.applicationIconBadgeNumber = 10;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    [MobClick event:@"reminder"];
+
 }
 
 - (IBAction)backHome:(id)sender {

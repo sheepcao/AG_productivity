@@ -59,8 +59,12 @@
     if ([self isSystemLangChinese]) {
         
         NSLog(@"chinese");
+        [MobClick event:@"CHN"];
+
     }else
     {
+        [MobClick event:@"ENG"];
+
         UIFont *font = [UIFont systemFontOfSize:9.5f];
         NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
                                                                forKey:NSFontAttributeName];
@@ -77,6 +81,7 @@
     }else
     {
         [self.tabBarController.tabBar setHidden:NO];
+        [self setUpAD];
 
     }
     
@@ -88,7 +93,6 @@
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     }
     
-    [self setUpAD];
 
 }
 
@@ -132,6 +136,10 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+  
+    [MobClick event:@"goHome"];
+
+    
     [super viewWillAppear:animated];
     if (self.goalTypeSegment.selectedSegmentIndex == 0) {
         [self configProcessingTasks];
@@ -147,6 +155,7 @@
         [self configGiveupTasks];
     }
     [self.tableView reloadData];
+    
 
 }
 
@@ -254,10 +263,8 @@
         
         [scrollView removeFromSuperview];
         [page removeFromSuperview];
-        //        if (sender.superview) {
-        //            [sender removeFromSuperview];
-        //
-        //        }
+        [self setUpAD];
+
         
     }];
     
@@ -1022,6 +1029,8 @@
     switch (index) {
         case 0:
             NSLog(@"+ was pressed");
+            [MobClick event:@"addAction"];
+
             [CommonUtility tapSound:@"AddSound" withType:@"m4a"];
 
             
@@ -1044,6 +1053,8 @@
             break;
         case 1:
             NSLog(@"- was pressed");
+            [MobClick event:@"subtractAction"];
+
             [CommonUtility tapSound:@"SubtractSound" withType:@"m4a"];
 
             if ([goal.amount_DONE intValue] > 0) {
@@ -1104,6 +1115,8 @@
             
             if (self.goalTypeSegment.selectedSegmentIndex == 0) {
                 NSLog(@"giveup button was pressed");
+                [MobClick event:@"giveUp"];
+
                 [CommonUtility tapSound:@"anydoMomentDone" withType:@"m4a"];
 
                 
@@ -1127,6 +1140,8 @@
             }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
             {
                 NSLog(@"recover button was pressed");
+                [MobClick event:@"repick"];
+
                 [CommonUtility tapSound:@"CompletionSound" withType:@"m4a"];
 
                 UIAlertView *deleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请注意",nil) message:NSLocalizedString(@"确认重拾该目标?",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"取消",nil) otherButtonTitles:NSLocalizedString(@"确认",nil), nil];
@@ -1144,6 +1159,8 @@
         case 1:
         {
             // Delete button was pressed
+            [MobClick event:@"delete"];
+
             [CommonUtility tapSound:@"anydoMomentDelete" withType:@"m4a"];
 
             NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
@@ -1175,22 +1192,30 @@
     
             case 0:
             NSLog(@"segment 0");
+            [MobClick event:@"processing"];
+
             [self configProcessingTasks];
 
             break;
             
             case 1:
             NSLog(@"segment 1");
+            [MobClick event:@"finished"];
+
             [self configFinishedTasks];
             break;
             
             case 2:
             NSLog(@"segment 2");
+            [MobClick event:@"scheduled"];
+
             [self configNotyetTasks];
             break;
             
             case 3:
             NSLog(@"segment 3");
+            [MobClick event:@"abandoned"];
+
             [self configGiveupTasks];
             break;
             
@@ -1202,6 +1227,8 @@
 }
 #pragma mark ADD NewGoal
 - (IBAction)addNewGoal:(id)sender {
+    [MobClick event:@"addNew"];
+
     
     addGoalViewController *addNewGoal = [[addGoalViewController alloc] initWithNibName:@"addGoalViewController" bundle:nil];
     
@@ -1349,13 +1376,13 @@
 #pragma mark AD..
 - (NSString *)publisherId
 {
-    return  @"d388c08d"; //@"your_own_app_id";
+    return  @"d64de853"; //@"your_own_app_id";
 }
 
 - (NSString*) appSpec
 {
     //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
-    return @"d388c08d";
+    return @"d64de853";
 }
 //-(BOOL) enableLocation
 //{
