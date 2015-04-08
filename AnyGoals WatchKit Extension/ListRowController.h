@@ -9,6 +9,6 @@
 @import WatchKit;
 
 @interface listRowController : NSObject
-@property (weak, nonatomic) IBOutlet WKInterfaceLabel *rowName;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *rowTitle;
 
 @end

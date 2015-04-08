@@ -5,10 +5,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Home-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController"/>
+                <controller title="Home" id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <button width="1" height="0.5" alignment="left" title="目标列表" id="QnQ-2y-mCv">
+                            <connections>
+                                <action selector="listTap" destination="AgC-eL-Hgc" id="10e-YX-ijc"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="0.5" alignment="left" verticalAlignment="bottom" title="数据统计" id="8vz-GZ-bQO">
+                            <connections>
+                                <action selector="statsTap" destination="AgC-eL-Hgc" id="LXM-xe-rWa"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
@@ -34,6 +47,33 @@
                 <controller id="4sK-HA-Art" customClass="NotificationController"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--目标列表-->
+        <scene sceneID="lru-ph-bkQ">
+            <objects>
+                <controller identifier="statusListInterfaceController" title="目标列表" id="844-iF-cAa" customClass="statusListInterfaceController">
+                    <items>
+                        <table alignment="left" id="qZW-s1-VQg">
+                            <items>
+                                <tableRow identifier="listRow" id="K6b-H2-CG3" customClass="listRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="qQ7-4j-0kW">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Label" id="RMh-82-XXf"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowTitle" destination="RMh-82-XXf" id="yWq-aY-OPM"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="statusTable" destination="qZW-s1-VQg" id="JJX-sU-FSI"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="424" y="345"/>
         </scene>
     </scenes>
 </document>

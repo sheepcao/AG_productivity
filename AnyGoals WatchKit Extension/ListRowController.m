@@ -11,5 +11,14 @@
 @implementation listRowController
 
 
-
+- (instancetype)init {
+    // Always call super first.
+    self = [super init];
+    if (self){
+        // It is now safe to access interface objects.
+        [self.rowTitle setText:@"Hello New World"];
+    }
+    NSLog(@"04");
+    return self;
+}
 @end

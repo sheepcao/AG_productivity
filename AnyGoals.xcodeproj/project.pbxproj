@@ -115,6 +115,7 @@
 		A48632831AD523AA00E24839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48632821AD523AA00E24839 /* Images.xcassets */; };
 		A48632861AD523AA00E24839 /* AnyGoals WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A48632691AD523A900E24839 /* AnyGoals WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A486328F1AD524BC00E24839 /* listRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A486328E1AD524BC00E24839 /* listRowController.m */; };
+		A48632921AD52F1300E24839 /* statusListInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48632911AD52F1300E24839 /* statusListInterfaceController.m */; };
 		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
@@ -437,6 +438,8 @@
 		A48632821AD523AA00E24839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A486328D1AD524BC00E24839 /* listRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listRowController.h; sourceTree = "<group>"; };
 		A486328E1AD524BC00E24839 /* listRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listRowController.m; sourceTree = "<group>"; };
+		A48632901AD52F1300E24839 /* statusListInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statusListInterfaceController.h; sourceTree = "<group>"; };
+		A48632911AD52F1300E24839 /* statusListInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statusListInterfaceController.m; sourceTree = "<group>"; };
 		A4AAE4E31AC558B800E88DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A4AAE4E61AC558CB00E88DCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CustomDatePickerViewController.strings; sourceTree = "<group>"; };
 		A4ADC0051AC8DD4C004FBC86 /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
@@ -914,6 +917,8 @@
 			children = (
 				A486326E1AD523A900E24839 /* InterfaceController.h */,
 				A486326F1AD523A900E24839 /* InterfaceController.m */,
+				A48632901AD52F1300E24839 /* statusListInterfaceController.h */,
+				A48632911AD52F1300E24839 /* statusListInterfaceController.m */,
 				A486328D1AD524BC00E24839 /* listRowController.h */,
 				A486328E1AD524BC00E24839 /* listRowController.m */,
 				A48632711AD523A900E24839 /* NotificationController.h */,
@@ -1577,6 +1582,7 @@
 				A48632731AD523A900E24839 /* NotificationController.m in Sources */,
 				A48632701AD523A900E24839 /* InterfaceController.m in Sources */,
 				A486328F1AD524BC00E24839 /* listRowController.m in Sources */,
+				A48632921AD52F1300E24839 /* statusListInterfaceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2137,6 +2143,7 @@
 				A486328A1AD523AA00E24839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A486328C1AD523AA00E24839 /* Build configuration list for PBXNativeTarget "AnyGoals WatchKit Extension" */ = {
 			isa = XCConfigurationList;
@@ -2145,6 +2152,7 @@
 				A48632881AD523AA00E24839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4C901081AC4F5A400982D6E /* Build configuration list for PBXNativeTarget "AnyGoalWidget" */ = {
 			isa = XCConfigurationList;

@@ -8,6 +8,7 @@
 
 #import "InterfaceController.h"
 #import "ListRowController.h"
+#import "statusListInterfaceController.h"
 
 
 @interface InterfaceController()
@@ -26,9 +27,7 @@
         // Configure interface objects here.
         
         // Retrieve the data. This could be accessed from the iOS app via a shared container.
-        self.elementsList = [NSArray arrayWithObjects:@"目标列表",@"数据统计", nil];
         
-        [self loadTableRows];
     }
     
     return self;
@@ -38,9 +37,7 @@
     
     NSLog(@"1111");
     
-    self.elementsList = [NSArray arrayWithObjects:@"目标列表",@"数据统计", nil];
     
-    [self loadTableRows];
     // Configure interface objects here.
 }
 
@@ -56,27 +53,13 @@
     [super didDeactivate];
 }
 
-- (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
-    if (rowIndex == 0) {
-        [self pushControllerWithName:@"goalListController" context:nil];
-        NSLog(@"1");
-    }else if (rowIndex == 1)
-    {
-        [self pushControllerWithName:@"statsController" context:nil];
-        NSLog(@"2");
+- (IBAction)listTap {
+    
+    [self pushControllerWithName:@"statusListInterfaceController" context:nil];
 
-    }
+    NSLog(@"1111111");
 }
-- (void)loadTableRows {
-    [self.homeTable setNumberOfRows:self.elementsList.count withRowType:@"default"];
-    
-    
-    // Create all of the table rows.
-    [self.elementsList enumerateObjectsUsingBlock:^(NSString *rowData, NSUInteger idx, BOOL *stop) {
-        listRowController *elementRow = [self.homeTable rowControllerAtIndex:idx];
-        
-        [elementRow.rowName setText:rowData];
-    }];
+- (IBAction)statsTap {
 }
 
 @end
