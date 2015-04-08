@@ -182,20 +182,49 @@
     for (int i = 0 ; i < 6; i ++) {
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width * i , 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        
+        UIImage *image;
         //将要加载的图片放入imageView 中
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
+        if ([self isSystemLangChinese]) {
+            if (IS_IPHONE_4_OR_LESS) {
+                image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
+            }else
+            {
+                image = [UIImage imageNamed:[NSString stringWithFormat:@"%d%d",i,i]];
+            }
+        }else
+        {
+            if (IS_IPHONE_4_OR_LESS) {
+                image = [UIImage imageNamed:[NSString stringWithFormat:@"%dEn",i]];
+            }else
+            {
+                image = [UIImage imageNamed:[NSString stringWithFormat:@"%d%dEn",i,i]];
+            }
+        }
+
         imageView.image = image;
         
         [_scrollView addSubview:imageView];
     }
     
+    float offside = 0;
+    
+    if (IS_IPHONE_6P) {
+        offside = 27;
+    }else if(IS_IPHONE_6)
+    {
+        offside = 15;
+        
+    }else if(IS_IPHONE_4_OR_LESS)
+    {
+        offside = -44;
+    }
+    
     //初始化 UIPageControl 和 _scrollView 显示在 同一个页面中
-    UIPageControl *pageConteol = [[UIPageControl alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-25, self.view.frame.size.height - 70 - 49, 50, 40)];
+    UIPageControl *pageConteol = [[UIPageControl alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-25, self.view.frame.size.height - 45- offside - 49, 50, 40)];
     pageConteol.numberOfPages = 6;//设置pageConteol 的page 和 _scrollView 上的图片一样多
     pageConteol.tag = 201;
     pageConteol.pageIndicatorTintColor = [UIColor whiteColor];
-    pageConteol.currentPageIndicatorTintColor = [UIColor yellowColor];
+    pageConteol.currentPageIndicatorTintColor = [UIColor colorWithRed:5/255.0f green:190/255.0f blue:155/255.0f alpha:1.0f];
     
     
     //    UIButton *startNow = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2-40, pageConteol.frame.origin.y+pageConteol.frame.size.height+5, 80, 40)];

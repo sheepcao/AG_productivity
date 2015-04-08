@@ -529,8 +529,10 @@
 
 - (IBAction)shareTapped:(id)sender {
     
-    UIGraphicsBeginImageContext(self.PiesView.frame.size);
-    //获取图像
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+        UIGraphicsBeginImageContextWithOptions(self.PiesView.frame.size, NO, [UIScreen mainScreen].scale);
+    else
+        UIGraphicsBeginImageContext(self.PiesView.frame.size);    //获取图像
     [self.PiesView.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *imageShare = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

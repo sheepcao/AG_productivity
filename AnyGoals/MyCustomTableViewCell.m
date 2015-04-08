@@ -78,13 +78,33 @@
 
 
         
+        if (![self isSystemLangChinese]) {
+            [self.statusShow setImage:[UIImage imageNamed:@"ahead-无"]];
+            [self.statusShow setHighlightedImage:[UIImage imageNamed:@"ahead"]];
+            
+            [self.urgentShow setImage:[UIImage imageNamed:@"Urgent-无"]];
+            [self.urgentShow setHighlightedImage:[UIImage imageNamed:@"Urgent"]];
+
+        }
+        
     }
 
 }
 
 
 
-
+- (BOOL)isSystemLangChinese
+{
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
+    if([language compare:@"zh-Hans" options:NSCaseInsensitiveSearch]==NSOrderedSame)
+    {
+        return YES;
+    }else
+    {
+        return NO;
+    }
+}
 
 
 @end

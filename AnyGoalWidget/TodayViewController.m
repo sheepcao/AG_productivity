@@ -305,7 +305,7 @@
 
 - (IBAction)openApp:(id)sender {
     
-    NSURL *pjURL = [NSURL URLWithString:@"AnyGoal://"];
+    NSURL *pjURL = [NSURL URLWithString:@"WeChat://"];
 
     [self.extensionContext openURL:pjURL completionHandler:nil];
 }
