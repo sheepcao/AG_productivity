@@ -106,6 +106,7 @@
 		A486322E1AD4C33A00E24839 /* ahead.png in Resources */ = {isa = PBXBuildFile; fileRef = A486322A1AD4C33A00E24839 /* ahead.png */; };
 		A486322F1AD4C33A00E24839 /* Urgent-无.png in Resources */ = {isa = PBXBuildFile; fileRef = A486322B1AD4C33A00E24839 /* Urgent-无.png */; };
 		A48632301AD4C33A00E24839 /* Urgent.png in Resources */ = {isa = PBXBuildFile; fileRef = A486322C1AD4C33A00E24839 /* Urgent.png */; };
+		A48632331AD4C7BB00E24839 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48632321AD4C7BB00E24839 /* Crashlytics.framework */; };
 		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
@@ -398,6 +399,7 @@
 		A486322A1AD4C33A00E24839 /* ahead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ahead.png; sourceTree = "<group>"; };
 		A486322B1AD4C33A00E24839 /* Urgent-无.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urgent-无.png"; sourceTree = "<group>"; };
 		A486322C1AD4C33A00E24839 /* Urgent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Urgent.png; sourceTree = "<group>"; };
+		A48632321AD4C7BB00E24839 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A4AAE4E31AC558B800E88DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A4AAE4E61AC558CB00E88DCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CustomDatePickerViewController.strings; sourceTree = "<group>"; };
 		A4ADC0051AC8DD4C004FBC86 /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 			files = (
 				A4ADC0781AC8DFD9004FBC86 /* CoreGraphics.framework in Frameworks */,
 				A4ADC0761AC8DFD3004FBC86 /* Foundation.framework in Frameworks */,
+				A48632331AD4C7BB00E24839 /* Crashlytics.framework in Frameworks */,
 				A4ADC0741AC8DFCE004FBC86 /* UIKit.framework in Frameworks */,
 				A4528E2B1AC13292001E9125 /* SystemConfiguration.framework in Frameworks */,
 				A4528E2F1AC132AB001E9125 /* CoreTelephony.framework in Frameworks */,
@@ -1065,6 +1068,7 @@
 		A4F967DF1AAE813800436FE4 = {
 			isa = PBXGroup;
 			children = (
+				A48632321AD4C7BB00E24839 /* Crashlytics.framework */,
 				A4528E381AC132F1001E9125 /* libstdc++.dylib */,
 				A4528E361AC132D4001E9125 /* ImageIO.framework */,
 				A4528E341AC132CA001E9125 /* Security.framework */,
@@ -1207,6 +1211,7 @@
 				A4F967E51AAE813800436FE4 /* Frameworks */,
 				A4F967E61AAE813800436FE4 /* Resources */,
 				A4C900F61AC4F02900982D6E /* Embed App Extensions */,
+				A48632311AD4C78000E24839 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1396,6 +1401,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A48632311AD4C78000E24839 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run bc367a445f88cf5a5c02a54966d1432f00fe93f0 5a2c732e92a103f4fcf7314bf13b68af30f265bb910535ec139bfa839fc8b638";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A4C900F71AC4F5A400982D6E /* Sources */ = {
@@ -1737,6 +1758,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Core",
 					"$(PROJECT_DIR)/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/ShareSDK/UI",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;
@@ -1796,6 +1818,7 @@
 					"$(PROJECT_DIR)/ShareSDK/Core",
 					"$(PROJECT_DIR)/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/ShareSDK/UI",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = AnyGoals/Prefix.pch;

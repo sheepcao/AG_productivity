@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MobClick.h"
+#import <Crashlytics/Crashlytics.h>
 //#import "UMSocial.h"
 //#import "UMSocialWechatHandler.h"
 //#import "UMSocialSinaHandler.h"
@@ -28,6 +29,8 @@
                                                        settingsForTypes:UIUserNotificationTypeAlert|
                                                        UIUserNotificationTypeSound categories:nil]];
     }
+    
+    [Crashlytics startWithAPIKey:@"bc367a445f88cf5a5c02a54966d1432f00fe93f0"];
     
     [MobClick startWithAppkey:@"550fd791fd98c52c94000eea" reportPolicy:REALTIME   channelId:nil];
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
