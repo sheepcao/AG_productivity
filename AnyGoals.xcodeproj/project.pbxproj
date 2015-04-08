@@ -107,6 +107,14 @@
 		A486322F1AD4C33A00E24839 /* Urgent-无.png in Resources */ = {isa = PBXBuildFile; fileRef = A486322B1AD4C33A00E24839 /* Urgent-无.png */; };
 		A48632301AD4C33A00E24839 /* Urgent.png in Resources */ = {isa = PBXBuildFile; fileRef = A486322C1AD4C33A00E24839 /* Urgent.png */; };
 		A48632331AD4C7BB00E24839 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A48632321AD4C7BB00E24839 /* Crashlytics.framework */; };
+		A48632701AD523A900E24839 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A486326F1AD523A900E24839 /* InterfaceController.m */; };
+		A48632731AD523A900E24839 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48632721AD523A900E24839 /* NotificationController.m */; };
+		A48632751AD523A900E24839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48632741AD523A900E24839 /* Images.xcassets */; };
+		A48632791AD523AA00E24839 /* AnyGoals WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = A48632781AD523AA00E24839 /* AnyGoals WatchKit App.app */; };
+		A48632811AD523AA00E24839 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A486327F1AD523AA00E24839 /* Interface.storyboard */; };
+		A48632831AD523AA00E24839 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48632821AD523AA00E24839 /* Images.xcassets */; };
+		A48632861AD523AA00E24839 /* AnyGoals WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A48632691AD523A900E24839 /* AnyGoals WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A486328F1AD524BC00E24839 /* listRowController.m in Sources */ = {isa = PBXBuildFile; fileRef = A486328E1AD524BC00E24839 /* listRowController.m */; };
 		A48F455B1AC51056006B630B /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
 		A48F455C1AC51059006B630B /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
 		A48F455D1AC5105C006B630B /* UIColor+HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF581ABB0AC2004326F6 /* UIColor+HexColor.m */; };
@@ -234,6 +242,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A486327A1AD523AA00E24839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4F967E01AAE813800436FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A48632771AD523A900E24839;
+			remoteInfo = "AnyGoals WatchKit App";
+		};
+		A48632841AD523AA00E24839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A4F967E01AAE813800436FE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A48632681AD523A900E24839;
+			remoteInfo = "AnyGoals WatchKit Extension";
+		};
 		A4C901051AC4F5A400982D6E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A4F967E01AAE813800436FE4 /* Project object */;
@@ -258,6 +280,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				A4C901071AC4F5A400982D6E /* AnyGoalWidget.appex in Embed App Extensions */,
+				A48632861AD523AA00E24839 /* AnyGoals WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +423,20 @@
 		A486322B1AD4C33A00E24839 /* Urgent-无.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urgent-无.png"; sourceTree = "<group>"; };
 		A486322C1AD4C33A00E24839 /* Urgent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Urgent.png; sourceTree = "<group>"; };
 		A48632321AD4C7BB00E24839 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		A48632691AD523A900E24839 /* AnyGoals WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AnyGoals WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A486326C1AD523A900E24839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A486326D1AD523A900E24839 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A486326E1AD523A900E24839 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		A486326F1AD523A900E24839 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		A48632711AD523A900E24839 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
+		A48632721AD523A900E24839 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
+		A48632741AD523A900E24839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A48632781AD523AA00E24839 /* AnyGoals WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnyGoals WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A486327E1AD523AA00E24839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A48632801AD523AA00E24839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A48632821AD523AA00E24839 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A486328D1AD524BC00E24839 /* listRowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listRowController.h; sourceTree = "<group>"; };
+		A486328E1AD524BC00E24839 /* listRowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listRowController.m; sourceTree = "<group>"; };
 		A4AAE4E31AC558B800E88DCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		A4AAE4E61AC558CB00E88DCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CustomDatePickerViewController.strings; sourceTree = "<group>"; };
 		A4ADC0051AC8DD4C004FBC86 /* BaiduMobAdCommonConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdCommonConfig.h; sourceTree = "<group>"; };
@@ -522,6 +559,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A48632661AD523A900E24839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4C900F81AC4F5A400982D6E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -865,6 +909,48 @@
 			path = EN850px;
 			sourceTree = "<group>";
 		};
+		A486326A1AD523A900E24839 /* AnyGoals WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A486326E1AD523A900E24839 /* InterfaceController.h */,
+				A486326F1AD523A900E24839 /* InterfaceController.m */,
+				A486328D1AD524BC00E24839 /* listRowController.h */,
+				A486328E1AD524BC00E24839 /* listRowController.m */,
+				A48632711AD523A900E24839 /* NotificationController.h */,
+				A48632721AD523A900E24839 /* NotificationController.m */,
+				A48632741AD523A900E24839 /* Images.xcassets */,
+				A486326B1AD523A900E24839 /* Supporting Files */,
+			);
+			path = "AnyGoals WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		A486326B1AD523A900E24839 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A486326C1AD523A900E24839 /* Info.plist */,
+				A486326D1AD523A900E24839 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A486327C1AD523AA00E24839 /* AnyGoals WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				A486327F1AD523AA00E24839 /* Interface.storyboard */,
+				A48632821AD523AA00E24839 /* Images.xcassets */,
+				A486327D1AD523AA00E24839 /* Supporting Files */,
+			);
+			path = "AnyGoals WatchKit App";
+			sourceTree = "<group>";
+		};
+		A486327D1AD523AA00E24839 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A486327E1AD523AA00E24839 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		A4ADC0041AC8DD4C004FBC86 /* ios_api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,6 +1170,8 @@
 				A4F967EA1AAE813800436FE4 /* AnyGoals */,
 				A4F968071AAE813800436FE4 /* AnyGoalsTests */,
 				A4C900FD1AC4F5A400982D6E /* AnyGoalWidget */,
+				A486326A1AD523A900E24839 /* AnyGoals WatchKit Extension */,
+				A486327C1AD523AA00E24839 /* AnyGoals WatchKit App */,
 				A4C900E51AC4F02900982D6E /* Frameworks */,
 				A4F967E91AAE813800436FE4 /* Products */,
 			);
@@ -1095,6 +1183,8 @@
 				A4F967E81AAE813800436FE4 /* AnyGoals.app */,
 				A4F968041AAE813800436FE4 /* AnyGoalsTests.xctest */,
 				A4C900FB1AC4F5A400982D6E /* AnyGoalWidget.appex */,
+				A48632691AD523A900E24839 /* AnyGoals WatchKit Extension.appex */,
+				A48632781AD523AA00E24839 /* AnyGoals WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1186,6 +1276,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A48632681AD523A900E24839 /* AnyGoals WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A486328C1AD523AA00E24839 /* Build configuration list for PBXNativeTarget "AnyGoals WatchKit Extension" */;
+			buildPhases = (
+				A48632651AD523A900E24839 /* Sources */,
+				A48632661AD523A900E24839 /* Frameworks */,
+				A48632671AD523A900E24839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A486327B1AD523AA00E24839 /* PBXTargetDependency */,
+			);
+			name = "AnyGoals WatchKit Extension";
+			productName = "AnyGoals WatchKit Extension";
+			productReference = A48632691AD523A900E24839 /* AnyGoals WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		A48632771AD523A900E24839 /* AnyGoals WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A486328B1AD523AA00E24839 /* Build configuration list for PBXNativeTarget "AnyGoals WatchKit App" */;
+			buildPhases = (
+				A48632761AD523A900E24839 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AnyGoals WatchKit App";
+			productName = "AnyGoals WatchKit App";
+			productReference = A48632781AD523AA00E24839 /* AnyGoals WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4C901081AC4F5A400982D6E /* Build configuration list for PBXNativeTarget "AnyGoalWidget" */;
@@ -1217,6 +1340,7 @@
 			);
 			dependencies = (
 				A4C901061AC4F5A400982D6E /* PBXTargetDependency */,
+				A48632851AD523AA00E24839 /* PBXTargetDependency */,
 			);
 			name = AnyGoals;
 			productName = AnyGoals;
@@ -1250,6 +1374,13 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Eric Cao";
 				TargetAttributes = {
+					A48632681AD523A900E24839 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = DBBLJY69ER;
+					};
+					A48632771AD523A900E24839 = {
+						CreatedOnToolsVersion = 6.2;
+					};
 					A4C900FA1AC4F5A400982D6E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = DBBLJY69ER;
@@ -1291,11 +1422,31 @@
 				A4F967E71AAE813800436FE4 /* AnyGoals */,
 				A4F968031AAE813800436FE4 /* AnyGoalsTests */,
 				A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */,
+				A48632681AD523A900E24839 /* AnyGoals WatchKit Extension */,
+				A48632771AD523A900E24839 /* AnyGoals WatchKit App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A48632671AD523A900E24839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48632791AD523AA00E24839 /* AnyGoals WatchKit App.app in Resources */,
+				A48632751AD523A900E24839 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A48632761AD523A900E24839 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48632811AD523AA00E24839 /* Interface.storyboard in Resources */,
+				A48632831AD523AA00E24839 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4C900F91AC4F5A400982D6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1419,6 +1570,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A48632651AD523A900E24839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48632731AD523A900E24839 /* NotificationController.m in Sources */,
+				A48632701AD523A900E24839 /* InterfaceController.m in Sources */,
+				A486328F1AD524BC00E24839 /* listRowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A4C900F71AC4F5A400982D6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1524,6 +1685,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A486327B1AD523AA00E24839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A48632771AD523A900E24839 /* AnyGoals WatchKit App */;
+			targetProxy = A486327A1AD523AA00E24839 /* PBXContainerItemProxy */;
+		};
+		A48632851AD523AA00E24839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A48632681AD523A900E24839 /* AnyGoals WatchKit Extension */;
+			targetProxy = A48632841AD523AA00E24839 /* PBXContainerItemProxy */;
+		};
 		A4C901061AC4F5A400982D6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A4C900FA1AC4F5A400982D6E /* AnyGoalWidget */;
@@ -1564,6 +1735,14 @@
 				A47D6EA11AC3D9E200AC1768 /* zh-Hans */,
 			);
 			name = addGoalViewController.xib;
+			sourceTree = "<group>";
+		};
+		A486327F1AD523AA00E24839 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A48632801AD523AA00E24839 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		A4AAE4E41AC558B800E88DCE /* CustomDatePickerViewController.xib */ = {
@@ -1608,6 +1787,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A48632871AD523AA00E24839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AnyGoals WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A48632881AD523AA00E24839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
+				COPY_PHASE_STRIP = NO;
+				INFOPLIST_FILE = "AnyGoals WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A48632891AD523AA00E24839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = AnyGoals_WatchKit_Extension;
+				INFOPLIST_FILE = "AnyGoals WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		A486328A1AD523AA00E24839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				IBSC_MODULE = AnyGoals_WatchKit_Extension;
+				INFOPLIST_FILE = "AnyGoals WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 		A4C901091AC4F5A400982D6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1887,6 +2130,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A486328B1AD523AA00E24839 /* Build configuration list for PBXNativeTarget "AnyGoals WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A48632891AD523AA00E24839 /* Debug */,
+				A486328A1AD523AA00E24839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A486328C1AD523AA00E24839 /* Build configuration list for PBXNativeTarget "AnyGoals WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A48632871AD523AA00E24839 /* Debug */,
+				A48632881AD523AA00E24839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A4C901081AC4F5A400982D6E /* Build configuration list for PBXNativeTarget "AnyGoalWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
