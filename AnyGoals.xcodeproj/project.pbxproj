@@ -17,6 +17,18 @@
 		A41EA5AC1AB1667100356BAF /* ATCAnimatedTransitioningFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A41AB1667100356BAF /* ATCAnimatedTransitioningFloat.m */; };
 		A41EA5AD1AB1667100356BAF /* ATCAnimatedTransitioningSquish.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A61AB1667100356BAF /* ATCAnimatedTransitioningSquish.m */; };
 		A41EA5AE1AB1667100356BAF /* ATCTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */; };
+		A429E91F1AD60E1E003CCFF2 /* GoalsInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A429E91E1AD60E1E003CCFF2 /* GoalsInterfaceController.m */; };
+		A429E9201AD61C23003CCFF2 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
+		A429E9211AD61E62003CCFF2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C327551AB027CE0062114E /* libsqlite3.dylib */; };
+		A429E9221AD61E7D003CCFF2 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
+		A429E9231AD61E7D003CCFF2 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
+		A429E9241AD61E7D003CCFF2 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274A1AB0279E0062114E /* FMDatabasePool.m */; };
+		A429E9251AD61E7D003CCFF2 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274C1AB0279E0062114E /* FMDatabaseQueue.m */; };
+		A429E9261AD61E7D003CCFF2 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3274F1AB0279E0062114E /* FMResultSet.m */; };
+		A429E9271AD62244003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
+		A429E9281AD62247003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
+		A429E9291AD6224C003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
+		A429E92A1AD6224E003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
 		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
 		A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43BC60E1ABDA95E00A48D0B /* settingViewController.m */; };
@@ -310,6 +322,9 @@
 		A41EA5A71AB1667100356BAF /* ATCTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATCTransitioningDelegate.h; sourceTree = "<group>"; };
 		A41EA5A81AB1667100356BAF /* ATCTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATCTransitioningDelegate.m; sourceTree = "<group>"; };
 		A41EA5C31AB169E900356BAF /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		A429E91D1AD60E1E003CCFF2 /* GoalsInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalsInterfaceController.h; sourceTree = "<group>"; };
+		A429E91E1AD60E1E003CCFF2 /* GoalsInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalsInterfaceController.m; sourceTree = "<group>"; };
+		A429E92B1AD624D8003CCFF2 /* AnyGoals WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AnyGoals WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		A43109DE1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerActionSheet.h; sourceTree = "<group>"; };
 		A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerActionSheet.m; sourceTree = "<group>"; };
 		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
@@ -566,6 +581,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A429E9211AD61E62003CCFF2 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,10 +931,13 @@
 		A486326A1AD523A900E24839 /* AnyGoals WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A429E92B1AD624D8003CCFF2 /* AnyGoals WatchKit Extension.entitlements */,
 				A486326E1AD523A900E24839 /* InterfaceController.h */,
 				A486326F1AD523A900E24839 /* InterfaceController.m */,
 				A48632901AD52F1300E24839 /* statusListInterfaceController.h */,
 				A48632911AD52F1300E24839 /* statusListInterfaceController.m */,
+				A429E91D1AD60E1E003CCFF2 /* GoalsInterfaceController.h */,
+				A429E91E1AD60E1E003CCFF2 /* GoalsInterfaceController.m */,
 				A486328D1AD524BC00E24839 /* listRowController.h */,
 				A486328E1AD524BC00E24839 /* listRowController.m */,
 				A48632711AD523A900E24839 /* NotificationController.h */,
@@ -1382,6 +1401,11 @@
 					A48632681AD523A900E24839 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = DBBLJY69ER;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A48632771AD523A900E24839 = {
 						CreatedOnToolsVersion = 6.2;
@@ -1440,6 +1464,7 @@
 			files = (
 				A48632791AD523AA00E24839 /* AnyGoals WatchKit App.app in Resources */,
 				A48632751AD523A900E24839 /* Images.xcassets in Resources */,
+				A429E9271AD62244003CCFF2 /* AnyGoals.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1449,6 +1474,7 @@
 			files = (
 				A48632811AD523AA00E24839 /* Interface.storyboard in Resources */,
 				A48632831AD523AA00E24839 /* Images.xcassets in Resources */,
+				A429E92A1AD6224E003CCFF2 /* AnyGoals.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1456,6 +1482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A429E9281AD62247003CCFF2 /* AnyGoals.entitlements in Resources */,
 				A4CB689D1AC974F500FCB54F /* anydoMomentAccept.m4a in Resources */,
 				A4ADC03C1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */,
 				A4CB68A91AC974F500FCB54F /* tabSound.wav in Resources */,
@@ -1480,6 +1507,7 @@
 				A48632281AD4BD1D00E24839 /* 55En.png in Resources */,
 				A4F20A711AC54A7900939B75 /* 右翻页.png in Resources */,
 				A4F20A6D1AC546CB00939B75 /* 减号1.png in Resources */,
+				A429E9291AD6224C003CCFF2 /* AnyGoals.entitlements in Resources */,
 				A486321A1AD4BD1D00E24839 /* 3En.png in Resources */,
 				A4728B4D1AC240FB0075C94D /* WeiboSDK.bundle in Resources */,
 				A48632131AD4BD1D00E24839 /* 2.png in Resources */,
@@ -1579,10 +1607,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A429E91F1AD60E1E003CCFF2 /* GoalsInterfaceController.m in Sources */,
 				A48632731AD523A900E24839 /* NotificationController.m in Sources */,
 				A48632701AD523A900E24839 /* InterfaceController.m in Sources */,
+				A429E9221AD61E7D003CCFF2 /* FMDatabase.m in Sources */,
+				A429E9241AD61E7D003CCFF2 /* FMDatabasePool.m in Sources */,
+				A429E9251AD61E7D003CCFF2 /* FMDatabaseQueue.m in Sources */,
 				A486328F1AD524BC00E24839 /* listRowController.m in Sources */,
+				A429E9201AD61C23003CCFF2 /* GoalObj.m in Sources */,
+				A429E9261AD61E7D003CCFF2 /* FMResultSet.m in Sources */,
 				A48632921AD52F1300E24839 /* statusListInterfaceController.m in Sources */,
+				A429E9231AD61E7D003CCFF2 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1796,8 +1831,9 @@
 		A48632871AD523AA00E24839 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: CAO GUANGXU (JTX9TS223Q)";
+				CODE_SIGN_ENTITLEMENTS = "AnyGoals WatchKit Extension/AnyGoals WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1806,6 +1842,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1813,13 +1850,15 @@
 		A48632881AD523AA00E24839 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
+				CODE_SIGN_ENTITLEMENTS = "AnyGoals WatchKit Extension/AnyGoals WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "AnyGoals WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

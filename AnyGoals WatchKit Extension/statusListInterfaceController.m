@@ -59,7 +59,7 @@
 - (void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
     NSString *rowData = self.rowItemsNames[rowIndex];
     
-    [self pushControllerWithName:rowData context:nil];
+    [self pushControllerWithName:@"GoalsInterfaceController" context:rowData];
 }
 
 - (void)loadTableRows {

@@ -17,7 +17,7 @@
 @synthesize db;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [MobClick event:@"todayWidget"];
+    
 
     self.preferredContentSize = CGSizeMake(SCREEN_WIDTH, 100);
 
@@ -150,6 +150,7 @@
 //    [self updatePies];
 
 
+    [MobClick event:@"todayWidget"];
 
     NSLog(@"ads");
 //    [self.allPieScroll setFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];

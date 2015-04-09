@@ -75,5 +75,32 @@
             </objects>
             <point key="canvasLocation" x="424" y="345"/>
         </scene>
+        <!--GoalsInterfaceController-->
+        <scene sceneID="TAo-ha-cC3">
+            <objects>
+                <controller identifier="GoalsInterfaceController" id="cRa-CJ-Cho" customClass="GoalsInterfaceController">
+                    <items>
+                        <table alignment="left" id="4q5-l2-Tw9">
+                            <items>
+                                <tableRow identifier="listRow" id="s4y-bt-cVs" customClass="listRowController">
+                                    <group key="rootItem" width="1" height="75" alignment="left" id="DM0-U2-3GU">
+                                        <items>
+                                            <label height="15" alignment="center" verticalAlignment="bottom" text="Label" textAlignment="center" id="Exr-cu-w6E" userLabel="goalName"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowTitle" destination="Exr-cu-w6E" id="zBo-Dl-4hz"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="goalsListTable" destination="4q5-l2-Tw9" id="8SI-mU-fmx"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="604" y="344"/>
+        </scene>
     </scenes>
 </document>
