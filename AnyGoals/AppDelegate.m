@@ -135,4 +135,18 @@
 }
 
 
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void(^)(NSDictionary *replyInfo))reply{
+    // Receives text input result from the WatchKit app extension.
+    NSLog(@"User Info: %@", userInfo);
+    if ([[userInfo objectForKey:@"goalID"] isEqualToString:@"Maybe"])
+    {
+        reply(@{@"Confirmation" : @"Maybe MaybeMaybeMaybeMaybeMaybeMaybe."});
+        
+    }else
+    {
+        
+        // Sends a confirmation message to the WatchKit app extension that the text input result was received.
+        reply(@{@"Confirmation" : @"Text was received."});
+    }
+}
 @end

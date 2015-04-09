@@ -8,8 +8,9 @@
 
 #import <WatchKit/WatchKit.h>
 #import <Foundation/Foundation.h>
+#import "listRowController.h"
 
-@interface GoalsInterfaceController : WKInterfaceController
+@interface GoalsInterfaceController : WKInterfaceController<presentFinishNoteDelegate>
 @property (weak, nonatomic) IBOutlet WKInterfaceTable *goalsListTable;
 
 @end

@@ -8,7 +8,28 @@
 
 @import WatchKit;
 
+#import "globalVar.h"
+
+@protocol presentFinishNoteDelegate <NSObject>
+
+-(void)presentNoteForGoal:(int)goalID;
+
+@end
+
 @interface listRowController : NSObject
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *rowTitle;
+@property (weak, nonatomic) IBOutlet WKInterfaceSlider *processSlider;
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *finishRateLabel;
+
+
+
+@property int maxAmount;
+@property int doneAmount;
+@property (nonatomic,strong) FMDatabase *db;
+@property int goalID;
+
+@property (nonatomic,strong) id <presentFinishNoteDelegate> noteDelegate;;
+
+-(void)updateRateLabel;
 
 @end

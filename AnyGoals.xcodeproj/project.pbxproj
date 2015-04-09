@@ -29,9 +29,13 @@
 		A429E9281AD62247003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
 		A429E9291AD6224C003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
 		A429E92A1AD6224E003CCFF2 /* AnyGoals.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = A4F20A631AC537A300939B75 /* AnyGoals.entitlements */; };
+		A429E92C1AD64394003CCFF2 /* VBPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5A1ABB0AC2004326F6 /* VBPieChart.m */; };
+		A429E92D1AD64394003CCFF2 /* VBPiePiece.m in Sources */ = {isa = PBXBuildFile; fileRef = A41CFF5C1ABB0AC2004326F6 /* VBPiePiece.m */; };
+		A429E9301AD65DAB003CCFF2 /* statsInterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = A429E92F1AD65DAB003CCFF2 /* statsInterfaceController.m */; };
 		A43109E01AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */; };
 		A43109E51AB2A57300AF2D80 /* CustomDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43109E31AB2A57300AF2D80 /* CustomDatePickerViewController.m */; };
 		A43BC6101ABDA95E00A48D0B /* settingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A43BC60E1ABDA95E00A48D0B /* settingViewController.m */; };
+		A44B10BD1AD66BC30025A8FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4F451A31AC39D93002081AA /* Localizable.strings */; };
 		A4528E2B1AC13292001E9125 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2A1AC13292001E9125 /* SystemConfiguration.framework */; };
 		A4528E2D1AC132A0001E9125 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2C1AC132A0001E9125 /* QuartzCore.framework */; };
 		A4528E2F1AC132AB001E9125 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4528E2E1AC132AB001E9125 /* CoreTelephony.framework */; };
@@ -325,6 +329,8 @@
 		A429E91D1AD60E1E003CCFF2 /* GoalsInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalsInterfaceController.h; sourceTree = "<group>"; };
 		A429E91E1AD60E1E003CCFF2 /* GoalsInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalsInterfaceController.m; sourceTree = "<group>"; };
 		A429E92B1AD624D8003CCFF2 /* AnyGoals WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AnyGoals WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		A429E92E1AD65DAB003CCFF2 /* statsInterfaceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statsInterfaceController.h; sourceTree = "<group>"; };
+		A429E92F1AD65DAB003CCFF2 /* statsInterfaceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statsInterfaceController.m; sourceTree = "<group>"; };
 		A43109DE1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerActionSheet.h; sourceTree = "<group>"; };
 		A43109DF1AB2A4CD00AF2D80 /* CustomDatePickerActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomDatePickerActionSheet.m; sourceTree = "<group>"; };
 		A43109E21AB2A57300AF2D80 /* CustomDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomDatePickerViewController.h; sourceTree = "<group>"; };
@@ -936,6 +942,8 @@
 				A486326F1AD523A900E24839 /* InterfaceController.m */,
 				A48632901AD52F1300E24839 /* statusListInterfaceController.h */,
 				A48632911AD52F1300E24839 /* statusListInterfaceController.m */,
+				A429E92E1AD65DAB003CCFF2 /* statsInterfaceController.h */,
+				A429E92F1AD65DAB003CCFF2 /* statsInterfaceController.m */,
 				A429E91D1AD60E1E003CCFF2 /* GoalsInterfaceController.h */,
 				A429E91E1AD60E1E003CCFF2 /* GoalsInterfaceController.m */,
 				A486328D1AD524BC00E24839 /* listRowController.h */,
@@ -1463,6 +1471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A48632791AD523AA00E24839 /* AnyGoals WatchKit App.app in Resources */,
+				A44B10BD1AD66BC30025A8FF /* Localizable.strings in Resources */,
 				A48632751AD523A900E24839 /* Images.xcassets in Resources */,
 				A429E9271AD62244003CCFF2 /* AnyGoals.entitlements in Resources */,
 			);
@@ -1618,6 +1627,9 @@
 				A429E9261AD61E7D003CCFF2 /* FMResultSet.m in Sources */,
 				A48632921AD52F1300E24839 /* statusListInterfaceController.m in Sources */,
 				A429E9231AD61E7D003CCFF2 /* FMDatabaseAdditions.m in Sources */,
+				A429E9301AD65DAB003CCFF2 /* statsInterfaceController.m in Sources */,
+				A429E92C1AD64394003CCFF2 /* VBPieChart.m in Sources */,
+				A429E92D1AD64394003CCFF2 /* VBPiePiece.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
