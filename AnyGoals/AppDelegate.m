@@ -9,25 +9,54 @@
 #import "AppDelegate.h"
 #import "MobClick.h"
 #import <Crashlytics/Crashlytics.h>
+
+#import "GoalObj.h"
 //#import "UMSocial.h"
 //#import "UMSocialWechatHandler.h"
 //#import "UMSocialSinaHandler.h"
 //#import "UMSocialFacebookHandler.h"
 @interface AppDelegate ()
+@property (nonatomic,strong) FMDatabase *db;
 
 @end
 
 @implementation AppDelegate
-
-
+@synthesize db;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self initDB];
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"maxNotificationID"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:1] forKey:@"maxNotificationID"];
+    }
+    
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        
+        UIMutableUserNotificationAction *addAction = [[UIMutableUserNotificationAction alloc] init];
+        addAction.identifier = @"ADD_ONE";
+        addAction.title = @"+1";
+        addAction.activationMode = UIUserNotificationActivationModeBackground;
+        addAction.destructive = NO;
+        addAction.authenticationRequired = NO;
+        
+        UIMutableUserNotificationCategory *inviteCategory =
+        [[UIMutableUserNotificationCategory alloc] init];
+        
+        // Identifier to include in your push payload and local notification
+        inviteCategory.identifier = @"goalActionAmount";
+        
+        // Add the actions to the category and set the action context
+        [inviteCategory setActions:@[addAction]
+                        forContext:UIUserNotificationActionContextDefault];
+        
+        NSSet *categories = [NSSet setWithObjects:inviteCategory, nil];
+
         
         [application registerUserNotificationSettings:[UIUserNotificationSettings
                                                        settingsForTypes:UIUserNotificationTypeAlert|
-                                                       UIUserNotificationTypeSound categories:nil]];
+                                                       UIUserNotificationTypeSound categories:categories]];
     }
     
     [Crashlytics startWithAPIKey:@"bc367a445f88cf5a5c02a54966d1432f00fe93f0"];
@@ -149,4 +178,105 @@
         reply(@{@"Confirmation" : @"Text was received."});
     }
 }
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void(^)())completionHandler
+{
+    if([identifier isEqualToString:@"ADD_ONE"])
+    {
+        NSNumber *remindID = [notification.userInfo objectForKey:@"remindID"];
+        [self updateDB:remindID];
+        
+        NSLog(@"+++");
+        
+    }
+    completionHandler(nil);
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
+{
+    if([identifier isEqualToString:@"ADD_ONE"])
+    {
+        BOOL sql = [db executeUpdate:@"update GOALSINFO set amount_DONE=? where goalID = ?" ,@3,@1];
+        if (!sql) {
+            NSLog(@"ERROR123: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+        }
+        
+        NSLog(@"++++++");
+        
+    }
+    completionHandler(nil);
+}
+
+-(void)initDB
+{
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+ 
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    //    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    //    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    //    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    NSString *createGoalTable = @"CREATE TABLE IF NOT EXISTS GOALSINFO (goalID INTEGER PRIMARY KEY AUTOINCREMENT,goalName TEXT,startTime TEXT,endTime TEXT,amount INTEGER,amount_DONE INTEGER,lastUpdateTime TEXT,reminder TEXT,reminderNote TEXT,isFinished INTEGER,isGiveup INTEGER,remindID INTEGER)";
+    NSString *createUrgentTable = @"CREATE TABLE IF NOT EXISTS URGENTGOALS (urgentID INTEGER PRIMARY KEY AUTOINCREMENT,goalID INTEGER)";
+    
+    [db executeUpdate:createGoalTable];
+    [db executeUpdate:createUrgentTable];
+    
+
+}
+
+-(void)updateDB:(NSNumber *)remindID
+{
+    NSURL *storeURL = [[NSFileManager defaultManager] containerURLForSecurityApplicationGroupIdentifier:@"group.com.sheepcao.AnyGoal"];
+    NSString *docsPath = [storeURL absoluteString];
+    NSString *dbPath = [docsPath stringByAppendingPathComponent:@"AnyGoals.db"];
+    
+    db = [FMDatabase databaseWithPath:dbPath];
+    
+    if (![db open]) {
+        NSLog(@"Could not open db.");
+        return;
+    }
+    
+    FMResultSet *rs = [db executeQuery:@"select goalID,goalName,startTime,endTime,amount,amount_DONE,reminderNote from GOALSINFO where remindID = ?",remindID];
+    while ([rs next]) {
+        GoalObj *oneGoal = [[GoalObj alloc] init];
+        
+        oneGoal.goalID = [NSNumber numberWithInt: [rs intForColumn:@"goalID"]];
+        
+        oneGoal.goalName = [rs stringForColumn:@"goalName"];
+        oneGoal.startTime = [rs stringForColumn:@"startTime"];
+        oneGoal.endTime = [rs stringForColumn:@"endTime"];
+        
+        oneGoal.amount = [NSNumber numberWithInt: [rs intForColumn:@"amount"]];
+        
+        oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
+        oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
+        
+        
+        BOOL sql = [db executeUpdate:@"update GOALSINFO set amount_DONE=? where goalID = ?" ,[NSNumber numberWithInt:([oneGoal.amount_DONE intValue]+1)],oneGoal.goalID];
+        if (!sql) {
+            NSLog(@"ERROR123: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+        }
+        
+        
+    }
+    
+    [db close];
+    
+
+    
+
+
+    
+}
+
+
 @end

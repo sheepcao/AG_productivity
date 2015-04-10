@@ -499,17 +499,24 @@
 
         if(self.isNewGoal)
         {
-            BOOL sql = [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote,isFinished,isGiveup) values (?,?,?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0]];
+            int maxRemindID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"maxNotificationID"] intValue];
+            
+            BOOL sql = [db executeUpdate:@"insert into GOALSINFO (goalName, startTime,endTime,amount,amount_DONE,lastUpdateTime,reminder,reminderNote,isFinished,isGiveup,remindID) values (?,?,?,?,?,?,?,?,?,?,?)" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],[NSNumber numberWithInt:0],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],[[NSUserDefaults standardUserDefaults] objectForKey:@"maxNotificationID"]];
             
             if (!sql) {
                 NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
             }else
             {
-                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote];
+                
+                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(maxRemindID+1)] forKey:@"maxNotificationID"];
+                
+                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote andRemindID:maxRemindID];
             }
             [db close];
         }else
         {
+            
+             int maxRemindID = [[[NSUserDefaults standardUserDefaults] objectForKey:@"maxNotificationID"] intValue];
             
             if ([self.editingGoal.amount_DONE intValue]>=[actionTimesField.text intValue]) {
                 [db close];
@@ -520,12 +527,15 @@
             }
 
             
-           BOOL sql = [db executeUpdate:@"update GOALSINFO set goalName = ?, startTime= ?,endTime =?,amount=?,lastUpdateTime=?,reminder=?,reminderNote=?,isFinished=?,isGiveup=? where goalID = ?" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],self.editingGoal.goalID];
+           BOOL sql = [db executeUpdate:@"update GOALSINFO set goalName = ?, startTime= ?,endTime =?,amount=?,lastUpdateTime=?,reminder=?,reminderNote=?,isFinished=?,isGiveup=?,remindID=? where goalID = ?" , goalNameField.text, startTimeField.titleLabel.text,endTimeField.titleLabel.text,[NSNumber numberWithInt:[actionTimesField.text intValue]],timeNow,reminderTime,remindNote,[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],[[NSUserDefaults standardUserDefaults] objectForKey:@"maxNotificationID"],self.editingGoal.goalID];
             if (!sql) {
                 NSLog(@"ERROR: %d - %@", db.lastErrorCode, db.lastErrorMessage);
             }else
             {
-                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote];
+                [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:(maxRemindID+1)] forKey:@"maxNotificationID"];
+
+                
+                [self startLocalNotificationWithTime:reminderTime andTitle:goalNameField.text andDescription:remindNote andRemindID:maxRemindID];
             }
             [db close];
         }
@@ -537,7 +547,7 @@
 
    
 }
--(void)startLocalNotificationWithTime:(NSString *)remdTime andTitle:(NSString *)title andDescription:(NSString *)detail {
+-(void)startLocalNotificationWithTime:(NSString *)remdTime andTitle:(NSString *)title andDescription:(NSString *)detail andRemindID:(int)remindID{
     NSLog(@"startLocalNotification");
     
     if ([reminderTime isEqualToString:@""]) {
@@ -565,11 +575,18 @@
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:remindTimeByNow];
+    notification.alertTitle = title;
     notification.alertBody = [NSString stringWithFormat:@"%@\n%@",title,detail];
 //    notification.alertTitle = title;
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;
 //    notification.applicationIconBadgeNumber = 10;
+    
+    notification.category = @"goalActionAmount";
+    
+    NSDictionary *nitificationDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:remindID],@"remindID", nil];
+    
+    notification.userInfo = nitificationDic;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     [MobClick event:@"reminder"];

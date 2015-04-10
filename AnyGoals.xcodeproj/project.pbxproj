@@ -204,6 +204,10 @@
 		A4ADC0871AC8E4FA004FBC86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ADC0731AC8DFCE004FBC86 /* UIKit.framework */; };
 		A4ADC0881AC8E514004FBC86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ADC0751AC8DFD3004FBC86 /* Foundation.framework */; };
 		A4ADC0891AC8E524004FBC86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4ADC0771AC8DFD9004FBC86 /* CoreGraphics.framework */; };
+		A4C0133F1AD7B937008E4D46 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = A486326D1AD523A900E24839 /* PushNotificationPayload.apns */; };
+		A4C013401AD7B938008E4D46 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = A486326D1AD523A900E24839 /* PushNotificationPayload.apns */; };
+		A4C013411AD7B939008E4D46 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = A486326D1AD523A900E24839 /* PushNotificationPayload.apns */; };
+		A4C013421AD7B93B008E4D46 /* PushNotificationPayload.apns in Resources */ = {isa = PBXBuildFile; fileRef = A486326D1AD523A900E24839 /* PushNotificationPayload.apns */; };
 		A4C327431AB011390062114E /* CycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327421AB011390062114E /* CycleView.m */; };
 		A4C327501AB0279E0062114E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327461AB0279E0062114E /* FMDatabase.m */; };
 		A4C327511AB0279E0062114E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C327481AB0279E0062114E /* FMDatabaseAdditions.m */; };
@@ -1474,6 +1478,7 @@
 				A44B10BD1AD66BC30025A8FF /* Localizable.strings in Resources */,
 				A48632751AD523A900E24839 /* Images.xcassets in Resources */,
 				A429E9271AD62244003CCFF2 /* AnyGoals.entitlements in Resources */,
+				A4C013401AD7B938008E4D46 /* PushNotificationPayload.apns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1482,6 +1487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A48632811AD523AA00E24839 /* Interface.storyboard in Resources */,
+				A4C0133F1AD7B937008E4D46 /* PushNotificationPayload.apns in Resources */,
 				A48632831AD523AA00E24839 /* Images.xcassets in Resources */,
 				A429E92A1AD6224E003CCFF2 /* AnyGoals.entitlements in Resources */,
 			);
@@ -1492,6 +1498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A429E9281AD62247003CCFF2 /* AnyGoals.entitlements in Resources */,
+				A4C013411AD7B939008E4D46 /* PushNotificationPayload.apns in Resources */,
 				A4CB689D1AC974F500FCB54F /* anydoMomentAccept.m4a in Resources */,
 				A4ADC03C1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */,
 				A4CB68A91AC974F500FCB54F /* tabSound.wav in Resources */,
@@ -1542,6 +1549,7 @@
 				A4728B501AC240FB0075C94D /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */,
 				A47D6E961AC3B2EC00AC1768 /* addGoalViewController.xib in Resources */,
+				A4C013421AD7B93B008E4D46 /* PushNotificationPayload.apns in Resources */,
 				A48632211AD4BD1D00E24839 /* 44.png in Resources */,
 				A48632191AD4BD1D00E24839 /* 2En.png in Resources */,
 				A4728B601AC285FB0075C94D /* goalList.png in Resources */,
