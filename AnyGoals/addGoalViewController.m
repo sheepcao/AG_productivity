@@ -572,11 +572,20 @@
     NSDate *remindTime = [dateFormat dateFromString:remdTime];
     
     NSTimeInterval remindTimeByNow = [remindTime timeIntervalSinceDate:[NSDate date]];
-    
+//
     UILocalNotification *notification = [[UILocalNotification alloc] init];
+//
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:remindTimeByNow];
+    NSLog(@"interval:%f",remindTimeByNow);
     notification.alertTitle = title;
-    notification.alertBody = [NSString stringWithFormat:@"%@\n%@",title,detail];
+    if(detail.length >0)
+    {
+        notification.alertBody = [NSString stringWithFormat:@"%@",detail];
+        
+    }else
+    {
+        notification.alertBody = title;
+    }
 //    notification.alertTitle = title;
     notification.timeZone = [NSTimeZone defaultTimeZone];
     notification.soundName = UILocalNotificationDefaultSoundName;
@@ -699,7 +708,7 @@
 }
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    if ([textView.text isEqualToString:@""]) {
+    if (textView.text.length == 0) {
         [textView setText:NSLocalizedString(@"点击编辑提醒备注...",nil)];
         [textView setTextColor:[UIColor lightGrayColor]];
     }

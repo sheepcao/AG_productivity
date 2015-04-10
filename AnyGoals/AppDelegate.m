@@ -260,10 +260,17 @@
         oneGoal.amount_DONE = [NSNumber numberWithInt: [rs intForColumn:@"amount_DONE"]];
         oneGoal.reminderNote = [rs stringForColumn:@"reminderNote"];
         
-        
-        BOOL sql = [db executeUpdate:@"update GOALSINFO set amount_DONE=? where goalID = ?" ,[NSNumber numberWithInt:([oneGoal.amount_DONE intValue]+1)],oneGoal.goalID];
-        if (!sql) {
-            NSLog(@"ERROR123: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+        if (([oneGoal.amount_DONE intValue]+1) >=[oneGoal.amount intValue]) {
+            BOOL sql = [db executeUpdate:@"update GOALSINFO set amount_DONE=?,isFinished=? where goalID = ?" ,[NSNumber numberWithInt:([oneGoal.amount_DONE intValue]+1)],[NSNumber numberWithInt:1],oneGoal.goalID];
+            if (!sql) {
+                NSLog(@"ERROR123: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+            }
+        }else
+        {
+            BOOL sql = [db executeUpdate:@"update GOALSINFO set amount_DONE=? where goalID = ?" ,[NSNumber numberWithInt:([oneGoal.amount_DONE intValue]+1)],oneGoal.goalID];
+            if (!sql) {
+                NSLog(@"ERROR123: %d - %@", db.lastErrorCode, db.lastErrorMessage);
+            }
         }
         
         

@@ -833,7 +833,33 @@
     NSLog(@"goal.reminder :%@",goal.reminder );
     [goal.reminder isEqualToString:@""]?[cell.reminderShow setHighlighted:NO]:[cell.reminderShow setHighlighted:YES];
     
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd HH:mm"];
+    NSDate *reminder = [dateFormat dateFromString:goal.reminder];
     
+    if ([reminder compare:[NSDate date]] == NSOrderedAscending){
+        
+        NSArray *arrayGif = @[[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"提醒1" ofType:@"png"]],[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"提醒-2" ofType:@"png"]]];
+        
+        [cell.reminderShow setHighlighted:NO];
+        
+        if (arrayGif.count>0) {
+            //设置动画数组
+            [cell.reminderShow setAnimationImages:arrayGif];
+            
+            //设置动画播放次数
+            [cell.reminderShow setAnimationRepeatCount:0];
+            //设置动画播放时间
+            [cell.reminderShow setAnimationDuration:0.4];
+            //开始动画
+            [cell.reminderShow startAnimating];
+            
+        }
+        
+        
+    }
+    
+
     
     return cell;
 
