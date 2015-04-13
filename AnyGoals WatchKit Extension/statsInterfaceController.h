@@ -10,5 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface statsInterfaceController : WKInterfaceController
+@property (weak, nonatomic) IBOutlet WKInterfaceTable *statsTable;
+
 
 @end

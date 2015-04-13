@@ -53,3 +53,10 @@
 "总进度" = "Process";
 "完成度" = "Finished";
 "紧迫度" = "Urgent";
+
+
+"总体进度" = "Process";
+"完成进度" = "Finished";
+"紧迫比例" = "Urgent";
+"周活跃目标" = "Weekly Active";
+"月活跃目标" = "Monthly Active";

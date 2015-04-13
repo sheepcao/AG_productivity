@@ -24,7 +24,7 @@
     if (self) {
         // Initialize variables here.
         // Configure interface objects here.
-        self.rowItemsNames = @[@"In process",@"Finished",@"Scheduled",@"Abandoned"];
+        self.rowItemsNames = @[NSLocalizedString(@"In process",nil),NSLocalizedString(@"Finished",nil),NSLocalizedString(@"Scheduled",nil),NSLocalizedString(@"Abandoned",nil)];
         NSLog(@"02");
 
     }

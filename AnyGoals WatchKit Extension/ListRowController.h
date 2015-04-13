@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet WKInterfaceSlider *processSlider;
 @property (weak, nonatomic) IBOutlet WKInterfaceLabel *finishRateLabel;
 
+@property (weak, nonatomic) IBOutlet WKInterfaceLabel *statsRate;
 
 
 @property int maxAmount;

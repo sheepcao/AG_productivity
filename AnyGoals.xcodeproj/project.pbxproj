@@ -559,6 +559,8 @@
 		A4CB68971AC974F500FCB54F /* CompletionSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = CompletionSound.m4a; sourceTree = "<group>"; };
 		A4CB68981AC974F500FCB54F /* SubtractSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = SubtractSound.m4a; sourceTree = "<group>"; };
 		A4CB68991AC974F500FCB54F /* tabSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tabSound.wav; sourceTree = "<group>"; };
+		A4D200781ADBAA230022F0E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Interface.strings; sourceTree = "<group>"; };
+		A4D2007A1ADBAA230022F0E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		A4F20A621AC536D000939B75 /* AnyGoalWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoalWidget.entitlements; sourceTree = "<group>"; };
 		A4F20A631AC537A300939B75 /* AnyGoals.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AnyGoals.entitlements; sourceTree = "<group>"; };
 		A4F20A6B1AC546CB00939B75 /* 减号1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "减号1.png"; sourceTree = "<group>"; };
@@ -1802,6 +1804,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A48632801AD523AA00E24839 /* Base */,
+				A4D200781ADBAA230022F0E4 /* en */,
+				A4D2007A1ADBAA230022F0E4 /* zh-Hans */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";

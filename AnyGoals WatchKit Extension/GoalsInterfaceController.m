@@ -55,19 +55,19 @@ int goalType;
     
     [self setTitle:context];
     
-    if ([context isEqualToString:@"In process"]) {
+    if ([context isEqualToString:NSLocalizedString(@"In process",nil)]) {
 
         goalType = 0;
         
-    }else if([context isEqualToString:@"Finished"])
+    }else if([context isEqualToString:NSLocalizedString(@"Finished",nil)])
     {
         goalType = 1;
         
-    }else if([context isEqualToString:@"Scheduled"])
+    }else if([context isEqualToString:NSLocalizedString(@"Scheduled",nil)])
     {
         goalType = 2;
 
-    }else if([context isEqualToString:@"Abandoned"])
+    }else if([context isEqualToString:NSLocalizedString(@"Abandoned",nil)])
     {
         goalType = 3;
 

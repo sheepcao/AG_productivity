@@ -11,11 +11,13 @@
                 <controller title="Home" id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <button width="1" height="0.48999999999999999" alignment="left" title="目标列表" id="QnQ-2y-mCv">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="15"/>
                             <connections>
                                 <action selector="listTap" destination="AgC-eL-Hgc" id="10e-YX-ijc"/>
                             </connections>
                         </button>
                         <button width="1" height="0.48999999999999999" alignment="left" verticalAlignment="bottom" title="数据统计" id="8vz-GZ-bQO">
+                            <fontDescription key="font" type="system" weight="thin" pointSize="15"/>
                             <connections>
                                 <action selector="statsTap" destination="AgC-eL-Hgc" id="LXM-xe-rWa"/>
                             </connections>
@@ -32,7 +34,7 @@
                     <items>
                         <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="goalActionAmount" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" id="JfB-70-Muf"/>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
@@ -131,7 +133,7 @@
         <!--确定-->
         <scene sceneID="Gqe-1h-Btc">
             <objects>
-                <controller identifier="statsInterfaceController" title="确定" id="peF-2A-6F2" customClass="statsInterfaceController">
+                <controller title="确定" id="peF-2A-6F2">
                     <items>
                         <label height="0.40000000000000002" alignment="center" text="恭喜" textAlignment="center" id="RVh-cb-jqA">
                             <color key="textColor" red="0.29088731750000002" green="0.72373973540000003" blue="0.72758895990000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,16 +151,34 @@
         <!--数据统计-->
         <scene sceneID="dD1-cx-L9O">
             <objects>
-                <controller title="数据统计" id="4Sv-Ru-fod">
+                <controller identifier="statsInterfaceController" title="数据统计" id="4Sv-Ru-fod" customClass="statsInterfaceController">
                     <items>
                         <table alignment="left" id="Axh-HB-mNg">
                             <items>
-                                <tableRow id="uwU-O4-m1f">
-                                    <group key="rootItem" width="1" alignment="left" id="cnR-VK-8z8"/>
+                                <tableRow identifier="listRow" id="uwU-O4-m1f" customClass="listRowController">
+                                    <group key="rootItem" width="1" alignment="left" id="cnR-VK-8z8">
+                                        <items>
+                                            <label width="73.5" alignment="left" verticalAlignment="center" text="周活跃目标" id="exR-5W-htI">
+                                                <color key="textColor" red="0.85643818429999996" green="0.84477645990000005" blue="0.83847513689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" pointSize="14"/>
+                                            </label>
+                                            <label alignment="right" verticalAlignment="center" text="100%" id="fts-kn-v9g">
+                                                <color key="textColor" red="0.29088731750000002" green="0.72373973540000003" blue="0.72758895990000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="font" type="system" weight="thin" pointSize="19"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowTitle" destination="exR-5W-htI" id="nzK-Kr-l3g"/>
+                                        <outlet property="statsRate" destination="fts-kn-v9g" id="svB-mm-WGH"/>
+                                    </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
+                    <connections>
+                        <outlet property="statsTable" destination="Axh-HB-mNg" id="Mtm-7d-elZ"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="425" y="468"/>
