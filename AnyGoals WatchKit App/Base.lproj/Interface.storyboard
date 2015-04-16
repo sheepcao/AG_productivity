@@ -133,7 +133,7 @@
         <!--确定-->
         <scene sceneID="Gqe-1h-Btc">
             <objects>
-                <controller title="确定" id="peF-2A-6F2">
+                <controller identifier="goalFinish" title="确定" id="peF-2A-6F2">
                     <items>
                         <label height="0.40000000000000002" alignment="center" text="恭喜" textAlignment="center" id="RVh-cb-jqA">
                             <color key="textColor" red="0.29088731750000002" green="0.72373973540000003" blue="0.72758895990000005" alpha="1" colorSpace="calibratedRGB"/>

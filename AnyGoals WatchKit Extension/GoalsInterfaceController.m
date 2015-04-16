@@ -139,7 +139,7 @@ int goalType;
  
 
     
-    [self pushControllerWithName:@"statsInterfaceController" context:nil];
+    [self pushControllerWithName:@"goalFinish" context:nil];
 
 }
 -(void)updateDataForTable:(NSString *)tableName setColomn:(NSString *)toColomn toData:(id)dstData whereColomn:(NSString *)strColomn isData:(id)strData
