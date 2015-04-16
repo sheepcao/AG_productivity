@@ -53,6 +53,7 @@
 		A4528E6D1AC1673C001E9125 /* 超前-无100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E691AC1673C001E9125 /* 超前-无100x100.png */; };
 		A4528E6E1AC1673C001E9125 /* 超前100x100.png in Resources */ = {isa = PBXBuildFile; fileRef = A4528E6A1AC1673C001E9125 /* 超前100x100.png */; };
 		A460DCA31AB6A29800B526C4 /* GoalObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A460DCA21AB6A29800B526C4 /* GoalObj.m */; };
+		A465D2381ADF95CE002CE071 /* icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = A465D2371ADF95CE002CE071 /* icon512.png */; };
 		A4728B401AC240FB0075C94D /* FacebookConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4728B221AC240FB0075C94D /* FacebookConnection.framework */; };
 		A4728B411AC240FB0075C94D /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4728B231AC240FB0075C94D /* QQConnection.framework */; };
 		A4728B421AC240FB0075C94D /* QZoneConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4728B241AC240FB0075C94D /* QZoneConnection.framework */; };
@@ -360,6 +361,7 @@
 		A4528E6A1AC1673C001E9125 /* 超前100x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超前100x100.png"; sourceTree = "<group>"; };
 		A460DCA11AB6A29800B526C4 /* GoalObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoalObj.h; sourceTree = "<group>"; };
 		A460DCA21AB6A29800B526C4 /* GoalObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoalObj.m; sourceTree = "<group>"; };
+		A465D2371ADF95CE002CE071 /* icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon512.png; sourceTree = "<group>"; };
 		A4728B221AC240FB0075C94D /* FacebookConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookConnection.framework; sourceTree = "<group>"; };
 		A4728B231AC240FB0075C94D /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
 		A4728B241AC240FB0075C94D /* QZoneConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QZoneConnection.framework; sourceTree = "<group>"; };
@@ -1275,6 +1277,7 @@
 		A4F967EB1AAE813800436FE4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A465D2371ADF95CE002CE071 /* icon512.png */,
 				A4CB68911AC974F500FCB54F /* selectedSound */,
 				A41EA5C31AB169E900356BAF /* Prefix.pch */,
 				A4528E3A1AC13ECB001E9125 /* accessory */,
@@ -1580,6 +1583,7 @@
 				A4ADC03B1AC8DD4C004FBC86 /* baidumobadsdk.bundle in Resources */,
 				A4728B621AC2864A0075C94D /* data.png in Resources */,
 				A4CB68A81AC974F500FCB54F /* tabSound.wav in Resources */,
+				A465D2381ADF95CE002CE071 /* icon512.png in Resources */,
 				A4CB68A01AC974F500FCB54F /* anydoMomentDone.m4a in Resources */,
 				A48632161AD4BD1D00E24839 /* 5.png in Resources */,
 				A48632201AD4BD1D00E24839 /* 33.png in Resources */,
@@ -1859,6 +1863,10 @@
 				CODE_SIGN_ENTITLEMENTS = "AnyGoals WatchKit Extension/AnyGoals WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1867,7 +1875,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "4e62ba1c-d5ec-422a-8b96-ad9508a62d54";
+				PROVISIONING_PROFILE = "703246c9-b874-43ed-8109-9d7ef79faa0f";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1879,6 +1887,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShareSDK",
+				);
 				INFOPLIST_FILE = "AnyGoals WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1902,7 +1914,7 @@
 				INFOPLIST_FILE = "AnyGoals WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5c55dbf1-4cc8-4a51-a69a-a3997999e6cc";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
@@ -1913,14 +1925,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CAO GUANGXU";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CAO GUANGXU";
 				COPY_PHASE_STRIP = NO;
 				IBSC_MODULE = AnyGoals_WatchKit_Extension;
 				INFOPLIST_FILE = "AnyGoals WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5c6c987f-b4b8-4ccf-9cef-f23da2475137";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
 				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";

@@ -157,10 +157,7 @@
     [ShareSDK connectFacebookWithAppKey:@"862357590489225"
                               appSecret:@"d3a05ab9d236025c3c0aa138a854af5a"];
     
-    //添加Twitter应用  注册网址  https://dev.twitter.com
-//    [ShareSDK connectTwitterWithConsumerKey:@"mnTGqtXk0TYMXYTN7qUxg"
-//                             consumerSecret:@"ROkFqr8c3m1HXqS3rm3TJ0WkAJuwBOSaWhPbZ9Ojuc"
-//                                redirectUri:@"http://www.sharesdk.cn"];
+
 }
 
 
