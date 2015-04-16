@@ -9,6 +9,7 @@
 #ifndef AnyGoals_globalVar_h
 #define AnyGoals_globalVar_h
 
+
 #import "FMDatabase.h"
 #import "MobClick.h"
 

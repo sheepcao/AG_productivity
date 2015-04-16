@@ -7,13 +7,13 @@
 //  Copyright (c) 2015 Eric Cao. All rights reserved.
 //
 
+
 #import "FirstViewController.h"
 #import "MyCustomTableViewCell.h"
 #import "addGoalViewController.h"
 #import "ATCTransitioningDelegate.h"
 #import "GoalObj.h"
 #import "settingViewController.h"
-#import "BaiduMobAdView.h"
 
 #define kAdViewPortraitRect CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-48-49,[[UIScreen mainScreen] bounds].size.width,48)
 #define kAdViewPortraitRect_IPAD CGRectMake(0, [[UIScreen mainScreen] bounds].size.height-60-60,[[UIScreen mainScreen] bounds].size.width,60)
@@ -39,6 +39,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 
+//    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
 
 
     
@@ -101,16 +102,29 @@
 {
     //AD...
     //使用嵌入广告的方法实例。
-    sharedAdView = [[BaiduMobAdView alloc] init];
-    //sharedAdView.AdUnitTag = @"myAdPlaceId1";
-    //此处为广告位id，可以不进行设置，如需设置，在百度移动联盟上设置广告位id，然后将得到的id填写到此处。
-    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-
-    sharedAdView.frame = kAdViewPortraitRect;
     
-    sharedAdView.delegate = self;
-    [self.view addSubview:sharedAdView];
-    [sharedAdView start];
+    
+    GADRequest *request = [GADRequest request];
+
+    self.bannerView.adUnitID = @"ca-app-pub-3074684817942615/8765769488";
+    self.bannerView.delegate  = self;
+//    request.testDevices = @[
+//                            @"bf69fad09ecd3e30b0db75ebdd3570ec"  // Eric's iPod Touch
+//                            ];
+    self.bannerView.rootViewController = self;
+    [self.bannerView loadRequest:request];
+
+    
+//    sharedAdView = [[BaiduMobAdView alloc] init];
+//    //sharedAdView.AdUnitTag = @"myAdPlaceId1";
+//    //此处为广告位id，可以不进行设置，如需设置，在百度移动联盟上设置广告位id，然后将得到的id填写到此处。
+//    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+//
+//    sharedAdView.frame = kAdViewPortraitRect;
+//    
+//    sharedAdView.delegate = self;
+//    [self.view addSubview:sharedAdView];
+//    [sharedAdView start];
 }
 
 #pragma mark system language
@@ -1429,40 +1443,45 @@
 }
 
 #pragma mark AD..
-- (NSString *)publisherId
-{
-    return  @"d64de853"; //@"your_own_app_id";
-}
 
-- (NSString*) appSpec
+- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
-    return @"d64de853";
+    NSLog(@"error ad :%@",error);
 }
+//- (NSString *)publisherId
+//{
+//    return  @"d64de853"; //@"your_own_app_id";
+//}
+//
+//- (NSString*) appSpec
+//{
+//    //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
+//    return @"d64de853";
+//}
 //-(BOOL) enableLocation
 //{
 //    //启用location会有一次alert提示
 //    return YES;
 //}
--(void) willDisplayAd:(BaiduMobAdView*) adview
-{
-    //在广告即将展示时，产生一个动画，把广告条加载到视图中
-    sharedAdView.hidden = NO;
-    CGRect f = sharedAdView.frame;
-    f.origin.x = -SCREEN_WIDTH;
-    sharedAdView.frame = f;
-    [UIView beginAnimations:nil context:nil];
-    f.origin.x = 0;
-    sharedAdView.frame = f;
-    [UIView commitAnimations];
-    NSLog(@"delegate: will display ad");
-    
-}
-
--(void) failedDisplayAd:(BaiduMobFailReason) reason;
-{
-    NSLog(@"delegate: failedDisplayAd %d", reason);
-}
+//-(void) willDisplayAd:(BaiduMobAdView*) adview
+//{
+//    //在广告即将展示时，产生一个动画，把广告条加载到视图中
+//    sharedAdView.hidden = NO;
+//    CGRect f = sharedAdView.frame;
+//    f.origin.x = -SCREEN_WIDTH;
+//    sharedAdView.frame = f;
+//    [UIView beginAnimations:nil context:nil];
+//    f.origin.x = 0;
+//    sharedAdView.frame = f;
+//    [UIView commitAnimations];
+//    NSLog(@"delegate: will display ad");
+//    
+//}
+//
+//-(void) failedDisplayAd:(BaiduMobFailReason) reason;
+//{
+//    NSLog(@"delegate: failedDisplayAd %d", reason);
+//}
 
 //人群属性接口
 /**

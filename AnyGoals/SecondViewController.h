@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 Eric Cao. All rights reserved.
 //
 
+@import GoogleMobileAds;
+
+
 #import <UIKit/UIKit.h>
 #import "PieView.h"
 #import "globalVar.h"
@@ -14,7 +17,11 @@
 #import "VBPieChart.h"
 
 #import "MobClick.h"
-#import "BaiduMobAdInterstitial.h"
+
+#import "GoogleMobileAds/GADInterstitial.h"
+
+
+//#import "BaiduMobAdInterstitial.h"
 
 //#import "UMSocialSinaHandler.h"
 //#import "UMSocialSnsService.h"
@@ -22,12 +29,11 @@
 //#import "UMSocialFacebookHandler.h"
 
 
-@interface SecondViewController : UIViewController<BaiduMobAdInterstitialDelegate>
-{
-    BaiduMobAdInterstitial *_interstitialView;
+@interface SecondViewController : UIViewController<GADInterstitialDelegate>
 
-}
-@property (nonatomic,retain) BaiduMobAdInterstitial *interstitialView;
+@property(nonatomic, strong) GADInterstitial *interstitial;
+
+
 @property (nonatomic,strong) NSTimer *timer;
 
 @property (weak, nonatomic) IBOutlet PieView *PiesView;

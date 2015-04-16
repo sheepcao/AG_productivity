@@ -6,18 +6,17 @@
 //  Copyright (c) 2015 Eric Cao. All rights reserved.
 //
 
+@import GoogleMobileAds;
+
 #import <UIKit/UIKit.h>
 #import "CommonUtility.h"
 #import "globalVar.h"
 #import "SWTableViewCell.h"
-#import "BaiduMobAdDelegateProtocol.h"
 
-@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,BaiduMobAdViewDelegate>
-{
-    BaiduMobAdView* sharedAdView;
-    
-}
+@interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate,GADBannerViewDelegate>
 
+
+@property (weak, nonatomic) IBOutlet GADBannerView  *bannerView;
 
 @property (nonatomic,strong) NSMutableArray *processingTasks;
 @property (nonatomic,strong) NSMutableArray *finishedTasks;
