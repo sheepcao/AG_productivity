@@ -40,6 +40,9 @@
     
 
 //    NSLog(@"Google Mobile Ads SDK version: %@", [GADRequest sdkVersion]);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
 
 
     
@@ -97,6 +100,25 @@
 
 }
 
+-(void)refresh
+{
+    
+    if (self.goalTypeSegment.selectedSegmentIndex == 0) {
+        [self configProcessingTasks];
+        
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 1)
+    {
+        [self configFinishedTasks];
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 2)
+    {
+        [self configNotyetTasks];
+    }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
+    {
+        [self configGiveupTasks];
+    }
+    [self.tableView reloadData];
+}
+
 
 -(void)setUpAD
 {
@@ -114,17 +136,7 @@
     self.bannerView.rootViewController = self;
     [self.bannerView loadRequest:request];
 
-    
-//    sharedAdView = [[BaiduMobAdView alloc] init];
-//    //sharedAdView.AdUnitTag = @"myAdPlaceId1";
-//    //此处为广告位id，可以不进行设置，如需设置，在百度移动联盟上设置广告位id，然后将得到的id填写到此处。
-//    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-//
-//    sharedAdView.frame = kAdViewPortraitRect;
-//    
-//    sharedAdView.delegate = self;
-//    [self.view addSubview:sharedAdView];
-//    [sharedAdView start];
+
 }
 
 #pragma mark system language

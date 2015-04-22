@@ -29,7 +29,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "679"
             endingLineNumber = "679"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkName = "-numberOfSectionsInTableView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -61,8 +61,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1074"
             endingLineNumber = "1074"
-            landmarkName = "@implementation FirstViewController"
-            landmarkType = "3">
+            landmarkName = "-leftButtons"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -285,8 +285,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "321"
             endingLineNumber = "321"
-            landmarkName = "@implementation FirstViewController"
-            landmarkType = "3">
+            landmarkName = "-scrollViewDisappear"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -317,7 +317,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "651"
             endingLineNumber = "651"
-            landmarkName = "-checkProcess:"
+            landmarkName = "-checkGoalStatus:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -333,7 +333,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "669"
             endingLineNumber = "669"
-            landmarkName = "-numberOfSectionsInTableView:"
+            landmarkName = "-checkProcess:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -381,7 +381,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "581"
             endingLineNumber = "581"
-            landmarkName = "-updateDataForTable:setColomn:toData:whereColomn:isData:"
+            landmarkName = "-configGiveupTasks"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -397,7 +397,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "392"
             endingLineNumber = "392"
-            landmarkName = "-configFinishedTasks"
+            landmarkName = "-configProcessingTasks"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -413,7 +413,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1176"
             endingLineNumber = "1176"
-            landmarkName = "-swipeableTableViewCell:didTriggerRightUtilityButtonWithIndex:"
+            landmarkName = "-swipeableTableViewCell:didTriggerLeftUtilityButtonWithIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -429,7 +429,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "523"
             endingLineNumber = "523"
-            landmarkName = "-configGiveupTasks"
+            landmarkName = "-configNotyetTasks"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -477,7 +477,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1330"
             endingLineNumber = "1330"
-            landmarkName = "-setupTransitioningDelegate"
+            landmarkName = "-settingTapped:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -797,7 +797,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "-viewWillAppear:"
+            landmarkName = "-isSystemLangChinese"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -893,8 +893,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "676"
             endingLineNumber = "676"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "5">
+            landmarkName = "@implementation FirstViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -957,7 +957,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "-isSystemLangChinese"
+            landmarkName = "-setUpAD"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1037,7 +1037,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "329"
             endingLineNumber = "329"
-            landmarkName = "-configProcessingTasks"
+            landmarkName = "-scrollViewDisappear"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1677,7 +1677,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "-setUpAD"
+            landmarkName = "-refresh"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
