@@ -14,7 +14,7 @@
 @interface FirstViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate>
 
 
-//@property (weak, nonatomic) IBOutlet GADBannerView  *bannerView;
+@property (weak, nonatomic) IBOutlet UIView  *bannerView;
 
 @property (nonatomic,strong) NSMutableArray *processingTasks;
 @property (nonatomic,strong) NSMutableArray *finishedTasks;

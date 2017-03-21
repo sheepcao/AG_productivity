@@ -150,7 +150,7 @@
 //    [self updatePies];
 
 
-    [MobClick event:@"todayWidget"];
+//    [MobClick event:@"todayWidget"];
 
     NSLog(@"ads");
 //    [self.allPieScroll setFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];

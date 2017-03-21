@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), NSLocalizedString(@"联系方式",nil)/*,NSLocalizedString(@"分享好友",nil)*/,nil];
+    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), NSLocalizedString(@"联系方式",nil),nil];
     
     
 }
