@@ -495,7 +495,7 @@
             NSLog(@"Could not open db.");
             return;
         }
-        [MobClick event:@"addGoalEnd"];
+//        [MobClick event:@"addGoalEnd"];
 
         if(self.isNewGoal)
         {
@@ -555,7 +555,7 @@
     }
     if ([detail isEqualToString:NSLocalizedString(@"点击编辑提醒备注...",nil)]) {
         detail = @"";
-        [MobClick event:@"remindNote"];
+//        [MobClick event:@"remindNote"];
 
     }
     
@@ -598,7 +598,7 @@
     notification.userInfo = nitificationDic;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    [MobClick event:@"reminder"];
+//    [MobClick event:@"reminder"];
 
 }
 

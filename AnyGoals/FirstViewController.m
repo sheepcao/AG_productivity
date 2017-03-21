@@ -63,11 +63,11 @@
     if ([self isSystemLangChinese]) {
         
         NSLog(@"chinese");
-        [MobClick event:@"CHN"];
+//        [MobClick event:@"CHN"];
 
     }else
     {
-        [MobClick event:@"ENG"];
+//        [MobClick event:@"ENG"];
 
         UIFont *font = [UIFont systemFontOfSize:9.5f];
         NSDictionary *attributes = [NSDictionary dictionaryWithObject:font
@@ -85,7 +85,7 @@
     }else
     {
         [self.tabBarController.tabBar setHidden:NO];
-        [self setUpAD];
+//        [self setUpAD];
 
     }
     
@@ -120,24 +120,24 @@
 }
 
 
--(void)setUpAD
-{
-    //AD...
-    //使用嵌入广告的方法实例。
-    
-    
-    GADRequest *request = [GADRequest request];
-
-    self.bannerView.adUnitID = @"ca-app-pub-3074684817942615/8765769488";
-    self.bannerView.delegate  = self;
-//    request.testDevices = @[
-//                            @"bf69fad09ecd3e30b0db75ebdd3570ec"  // Eric's iPod Touch
-//                            ];
-    self.bannerView.rootViewController = self;
-    [self.bannerView loadRequest:request];
-
-
-}
+//-(void)setUpAD
+//{
+//    //AD...
+//    //使用嵌入广告的方法实例。
+//    
+//    
+//    GADRequest *request = [GADRequest request];
+//
+//    self.bannerView.adUnitID = @"ca-app-pub-3074684817942615/8765769488";
+//    self.bannerView.delegate  = self;
+////    request.testDevices = @[
+////                            @"bf69fad09ecd3e30b0db75ebdd3570ec"  // Eric's iPod Touch
+////                            ];
+//    self.bannerView.rootViewController = self;
+//    [self.bannerView loadRequest:request];
+//
+//
+//}
 
 #pragma mark system language
 - (BOOL)isSystemLangChinese
@@ -163,7 +163,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
   
-    [MobClick event:@"goHome"];
+//    [MobClick event:@"goHome"];
 
     
     [super viewWillAppear:animated];
@@ -318,7 +318,7 @@
         
         [scrollView removeFromSuperview];
         [page removeFromSuperview];
-        [self setUpAD];
+//        [self setUpAD];
 
         
     }];
@@ -1110,7 +1110,7 @@
     switch (index) {
         case 0:
             NSLog(@"+ was pressed");
-            [MobClick event:@"addAction"];
+//            [MobClick event:@"addAction"];
 
             [CommonUtility tapSound:@"AddSound" withType:@"m4a"];
 
@@ -1134,7 +1134,7 @@
             break;
         case 1:
             NSLog(@"- was pressed");
-            [MobClick event:@"subtractAction"];
+//            [MobClick event:@"subtractAction"];
 
             [CommonUtility tapSound:@"SubtractSound" withType:@"m4a"];
 
@@ -1196,7 +1196,7 @@
             
             if (self.goalTypeSegment.selectedSegmentIndex == 0) {
                 NSLog(@"giveup button was pressed");
-                [MobClick event:@"giveUp"];
+//                [MobClick event:@"giveUp"];
 
                 [CommonUtility tapSound:@"anydoMomentDone" withType:@"m4a"];
 
@@ -1221,7 +1221,7 @@
             }else if(self.goalTypeSegment.selectedSegmentIndex == 3)
             {
                 NSLog(@"recover button was pressed");
-                [MobClick event:@"repick"];
+//                [MobClick event:@"repick"];
 
                 [CommonUtility tapSound:@"CompletionSound" withType:@"m4a"];
 
@@ -1240,7 +1240,7 @@
         case 1:
         {
             // Delete button was pressed
-            [MobClick event:@"delete"];
+//            [MobClick event:@"delete"];
 
             [CommonUtility tapSound:@"anydoMomentDelete" withType:@"m4a"];
 
@@ -1273,7 +1273,7 @@
     
             case 0:
             NSLog(@"segment 0");
-            [MobClick event:@"processing"];
+//            [MobClick event:@"processing"];
 
             [self configProcessingTasks];
 
@@ -1281,21 +1281,21 @@
             
             case 1:
             NSLog(@"segment 1");
-            [MobClick event:@"finished"];
+//            [MobClick event:@"finished"];
 
             [self configFinishedTasks];
             break;
             
             case 2:
             NSLog(@"segment 2");
-            [MobClick event:@"scheduled"];
+//            [MobClick event:@"scheduled"];
 
             [self configNotyetTasks];
             break;
             
             case 3:
             NSLog(@"segment 3");
-            [MobClick event:@"abandoned"];
+//            [MobClick event:@"abandoned"];
 
             [self configGiveupTasks];
             break;
@@ -1308,7 +1308,7 @@
 }
 #pragma mark ADD NewGoal
 - (IBAction)addNewGoal:(id)sender {
-    [MobClick event:@"addNew"];
+//    [MobClick event:@"addNew"];
 
     
     addGoalViewController *addNewGoal = [[addGoalViewController alloc] initWithNibName:@"addGoalViewController" bundle:nil];
@@ -1454,12 +1454,12 @@
     }
 }
 
-#pragma mark AD..
-
-- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
-{
-    NSLog(@"error ad :%@",error);
-}
+//#pragma mark AD..
+//
+//- (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
+//{
+//    NSLog(@"error ad :%@",error);
+//}
 //- (NSString *)publisherId
 //{
 //    return  @"d64de853"; //@"your_own_app_id";

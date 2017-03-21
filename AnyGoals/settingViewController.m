@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), NSLocalizedString(@"联系方式",nil),NSLocalizedString(@"分享好友",nil),nil];
+    self.settingItems = [NSArray arrayWithObjects:NSLocalizedString(@"教程",nil),NSLocalizedString(@"音效",nil),NSLocalizedString(@"评论",nil),NSLocalizedString(@"团队作品",nil), NSLocalizedString(@"联系方式",nil)/*,NSLocalizedString(@"分享好友",nil)*/,nil];
     
     
 }
@@ -107,7 +107,7 @@
     switch (indexPath.row) {
         case 0:
             [self showScrollView];
-            [MobClick event:@"tutorail"];
+//            [MobClick event:@"tutorail"];
 
             break;
         case 1:
@@ -116,20 +116,20 @@
         case 2:
         
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:REVIEW_URL]];
-            [MobClick event:@"review"];
+//            [MobClick event:@"review"];
 
 
             break;
         case 3:
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ALLAPP_URL]];
-            [MobClick event:@"allApps"];
+//            [MobClick event:@"allApps"];
 
 
             break;
-        case 5:
-            
-            [self shareApp];
-            break;
+//        case 5:
+//            
+//            [self shareApp];
+//            break;
             
         default:
             break;
@@ -138,45 +138,45 @@
 
 }
 
--(void)shareApp
-{
-    
-    UIImage *iconImage = [UIImage imageNamed:@"icon512"];
-    
-    //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:NSLocalizedString(@"目标,没有终点,AnyGoal伴您一路前行！",nil)                                       defaultContent:NSLocalizedString(@"我的目标状态",nil)
-                                                image:[ShareSDK pngImageWithImage:iconImage]
-                                                title:@"AnyGoal"
-                                                  url:REVIEW_URL
-                                          description:NSLocalizedString(@"目标,没有终点,AnyGoal伴您一路前行！",nil)
-                                            mediaType:SSPublishContentMediaTypeNews];
-    //创建弹出菜单容器
-    id<ISSContainer> container = [ShareSDK container];
-    
-    //弹出分享菜单
-    [ShareSDK showShareActionSheet:container
-                         shareList:nil
-                           content:publishContent
-                     statusBarTips:YES
-                       authOptions:nil
-                      shareOptions:nil
-                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                
-                                if (state == SSResponseStateSuccess)
-                                {
-                                    [MobClick event:@"share"];
-                                    
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
-                                }
-                                else if (state == SSResponseStateFail)
-                                {
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
-                                }
-                            }];
-    
-    
-
-}
+//-(void)shareApp
+//{
+//    
+//    UIImage *iconImage = [UIImage imageNamed:@"icon512"];
+//    
+//    //构造分享内容
+//    id<ISSContent> publishContent = [ShareSDK content:NSLocalizedString(@"目标,没有终点,AnyGoal伴您一路前行！",nil)                                       defaultContent:NSLocalizedString(@"我的目标状态",nil)
+//                                                image:[ShareSDK pngImageWithImage:iconImage]
+//                                                title:@"AnyGoal"
+//                                                  url:REVIEW_URL
+//                                          description:NSLocalizedString(@"目标,没有终点,AnyGoal伴您一路前行！",nil)
+//                                            mediaType:SSPublishContentMediaTypeNews];
+//    //创建弹出菜单容器
+//    id<ISSContainer> container = [ShareSDK container];
+//    
+//    //弹出分享菜单
+//    [ShareSDK showShareActionSheet:container
+//                         shareList:nil
+//                           content:publishContent
+//                     statusBarTips:YES
+//                       authOptions:nil
+//                      shareOptions:nil
+//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                                
+//                                if (state == SSResponseStateSuccess)
+//                                {
+////                                    [MobClick event:@"share"];
+//                                    
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+//                                }
+//                                else if (state == SSResponseStateFail)
+//                                {
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+//                                }
+//                            }];
+//    
+//    
+//
+//}
 
 #pragma mark switch action
 -(void)switchAction:(UISwitch *)sender

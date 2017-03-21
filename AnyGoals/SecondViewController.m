@@ -27,34 +27,34 @@ bool adWillShow;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    adWillShow = 1 ;
+    adWillShow = 0 ;
 
 }
 
 
--(void)setUpADWithTime:(float)time
-{
-
-    timer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
-    
-    
-    self.interstitial = [[GADInterstitial alloc] init];
-    self.interstitial.delegate = self;
-
-    self.interstitial.adUnitID = @"ca-app-pub-3074684817942615/1242502689";
-    
-    GADRequest *request = [GADRequest request];
-    // Requests test ads on test devices.
-//    request.testDevices = @[@"bf69fad09ecd3e30b0db75ebdd3570ec"];
-    [self.interstitial loadRequest:request];
-    
-    //big AD...
-    
-//    self.interstitialView = [[BaiduMobAdInterstitial alloc] init];
-//    self.interstitialView.delegate = self;
-//    self.interstitialView.interstitialType = BaiduMobAdViewTypeInterstitialGame;
-//    [self.interstitialView load];
-}
+//-(void)setUpADWithTime:(float)time
+//{
+//
+//    timer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
+//    
+//    
+//    self.interstitial = [[GADInterstitial alloc] init];
+//    self.interstitial.delegate = self;
+//
+//    self.interstitial.adUnitID = @"ca-app-pub-3074684817942615/1242502689";
+//    
+//    GADRequest *request = [GADRequest request];
+//    // Requests test ads on test devices.
+////    request.testDevices = @[@"bf69fad09ecd3e30b0db75ebdd3570ec"];
+//    [self.interstitial loadRequest:request];
+//    
+//    //big AD...
+//    
+////    self.interstitialView = [[BaiduMobAdInterstitial alloc] init];
+////    self.interstitialView.delegate = self;
+////    self.interstitialView.interstitialType = BaiduMobAdViewTypeInterstitialGame;
+////    [self.interstitialView load];
+//}
 //-(void)viewDidLayoutSubviews
 //{
 //    [super viewDidLayoutSubviews];
@@ -64,7 +64,7 @@ bool adWillShow;
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"111111111111111111111,<<<>>>>>");
-    [MobClick event:@"goStats"];
+//    [MobClick event:@"goStats"];
 
     [super viewDidAppear:animated];
     
@@ -72,14 +72,14 @@ bool adWillShow;
     
     [self initDB];
 
-    if (adWillShow == 1) {
-        [self setUpADWithTime:5.0];
-
-    }else
-    {
-        [self setUpADWithTime:25.0];
-
-    }
+//    if (adWillShow == 1) {
+//        [self setUpADWithTime:5.0];
+//
+//    }else
+//    {
+//        [self setUpADWithTime:25.0];
+//
+//    }
     
     
     if (self.allGoals.count == 0) {
@@ -547,74 +547,74 @@ bool adWillShow;
     [self.navigationController pushViewController:mySetting animated:YES];
 }
 
-- (IBAction)shareTapped:(id)sender {
-    
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
-        UIGraphicsBeginImageContextWithOptions(self.PiesView.frame.size, NO, [UIScreen mainScreen].scale);
-    else
-        UIGraphicsBeginImageContext(self.PiesView.frame.size);    //获取图像
-    [self.PiesView.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *imageShare = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    
-    //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"AnyGoal"
-                                       defaultContent:NSLocalizedString(@"我的目标状态",nil)
-                                                image:[ShareSDK pngImageWithImage:imageShare]
-                                                title:@"AnyGoal"
-                                                  url:REVIEW_URL
-                                          description:NSLocalizedString(@"我的目标状态如图所示",nil)
-                                            mediaType:SSPublishContentMediaTypeImage];
-    //创建弹出菜单容器
-    id<ISSContainer> container = [ShareSDK container];
-    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
-    
-    //弹出分享菜单
-    [ShareSDK showShareActionSheet:container
-                         shareList:nil
-                           content:publishContent
-                     statusBarTips:YES
-                       authOptions:nil
-                      shareOptions:nil
-                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                
-                                if (state == SSResponseStateSuccess)
-                                {
-                                    [MobClick event:@"share"];
-
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
-                                }
-                                else if (state == SSResponseStateFail)
-                                {
-                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
-                                }
-                            }];
-    
-
-    
-//    [UMSocialSnsService presentSnsIconSheetView:self
-//                                         appKey:@"550fd791fd98c52c94000eea"
-//                                      shareText:@"AnyGoal\n我的目标状态"
-//                                     shareImage:imageShare
-//                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
-//                                       delegate:(id)self];
+//- (IBAction)shareTapped:(id)sender {
+//    
+//    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)])
+//        UIGraphicsBeginImageContextWithOptions(self.PiesView.frame.size, NO, [UIScreen mainScreen].scale);
+//    else
+//        UIGraphicsBeginImageContext(self.PiesView.frame.size);    //获取图像
+//    [self.PiesView.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *imageShare = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    
+//    //构造分享内容
+//    id<ISSContent> publishContent = [ShareSDK content:@"AnyGoal"
+//                                       defaultContent:NSLocalizedString(@"我的目标状态",nil)
+//                                                image:[ShareSDK pngImageWithImage:imageShare]
+//                                                title:@"AnyGoal"
+//                                                  url:REVIEW_URL
+//                                          description:NSLocalizedString(@"我的目标状态如图所示",nil)
+//                                            mediaType:SSPublishContentMediaTypeImage];
+//    //创建弹出菜单容器
+//    id<ISSContainer> container = [ShareSDK container];
+//    [container setIPadContainerWithView:sender arrowDirect:UIPopoverArrowDirectionUp];
+//    
+//    //弹出分享菜单
+//    [ShareSDK showShareActionSheet:container
+//                         shareList:nil
+//                           content:publishContent
+//                     statusBarTips:YES
+//                       authOptions:nil
+//                      shareOptions:nil
+//                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                                
+//                                if (state == SSResponseStateSuccess)
+//                                {
+////                                    [MobClick event:@"share"];
+//
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_SUC", @"分享成功"));
+//                                }
+//                                else if (state == SSResponseStateFail)
+//                                {
+//                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+//                                }
+//                            }];
 //    
 //
 //    
-//    // music url
-//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:REVIEW_URL];
+////    [UMSocialSnsService presentSnsIconSheetView:self
+////                                         appKey:@"550fd791fd98c52c94000eea"
+////                                      shareText:@"AnyGoal\n我的目标状态"
+////                                     shareImage:imageShare
+////                                shareToSnsNames:@[UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+////                                       delegate:(id)self];
+////    
+////
+////    
+////    // music url
+////    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:REVIEW_URL];
+////    
+////    [UMSocialData defaultData].extConfig.wechatTimelineData.url = REVIEW_URL;
+////    [UMSocialData defaultData].extConfig.wechatSessionData.url = REVIEW_URL;
+////    
+////    [UMSocialData defaultData].extConfig.facebookData.url =REVIEW_URL;
+////
+////  
+////    
 //    
-//    [UMSocialData defaultData].extConfig.wechatTimelineData.url = REVIEW_URL;
-//    [UMSocialData defaultData].extConfig.wechatSessionData.url = REVIEW_URL;
 //    
-//    [UMSocialData defaultData].extConfig.facebookData.url =REVIEW_URL;
-//
-//  
-//    
-    
-    
-}
+//}
 
 
 #pragma mark big advertisement
@@ -633,89 +633,89 @@ bool adWillShow;
 //    //注意：该计费名为测试用途，不会产生计费，请测试广告展示无误以后，替换为您的应用计费名，然后提交AppStore.
 //    return @"d64de853";
 //}
-- (void)bigADshow
-{
-    
-    if ([self.interstitial isReady]) {
-        [self.interstitial presentFromRootViewController:self];
-    }else
-    {
-        GADRequest *request = [GADRequest request];
-        // Requests test ads on test devices.
-//        request.testDevices = @[@"bf69fad09ecd3e30b0db75ebdd3570ec"];
-        [self.interstitial loadRequest:request];
-        
-        if (timer != nil)
-        {
-            
-            
-                        [timer invalidate];
-            
-            
-                        timer = nil;
-                        
-                        
-        }
-        
-        timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
-        
-    }
-    
-    // 在需要呈现插屏广告前，先通过isReady方法检查广告是否就绪
-    // before present advertisement view please check if isReady
-//    NSLog(@"bigADshow!!");
-//    if (self.interstitialView.isReady)
+//- (void)bigADshow
+//{
+//    
+//    if ([self.interstitial isReady]) {
+//        [self.interstitial presentFromRootViewController:self];
+//    }else
 //    {
+//        GADRequest *request = [GADRequest request];
+//        // Requests test ads on test devices.
+////        request.testDevices = @[@"bf69fad09ecd3e30b0db75ebdd3570ec"];
+//        [self.interstitial loadRequest:request];
 //        
-//        [self.interstitialView presentFromRootViewController:self];
-//        
-//        
-//        
-//    }
-//    else
-//    {
-//        // 如果还没有ready，可以再调用loadAd
-//        // if !ready load again
-//        
-//        [self.interstitialView load];
 //        if (timer != nil)
 //        {
 //            
 //            
-//            [timer invalidate];
+//                        [timer invalidate];
 //            
 //            
-//            timer = nil;
-//            
-//            
+//                        timer = nil;
+//                        
+//                        
 //        }
 //        
+//        timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
 //        
-//        
-//        timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
 //    }
-}
+//    
+//    // 在需要呈现插屏广告前，先通过isReady方法检查广告是否就绪
+//    // before present advertisement view please check if isReady
+////    NSLog(@"bigADshow!!");
+////    if (self.interstitialView.isReady)
+////    {
+////        
+////        [self.interstitialView presentFromRootViewController:self];
+////        
+////        
+////        
+////    }
+////    else
+////    {
+////        // 如果还没有ready，可以再调用loadAd
+////        // if !ready load again
+////        
+////        [self.interstitialView load];
+////        if (timer != nil)
+////        {
+////            
+////            
+////            [timer invalidate];
+////            
+////            
+////            timer = nil;
+////            
+////            
+////        }
+////        
+////        
+////        
+////        timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(bigADshow) userInfo:nil repeats:NO];
+////    }
+//}
 
 
-#pragma mark GADInterstitialDelegate implementation
-
-- (void)interstitial:(GADInterstitial *)interstitial
-didFailToReceiveAdWithError:(GADRequestError *)error {
-    NSLog(@"interstitialDidFailToReceiveAdWithError: %@", [error localizedDescription]);
-}
-
-- (void)interstitialWillDismissScreen:(GADInterstitial *)ad
-{
-    if (timer != nil)
-{
-    [timer invalidate];
-    timer = nil;
-    
-}
-    
-    adWillShow = 0;
-    
-}
+//#pragma mark GADInterstitialDelegate implementation
+//
+//- (void)interstitial:(GADInterstitial *)interstitial
+//didFailToReceiveAdWithError:(GADRequestError *)error {
+//    NSLog(@"interstitialDidFailToReceiveAdWithError: %@", [error localizedDescription]);
+//}
+//
+//- (void)interstitialWillDismissScreen:(GADInterstitial *)ad
+//{
+//    if (timer != nil)
+//{
+//    [timer invalidate];
+//    timer = nil;
+//    
+//}
+//    
+//    adWillShow = 0;
+//    
+//}
 
 /**
  *  广告展示结束
